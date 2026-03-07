@@ -19,7 +19,7 @@ export function Projects() {
   useEffect(() => {
     async function loadProjects() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/projetos/");
+        const response = await fetch("https://portifolio-xbvd.onrender.com/api/projetos/");
         const data = await response.json();
         setProjects(data);
       } catch (error) {

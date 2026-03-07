@@ -7,7 +7,7 @@ export function Services(){
 
   useEffect(()=>{
 
-    fetch("http://127.0.0.1:8000/api/servicos/")
+    fetch("https://portifolio-xbvd.onrender.com/api/servicos/")
     .then(res => res.json())
     .then(data => setServices(data))
 
