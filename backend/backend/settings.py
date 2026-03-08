@@ -5,11 +5,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY
-SECRET_KEY = 'django-insecure-i2r&n!^u11250gwueh-h=+np9sjoawl@h^$zvepjhiy@s&bvt='
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-i2r&n!^u11250gwueh-h=+np9sjoawl@h^$zvepjhiy@s&bvt="
+)
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "portifolio-production-b8e0.up.railway.app",
+    "localhost",
+    "127.0.0.1",
+]
+
+
+# CSRF / CORS
+CSRF_TRUSTED_ORIGINS = [
+    "https://portifolio-production-b8e0.up.railway.app",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # APPLICATIONS
@@ -44,10 +59,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
-# CORS
-CORS_ALLOW_ALL_ORIGINS = True
 
 
 # URLS
@@ -95,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # INTERNATIONALIZATION
 LANGUAGE_CODE = 'pt-br'
-
 TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
@@ -122,7 +132,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'hamiltonfelipe019@gmail.com'
-EMAIL_HOST_PASSWORD = 'SENHA_DE_APP_DO_GMAIL'
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "hamiltonfelipe019@gmail.com")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+# Railway HTTPS fix
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
