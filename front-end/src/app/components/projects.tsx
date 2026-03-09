@@ -48,12 +48,12 @@ export function Projects() {
           {projects.map((project) => (
             <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
 
-              <div className="aspect-video overflow-hidden bg-muted">
-                <ImageWithFallback
-                src={project.imagem}
-                alt={project.titulo}
-              />
-              </div>
+        <div className="aspect-video overflow-hidden bg-muted">
+              <ImageWithFallback
+               src={`https://portifolio-production-b8e0.up.railway.app${project.imagem}`}
+               alt={project.titulo}
+               />
+        </div>
 
               <CardHeader>
                 <CardTitle>{project.titulo}</CardTitle>
