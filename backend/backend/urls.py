@@ -18,5 +18,4 @@ urlpatterns = [
     path('api/contato/', include('contato.urls')),
 ]
 
-# servir arquivos de mídia (imagens)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
