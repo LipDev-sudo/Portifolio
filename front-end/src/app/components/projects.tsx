@@ -19,7 +19,7 @@ export function Projects() {
   useEffect(() => {
     async function loadProjects() {
       try {
-        const response = await fetch("https://portifolio-xbvd.onrender.com/api/projetos/");
+        const response = await fetch("https://portifolio-production-b8e0.up.railway.app/api/projetos/");
         const data = await response.json();
         setProjects(data);
       } catch (error) {
@@ -48,10 +48,9 @@ export function Projects() {
 
               <div className="aspect-video overflow-hidden bg-muted">
                 <ImageWithFallback
-                  src={`http://127.0.0.1:8000${project.imagem}`}
-                  alt={project.titulo}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+                src={`https://portifolio-production-b8e0.up.railway.app${project.imagem}`}
+                alt={project.titulo}
+              />
               </div>
 
               <CardHeader>

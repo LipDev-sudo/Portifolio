@@ -7,7 +7,7 @@ export function Services(){
 
   useEffect(()=>{
 
-    fetch("https://portifolio-xbvd.onrender.com/api/servicos/")
+    fetch("https://portifolio-production-b8e0.up.railway.app/api/servicos/")
     .then(res => res.json())
     .then(data => setServices(data))
 

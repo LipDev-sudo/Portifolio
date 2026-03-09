@@ -25,7 +25,7 @@ export function Contact() {
 
     try {
 
-      const response = await fetch("https://portifolio-xbvd.onrender.com/api/contato/", {
+      const response = await fetch("https://portifolio-production-b8e0.up.railway.app/api/contato/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
