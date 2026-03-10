@@ -1,34 +1,29 @@
-import { useEffect, useState } from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { ExternalLink } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import projetos from "../../data/projetos.json"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "./ui/card"
+
+import { Button } from "./ui/button"
+import { ExternalLink } from "lucide-react"
+import { ImageWithFallback } from "./figma/ImageWithFallback"
 
 type Projeto = {
-  id: number;
-  titulo: string;
-  descricao: string;
-  tecnologias: string;
-  link_projeto: string;
-  imagem: string;
-};
+  titulo: string
+  descricao: string
+  tecnologias: string
+  link: string
+  imagem: string
+}
 
 export function Projects() {
-  const [projects, setProjects] = useState<Projeto[]>([]);
 
-  useEffect(() => {
-  async function loadProjects() {
-    const response = await fetch(
-      "https://portifolio-production-b8e0.up.railway.app/api/projetos/"
-    )
-
-    const data = await response.json()
-
-    setProjects(data)
-  }
-
-  loadProjects()
-}, [])
+  const projects: Projeto[] = projetos
 
   return (
     <section id="projects" className="py-20 px-4 bg-muted/50">
@@ -43,20 +38,26 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {projects.map((project) => (
-            <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+          {projects.map((project, index) => (
 
-        <div className="aspect-video overflow-hidden bg-muted">
-  <ImageWithFallback
-    src={project.imagem}
-    alt={project.titulo}
-    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-  />
-</div>
+            <Card
+              key={index}
+              className="overflow-hidden hover:shadow-lg transition-shadow"
+            >
+
+              <div className="aspect-video overflow-hidden bg-muted">
+                <ImageWithFallback
+                  src={project.imagem}
+                  alt={project.titulo}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
 
               <CardHeader>
                 <CardTitle>{project.titulo}</CardTitle>
-                <CardDescription>{project.descricao}</CardDescription>
+                <CardDescription>
+                  {project.descricao}
+                </CardDescription>
               </CardHeader>
 
               <CardContent>
@@ -69,7 +70,7 @@ export function Projects() {
                 <Button
                   variant="outline"
                   className="w-full gap-2"
-                  onClick={() => window.open(project.link_projeto, "_blank")}
+                  onClick={() => window.open(project.link, "_blank")}
                 >
                   Ver projeto
                   <ExternalLink className="w-4 h-4" />
@@ -77,10 +78,12 @@ export function Projects() {
               </CardFooter>
 
             </Card>
+
           ))}
 
         </div>
+
       </div>
     </section>
-  );
+  )
 }

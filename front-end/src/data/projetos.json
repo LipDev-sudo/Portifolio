@@ -1,0 +1,30 @@
+[
+  {
+    "titulo": "Plataforma de Venda Digital",
+    "descricao": "Sistema web para venda de produtos digitais com interface moderna e foco em conversão.",
+    "tecnologias": "React, CSS, JavaScript",
+    "link": "",
+    "imagem": "/images/venda_digital.png"
+  },
+  {
+    "titulo": "Plataforma de Pedidos Online",
+    "descricao": "Sistema de pedidos online para restaurantes e pequenos comércios.",
+    "tecnologias": "React, HTML, CSS, JavaScript",
+    "link": "",
+    "imagem": "/images/pedidos_online.png"
+  },
+  {
+    "titulo": "Loja Virtual de Moda",
+    "descricao": "Layout de ecommerce feminino com foco em design e experiência do usuário.",
+    "tecnologias": "React, CSS, HTML, JavaScript",
+    "link": "https://loja-virtual-de-moda.vercel.app/",
+    "imagem": "/images/loja_virtual.png"
+  },
+  {
+    "titulo": "Loja Virtual de Materiais de Construção",
+    "descricao": "Interface de ecommerce voltada para venda de materiais de construção.",
+    "tecnologias": "React, CSS, HTML, JavaScript",
+    "link": "",
+    "imagem": "/images/materiais_construcao.png"
+  }
+]
