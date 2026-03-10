@@ -50,7 +50,7 @@ export function Projects() {
 
         <div className="aspect-video overflow-hidden bg-muted">
               <ImageWithFallback
-               src={`https://portifolio-production-b8e0.up.railway.app${project.imagem}`}
+               src={project.imagem}
                alt={project.titulo}
                />
         </div>
