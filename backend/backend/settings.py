@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import cloudinary
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
     'projetos',
     'servicos',
     'contato',
+
+    "cloudinary",
+    "cloudinary_storage",
 ]
 
 
@@ -117,9 +121,19 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-# MEDIA FILES
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# CLOUDINARY CONFIG
+cloudinary.config(
+    cloud_name=os.environ.get("Cdxl5ybizm"),
+    api_key=os.environ.get("731154136966464"),
+    api_secret=os.environ.get("bd7vlbJOFwNgX8Dv34NgCQIsZfk"),
+)
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+
+# MEDIA (fallback local)
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 # DEFAULT AUTO FIELD
