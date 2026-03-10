@@ -47,11 +47,12 @@ export function Projects() {
             <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
 
         <div className="aspect-video overflow-hidden bg-muted">
-              <ImageWithFallback
-               src={project.imagem}
-               alt={project.titulo}
-               />
-        </div>
+  <ImageWithFallback
+    src={project.imagem}
+    alt={project.titulo}
+    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+  />
+</div>
 
               <CardHeader>
                 <CardTitle>{project.titulo}</CardTitle>
