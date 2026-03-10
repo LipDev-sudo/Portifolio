@@ -18,19 +18,17 @@ export function Projects() {
 
   useEffect(() => {
   async function loadProjects() {
-    try {
-      const response = await fetch(
-        "https://portifolio-production-b8e0.up.railway.app/api/projetos/"
-      );
-      const data = await response.json();
-      setProjects(data);
-    } catch (error) {
-      console.error("Erro ao carregar projetos:", error);
-    }
+    const response = await fetch(
+      "https://portifolio-production-b8e0.up.railway.app/api/projetos/"
+    )
+
+    const data = await response.json()
+
+    setProjects(data)
   }
 
-  loadProjects();
-}, []);
+  loadProjects()
+}, [])
 
   return (
     <section id="projects" className="py-20 px-4 bg-muted/50">
