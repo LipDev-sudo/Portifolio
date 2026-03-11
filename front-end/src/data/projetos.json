@@ -4,14 +4,14 @@
     "descricao": "Sistema web para venda de produtos digitais com interface moderna e foco em conversão.",
     "tecnologias": "React, CSS, JavaScript",
     "link": "",
-    "imagem": "/images/venda_digital.png"
+    "imagem": "/images/venda digital.png"
   },
   {
     "titulo": "Plataforma de Pedidos Online",
     "descricao": "Sistema de pedidos online para restaurantes e pequenos comércios.",
     "tecnologias": "React, HTML, CSS, JavaScript",
-    "link": "",
-    "imagem": "/images/pedidos_online.png"
+    "link": "https://plataforma-de-pedidos-online.vercel.app/",
+    "imagem": "/images/pedidos online.png"
   },
   {
     "titulo": "Loja Virtual de Moda",
