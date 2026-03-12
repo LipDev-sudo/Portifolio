@@ -3,7 +3,7 @@
     "titulo": "Plataforma de Cursos Cnline",
     "descricao": "Sistema web de cursos online com interface moderna e foco em conversão.",
     "tecnologias": "React, CSS, JavaScript",
-    "link": "",
+    "link": "https://plataforma-de-cursos-online-tau.vercel.app/",
     "imagem": "/images/cursos_online.png"
   },
   {
