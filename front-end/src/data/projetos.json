@@ -1,7 +1,7 @@
 [
   {
     "titulo": "Plataforma de Cursos Cnline",
-    "descricao": "Sistema web para venda de produtos digitais com interface moderna e foco em conversão.",
+    "descricao": "Sistema web de cursos online com interface moderna e foco em conversão.",
     "tecnologias": "React, CSS, JavaScript",
     "link": "",
     "imagem": "/images/cursos_online.png"
