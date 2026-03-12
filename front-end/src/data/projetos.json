@@ -1,10 +1,10 @@
 [
   {
-    "titulo": "Plataforma de Venda Digital",
+    "titulo": "Plataforma de Cursos Cnline",
     "descricao": "Sistema web para venda de produtos digitais com interface moderna e foco em conversão.",
     "tecnologias": "React, CSS, JavaScript",
     "link": "",
-    "imagem": "/images/venda_digital.png"
+    "imagem": "/images/cursos_online.png"
   },
   {
     "titulo": "Plataforma de Pedidos Online",
