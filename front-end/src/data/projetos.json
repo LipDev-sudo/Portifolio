@@ -24,7 +24,7 @@
     "titulo": "Loja Virtual de Materiais de Construção",
     "descricao": "Interface de ecommerce voltada para venda de materiais de construção.",
     "tecnologias": "React, CSS, HTML, JavaScript",
-    "link": "",
-    "imagem": "/images/materiais_construcao.png"
+    "link": "https://loja-virtual-de-materiais-de-constr.vercel.app/",
+    "imagem": "/images/loja_materiais.png"
   }
 ]
