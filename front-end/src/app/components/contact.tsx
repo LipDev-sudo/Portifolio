@@ -1,4 +1,6 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -25,21 +27,16 @@ export function Contact() {
 
     try {
 
-      const response = await fetch("https://portifolio-production-b8e0.up.railway.app/api/contato/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nome: formData.name,
+      await emailjs.send(
+        "service_ruvpno",
+        "template_9mgqcoh",
+        {
+          name: formData.name,
           email: formData.email,
-          mensagem: formData.message,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Erro ao enviar");
-      }
+          message: formData.message,
+        },
+        "uYb7oOg5AvQh2bnAL"
+      );
 
       toast.success("Mensagem enviada com sucesso!");
 
@@ -64,7 +61,7 @@ export function Contact() {
 
   const openWhatsApp = () => {
     window.open(
-      "https://wa.me/5581982845783?text=Olá%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20sistema",
+      "https://wa.me/5581982845783?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20servi%C3%A7o.",
       "_blank"
     );
   };
