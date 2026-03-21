@@ -9,4 +9,4 @@
 Portfólio profissional com projetos reais e foco em soluções web modernas
 
 ## Deploy
-https://seu-site.vercel.app
+https://lipdev.vercel.app/
