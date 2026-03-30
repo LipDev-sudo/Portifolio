@@ -46,4 +46,37 @@ export const projects: Project[] = [
       "https://loja-virtual-de-materiais-de-constr.vercel.app/",
     order: 3,
   },
+  {
+    id: "5",
+    title: "Premium Custom E-commerce",
+    description:
+      "Layout premium de e-commerce com design Apple Store, glassmorphism e animações parallax.",
+    techs: ["React", "TypeScript", "Tailwind CSS"],
+    imageUrl: "/images/premium_ecommerce.png",
+    githubUrl: "https://github.com/LipDev-sudo/Premium-Custom-E-commerce-Layout",
+    liveUrl: "https://premium-custom-e-commerce-layout.vercel.app/",
+    order: 4,
+  },
+  {
+    id: "6",
+    title: "Catálogo de Produtos",
+    description:
+      "Catálogo digital para pequenos negócios com integração WhatsApp e carrinho de compras.",
+    techs: ["React", "TypeScript", "Tailwind CSS"],
+    imageUrl: "/images/catalogo_produtos.png",
+    githubUrl: "https://github.com/LipDev-sudo/catalogo-para-seus-produtos",
+    liveUrl: "https://catalogo-para-seus-produtos.vercel.app/",
+    order: 5,
+  },
+  {
+    id: "7",
+    title: "Loja Virtual Profissional",
+    description:
+      "Template profissional de loja virtual estilo Amazon com mega search bar e carrinho lateral.",
+    techs: ["React", "TypeScript", "Tailwind CSS"],
+    imageUrl: "/images/loja_profissional.png",
+    githubUrl: "https://github.com/LipDev-sudo/loja-virtual-profissional",
+    liveUrl: "https://loja-virtual-profissional.vercel.app/",
+    order: 6,
+  },
 ];
