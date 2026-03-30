@@ -33,20 +33,29 @@ export function Contact() {
     resolver: zodResolver(schema),
   });
 
+  const [error, setError] = useState(false);
+
   async function onSubmit(data: FormData) {
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        from_name: data.name,
-        from_email: data.email,
-        message: data.message,
-      },
-      EMAILJS_PUBLIC_KEY
-    );
-    reset();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    try {
+      setError(false);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      reset();
+      setSent(true);
+      setTimeout(() => setSent(false), 4000);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(true);
+      setTimeout(() => setError(false), 5000);
+    }
   }
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -156,6 +165,12 @@ export function Contact() {
                   </span>
                 )}
               </div>
+
+              {error && (
+                <div className="text-accent-coral text-sm font-semibold text-center p-3 bg-accent-coral/10 rounded-lg border-2 border-accent-coral/30">
+                  Erro ao enviar. Tente novamente ou use o WhatsApp.
+                </div>
+              )}
 
               <button
                 type="submit"
