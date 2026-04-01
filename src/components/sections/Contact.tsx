@@ -3,70 +3,135 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { Send, CheckCircle, ArrowRight, MessageCircle } from "lucide-react";
+import {
+  contactFormSchema,
+  type ContactFormInput,
+  type ContactFormValues,
+} from "@/lib/contact";
 
-const schema = z.object({
-  name: z.string().min(2, "Nome muito curto"),
-  email: z.string().email("E-mail inválido"),
-  message: z.string().min(10, "Mensagem muito curta"),
-});
+const CONTACT_ENDPOINT = "/api/contact";
+const WHATSAPP_ENDPOINT = "/api/contact/whatsapp";
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-type FormData = z.infer<typeof schema>;
-
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER!;
+type ContactApiResponse = {
+  ok?: boolean;
+  message?: string;
+};
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
+  } = useForm<ContactFormInput, unknown, ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      website: "",
+    },
   });
 
-  const [error, setError] = useState(false);
-
-  async function onSubmit(data: FormData) {
-    try {
-      setError(false);
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          message: data.message,
-        },
-        EMAILJS_PUBLIC_KEY
+  async function sendWithBrowserFallback(data: ContactFormValues) {
+    if (
+      !EMAILJS_SERVICE_ID ||
+      !EMAILJS_TEMPLATE_ID ||
+      !EMAILJS_PUBLIC_KEY
+    ) {
+      throw new Error(
+        "O formulário de contato não está configurado corretamente no momento."
       );
+    }
+
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: data.name,
+        from_email: data.email,
+        reply_to: data.email,
+        message: data.message,
+      },
+      {
+        publicKey: EMAILJS_PUBLIC_KEY,
+        blockHeadless: true,
+        limitRate: {
+          id: "lipdev-contact-form",
+          throttle: 60_000,
+        },
+      }
+    );
+  }
+
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      setErrorMessage(null);
+
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      let responseData: ContactApiResponse | null = null;
+
+      try {
+        responseData = (await response.json()) as ContactApiResponse;
+      } catch {
+        responseData = null;
+      }
+
+      if (!response.ok || !responseData?.ok) {
+        if (
+          (response.status === 502 || response.status === 503) &&
+          EMAILJS_SERVICE_ID &&
+          EMAILJS_TEMPLATE_ID &&
+          EMAILJS_PUBLIC_KEY
+        ) {
+          await sendWithBrowserFallback(data);
+          reset();
+          setSent(true);
+          setTimeout(() => setSent(false), 4000);
+          return;
+        }
+
+        throw new Error(
+          responseData?.message ??
+            "Erro ao enviar. Tente novamente ou use o WhatsApp."
+        );
+      }
+
       reset();
       setSent(true);
       setTimeout(() => setSent(false), 4000);
-    } catch (err) {
-      console.error("EmailJS error:", err);
-      setError(true);
-      setTimeout(() => setError(false), 5000);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Erro ao enviar. Tente novamente ou use o WhatsApp.";
+
+      setSent(false);
+      setErrorMessage(message);
+      setTimeout(() => setErrorMessage(null), 5000);
     }
   }
-
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Olá, vi seu portfólio e gostaria de solicitar um serviço."
-  )}`;
 
   return (
     <section id="contact" className="border-t-[2.5px] border-border bg-dark text-white">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — CTA text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -84,7 +149,7 @@ export function Contact() {
 
             <div className="flex flex-col gap-4 mt-8">
               <a
-                href={whatsappUrl}
+                href={WHATSAPP_ENDPOINT}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-[#25D366] text-white font-bold text-sm border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all w-fit"
@@ -109,12 +174,11 @@ export function Contact() {
                 className="flex items-center gap-3 text-white/80 hover:text-accent-cyan transition-colors font-semibold"
               >
                 <ArrowRight size={16} className="text-accent-cyan" />
-                LinkedIn — Hamilton Felipe
+                LinkedIn - Hamilton Felipe
               </a>
             </div>
           </motion.div>
 
-          {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -125,6 +189,14 @@ export function Contact() {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col gap-4 card-bold p-6 sm:p-8 bg-white text-foreground"
             >
+              <div className="hidden" aria-hidden="true">
+                <input
+                  {...register("website")}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div>
                 <input
                   {...register("name")}
@@ -166,9 +238,9 @@ export function Contact() {
                 )}
               </div>
 
-              {error && (
+              {errorMessage && (
                 <div className="text-accent-coral text-sm font-semibold text-center p-3 bg-accent-coral/10 rounded-lg border-2 border-accent-coral/30">
-                  Erro ao enviar. Tente novamente ou use o WhatsApp.
+                  {errorMessage}
                 </div>
               )}
 

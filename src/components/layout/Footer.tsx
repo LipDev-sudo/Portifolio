@@ -67,8 +67,8 @@ export function Footer() {
             <LinkedinIcon size={20} />
           </a>
           <a
-            href="mailto:contato@lipdev.com.br"
-            aria-label="E-mail"
+            href="#contact"
+            aria-label="Ir para o formulário de contato"
             className="text-white/40 hover:text-accent-coral transition-colors"
           >
             <Mail size={20} />

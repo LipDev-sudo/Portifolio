@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,6 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: "Hamilton Felipe | LipDev.BR — Desenvolvedor Frontend",
   description:
     "Portfólio de Hamilton Felipe Soares da Silva — Desenvolvedor Frontend especializado em React, TypeScript e Firebase.",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
       "Veja meus projetos e entre em contato. React, TypeScript, Next.js e mais.",
     type: "website",
     locale: "pt_BR",
-    images: [{ url: "/og-image.png" }],
+    images: [{ url: "/images/premium_ecommerce.png" }],
   },
 };
 
