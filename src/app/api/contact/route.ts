@@ -79,7 +79,10 @@ function checkRateLimit(clientKey: string) {
 function buildEmailPayload(data: ContactFormValues) {
   const config = getEmailJsConfig();
 
-  if (!config) {
+  // EmailJS strict mode on server-side requires the account private key
+  // (`accessToken`). If it is not configured, the client-side fallback
+  // should handle the submission instead.
+  if (!config?.accessToken) {
     return null;
   }
 
