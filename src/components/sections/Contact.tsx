@@ -7,6 +7,7 @@ import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { Send, CheckCircle, ArrowRight, MessageCircle } from "lucide-react";
 import {
+  buildEmailTemplateParams,
   contactFormSchema,
   type ContactFormInput,
   type ContactFormValues,
@@ -56,12 +57,7 @@ export function Contact() {
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      {
-        from_name: data.name,
-        from_email: data.email,
-        reply_to: data.email,
-        message: data.message,
-      },
+      buildEmailTemplateParams(data),
       {
         publicKey: EMAILJS_PUBLIC_KEY,
         blockHeadless: true,

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
+  buildEmailTemplateParams,
   contactFormSchema,
   getEmailJsConfig,
   type ContactFormValues,
@@ -93,14 +94,7 @@ function buildEmailPayload(data: ContactFormValues) {
       template_id: config.templateId,
       user_id: config.publicKey,
       ...(config.accessToken ? { accessToken: config.accessToken } : {}),
-      template_params: {
-        from_name: data.name,
-        from_email: data.email,
-        reply_to: data.email,
-        message: data.message,
-        submitted_at: new Date().toISOString(),
-        source: "lipdev-portfolio",
-      },
+      template_params: buildEmailTemplateParams(data),
     },
   };
 }

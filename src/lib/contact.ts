@@ -96,3 +96,21 @@ export function getWhatsAppUrl(message = DEFAULT_WHATSAPP_TEXT) {
 
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
+
+export function buildEmailTemplateParams(data: ContactFormValues) {
+  return {
+    from_name: data.name,
+    from_email: data.email,
+    reply_to: data.email,
+    message: data.message,
+    name: data.name,
+    email: data.email,
+    user_name: data.name,
+    user_email: data.email,
+    contact_name: data.name,
+    contact_email: data.email,
+    contact_message: data.message,
+    submitted_at: new Date().toISOString(),
+    source: "lipdev-portfolio",
+  };
+}
