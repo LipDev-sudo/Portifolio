@@ -10,7 +10,7 @@ export const services: Service[] = [
     descricao_en:
       "Responsive single-page site with modern design, animations and contact form. Perfect to launch a product or service.",
     preco: "A partir de R$ 600",
-    preco_en: "From $700",
+    preco_en: "From $650",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const services: Service[] = [
     descricao_en:
       "Full website with 3 to 5 pages: home, about, services and contact. Perfect to present your business professionally.",
     preco: "A partir de R$ 1.300",
-    preco_en: "From $1,500",
+    preco_en: "From $1,400",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const services: Service[] = [
     descricao_en:
       "E-commerce with product catalog, shopping cart and payment integration. Ready to sell online.",
     preco: "A partir de R$ 2.800",
-    preco_en: "From $3,000",
+    preco_en: "From $2,900",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ export const services: Service[] = [
     descricao_en:
       "Ordering platform for restaurants and local businesses, with digital menu and management dashboard.",
     preco: "A partir de R$ 2.300",
-    preco_en: "From $2,500",
+    preco_en: "From $2,400",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export const services: Service[] = [
     descricao_en:
       "Platform with student area, video lessons, progress tracking and certificates. Monetize your knowledge.",
     preco: "A partir de R$ 3.800",
-    preco_en: "From $4,000",
+    preco_en: "From $3,900",
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ export const services: Service[] = [
     descricao_en:
       "Admin panel with charts, reports and data management. Full control of your business in real time.",
     preco: "A partir de R$ 1.800",
-    preco_en: "From $2,000",
+    preco_en: "From $1,900",
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ export const services: Service[] = [
     descricao_en:
       "Custom bots for automation, support, moderation and ticket flows on Discord. Perfect for communities and structured support.",
     preco: "A partir de R$ 1.800",
-    preco_en: "From $2,000",
+    preco_en: "From $1,900",
   },
   {
     id: 8,
@@ -87,6 +87,6 @@ export const services: Service[] = [
     descricao_en:
       "Conversation flow with auto-replies, contact triage and fast routing on WhatsApp. Perfect for sales and support.",
     preco: "A partir de R$ 1.600",
-    preco_en: "From $1,800",
+    preco_en: "From $1,700",
   },
 ];
