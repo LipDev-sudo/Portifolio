@@ -17,17 +17,28 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: new URL(siteUrl),
   title: "Hamilton Felipe | LipDev.BR — Desenvolvedor Frontend",
   description:
     "Portfólio de Hamilton Felipe Soares da Silva — Desenvolvedor Frontend especializado em React, TypeScript e Firebase.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "pt-BR": "/",
+      "en-US": `https://translate.google.com/translate?sl=pt&tl=en&u=${encodeURIComponent(siteUrl)}`,
+      "x-default": "/",
+    },
+  },
   openGraph: {
     title: "Hamilton Felipe | LipDev.BR — Dev Frontend",
     description:
       "Veja meus projetos e entre em contato. React, TypeScript, Next.js e mais.",
     type: "website",
     locale: "pt_BR",
+    alternateLocale: ["en_US"],
     images: [{ url: "/images/premium_ecommerce.png" }],
   },
 };

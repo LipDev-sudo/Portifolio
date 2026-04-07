@@ -1,8 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Languages } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+function translateToEnglish() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(
+    `https://translate.google.com/translate?sl=pt&tl=en&u=${url}`,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
 
 const navLinks = [
   { label: "INÍCIO", href: "#hero" },
@@ -43,13 +52,26 @@ export function Header() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-coral text-white text-xs font-bold uppercase tracking-wider border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all"
-        >
-          Fale Comigo <ArrowRight size={14} />
-        </a>
+        {/* Right side actions */}
+        <div className="hidden lg:flex items-center gap-3">
+          <button
+            type="button"
+            onClick={translateToEnglish}
+            translate="no"
+            aria-label="Translate page to English"
+            title="Translate to English"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border-[2.5px] border-border text-xs font-bold uppercase tracking-wider text-foreground hover:bg-secondary transition-colors"
+          >
+            <Languages size={14} /> EN
+          </button>
+
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-coral text-white text-xs font-bold uppercase tracking-wider border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all"
+          >
+            Fale Comigo <ArrowRight size={14} />
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -82,6 +104,19 @@ export function Header() {
                   </a>
                 </li>
               ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    translateToEnglish();
+                  }}
+                  translate="no"
+                  className="inline-flex w-full justify-center items-center gap-2 px-5 py-2.5 rounded-lg border-[2.5px] border-border text-sm font-bold uppercase tracking-wider hover:bg-secondary transition-colors"
+                >
+                  <Languages size={16} /> Translate to English
+                </button>
+              </li>
               <li>
                 <a
                   href="#contact"
