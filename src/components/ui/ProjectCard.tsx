@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import type { Project } from "@/types";
+import { useLanguage } from "@/lib/i18n";
 
 function GithubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -37,8 +38,15 @@ const cardVariants = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const { lang, t } = useLanguage();
   const colorClass = cardColors[project.order % cardColors.length];
   const isLightBg = colorClass === "bg-accent-lime";
+  const title =
+    lang === "en" && project.title_en ? project.title_en : project.title;
+  const description =
+    lang === "en" && project.description_en
+      ? project.description_en
+      : project.description;
 
   return (
     <motion.article variants={cardVariants} className="card-bold overflow-hidden">
@@ -48,7 +56,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3
             className={`font-extrabold text-lg ${isLightBg ? "text-foreground" : "text-white"}`}
           >
-            {project.title}
+            {title}
           </h3>
           {project.liveUrl && (
             <a
@@ -56,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={`${isLightBg ? "text-foreground/60" : "text-white/60"} hover:${isLightBg ? "text-foreground" : "text-white"} transition-colors`}
-              aria-label="Ver demo"
+              aria-label={t.projects.viewLive}
             >
               <ExternalLink size={18} />
             </a>
@@ -65,7 +73,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <p
           className={`text-sm mt-2 leading-relaxed ${isLightBg ? "text-foreground/70" : "text-white/80"}`}
         >
-          {project.description}
+          {description}
         </p>
       </div>
 
@@ -90,11 +98,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
           >
             <GithubIcon size={16} />
-            Código
+            {t.projects.viewCode}
           </a>
           {project.liveUrl && (
             <span className="text-xs font-bold text-accent-cyan uppercase tracking-wider">
-              100% Online
+              {t.projects.viewLive}
             </span>
           )}
         </div>

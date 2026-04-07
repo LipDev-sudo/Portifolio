@@ -12,6 +12,7 @@ import {
   type ContactFormInput,
   type ContactFormValues,
 } from "@/lib/contact";
+import { useT } from "@/lib/i18n";
 
 const CONTACT_ENDPOINT = "/api/contact";
 const WHATSAPP_ENDPOINT = "/api/contact/whatsapp";
@@ -25,6 +26,7 @@ type ContactApiResponse = {
 };
 
 export function Contact() {
+  const t = useT();
   const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -49,9 +51,7 @@ export function Contact() {
       !EMAILJS_TEMPLATE_ID ||
       !EMAILJS_PUBLIC_KEY
     ) {
-      throw new Error(
-        "O formulário de contato não está configurado corretamente no momento."
-      );
+      throw new Error(t.contact.form.notConfigured);
     }
 
     await emailjs.send(
@@ -104,8 +104,7 @@ export function Contact() {
         }
 
         throw new Error(
-          responseData?.message ??
-            "Erro ao enviar. Tente novamente ou use o WhatsApp."
+          responseData?.message ?? t.contact.form.genericError
         );
       }
 
@@ -114,9 +113,7 @@ export function Contact() {
       setTimeout(() => setSent(false), 4000);
     } catch (error) {
       const message =
-        error instanceof Error
-          ? error.message
-          : "Erro ao enviar. Tente novamente ou use o WhatsApp.";
+        error instanceof Error ? error.message : t.contact.form.genericError;
 
       setSent(false);
       setErrorMessage(message);
@@ -134,13 +131,12 @@ export function Contact() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <span className="badge badge-coral">Contato</span>
+            <span className="badge badge-coral">{t.contact.badge}</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 leading-tight">
-              Vamos construir algo incrível juntos?
+              {t.contact.title}
             </h2>
             <p className="text-white/60 mt-6 text-base sm:text-lg leading-relaxed max-w-md">
-              Tem um projeto em mente? Quer bater um papo sobre tech? Manda uma
-              mensagem e eu respondo o mais rápido possível.
+              {t.contact.description}
             </p>
 
             <div className="flex flex-col gap-4 mt-8">
@@ -151,7 +147,7 @@ export function Contact() {
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-[#25D366] text-white font-bold text-sm border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all w-fit"
               >
                 <MessageCircle size={18} />
-                Chamar no WhatsApp
+                {t.contact.whatsapp}
               </a>
 
               <a
@@ -196,7 +192,7 @@ export function Contact() {
               <div>
                 <input
                   {...register("name")}
-                  placeholder="Seu nome"
+                  placeholder={t.contact.form.name}
                   className="input"
                 />
                 {errors.name && (
@@ -209,7 +205,7 @@ export function Contact() {
               <div>
                 <input
                   {...register("email")}
-                  placeholder="Seu e-mail"
+                  placeholder={t.contact.form.email}
                   type="email"
                   className="input"
                 />
@@ -223,7 +219,7 @@ export function Contact() {
               <div>
                 <textarea
                   {...register("message")}
-                  placeholder="Sua mensagem"
+                  placeholder={t.contact.form.message}
                   rows={5}
                   className="input resize-none"
                 />
@@ -246,16 +242,16 @@ export function Contact() {
                 className="btn-primary w-full justify-center"
               >
                 {isSubmitting ? (
-                  "Enviando..."
+                  t.contact.form.submitting
                 ) : sent ? (
                   <>
                     <CheckCircle size={16} />
-                    Mensagem Enviada!
+                    {t.contact.form.success}
                   </>
                 ) : (
                   <>
                     <Send size={16} />
-                    Enviar Mensagem
+                    {t.contact.form.submit}
                   </>
                 )}
               </button>

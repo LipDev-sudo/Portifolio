@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 export function Hero() {
+  const t = useT();
+
   return (
     <section
       id="hero"
@@ -23,7 +26,7 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="badge badge-lime"
             >
-              LipDev.BR · Frontend Developer
+              {t.hero.badge}
             </motion.span>
 
             <motion.h1
@@ -32,9 +35,9 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mt-6"
             >
-              Transformo ideias em{" "}
-              <span className="text-primary">interfaces</span> que
-              impressionam.
+              {t.hero.titleStart}
+              <span className="text-primary">{t.hero.titleHighlight}</span>
+              {t.hero.titleEnd}
             </motion.h1>
 
             <motion.p
@@ -43,11 +46,13 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="text-base sm:text-lg text-muted-foreground mt-6 max-w-lg leading-relaxed"
             >
-              Desenvolvedor Frontend especializado em{" "}
-              <strong className="text-foreground">React</strong>,{" "}
-              <strong className="text-foreground">TypeScript</strong> e{" "}
-              <strong className="text-foreground">Next.js</strong>. Construo
-              aplicações modernas, rápidas e com código limpo.
+              {t.hero.description.start}
+              <strong className="text-foreground">React</strong>
+              {t.hero.description.mid1}
+              <strong className="text-foreground">TypeScript</strong>
+              {t.hero.description.mid2}
+              <strong className="text-foreground">Next.js</strong>
+              {t.hero.description.end}
             </motion.p>
 
             <motion.div
@@ -57,10 +62,10 @@ export function Hero() {
               className="flex gap-4 mt-8 flex-wrap"
             >
               <a href="#projects" className="btn-primary">
-                Ver Projetos <ArrowRight size={16} />
+                {t.hero.primaryCta} <ArrowRight size={16} />
               </a>
               <a href="#contact" className="btn-secondary">
-                Agendar Conversa
+                {t.hero.secondaryCta}
               </a>
             </motion.div>
           </motion.div>
@@ -74,12 +79,12 @@ export function Hero() {
           >
             {/* Main card */}
             <div className="stat-card bg-primary text-white">
-              <span className="badge badge-dark mb-3">Foco Principal</span>
+              <span className="badge badge-dark mb-3">{t.hero.statCard.badge}</span>
               <span className="text-5xl sm:text-6xl font-extrabold">
-                Frontend
+                {t.hero.statCard.title}
               </span>
               <span className="text-sm font-semibold mt-2 opacity-90">
-                React · TypeScript · Next.js · Tailwind
+                {t.hero.statCard.stack}
               </span>
             </div>
 
@@ -90,7 +95,7 @@ export function Hero() {
                   100%
                 </span>
                 <span className="text-xs font-bold uppercase tracking-wider text-foreground/70 mt-1">
-                  Dedicação
+                  {t.hero.dedicationLabel}
                 </span>
               </div>
               <div className="stat-card bg-accent-coral text-white">
@@ -98,7 +103,7 @@ export function Hero() {
                   24/7
                 </span>
                 <span className="text-xs font-bold uppercase tracking-wider opacity-80 mt-1">
-                  Aprendizado
+                  {t.hero.learningLabel}
                 </span>
               </div>
             </div>
@@ -114,7 +119,7 @@ export function Hero() {
         >
           <a
             href="#about"
-            aria-label="Rolar para baixo"
+            aria-label={t.hero.scrollAria}
             className="w-10 h-10 rounded-full border-[2.5px] border-border flex items-center justify-center animate-bounce hover:bg-secondary transition-colors"
           >
             <ArrowDown size={16} />

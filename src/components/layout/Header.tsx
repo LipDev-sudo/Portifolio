@@ -3,27 +3,20 @@
 import { useState } from "react";
 import { Menu, X, ArrowRight, Languages } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-function translateToEnglish() {
-  const url = encodeURIComponent(window.location.href);
-  window.open(
-    `https://translate.google.com/translate?sl=pt&tl=en&u=${url}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-}
-
-const navLinks = [
-  { label: "INÍCIO", href: "#hero" },
-  { label: "SOBRE", href: "#about" },
-  { label: "HABILIDADES", href: "#skills" },
-  { label: "SERVIÇOS", href: "#services" },
-  { label: "PROJETOS", href: "#projects" },
-  { label: "CONTATO", href: "#contact" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, toggle, t } = useLanguage();
+
+  const navLinks = [
+    { label: t.header.nav.hero, href: "#hero" },
+    { label: t.header.nav.about, href: "#about" },
+    { label: t.header.nav.skills, href: "#skills" },
+    { label: t.header.nav.services, href: "#services" },
+    { label: t.header.nav.projects, href: "#projects" },
+    { label: t.header.nav.contact, href: "#contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b-[2.5px] border-border">
@@ -56,20 +49,21 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <button
             type="button"
-            onClick={translateToEnglish}
+            onClick={toggle}
             translate="no"
-            aria-label="Translate page to English"
-            title="Translate to English"
+            aria-label={t.header.toggleLabel}
+            title={t.header.toggleLabel}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border-[2.5px] border-border text-xs font-bold uppercase tracking-wider text-foreground hover:bg-secondary transition-colors"
           >
-            <Languages size={14} /> EN
+            <Languages size={14} />
+            <span aria-hidden="true">{lang === "pt" ? "EN" : "PT"}</span>
           </button>
 
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-coral text-white text-xs font-bold uppercase tracking-wider border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all"
           >
-            Fale Comigo <ArrowRight size={14} />
+            {t.header.cta} <ArrowRight size={14} />
           </a>
         </div>
 
@@ -77,7 +71,7 @@ export function Header() {
         <button
           className="lg:hidden p-2 text-foreground"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -109,12 +103,13 @@ export function Header() {
                   type="button"
                   onClick={() => {
                     setMenuOpen(false);
-                    translateToEnglish();
+                    toggle();
                   }}
                   translate="no"
                   className="inline-flex w-full justify-center items-center gap-2 px-5 py-2.5 rounded-lg border-[2.5px] border-border text-sm font-bold uppercase tracking-wider hover:bg-secondary transition-colors"
                 >
-                  <Languages size={16} /> Translate to English
+                  <Languages size={16} />
+                  {lang === "pt" ? "Translate to English" : "Traduzir para Português"}
                 </button>
               </li>
               <li>
@@ -123,7 +118,7 @@ export function Header() {
                   onClick={() => setMenuOpen(false)}
                   className="btn-primary inline-flex w-full justify-center"
                 >
-                  Fale Comigo <ArrowRight size={14} />
+                  {t.header.cta} <ArrowRight size={14} />
                 </a>
               </li>
             </ul>

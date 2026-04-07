@@ -1,32 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const skillGroups = [
-  {
-    title: "Frontend",
-    badge: "badge-lime",
-    color: "bg-accent-lime",
-    textColor: "text-foreground",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML/CSS", "Framer Motion"],
-  },
-  {
-    title: "Backend & Tools",
-    badge: "badge-purple",
-    color: "bg-accent-purple",
-    textColor: "text-white",
-    skills: ["Firebase", "Node.js", "REST APIs", "Git/GitHub", "Vercel", "Figma"],
-  },
-  {
-    title: "Soft Skills",
-    badge: "badge-cyan",
-    color: "bg-accent-cyan",
-    textColor: "text-white",
-    skills: ["Resolução de Problemas", "Comunicação", "Trabalho em Equipe", "Aprendizado Rápido", "Organização", "Proatividade"],
-  },
-];
+import { useT } from "@/lib/i18n";
 
 export function Skills() {
+  const t = useT();
+
+  const skillGroups = [
+    {
+      title: t.skills.groups.frontend,
+      color: "bg-accent-lime",
+      skills: [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "HTML/CSS",
+        "Framer Motion",
+      ],
+    },
+    {
+      title: t.skills.groups.backend,
+      color: "bg-accent-purple",
+      skills: ["Firebase", "Node.js", "REST APIs", "Git/GitHub", "Vercel", "Figma"],
+    },
+    {
+      title: t.skills.groups.soft,
+      color: "bg-accent-cyan",
+      skills: t.skills.softSkills,
+    },
+  ];
+
   return (
     <section id="skills" className="border-t-[2.5px] border-border bg-secondary">
       <div className="section-container">
@@ -36,13 +40,12 @@ export function Skills() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="badge badge-purple">Habilidades</span>
+          <span className="badge badge-purple">{t.skills.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
-            Stack moderna. Resultado real.
+            {t.skills.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-base">
-            Tecnologias e ferramentas que domino para entregar projetos de alto
-            nível.
+            {t.skills.description}
           </p>
         </motion.div>
 

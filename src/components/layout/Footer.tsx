@@ -1,4 +1,7 @@
+"use client";
+
 import { Mail } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 function GithubIcon({ size = 20 }: { size?: number }) {
   return (
@@ -29,6 +32,8 @@ function LinkedinIcon({ size = 20 }: { size?: number }) {
 }
 
 export function Footer() {
+  const t = useT();
+
   return (
     <footer className="border-t-[2.5px] border-border-light bg-dark text-white py-8 px-6">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -43,8 +48,8 @@ export function Footer() {
         </div>
 
         <p className="text-xs text-white/40 font-medium">
-          &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva.
-          Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva.{" "}
+          {t.footer.rights}
         </p>
 
         <div className="flex items-center gap-5">
@@ -68,7 +73,7 @@ export function Footer() {
           </a>
           <a
             href="#contact"
-            aria-label="Ir para o formulário de contato"
+            aria-label={t.footer.contactAria}
             className="text-white/40 hover:text-accent-coral transition-colors"
           >
             <Mail size={20} />

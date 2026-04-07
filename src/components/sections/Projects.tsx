@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { useT } from "@/lib/i18n";
 
 export function Projects() {
+  const t = useT();
+
   return (
     <section id="projects" className="border-t-[2.5px] border-border">
       <div className="section-container">
@@ -14,13 +17,12 @@ export function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="badge badge-coral">Portfólio</span>
+          <span className="badge badge-coral">{t.projects.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
-            Projetos que falam por si.
+            {t.projects.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-base">
-            Cada projeto é uma oportunidade de aprender, resolver problemas e
-            entregar valor real.
+            {t.projects.description}
           </p>
         </motion.div>
 
