@@ -46,13 +46,7 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="text-base sm:text-lg text-muted-foreground mt-6 max-w-lg leading-relaxed"
             >
-              {t.hero.description.start}
-              <strong className="text-foreground">React</strong>
-              {t.hero.description.mid1}
-              <strong className="text-foreground">TypeScript</strong>
-              {t.hero.description.mid2}
-              <strong className="text-foreground">Next.js</strong>
-              {t.hero.description.end}
+              {t.hero.description}
             </motion.p>
 
             <motion.div
@@ -61,7 +55,7 @@ export function Hero() {
               transition={{ delay: 0.7 }}
               className="flex gap-4 mt-8 flex-wrap"
             >
-              <a href="#projects" className="btn-primary">
+              <a href="#ai-solutions" className="btn-primary">
                 {t.hero.primaryCta} <ArrowRight size={16} />
               </a>
               <a href="#contact" className="btn-secondary">

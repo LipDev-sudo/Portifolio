@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Rocket, Users } from "lucide-react";
+import { Zap, DollarSign, Link2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 const highlightStyles = [
-  { icon: Code2, color: "bg-accent-cyan" },
-  { icon: Rocket, color: "bg-accent-purple" },
-  { icon: Users, color: "bg-accent-lime" },
+  { icon: Zap, color: "bg-accent-cyan" },
+  { icon: DollarSign, color: "bg-accent-purple" },
+  { icon: Link2, color: "bg-accent-lime" },
 ];
 
 export function About() {

@@ -17,22 +17,18 @@ const ptMessages = {
     closeMenu: "Fechar menu",
   },
   hero: {
-    badge: "LipDev.BR · Frontend Developer",
-    titleStart: "Transformo ideias em ",
-    titleHighlight: "interfaces",
-    titleEnd: " que impressionam.",
-    description: {
-      start: "Desenvolvedor Frontend especializado em ",
-      mid1: ", ",
-      mid2: " e ",
-      end: ". Construo aplicações modernas, rápidas e com código limpo.",
-    },
-    primaryCta: "Ver Projetos",
-    secondaryCta: "Agendar Conversa",
+    badge: "LipDev.BR · AI Automation Developer",
+    titleStart: "Eu crio ",
+    titleHighlight: "automações com IA",
+    titleEnd: " que economizam tempo e aumentam a receita das empresas.",
+    description:
+      "Ajudo empresas a automatizar atendimento, geração de leads e tarefas repetitivas usando IA.",
+    primaryCta: "Ver soluções de IA",
+    secondaryCta: "Agendar diagnóstico gratuito",
     statCard: {
       badge: "Foco Principal",
-      title: "Frontend",
-      stack: "React · TypeScript · Next.js · Tailwind",
+      title: "IA",
+      stack: "Automação · Chatbots · Workflows · Integrações",
     },
     dedicationLabel: "Dedicação",
     learningLabel: "Aprendizado",
@@ -42,22 +38,22 @@ const ptMessages = {
     badge: "Sobre Mim",
     title: "Hamilton Felipe Soares da Silva.",
     description:
-      "Sou desenvolvedor frontend apaixonado por tecnologia e design. Trabalho com o ecossistema moderno do JavaScript — React, TypeScript, Next.js e Firebase — para criar interfaces que geram impacto real. Meu objetivo é transformar cada projeto em uma experiência única para o usuário.",
+      "Sou desenvolvedor especializado em automações com IA para empresas. Ajudo negócios a economizar tempo e reduzir custos operacionais automatizando atendimento ao cliente, geração de leads e processos internos. Trabalho com tecnologias modernas — Next.js, React, TypeScript, APIs de IA e plataformas de automação — para entregar soluções que geram resultado real.",
     highlights: [
       {
-        title: "Código Limpo",
+        title: "Automação Inteligente",
         description:
-          "Foco em boas práticas, legibilidade e manutenibilidade. Cada linha de código é pensada para escalar.",
+          "Automatizo processos manuais e repetitivos para que sua equipe foque no que importa. Menos trabalho operacional, mais resultado.",
       },
       {
-        title: "Performance",
+        title: "Redução de Custos",
         description:
-          "Aplicações rápidas e otimizadas. Core Web Vitals, lazy loading e tudo que o usuário merece.",
+          "Chatbots e assistentes de IA que atendem 24/7, capturam leads e agendam compromissos — sem precisar de mais funcionários.",
       },
       {
-        title: "Colaboração",
+        title: "Integração Total",
         description:
-          "Comunicação clara, entregas no prazo e trabalho em equipe. Sem enrolação, só resultado.",
+          "Conecto WhatsApp, e-mail, CRM e sistemas internos em fluxos automatizados que funcionam sem intervenção manual.",
       },
     ],
   },
@@ -80,10 +76,89 @@ const ptMessages = {
       "Proatividade",
     ],
   },
+  aiSolutions: {
+    badge: "Soluções de IA",
+    title: "Soluções de IA para Empresas",
+    description:
+      "Automações inteligentes que trabalham 24 horas por dia para o seu negócio.",
+    items: [
+      {
+        title: "Assistente de Atendimento com IA",
+        description:
+          "Assistente que responde clientes 24h por dia no WhatsApp, site ou e-mail.",
+        bullets: [
+          "Respostas automáticas",
+          "Captura de leads",
+          "Agendamento automático",
+          "Integração com CRM",
+        ],
+        price: "A partir de R$2.500",
+      },
+      {
+        title: "Automação de Geração de Leads com IA",
+        description:
+          "Automação que captura, qualifica e organiza leads automaticamente.",
+        bullets: [
+          "Integração com chatbot e formulários",
+          "Qualificação automática de leads",
+          "Follow-up por e-mail",
+          "Sincronização com CRM",
+        ],
+        price: "A partir de R$3.000",
+      },
+      {
+        title: "Automação de Processos com IA",
+        description:
+          "Automatizações que eliminam tarefas manuais repetitivas.",
+        bullets: [
+          "Processamento de e-mails",
+          "Extração de dados de PDFs",
+          "Geração de relatórios",
+          "Automação de fluxos de trabalho",
+        ],
+        price: "A partir de R$4.000",
+      },
+    ],
+  },
   services: {
-    badge: "Serviços",
-    title: "O que eu posso fazer por você.",
+    badge: "Desenvolvimento",
+    title: "Serviços de Desenvolvimento Complementares",
     description: "Soluções digitais sob medida para pequenos e médios negócios.",
+  },
+  caseStudies: {
+    badge: "Cases de IA",
+    title: "Resultados reais com automação.",
+    description:
+      "Veja como a IA resolve problemas concretos de negócios.",
+    cases: [
+      {
+        title: "Assistente de WhatsApp com IA",
+        problem:
+          "Uma clínica odontológica perdia 40% dos contatos de novos pacientes por não conseguir responder rápido no WhatsApp.",
+        solution:
+          "Implementei um assistente de IA que responde automaticamente, tira dúvidas sobre procedimentos e agenda consultas direto na agenda do dentista.",
+        result:
+          "Tempo de resposta caiu de 2h para 15 segundos. Agendamentos aumentaram 60% no primeiro mês.",
+      },
+      {
+        title: "Resposta Automática de E-mails com IA",
+        problem:
+          "Um escritório de advocacia gastava 3h por dia respondendo e-mails repetitivos de clientes sobre status de processos.",
+        solution:
+          "Criei uma automação que lê os e-mails, consulta o sistema interno e responde automaticamente com o status atualizado.",
+        result:
+          "Economia de 15h por semana. Equipe redirecionou tempo para casos estratégicos.",
+      },
+      {
+        title: "Bot de Captura de Leads com IA",
+        problem:
+          "Uma imobiliária recebia leads por 5 canais diferentes (site, Instagram, WhatsApp, e-mail, portais) e perdia oportunidades por falta de organização.",
+        solution:
+          "Desenvolvi um bot que centraliza todos os leads, qualifica automaticamente por perfil e envia para o corretor certo no CRM.",
+        result:
+          "Taxa de conversão subiu 35%. Nenhum lead perdido desde a implementação.",
+      },
+    ],
   },
   projects: {
     badge: "Portfólio",
@@ -92,6 +167,12 @@ const ptMessages = {
       "Cada projeto é uma oportunidade de aprender, resolver problemas e entregar valor real.",
     viewLive: "Ver Online",
     viewCode: "Ver Código",
+  },
+  finalCta: {
+    title: "Vamos automatizar seu negócio com IA.",
+    description:
+      "Agende uma conversa gratuita e descubra como a IA pode economizar tempo e aumentar a receita da sua empresa.",
+    cta: "Agendar diagnóstico gratuito",
   },
   contact: {
     badge: "Contato",
@@ -136,22 +217,18 @@ const enMessages: Messages = {
     closeMenu: "Close menu",
   },
   hero: {
-    badge: "LipDev.BR · Frontend Developer",
-    titleStart: "I turn ideas into ",
-    titleHighlight: "interfaces",
-    titleEnd: " that wow.",
-    description: {
-      start: "Frontend Developer specialized in ",
-      mid1: ", ",
-      mid2: " and ",
-      end: ". I build fast, modern, conversion-focused web apps with clean code.",
-    },
-    primaryCta: "View Projects",
-    secondaryCta: "Book a Call",
+    badge: "LipDev.BR · AI Automation Developer",
+    titleStart: "I build ",
+    titleHighlight: "AI automations",
+    titleEnd: " that save businesses time and increase revenue.",
+    description:
+      "I help companies automate customer support, lead generation and repetitive workflows using AI.",
+    primaryCta: "View AI solutions",
+    secondaryCta: "Book a free discovery call",
     statCard: {
       badge: "Main Focus",
-      title: "Frontend",
-      stack: "React · TypeScript · Next.js · Tailwind",
+      title: "AI",
+      stack: "Automation · Chatbots · Workflows · Integrations",
     },
     dedicationLabel: "Dedication",
     learningLabel: "Always Learning",
@@ -161,22 +238,22 @@ const enMessages: Messages = {
     badge: "About Me",
     title: "Hamilton Felipe Soares da Silva.",
     description:
-      "I'm a frontend developer passionate about technology and design. I work with the modern JavaScript ecosystem — React, TypeScript, Next.js and Firebase — to ship interfaces that drive real impact. My goal is to turn every project into a unique experience for the end user.",
+      "I'm a developer specialized in AI automations for businesses. I help companies save time and reduce operational costs by automating customer support, lead generation and internal processes. I work with modern technologies — Next.js, React, TypeScript, AI APIs and automation platforms — to deliver solutions that drive real results.",
     highlights: [
       {
-        title: "Clean Code",
+        title: "Smart Automation",
         description:
-          "Focused on best practices, readability and maintainability. Every line of code is written to scale.",
+          "I automate manual, repetitive processes so your team can focus on what matters. Less busywork, more results.",
       },
       {
-        title: "Performance",
+        title: "Cost Reduction",
         description:
-          "Fast, optimized applications. Core Web Vitals, lazy loading and everything the user deserves.",
+          "AI chatbots and assistants that serve customers 24/7, capture leads and book appointments — without hiring more staff.",
       },
       {
-        title: "Collaboration",
+        title: "Full Integration",
         description:
-          "Clear communication, on-time delivery and real teamwork. No fluff, just results.",
+          "I connect WhatsApp, email, CRM and internal systems into automated workflows that run without manual intervention.",
       },
     ],
   },
@@ -199,10 +276,89 @@ const enMessages: Messages = {
       "Proactivity",
     ],
   },
+  aiSolutions: {
+    badge: "AI Solutions",
+    title: "AI Solutions for Businesses",
+    description:
+      "Smart automations that work 24/7 for your business.",
+    items: [
+      {
+        title: "AI Customer Support Agent",
+        description:
+          "AI assistant that answers customers 24/7 on WhatsApp, website or email.",
+        bullets: [
+          "Automatic replies",
+          "Lead capture",
+          "Appointment booking",
+          "CRM integration",
+        ],
+        price: "Starting at $500",
+      },
+      {
+        title: "AI Lead Generation Automation",
+        description:
+          "Automation that captures, qualifies and stores leads automatically.",
+        bullets: [
+          "Chatbot + forms integration",
+          "Lead scoring",
+          "Automated email follow-ups",
+          "CRM synchronization",
+        ],
+        price: "Starting at $600",
+      },
+      {
+        title: "AI Business Process Automation",
+        description:
+          "Automations that eliminate repetitive manual tasks.",
+        bullets: [
+          "Email processing",
+          "Data extraction from PDFs",
+          "Report generation",
+          "Workflow automation",
+        ],
+        price: "Starting at $800",
+      },
+    ],
+  },
   services: {
-    badge: "Services",
-    title: "What I can build for you.",
+    badge: "Development",
+    title: "Additional Development Services",
     description: "Tailor-made digital solutions for small and mid-sized businesses.",
+  },
+  caseStudies: {
+    badge: "AI Case Studies",
+    title: "Real results with automation.",
+    description:
+      "See how AI solves concrete business problems.",
+    cases: [
+      {
+        title: "AI WhatsApp Assistant",
+        problem:
+          "A dental clinic was losing 40% of new patient inquiries because they couldn't reply fast enough on WhatsApp.",
+        solution:
+          "I built an AI assistant that auto-replies, answers questions about procedures and books appointments directly on the dentist's calendar.",
+        result:
+          "Response time dropped from 2 hours to 15 seconds. Bookings increased 60% in the first month.",
+      },
+      {
+        title: "AI Email Auto-Responder",
+        problem:
+          "A law firm was spending 3 hours per day answering repetitive client emails asking about case status.",
+        solution:
+          "I created an automation that reads incoming emails, queries the internal system and auto-replies with the updated status.",
+        result:
+          "Saved 15 hours per week. The team redirected time to strategic cases.",
+      },
+      {
+        title: "AI Lead Capture Bot",
+        problem:
+          "A real estate agency received leads through 5 different channels (website, Instagram, WhatsApp, email, listing portals) and was losing deals due to disorganization.",
+        solution:
+          "I built a bot that centralizes all leads, auto-qualifies them by profile and routes them to the right agent in the CRM.",
+        result:
+          "Conversion rate jumped 35%. Zero leads lost since implementation.",
+      },
+    ],
   },
   projects: {
     badge: "Portfolio",
@@ -211,6 +367,12 @@ const enMessages: Messages = {
       "Each project is an opportunity to learn, solve problems and deliver real value.",
     viewLive: "Live Demo",
     viewCode: "Source Code",
+  },
+  finalCta: {
+    title: "Let's automate your business with AI.",
+    description:
+      "Book a free discovery call and find out how AI can save time and increase your company's revenue.",
+    cta: "Book a free discovery call",
   },
   contact: {
     badge: "Contact",
