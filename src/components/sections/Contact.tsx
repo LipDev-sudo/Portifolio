@@ -123,8 +123,11 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-border">
-      <div className="section-container">
+    <section id="contact" className="relative">
+      {/* Background glow */}
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-primary/[0.04] rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -132,11 +135,11 @@ export function Contact() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <span className="badge badge-coral">{t.contact.badge}</span>
+            <span className="badge">{t.contact.badge}</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">
               {t.contact.title}
             </h2>
-            <p className="text-muted-foreground mt-6 text-base sm:text-lg leading-relaxed max-w-md">
+            <p className="text-white/40 mt-6 text-base sm:text-lg leading-relaxed max-w-md">
               {t.contact.description}
             </p>
 
@@ -155,25 +158,25 @@ export function Contact() {
                 href="https://github.com/LipDev-sudo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-muted-foreground hover:text-accent-lime transition-colors duration-300 font-medium text-sm"
+                className="flex items-center gap-3 text-white/40 hover:text-primary transition-colors duration-300 font-medium text-sm"
               >
-                <ArrowRight size={14} className="text-accent-lime" />
+                <ArrowRight size={14} className="text-primary" />
                 github.com/LipDev-sudo
               </a>
               <a
                 href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-muted-foreground hover:text-accent-cyan transition-colors duration-300 font-medium text-sm"
+                className="flex items-center gap-3 text-white/40 hover:text-primary transition-colors duration-300 font-medium text-sm"
               >
-                <ArrowRight size={14} className="text-accent-cyan" />
+                <ArrowRight size={14} className="text-primary" />
                 LinkedIn - Hamilton Felipe
               </a>
             </div>
 
             {/* Instagram QR */}
             <div className="mt-8 flex items-center gap-4">
-              <div className="w-20 h-20 rounded-xl overflow-hidden border border-border bg-white p-1">
+              <div className="w-20 h-20 rounded-xl overflow-hidden border border-white/[0.06] bg-white p-1">
                 <Image
                   src="/images/instagram-qr.png"
                   alt="Instagram @lip.devbr"
@@ -183,8 +186,8 @@ export function Contact() {
                 />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground font-medium">Instagram</p>
-                <p className="text-sm font-semibold text-foreground">@lip.devbr</p>
+                <p className="text-xs text-white/40 font-medium">Instagram</p>
+                <p className="text-sm font-semibold text-white">@lip.devbr</p>
               </div>
             </div>
           </motion.div>
@@ -211,10 +214,10 @@ export function Contact() {
                 <input
                   {...register("name")}
                   placeholder={t.contact.form.name}
-                  className="input"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/40 focus:shadow-[0_0_15px_rgba(74,222,128,0.1)] transition-all duration-300"
                 />
                 {errors.name && (
-                  <span className="text-accent-coral text-xs mt-1 block font-medium">
+                  <span className="text-red-400 text-xs mt-1 block font-medium">
                     {errors.name.message}
                   </span>
                 )}
@@ -225,10 +228,10 @@ export function Contact() {
                   {...register("email")}
                   placeholder={t.contact.form.email}
                   type="email"
-                  className="input"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/40 focus:shadow-[0_0_15px_rgba(74,222,128,0.1)] transition-all duration-300"
                 />
                 {errors.email && (
-                  <span className="text-accent-coral text-xs mt-1 block font-medium">
+                  <span className="text-red-400 text-xs mt-1 block font-medium">
                     {errors.email.message}
                   </span>
                 )}
@@ -239,17 +242,17 @@ export function Contact() {
                   {...register("message")}
                   placeholder={t.contact.form.message}
                   rows={5}
-                  className="input resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/40 focus:shadow-[0_0_15px_rgba(74,222,128,0.1)] transition-all duration-300 resize-none"
                 />
                 {errors.message && (
-                  <span className="text-accent-coral text-xs mt-1 block font-medium">
+                  <span className="text-red-400 text-xs mt-1 block font-medium">
                     {errors.message.message}
                   </span>
                 )}
               </div>
 
               {errorMessage && (
-                <div className="text-accent-coral text-sm font-medium text-center p-3 bg-accent-coral/10 rounded-lg border border-accent-coral/20">
+                <div className="text-red-400 text-sm font-medium text-center p-3 bg-red-500/10 rounded-lg border border-red-500/20">
                   {errorMessage}
                 </div>
               )}

@@ -9,19 +9,21 @@ export function Projects() {
   const t = useT();
 
   return (
-    <section id="projects" className="border-t border-border bg-secondary">
-      <div className="section-container">
+    <section id="projects" className="relative">
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="badge badge-coral">{t.projects.badge}</span>
+          <span className="badge">{t.projects.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.projects.title}
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl text-base">
+          <p className="text-white/40 mt-4 max-w-xl text-base">
             {t.projects.description}
           </p>
         </motion.div>

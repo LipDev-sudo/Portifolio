@@ -8,33 +8,28 @@ export function Services() {
   const { lang, t } = useLanguage();
 
   return (
-    <section id="services" className="border-t border-border">
-      <div className="section-container">
+    <section id="services" className="relative">
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="badge badge-lime">{t.services.badge}</span>
+          <span className="badge">{t.services.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.services.title}
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl text-base">
+          <p className="text-white/40 mt-4 max-w-xl text-base">
             {t.services.description}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
           {services.map((service, index) => {
-            const title =
-              lang === "en" && service.titulo_en ? service.titulo_en : service.titulo;
-            const description =
-              lang === "en" && service.descricao_en
-                ? service.descricao_en
-                : service.descricao;
-            const price =
-              lang === "en" && service.preco_en ? service.preco_en : service.preco;
+            const title = lang === "en" && service.titulo_en ? service.titulo_en : service.titulo;
+            const description = lang === "en" && service.descricao_en ? service.descricao_en : service.descricao;
+            const price = lang === "en" && service.preco_en ? service.preco_en : service.preco;
 
             return (
               <motion.div
@@ -46,15 +41,11 @@ export function Services() {
                 className="card-bold p-6 flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="font-semibold text-lg mb-3">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {description}
-                  </p>
+                  <h3 className="font-semibold text-lg mb-3 text-white">{title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{description}</p>
                 </div>
-                <div className="mt-5 pt-4 border-t border-border">
-                  <span className="text-lg font-bold text-primary-light">
-                    {price}
-                  </span>
+                <div className="mt-5 pt-4 border-t border-white/[0.04]">
+                  <span className="text-lg font-bold text-primary">{price}</span>
                 </div>
               </motion.div>
             );

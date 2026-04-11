@@ -9,45 +9,34 @@ export function Skills() {
   const skillGroups = [
     {
       title: t.skills.groups.frontend,
-      accent: "bg-accent-lime/10 text-accent-lime border-accent-lime/20",
-      dot: "bg-accent-lime",
-      skills: [
-        "React",
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "HTML/CSS",
-        "Framer Motion",
-      ],
+      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML/CSS", "Framer Motion"],
     },
     {
       title: t.skills.groups.backend,
-      accent: "bg-accent-purple/10 text-accent-purple border-accent-purple/20",
-      dot: "bg-accent-purple",
       skills: ["Firebase", "Node.js", "REST APIs", "Git/GitHub", "Vercel", "Figma"],
     },
     {
       title: t.skills.groups.soft,
-      accent: "bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20",
-      dot: "bg-accent-cyan",
       skills: t.skills.softSkills,
     },
   ];
 
   return (
-    <section id="skills" className="border-t border-border bg-secondary">
-      <div className="section-container">
+    <section id="skills" className="relative">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="badge badge-purple">{t.skills.badge}</span>
+          <span className="badge">{t.skills.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.skills.title}
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl text-base">
+          <p className="text-white/40 mt-4 max-w-xl text-base">
             {t.skills.description}
           </p>
         </motion.div>
@@ -62,26 +51,19 @@ export function Skills() {
               transition={{ delay: groupIndex * 0.15, duration: 0.4 }}
               className="card-bold overflow-hidden"
             >
-              {/* Header */}
-              <div className="px-6 py-4 border-b border-border">
-                <span
-                  className={`inline-block px-3 py-1 text-xs font-medium rounded-full border ${group.accent}`}
-                >
+              <div className="px-6 py-4 border-b border-white/[0.04]">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">
                   {group.title}
                 </span>
               </div>
-
-              {/* Skills list */}
               <div className="p-6">
                 <ul className="flex flex-col gap-3">
                   {group.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="flex items-center gap-3 text-sm font-medium text-muted-foreground"
+                      className="flex items-center gap-3 text-sm text-white/50"
                     >
-                      <span
-                        className={`w-1.5 h-1.5 rounded-full ${group.dot} flex-shrink-0`}
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0" />
                       {skill}
                     </li>
                   ))}
