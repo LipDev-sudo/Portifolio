@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 import type { Project } from "@/types";
 import { useLanguage } from "@/lib/i18n";
 
@@ -23,15 +24,6 @@ interface ProjectCardProps {
   project: Project;
 }
 
-const cardColors = [
-  "bg-accent-lime",
-  "bg-accent-cyan",
-  "bg-accent-purple",
-  "bg-accent-coral",
-  "bg-accent-orange",
-  "bg-primary",
-];
-
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -39,8 +31,6 @@ const cardVariants = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { lang, t } = useLanguage();
-  const colorClass = cardColors[project.order % cardColors.length];
-  const isLightBg = colorClass === "bg-accent-lime";
   const title =
     lang === "en" && project.title_en ? project.title_en : project.title;
   const description =
@@ -49,61 +39,69 @@ export function ProjectCard({ project }: ProjectCardProps) {
       : project.description;
 
   return (
-    <motion.article variants={cardVariants} className="card-bold overflow-hidden">
-      {/* Colored header area */}
-      <div className={`${colorClass} p-5 pb-4`}>
-        <div className="flex items-start justify-between">
-          <h3
-            className={`font-extrabold text-lg ${isLightBg ? "text-foreground" : "text-white"}`}
-          >
-            {title}
-          </h3>
+    <motion.article variants={cardVariants} className="card-bold overflow-hidden group">
+      {/* Image */}
+      {project.imageUrl && (
+        <div className="relative h-48 overflow-hidden border-b border-border">
+          <Image
+            src={project.imageUrl}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="p-5">
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="font-semibold text-base">{title}</h3>
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${isLightBg ? "text-foreground/60" : "text-white/60"} hover:${isLightBg ? "text-foreground" : "text-white"} transition-colors`}
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label={t.projects.viewLive}
             >
-              <ExternalLink size={18} />
+              <ExternalLink size={16} />
             </a>
           )}
         </div>
-        <p
-          className={`text-sm mt-2 leading-relaxed ${isLightBg ? "text-foreground/70" : "text-white/80"}`}
-        >
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
           {description}
         </p>
-      </div>
 
-      {/* Bottom area */}
-      <div className="p-5 pt-4">
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {project.techs.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-2.5 py-1 rounded-md bg-secondary font-bold text-foreground border border-border-light"
+              className="text-[0.65rem] px-2 py-0.5 rounded-full bg-card border border-border font-medium text-muted-foreground"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pt-3 border-t border-border">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            <GithubIcon size={16} />
+            <GithubIcon size={14} />
             {t.projects.viewCode}
           </a>
           {project.liveUrl && (
-            <span className="text-xs font-bold text-accent-cyan uppercase tracking-wider">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary-light hover:text-primary transition-colors"
+            >
               {t.projects.viewLive}
-            </span>
+            </a>
           )}
         </div>
       </div>

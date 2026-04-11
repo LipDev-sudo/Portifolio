@@ -5,16 +5,16 @@ import { Zap, DollarSign, Link2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 const highlightStyles = [
-  { icon: Zap, color: "bg-accent-cyan" },
-  { icon: DollarSign, color: "bg-accent-purple" },
-  { icon: Link2, color: "bg-accent-lime" },
+  { icon: Zap, color: "text-accent-cyan", bg: "bg-accent-cyan/10" },
+  { icon: DollarSign, color: "text-accent-purple", bg: "bg-accent-purple/10" },
+  { icon: Link2, color: "text-accent-lime", bg: "bg-accent-lime/10" },
 ];
 
 export function About() {
   const t = useT();
 
   return (
-    <section id="about" className="border-t-[2.5px] border-border">
+    <section id="about" className="border-t border-border">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,7 +23,7 @@ export function About() {
           transition={{ duration: 0.5 }}
         >
           <span className="badge badge-cyan">{t.about.badge}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.about.title}
           </h2>
           <p className="text-muted-foreground mt-6 max-w-2xl text-base sm:text-lg leading-relaxed">
@@ -31,7 +31,7 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">
           {t.about.highlights.map((item, index) => {
             const style = highlightStyles[index];
             const Icon = style.icon;
@@ -46,18 +46,11 @@ export function About() {
                 className="card-bold p-6"
               >
                 <div
-                  className={`w-12 h-12 rounded-lg ${style.color} flex items-center justify-center mb-5`}
+                  className={`w-11 h-11 rounded-xl ${style.bg} flex items-center justify-center mb-5`}
                 >
-                  <Icon
-                    size={22}
-                    className={
-                      style.color === "bg-accent-lime"
-                        ? "text-foreground"
-                        : "text-white"
-                    }
-                  />
+                  <Icon size={20} className={style.color} />
                 </div>
-                <h3 className="font-extrabold text-lg mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>

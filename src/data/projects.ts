@@ -38,7 +38,7 @@ export const projects: Project[] = [
     description_en:
       "Women's fashion e-commerce layout focused on design and user experience.",
     techs: ["React", "CSS", "HTML", "JavaScript"],
-    imageUrl: "/images/loja_virtual.png",
+    imageUrl: "/images/loja_virtual.png?v=2",
     githubUrl: "https://github.com/LipDev-sudo",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
     order: 2,
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     description_en:
       "Amazon-style professional e-commerce template with mega search bar and side cart.",
     techs: ["React", "TypeScript", "Tailwind CSS"],
-    imageUrl: "/images/loja_profissional.png",
+    imageUrl: "/images/loja_profissional.png?v=2",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-profissional",
     liveUrl: "https://loja-virtual-profissional.vercel.app/",
     order: 6,

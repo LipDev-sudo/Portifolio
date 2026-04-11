@@ -5,16 +5,14 @@ import { Bot, Target, Cog } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 const cardIcons = [Bot, Target, Cog];
-const cardColors = ["bg-accent-cyan", "bg-accent-purple", "bg-accent-lime"];
+const cardAccents = ["text-accent-cyan", "text-accent-purple", "text-accent-lime"];
+const cardBgs = ["bg-accent-cyan/10", "bg-accent-purple/10", "bg-accent-lime/10"];
 
 export function AiSolutions() {
   const t = useT();
 
   return (
-    <section
-      id="ai-solutions"
-      className="border-t-[2.5px] border-border bg-secondary"
-    >
+    <section id="ai-solutions" className="border-t border-border bg-secondary">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,7 +21,7 @@ export function AiSolutions() {
           transition={{ duration: 0.5 }}
         >
           <span className="badge badge-lime">{t.aiSolutions.badge}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.aiSolutions.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-base">
@@ -31,10 +29,9 @@ export function AiSolutions() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">
           {t.aiSolutions.items.map((item, index) => {
             const Icon = cardIcons[index];
-            const color = cardColors[index];
 
             return (
               <motion.div
@@ -47,18 +44,11 @@ export function AiSolutions() {
               >
                 <div>
                   <div
-                    className={`w-12 h-12 rounded-lg ${color} flex items-center justify-center mb-5`}
+                    className={`w-11 h-11 rounded-xl ${cardBgs[index]} flex items-center justify-center mb-5`}
                   >
-                    <Icon
-                      size={22}
-                      className={
-                        color === "bg-accent-lime"
-                          ? "text-foreground"
-                          : "text-white"
-                      }
-                    />
+                    <Icon size={20} className={cardAccents[index]} />
                   </div>
-                  <h3 className="font-extrabold text-lg mb-3">{item.title}</h3>
+                  <h3 className="font-semibold text-lg mb-3">{item.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                     {item.description}
                   </p>
@@ -66,16 +56,16 @@ export function AiSolutions() {
                     {item.bullets.map((bullet) => (
                       <li
                         key={bullet}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                        className="flex items-start gap-2.5 text-sm text-muted-foreground"
                       >
-                        <span className="text-primary mt-0.5">•</span>
+                        <span className="text-primary-light mt-0.5 text-xs">&#9679;</span>
                         {bullet}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="mt-5 pt-4 border-t border-border-light">
-                  <span className="text-xl font-extrabold text-primary">
+                <div className="mt-5 pt-4 border-t border-border">
+                  <span className="text-lg font-bold text-primary-light">
                     {item.price}
                   </span>
                 </div>

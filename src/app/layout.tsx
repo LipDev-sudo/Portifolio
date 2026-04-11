@@ -22,9 +22,9 @@ const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Hamilton Felipe | LipDev.BR — Desenvolvedor Frontend",
+  title: "Hamilton Felipe | LipDev.BR — AI Automation Developer",
   description:
-    "Portfólio de Hamilton Felipe Soares da Silva — Desenvolvedor Frontend especializado em React, TypeScript e Firebase.",
+    "AI Automation Developer — Automacoes inteligentes que escalam operacoes e geram receita. Next.js, React, TypeScript, AI APIs.",
   alternates: {
     canonical: "/",
     languages: {
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hamilton Felipe | LipDev.BR — Dev Frontend",
+    title: "Hamilton Felipe | LipDev.BR — AI Automation Developer",
     description:
-      "Veja meus projetos e entre em contato. React, TypeScript, Next.js e mais.",
+      "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
     type: "website",
     locale: "pt_BR",
     alternateLocale: ["en_US"],

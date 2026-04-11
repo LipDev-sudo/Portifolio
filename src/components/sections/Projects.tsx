@@ -9,7 +9,7 @@ export function Projects() {
   const t = useT();
 
   return (
-    <section id="projects" className="border-t-[2.5px] border-border">
+    <section id="projects" className="border-t border-border bg-secondary">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,7 +18,7 @@ export function Projects() {
           transition={{ duration: 0.5 }}
         >
           <span className="badge badge-coral">{t.projects.badge}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.projects.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-base">
@@ -27,7 +27,7 @@ export function Projects() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

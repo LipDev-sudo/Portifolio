@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Slide | LipDev.BR</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-light: #3b82f6;
+        --cyan: #06b6d4;
+        --purple: #7c3aed;
+        --lime: #a3e635;
+        --coral: #f43f5e;
+        --orange: #f97316;
+        --bg: #f8fafc;
+        --dark: #0f172a;
+        --text: #0f172a;
+        --muted: #64748b;
+        --card: #ffffff;
+        --border: #0f172a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      body {
+        position: relative;
+      }
+
+      .canvas {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        padding: 52px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 26%),
+          radial-gradient(circle at 92% 10%, rgba(163, 230, 53, 0.14), transparent 18%),
+          linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      }
+
+      .blob {
+        position: absolute;
+        border: 3px solid var(--border);
+        border-radius: 999px;
+        opacity: 0.12;
+      }
+
+      .blob.one {
+        top: -80px;
+        right: -90px;
+        width: 320px;
+        height: 320px;
+        background: var(--lime);
+      }
+
+      .blob.two {
+        left: -120px;
+        bottom: 160px;
+        width: 280px;
+        height: 280px;
+        background: var(--cyan);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 36px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+        border: 3px solid var(--border);
+        border-radius: 16px;
+        background: var(--primary);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 24px;
+        font-weight: 900;
+        box-shadow: 4px 4px 0 var(--border);
+      }
+
+      .brand-copy small {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--lime);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-copy strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      .site {
+        padding: 14px 22px;
+        border: 3px solid var(--border);
+        border-radius: 18px;
+        background: #fff;
+        font-size: 18px;
+        font-weight: 800;
+        box-shadow: 4px 4px 0 var(--border);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 560px;
+        font-size: 62px;
+        line-height: 0.96;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+      }
+
+      h1 span {
+        color: var(--primary);
+      }
+
+      .intro {
+        margin: 20px 0 0;
+        max-width: 540px;
+        font-size: 23px;
+        line-height: 1.45;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .intro strong {
+        color: var(--text);
+      }
+
+      .stats {
+        display: grid;
+        gap: 16px;
+      }
+
+      .card {
+        border: 3px solid var(--border);
+        border-radius: 28px;
+        background: var(--card);
+        box-shadow: 6px 6px 0 var(--border);
+      }
+
+      .focus-card {
+        padding: 24px;
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .focus-card small {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--dark);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .focus-card h2 {
+        margin: 16px 0 8px;
+        font-size: 48px;
+        line-height: 1;
+      }
+
+      .focus-card p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.35;
+        opacity: 0.95;
+      }
+
+      .mini-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .mini {
+        padding: 22px 18px;
+      }
+
+      .mini strong {
+        display: block;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .mini span {
+        display: block;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .mini.lime {
+        background: var(--lime);
+      }
+
+      .mini.coral {
+        background: var(--coral);
+        color: #fff;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .service {
+        padding: 18px 18px 16px;
+      }
+
+      .service .tag {
+        display: inline-block;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: var(--dark);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .service h3 {
+        margin: 12px 0 8px;
+        font-size: 25px;
+        line-height: 1.1;
+      }
+
+      .service p {
+        margin: 0;
+        min-height: 60px;
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .price {
+        margin-top: 14px;
+        font-size: 24px;
+        line-height: 1;
+        font-weight: 900;
+        color: var(--primary);
+      }
+
+      .service.cyan .tag {
+        background: var(--cyan);
+      }
+
+      .service.purple .tag {
+        background: var(--purple);
+      }
+
+      .service.orange .tag {
+        background: var(--orange);
+      }
+
+      .service.lime .tag {
+        background: var(--lime);
+        color: var(--text);
+      }
+
+      .footer-cta {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px;
+        align-items: stretch;
+        margin-top: 22px;
+      }
+
+      .cta-panel {
+        padding: 24px 26px;
+        background: var(--dark);
+        color: #fff;
+      }
+
+      .cta-panel h4 {
+        margin: 0;
+        font-size: 31px;
+        line-height: 1.05;
+      }
+
+      .cta-panel p {
+        margin: 12px 0 0;
+        max-width: 520px;
+        font-size: 17px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.74);
+        font-weight: 600;
+      }
+
+      .action-box {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #fff;
+      }
+
+      .action-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 22px;
+        border-radius: 18px;
+        border: 3px solid var(--border);
+        background: var(--coral);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        box-shadow: 4px 4px 0 var(--border);
+      }
+
+      .handle {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 18px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark">L</div>
+          <div class="brand-copy">
+            <small>Solucoes digitais</small>
+            <strong>LipDev.BR</strong>
+          </div>
+        </div>
+        <div class="site">lipdev.vercel.app</div>
+      </div>
+
+      <section class="hero">
+        <div>
+          <h1>Seu negocio merece um <span>site profissional</span> que gere confianca.</h1>
+          <p class="intro">
+            Eu crio <strong>sites, lojas virtuais, bots para Discord</strong> e
+            <strong> atendimento via WhatsApp</strong> com visual moderno, boa
+            apresentacao e foco em resultado.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="card focus-card">
+            <small>Foco principal</small>
+            <h2>Sites e sistemas</h2>
+            <p>Projetos sob medida para pequenas empresas, negocios locais e marcas pessoais.</p>
+          </div>
+
+          <div class="mini-grid">
+            <div class="card mini lime">
+              <strong>100%</strong>
+              <span>Responsivo</span>
+            </div>
+            <div class="card mini coral">
+              <strong>Atendimento</strong>
+              <span>Rapido e direto</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services">
+        <article class="card service cyan">
+          <span class="tag">Landing page</span>
+          <h3>Apresente seu servico com mais impacto</h3>
+          <p>Ideal para divulgar produto, campanha, agenda ou captar clientes com mais clareza.</p>
+          <div class="price">a partir de R$ 600</div>
+        </article>
+
+        <article class="card service purple">
+          <span class="tag">Site institucional</span>
+          <h3>Mostre sua empresa com profissionalismo</h3>
+          <p>Perfeito para quem quer passar confianca e explicar servicos de forma organizada.</p>
+          <div class="price">a partir de R$ 1.300</div>
+        </article>
+
+        <article class="card service orange">
+          <span class="tag">Loja virtual</span>
+          <h3>Venda online com praticidade</h3>
+          <p>Estrutura para catalogo, vitrine de produtos e experiencia mais moderna para o cliente.</p>
+          <div class="price">a partir de R$ 2.800</div>
+        </article>
+
+        <article class="card service lime">
+          <span class="tag">Automacao</span>
+          <h3>WhatsApp e bots para agilizar atendimento</h3>
+          <p>Organize suporte, respostas e fluxo de contato sem deixar o cliente esperando.</p>
+          <div class="price">a partir de R$ 1.600</div>
+        </article>
+      </section>
+
+      <div class="footer-cta">
+        <div class="card cta-panel">
+          <h4>Quer um projeto para o seu negocio?</h4>
+          <p>
+            Me chama para conversar sobre a sua ideia. Eu explico tudo de forma simples,
+            alinhamos o que voce precisa e monto a melhor solucao para o seu momento.
+          </p>
+        </div>
+
+        <div class="card action-box">
+          <div class="action-pill">Peca seu orcamento</div>
+          <div class="handle">@lip.devbr</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

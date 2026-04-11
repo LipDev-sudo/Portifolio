@@ -13,6 +13,7 @@ import {
   type ContactFormValues,
 } from "@/lib/contact";
 import { useT } from "@/lib/i18n";
+import Image from "next/image";
 
 const CONTACT_ENDPOINT = "/api/contact";
 const WHATSAPP_ENDPOINT = "/api/contact/whatsapp";
@@ -122,20 +123,20 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t-[2.5px] border-border bg-dark text-white">
+    <section id="contact" className="border-t border-border">
       <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
             <span className="badge badge-coral">{t.contact.badge}</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight">
               {t.contact.title}
             </h2>
-            <p className="text-white/60 mt-6 text-base sm:text-lg leading-relaxed max-w-md">
+            <p className="text-muted-foreground mt-6 text-base sm:text-lg leading-relaxed max-w-md">
               {t.contact.description}
             </p>
 
@@ -144,9 +145,9 @@ export function Contact() {
                 href={WHATSAPP_ENDPOINT}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-[#25D366] text-white font-bold text-sm border-[2.5px] border-border shadow-[3px_3px_0px_var(--color-border)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_var(--color-border)] transition-all w-fit"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-[#25D366] text-white font-semibold text-sm hover:shadow-[0_0_20px_rgba(37,211,102,0.3)] transition-all duration-300 w-fit"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={17} />
                 {t.contact.whatsapp}
               </a>
 
@@ -154,32 +155,49 @@ export function Contact() {
                 href="https://github.com/LipDev-sudo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/80 hover:text-accent-lime transition-colors font-semibold"
+                className="flex items-center gap-3 text-muted-foreground hover:text-accent-lime transition-colors duration-300 font-medium text-sm"
               >
-                <ArrowRight size={16} className="text-accent-lime" />
+                <ArrowRight size={14} className="text-accent-lime" />
                 github.com/LipDev-sudo
               </a>
               <a
                 href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/80 hover:text-accent-cyan transition-colors font-semibold"
+                className="flex items-center gap-3 text-muted-foreground hover:text-accent-cyan transition-colors duration-300 font-medium text-sm"
               >
-                <ArrowRight size={16} className="text-accent-cyan" />
+                <ArrowRight size={14} className="text-accent-cyan" />
                 LinkedIn - Hamilton Felipe
               </a>
+            </div>
+
+            {/* Instagram QR */}
+            <div className="mt-8 flex items-center gap-4">
+              <div className="w-20 h-20 rounded-xl overflow-hidden border border-border bg-white p-1">
+                <Image
+                  src="/images/instagram-qr.png"
+                  alt="Instagram @lip.devbr"
+                  width={72}
+                  height={72}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground font-medium">Instagram</p>
+                <p className="text-sm font-semibold text-foreground">@lip.devbr</p>
+              </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-4 card-bold p-6 sm:p-8 bg-white text-foreground"
+              className="flex flex-col gap-4 card-bold p-6 sm:p-8"
             >
               <div className="hidden" aria-hidden="true">
                 <input
@@ -196,7 +214,7 @@ export function Contact() {
                   className="input"
                 />
                 {errors.name && (
-                  <span className="text-accent-coral text-xs mt-1 block font-semibold">
+                  <span className="text-accent-coral text-xs mt-1 block font-medium">
                     {errors.name.message}
                   </span>
                 )}
@@ -210,7 +228,7 @@ export function Contact() {
                   className="input"
                 />
                 {errors.email && (
-                  <span className="text-accent-coral text-xs mt-1 block font-semibold">
+                  <span className="text-accent-coral text-xs mt-1 block font-medium">
                     {errors.email.message}
                   </span>
                 )}
@@ -224,14 +242,14 @@ export function Contact() {
                   className="input resize-none"
                 />
                 {errors.message && (
-                  <span className="text-accent-coral text-xs mt-1 block font-semibold">
+                  <span className="text-accent-coral text-xs mt-1 block font-medium">
                     {errors.message.message}
                   </span>
                 )}
               </div>
 
               {errorMessage && (
-                <div className="text-accent-coral text-sm font-semibold text-center p-3 bg-accent-coral/10 rounded-lg border-2 border-accent-coral/30">
+                <div className="text-accent-coral text-sm font-medium text-center p-3 bg-accent-coral/10 rounded-lg border border-accent-coral/20">
                   {errorMessage}
                 </div>
               )}
@@ -245,12 +263,12 @@ export function Contact() {
                   t.contact.form.submitting
                 ) : sent ? (
                   <>
-                    <CheckCircle size={16} />
+                    <CheckCircle size={15} />
                     {t.contact.form.success}
                   </>
                 ) : (
                   <>
-                    <Send size={16} />
+                    <Send size={15} />
                     {t.contact.form.submit}
                   </>
                 )}

@@ -20,7 +20,7 @@ const ptMessages = {
     badge: "LipDev.BR · AI Automation Developer",
     titleStart: "Eu crio ",
     titleHighlight: "automações com IA",
-    titleEnd: " que economizam tempo e aumentam a receita das empresas.",
+    titleEnd: " que escalam operações e geram receita.",
     description:
       "Ajudo empresas a automatizar atendimento, geração de leads e tarefas repetitivas usando IA.",
     primaryCta: "Ver soluções de IA",
@@ -220,7 +220,7 @@ const enMessages: Messages = {
     badge: "LipDev.BR · AI Automation Developer",
     titleStart: "I build ",
     titleHighlight: "AI automations",
-    titleEnd: " that save businesses time and increase revenue.",
+    titleEnd: " that scale operations and drive revenue.",
     description:
       "I help companies automate customer support, lead generation and repetitive workflows using AI.",
     primaryCta: "View AI solutions",

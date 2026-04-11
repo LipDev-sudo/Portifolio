@@ -8,10 +8,7 @@ export function CaseStudies() {
   const t = useT();
 
   return (
-    <section
-      id="cases"
-      className="border-t-[2.5px] border-border"
-    >
+    <section id="cases" className="border-t border-border">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -20,7 +17,7 @@ export function CaseStudies() {
           transition={{ duration: 0.5 }}
         >
           <span className="badge badge-purple">{t.caseStudies.badge}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 max-w-2xl leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
             {t.caseStudies.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl text-base">
@@ -28,7 +25,7 @@ export function CaseStudies() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14">
           {t.caseStudies.cases.map((cs, index) => (
             <motion.div
               key={cs.title}
@@ -38,14 +35,14 @@ export function CaseStudies() {
               transition={{ delay: index * 0.15, duration: 0.4 }}
               className="card-bold p-6 flex flex-col gap-5"
             >
-              <h3 className="font-extrabold text-lg">{cs.title}</h3>
+              <h3 className="font-semibold text-lg">{cs.title}</h3>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-accent-coral flex items-center justify-center flex-shrink-0">
-                  <AlertCircle size={16} className="text-white" />
+                <div className="w-8 h-8 rounded-lg bg-accent-coral/10 flex items-center justify-center flex-shrink-0">
+                  <AlertCircle size={15} className="text-accent-coral" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <span className="text-[0.65rem] font-medium uppercase tracking-wider text-muted-foreground">
                     {t.caseStudies.badge === "Cases de IA" ? "Problema" : "Problem"}
                   </span>
                   <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
@@ -55,12 +52,12 @@ export function CaseStudies() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-accent-cyan flex items-center justify-center flex-shrink-0">
-                  <Lightbulb size={16} className="text-white" />
+                <div className="w-8 h-8 rounded-lg bg-accent-cyan/10 flex items-center justify-center flex-shrink-0">
+                  <Lightbulb size={15} className="text-accent-cyan" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                    {t.caseStudies.badge === "Cases de IA" ? "Solução" : "Solution"}
+                  <span className="text-[0.65rem] font-medium uppercase tracking-wider text-muted-foreground">
+                    {t.caseStudies.badge === "Cases de IA" ? "Solucao" : "Solution"}
                   </span>
                   <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
                     {cs.solution}
@@ -69,14 +66,14 @@ export function CaseStudies() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-accent-lime flex items-center justify-center flex-shrink-0">
-                  <TrendingUp size={16} className="text-foreground" />
+                <div className="w-8 h-8 rounded-lg bg-accent-lime/10 flex items-center justify-center flex-shrink-0">
+                  <TrendingUp size={15} className="text-accent-lime" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <span className="text-[0.65rem] font-medium uppercase tracking-wider text-muted-foreground">
                     {t.caseStudies.badge === "Cases de IA" ? "Resultado" : "Result"}
                   </span>
-                  <p className="text-sm font-semibold text-foreground mt-1 leading-relaxed">
+                  <p className="text-sm font-medium text-foreground mt-1 leading-relaxed">
                     {cs.result}
                   </p>
                 </div>
