@@ -122,9 +122,18 @@ const ptMessages = {
     ],
   },
   services: {
-    badge: "Desenvolvimento",
-    title: "Serviços de Desenvolvimento Complementares",
-    description: "Soluções digitais sob medida para pequenos e médios negócios.",
+    badge: "Serviços",
+    title: "Tudo que você precisa para crescer online.",
+    description:
+      "De automações inteligentes com IA até sites e lojas virtuais — entrego soluções completas para o seu negócio.",
+    aiGroup: {
+      label: "IA & Automação",
+      description: "Automações que trabalham 24h por dia para o seu negócio.",
+    },
+    webGroup: {
+      label: "Desenvolvimento Web",
+      description: "Sites e sistemas sob medida para pequenos e médios negócios.",
+    },
   },
   caseStudies: {
     badge: "Cases de IA",
@@ -173,6 +182,13 @@ const ptMessages = {
       "Cada projeto é uma oportunidade de aprender, resolver problemas e entregar valor real.",
     viewLive: "Ver Online",
     viewCode: "Ver Código",
+    filterAll: "Todos",
+    filterAi: "IA & Automação",
+    filterWeb: "Web",
+    privateLabel: "Projeto Privado",
+    privateNote: "Desenvolvido para cliente — código confidencial.",
+    categoryBadgeAi: "IA",
+    categoryBadgeWeb: "Web",
   },
   finalCta: {
     eyebrow: "e ai, bora?",
@@ -329,9 +345,18 @@ const enMessages: Messages = {
     ],
   },
   services: {
-    badge: "Development",
-    title: "Additional Development Services",
-    description: "Tailor-made digital solutions for small and mid-sized businesses.",
+    badge: "Services",
+    title: "Everything you need to grow online.",
+    description:
+      "From smart AI automations to websites and e-commerce — I deliver complete solutions for your business.",
+    aiGroup: {
+      label: "AI & Automation",
+      description: "Automations that work 24/7 for your business.",
+    },
+    webGroup: {
+      label: "Web Development",
+      description: "Custom websites and systems for small and mid-sized businesses.",
+    },
   },
   caseStudies: {
     badge: "AI Case Studies",
@@ -380,6 +405,13 @@ const enMessages: Messages = {
       "Each project is an opportunity to learn, solve problems and deliver real value.",
     viewLive: "Live Demo",
     viewCode: "Source Code",
+    filterAll: "All",
+    filterAi: "AI & Automation",
+    filterWeb: "Web",
+    privateLabel: "Private Project",
+    privateNote: "Built for a client — code is confidential.",
+    categoryBadgeAi: "AI",
+    categoryBadgeWeb: "Web",
   },
   finalCta: {
     eyebrow: "let's go?",

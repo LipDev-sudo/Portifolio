@@ -9,6 +9,8 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   order: number;
+  category: "web" | "ai";
+  isPrivate?: boolean;
 }
 
 export interface ContactMessage {

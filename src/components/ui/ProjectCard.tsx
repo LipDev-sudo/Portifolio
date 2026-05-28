@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Lock } from "lucide-react";
 import type { Project } from "@/types";
 import { useT } from "@/lib/i18n";
 
@@ -13,14 +13,10 @@ function GithubIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-const neonColors = [
-  "#00d4ff", // cyan
-  "#a855f7", // purple
-  "#bef264", // lime
-  "#ff4d6d", // coral
-  "#fb923c", // orange
-  "#60a5fa", // blue
-];
+const neonColors = {
+  web: ["#00d4ff", "#a855f7", "#bef264", "#ff4d6d", "#fb923c", "#60a5fa"],
+  ai:  ["#00d4ff", "#a855f7", "#bef264"],
+};
 
 interface ProjectCardProps {
   project: Project;
@@ -33,7 +29,10 @@ const cardVariants = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const t = useT();
-  const color = neonColors[project.order % neonColors.length];
+  const palette = neonColors[project.category];
+  const color = palette[project.order % palette.length];
+  const isAi = project.category === "ai";
+  const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
 
   return (
     <motion.article
@@ -49,30 +48,49 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="p-6 flex flex-col flex-1">
         {/* Header row */}
         <div className="flex items-start justify-between mb-4">
-          <span
-            className="text-4xl font-black font-mono leading-none select-none"
-            style={{ color: `${color}22` }}
-          >
-            {String(project.order + 1).padStart(2, "0")}
-          </span>
+          <div className="flex items-center gap-2.5">
+            <span
+              className="text-4xl font-black font-mono leading-none select-none"
+              style={{ color: `${color}22` }}
+            >
+              {String(project.order + 1).padStart(2, "0")}
+            </span>
+            {/* Category badge */}
+            <span
+              className="text-[0.6rem] font-bold uppercase tracking-[0.12em] px-2 py-0.5 rounded-full border"
+              style={{
+                color,
+                borderColor: `${color}30`,
+                background: `${color}0d`,
+              }}
+            >
+              {categoryLabel}
+            </span>
+          </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/25 hover:text-white/70 transition-colors"
-              aria-label="Ver código"
-            >
-              <GithubIcon size={17} />
-            </a>
+            {project.isPrivate ? (
+              <span className="text-white/20" title={t.projects.privateLabel}>
+                <Lock size={15} />
+              </span>
+            ) : (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/25 hover:text-white/70 transition-colors"
+                aria-label={t.projects.viewCode}
+              >
+                <GithubIcon size={17} />
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/25 hover:text-white/70 transition-colors"
-                aria-label="Ver demo"
+                aria-label={t.projects.viewLive}
               >
                 <ExternalLink size={16} />
               </a>
@@ -102,15 +120,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Bottom row */}
         <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.06]">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/30 hover:text-white/70 transition-colors font-mono"
-          >
-            <GithubIcon size={13} />
-            {t.projects.viewCode}
-          </a>
+          {project.isPrivate ? (
+            <span className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/20 font-mono">
+              <Lock size={11} />
+              {t.projects.privateNote}
+            </span>
+          ) : (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/30 hover:text-white/70 transition-colors font-mono"
+            >
+              <GithubIcon size={13} />
+              {t.projects.viewCode}
+            </a>
+          )}
           {project.liveUrl && (
             <span
               className="text-[0.7rem] font-bold uppercase tracking-wider font-mono"

@@ -1,6 +1,54 @@
 import type { Project } from "@/types";
 
 export const projects: Project[] = [
+  // ── AI Projects ──────────────────────────────────────────────
+  {
+    id: "ai-1",
+    title: "Assistente de WhatsApp com IA",
+    title_en: "AI WhatsApp Assistant",
+    description:
+      "Chatbot com IA que responde clientes 24h, tira dúvidas sobre procedimentos e agenda consultas automaticamente na agenda do dentista.",
+    description_en:
+      "AI chatbot that answers patients 24/7, handles procedure questions and books appointments directly on the dentist's calendar.",
+    techs: ["n8n", "OpenAI API", "WhatsApp API", "Make"],
+    imageUrl: "",
+    githubUrl: "https://github.com/LipDev-sudo",
+    order: 0,
+    category: "ai",
+    isPrivate: true,
+  },
+  {
+    id: "ai-2",
+    title: "Automação de E-mails com IA",
+    title_en: "AI Email Auto-Responder",
+    description:
+      "Automação que lê e-mails de clientes, consulta o sistema interno e responde automaticamente com o status do processo — economizando 15h/semana.",
+    description_en:
+      "Automation that reads client emails, queries the internal system and auto-replies with case status — saving 15h/week.",
+    techs: ["n8n", "OpenAI API", "Gmail API", "Google Sheets"],
+    imageUrl: "",
+    githubUrl: "https://github.com/LipDev-sudo",
+    order: 1,
+    category: "ai",
+    isPrivate: true,
+  },
+  {
+    id: "ai-3",
+    title: "Bot de Captura de Leads com IA",
+    title_en: "AI Lead Capture Bot",
+    description:
+      "Bot que centraliza leads de 5 canais, qualifica automaticamente por perfil e encaminha para o corretor certo no CRM. Taxa de conversão +35%.",
+    description_en:
+      "Bot that centralizes leads from 5 channels, auto-qualifies by profile and routes to the right agent in the CRM. Conversion rate +35%.",
+    techs: ["n8n", "OpenAI API", "WhatsApp API", "HubSpot"],
+    imageUrl: "",
+    githubUrl: "https://github.com/LipDev-sudo",
+    order: 2,
+    category: "ai",
+    isPrivate: true,
+  },
+
+  // ── Web Projects ─────────────────────────────────────────────
   {
     id: "1",
     title: "Plataforma de Cursos Online",
@@ -13,7 +61,8 @@ export const projects: Project[] = [
     imageUrl: "/images/cursos_online.png",
     githubUrl: "https://github.com/LipDev-sudo/Plataforma-de-cursos-online",
     liveUrl: "https://plataforma-de-cursos-online-tau.vercel.app/",
-    order: 0,
+    order: 3,
+    category: "web",
   },
   {
     id: "2",
@@ -27,7 +76,8 @@ export const projects: Project[] = [
     imageUrl: "/images/pedidos_online.png",
     githubUrl: "https://github.com/LipDev-sudo/plataforma-de-pedidos-online-",
     liveUrl: "https://plataforma-de-pedidos-online-two.vercel.app/",
-    order: 1,
+    order: 4,
+    category: "web",
   },
   {
     id: "3",
@@ -41,7 +91,8 @@ export const projects: Project[] = [
     imageUrl: "/images/loja_virtual.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-de-moda",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
-    order: 2,
+    order: 5,
+    category: "web",
   },
   {
     id: "4",
@@ -56,7 +107,8 @@ export const projects: Project[] = [
     githubUrl:
       "https://github.com/LipDev-sudo/loja-virtual-de-materiais-de-construcao",
     liveUrl: "https://loja-virtual-de-materiais-de-constr.vercel.app/",
-    order: 3,
+    order: 6,
+    category: "web",
   },
   {
     id: "5",
@@ -70,7 +122,8 @@ export const projects: Project[] = [
     imageUrl: "/images/premium_ecommerce.png",
     githubUrl: "https://github.com/LipDev-sudo/Premium-Custom-E-commerce-Layout",
     liveUrl: "https://premium-custom-e-commerce-layout.vercel.app/",
-    order: 4,
+    order: 7,
+    category: "web",
   },
   {
     id: "6",
@@ -84,7 +137,8 @@ export const projects: Project[] = [
     imageUrl: "/images/catalogo_produtos.png",
     githubUrl: "https://github.com/LipDev-sudo/catalogo-para-seus-produtos",
     liveUrl: "https://catalogo-para-seus-produtos.vercel.app/",
-    order: 5,
+    order: 8,
+    category: "web",
   },
   {
     id: "7",
@@ -98,27 +152,36 @@ export const projects: Project[] = [
     imageUrl: "/images/loja_profissional.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-profissional",
     liveUrl: "https://loja-virtual-profissional.vercel.app/",
-    order: 6,
+    order: 9,
+    category: "web",
   },
   {
     id: "8",
     title: "Dashboard G-Pro",
+    title_en: "Dashboard G-Pro",
     description:
       "Dashboard de gestão profissional com métricas, gráficos interativos e interface limpa para tomada de decisão.",
+    description_en:
+      "Professional management dashboard with metrics, interactive charts and clean decision-making UI.",
     techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     imageUrl: "",
     githubUrl: "https://github.com/LipDev-sudo/Dashboard-G-Pro",
-    order: 7,
+    order: 10,
+    category: "web",
   },
   {
     id: "9",
     title: "Dashboard Corporativo Minimalista",
+    title_en: "Minimalist Corporate Dashboard",
     description:
       "Protótipo de sistema de gestão corporativo com visual minimalista, baseado em design do Figma.",
+    description_en:
+      "Corporate management system prototype with minimalist visual, based on a Figma design.",
     techs: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     imageUrl: "",
     githubUrl:
       "https://github.com/LipDev-sudo/corporate-minimalist-dashboard",
-    order: 8,
+    order: 11,
+    category: "web",
   },
 ];
