@@ -78,7 +78,7 @@ export function Hero() {
               transition={{ delay: 0.65, duration: 0.5 }}
               className="flex gap-4 mt-10 flex-wrap"
             >
-              <a href="#ai-solutions" className="btn-primary">
+              <a href="#services" className="btn-primary">
                 {t.hero.primaryCta}
               </a>
               <a href="#contact" className="btn-secondary">
@@ -138,15 +138,15 @@ export function Hero() {
             <div className="grid grid-cols-2 gap-4">
               <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                 <span className="text-4xl font-extrabold text-accent-lime">
-                  100%
+                  9+
                 </span>
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
                   {t.hero.dedicationLabel}
                 </span>
               </div>
               <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-                <span className="text-4xl font-extrabold text-accent-coral">
-                  24/7
+                <span className="text-4xl font-extrabold text-accent-cyan">
+                  3+
                 </span>
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
                   {t.hero.learningLabel}
