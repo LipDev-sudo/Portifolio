@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 import type { Project } from "@/types";
-import { useLanguage } from "@/lib/i18n";
 
 function GithubIcon({ size = 14 }: { size?: number }) {
   return (
@@ -14,84 +12,110 @@ function GithubIcon({ size = 14 }: { size?: number }) {
   );
 }
 
+const neonColors = [
+  "#00d4ff", // cyan
+  "#a855f7", // purple
+  "#bef264", // lime
+  "#ff4d6d", // coral
+  "#fb923c", // orange
+  "#60a5fa", // blue
+];
+
 interface ProjectCardProps {
   project: Project;
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { lang, t } = useLanguage();
-  const title = lang === "en" && project.title_en ? project.title_en : project.title;
-  const description = lang === "en" && project.description_en ? project.description_en : project.description;
+  const color = neonColors[project.order % neonColors.length];
 
   return (
-    <motion.article variants={cardVariants} className="card-bold overflow-hidden group">
-      {/* Thumbnail */}
-      {project.imageUrl && (
-        <div className="relative h-48 overflow-hidden border-b border-white/[0.04]">
-          <Image
-            src={project.imageUrl}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          {/* Green glow overlay on hover */}
-          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.05] transition-colors duration-500" />
-        </div>
-      )}
+    <motion.article
+      variants={cardVariants}
+      className="card-bold overflow-hidden group flex flex-col"
+    >
+      {/* Neon top accent line */}
+      <div
+        className="h-px w-full"
+        style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
+      />
 
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-start justify-between mb-2">
-          <h3 className="font-semibold text-base text-white">{title}</h3>
-          {project.liveUrl && (
+      <div className="p-6 flex flex-col flex-1">
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-4">
+          <span
+            className="text-4xl font-black font-mono leading-none select-none"
+            style={{ color: `${color}22` }}
+          >
+            {String(project.order + 1).padStart(2, "0")}
+          </span>
+
+          <div className="flex items-center gap-3">
             <a
-              href={project.liveUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/20 hover:text-primary transition-colors"
-              aria-label={t.projects.viewLive}
+              className="text-white/25 hover:text-white/70 transition-colors"
+              aria-label="Ver código"
             >
-              <ExternalLink size={15} />
+              <GithubIcon size={17} />
             </a>
-          )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/25 hover:text-white/70 transition-colors"
+                aria-label="Ver demo"
+              >
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
         </div>
-        <p className="text-sm text-white/35 leading-relaxed mb-4">{description}</p>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        {/* Title & description */}
+        <h3 className="font-extrabold text-lg text-white mb-2 leading-snug">
+          {project.title}
+        </h3>
+        <p className="text-white/40 text-sm leading-relaxed flex-1">
+          {project.description}
+        </p>
+
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-2 mt-5">
           {project.techs.map((tech) => (
             <span
               key={tech}
-              className="text-[0.6rem] px-2 py-0.5 rounded-full border border-white/[0.06] bg-white/[0.02] font-medium text-white/40"
+              className="text-[0.68rem] px-2.5 py-1 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/40 font-mono"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center justify-between pt-3 border-t border-white/[0.04]">
+        {/* Bottom row */}
+        <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.06]">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-medium text-white/30 hover:text-primary transition-colors"
+            className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/30 hover:text-white/70 transition-colors font-mono"
           >
             <GithubIcon size={13} />
-            {t.projects.viewCode}
+            Código
           </a>
           {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-primary/70 hover:text-primary transition-colors"
+            <span
+              className="text-[0.7rem] font-bold uppercase tracking-wider font-mono"
+              style={{ color }}
             >
-              {t.projects.viewLive}
-            </a>
+              Online
+            </span>
           )}
         </div>
       </div>

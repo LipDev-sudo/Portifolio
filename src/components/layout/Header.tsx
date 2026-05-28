@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight, Languages } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { lang, toggle, t } = useLanguage();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { label: t.header.nav.hero, href: "#hero" },
@@ -21,10 +28,21 @@ export function Header() {
   return (
     <header className="fixed top-4 left-0 right-0 z-50">
       <nav className="max-w-[1200px] mx-auto px-4">
-        <div className="flex items-center justify-between h-14 px-6 rounded-full border border-white/[0.06] bg-black/60 backdrop-blur-xl">
+        <div
+          className={`flex items-center justify-between h-14 px-6 rounded-full border transition-all duration-300 ${
+            scrolled
+              ? "border-white/[0.1] bg-[#08080f]/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              : "border-white/[0.06] bg-black/50 backdrop-blur-xl"
+          }`}
+        >
           {/* Logo */}
-          <a href="#hero" className="text-sm font-semibold tracking-tight text-white">
-            LipDev<span className="text-primary">.BR</span>
+          <a href="#hero" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent-cyan to-primary flex items-center justify-center text-[#06060d] font-black text-xs shadow-[0_0_12px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] transition-shadow">
+              L
+            </div>
+            <span className="text-sm font-semibold tracking-tight text-white">
+              LipDev<span className="text-accent-cyan">.BR</span>
+            </span>
           </a>
 
           {/* Desktop nav */}
@@ -33,7 +51,7 @@ export function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[0.7rem] font-medium tracking-wide text-white/50 hover:text-primary transition-colors duration-300"
+                  className="text-[0.7rem] font-medium tracking-wide text-white/50 hover:text-white transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -49,7 +67,7 @@ export function Header() {
               translate="no"
               aria-label={t.header.toggleLabel}
               title={t.header.toggleLabel}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/[0.08] text-[0.65rem] font-medium text-white/50 hover:text-primary hover:border-primary/30 transition-all duration-300"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/[0.08] text-[0.65rem] font-medium text-white/50 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300"
             >
               <Languages size={12} />
               <span aria-hidden="true">{lang === "pt" ? "EN" : "PT"}</span>
@@ -57,7 +75,7 @@ export function Header() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary-dark text-[#050505] text-[0.7rem] font-semibold hover:bg-primary hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] transition-all duration-300"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-accent-cyan to-primary text-[#06060d] text-[0.7rem] font-bold hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-300"
             >
               {t.header.cta} <ArrowRight size={12} />
             </a>
@@ -65,7 +83,7 @@ export function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-white/70"
+            className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
           >
@@ -81,7 +99,7 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden mx-4 mt-2 rounded-2xl border border-white/[0.06] bg-black/80 backdrop-blur-xl overflow-hidden"
+            className="lg:hidden mx-4 mt-2 rounded-2xl border border-white/[0.06] bg-[#08080f]/95 backdrop-blur-xl overflow-hidden"
           >
             <ul className="flex flex-col p-5 gap-4">
               {navLinks.map((link) => (
@@ -89,7 +107,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-sm font-medium text-white/60 hover:text-primary transition-colors"
+                    className="text-sm font-medium text-white/60 hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
@@ -100,7 +118,7 @@ export function Header() {
                   type="button"
                   onClick={() => { setMenuOpen(false); toggle(); }}
                   translate="no"
-                  className="flex-1 inline-flex justify-center items-center gap-2 py-2.5 rounded-full border border-white/[0.08] text-sm font-medium text-white/60 hover:text-primary transition-colors"
+                  className="flex-1 inline-flex justify-center items-center gap-2 py-2.5 rounded-full border border-white/[0.08] text-sm font-medium text-white/60 hover:text-accent-cyan transition-colors"
                 >
                   <Languages size={14} />
                   {lang === "pt" ? "EN" : "PT"}
