@@ -27,8 +27,7 @@ export function Services() {
         >
           <span className="badge badge-lime">{t.services.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-5 max-w-2xl leading-tight text-white">
-            O que posso{" "}
-            <span className="gradient-text">fazer por você.</span>
+            {t.services.title}
           </h2>
           <p className="text-white/40 mt-4 max-w-xl text-base">
             {t.services.description}

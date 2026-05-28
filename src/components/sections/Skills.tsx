@@ -15,17 +15,6 @@ const backendSkills = [
   "Express.js", "Prisma",
 ];
 
-const softSkills = [
-  "Resolução de Problemas",
-  "Comunicação Clara",
-  "Trabalho em Equipe",
-  "Aprendizado Rápido",
-  "Organização",
-  "Proatividade",
-  "Atenção ao Detalhe",
-  "Entrega no Prazo",
-];
-
 const frontendDouble = [...frontendSkills, ...frontendSkills];
 const backendDouble  = [...backendSkills,  ...backendSkills];
 
@@ -57,8 +46,7 @@ export function Skills() {
         >
           <span className="badge badge-purple">{t.skills.badge}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-5 max-w-2xl leading-tight text-white">
-            Stack moderna.{" "}
-            <span className="gradient-text">Resultado real.</span>
+            {t.skills.title}
           </h2>
           <p className="text-white/40 mt-4 max-w-xl text-base">
             {t.skills.description}
@@ -105,10 +93,10 @@ export function Skills() {
           className="mt-12"
         >
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/25 mb-5 font-mono">
-            Soft Skills
+            {t.skills.groups.soft}
           </p>
           <div className="flex flex-wrap gap-3">
-            {softSkills.map((skill, i) => (
+            {t.skills.softSkills.map((skill, i) => (
               <motion.span
                 key={skill}
                 initial={{ opacity: 0, scale: 0.9 }}

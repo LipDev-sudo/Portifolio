@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import type { Project } from "@/types";
+import { useT } from "@/lib/i18n";
 
 function GithubIcon({ size = 14 }: { size?: number }) {
   return (
@@ -31,6 +32,7 @@ const cardVariants = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const t = useT();
   const color = neonColors[project.order % neonColors.length];
 
   return (
@@ -107,14 +109,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/30 hover:text-white/70 transition-colors font-mono"
           >
             <GithubIcon size={13} />
-            Código
+            {t.projects.viewCode}
           </a>
           {project.liveUrl && (
             <span
               className="text-[0.7rem] font-bold uppercase tracking-wider font-mono"
               style={{ color }}
             >
-              Online
+              {t.projects.viewLive}
             </span>
           )}
         </div>

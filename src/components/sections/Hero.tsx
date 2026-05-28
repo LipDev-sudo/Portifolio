@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-
-const techWords = ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"];
+import { useT } from "@/lib/i18n";
 
 const socialLinks = [
   {
@@ -25,15 +23,7 @@ const socialLinks = [
 ];
 
 export function Hero() {
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(
-      () => setWordIndex((i) => (i + 1) % techWords.length),
-      2200
-    );
-    return () => clearInterval(id);
-  }, []);
+  const t = useT();
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
@@ -58,7 +48,7 @@ export function Hero() {
             >
               <span className="badge badge-cyan">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-                LipDev.BR · Disponível para projetos
+                {t.hero.badge} · {t.hero.available}
               </span>
             </motion.div>
 
@@ -68,12 +58,9 @@ export function Hero() {
               transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.06] tracking-tight text-white"
             >
-              Transformo ideias
-              <br />
-              em{" "}
-              <span className="gradient-text">interfaces</span>
-              <br />
-              que marcam.
+              {t.hero.titleStart}
+              <span className="gradient-text">{t.hero.titleHighlight}</span>
+              {t.hero.titleEnd}
             </motion.h1>
 
             <motion.p
@@ -82,22 +69,7 @@ export function Hero() {
               transition={{ delay: 0.45, duration: 0.6 }}
               className="mt-7 text-base sm:text-lg text-white/45 max-w-lg leading-relaxed"
             >
-              Especializado em{" "}
-              <span className="inline-flex items-center h-7 px-3 rounded-md glass-card font-mono font-bold text-sm text-accent-cyan overflow-hidden align-middle">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={wordIndex}
-                    initial={{ y: 18, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -18, opacity: 0 }}
-                    transition={{ duration: 0.28, ease: "easeInOut" }}
-                    className="block"
-                  >
-                    {techWords[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-              {" "}— frontends modernos, rápidos e com código limpo.
+              {t.hero.description}
             </motion.p>
 
             <motion.div
@@ -106,11 +78,11 @@ export function Hero() {
               transition={{ delay: 0.65, duration: 0.5 }}
               className="flex gap-4 mt-10 flex-wrap"
             >
-              <a href="#projects" className="btn-primary">
-                Ver Projetos
+              <a href="#ai-solutions" className="btn-primary">
+                {t.hero.primaryCta}
               </a>
               <a href="#contact" className="btn-secondary">
-                Entrar em Contato
+                {t.hero.secondaryCta}
               </a>
             </motion.div>
 
@@ -153,13 +125,13 @@ export function Hero() {
           >
             <div className="glass-card rounded-2xl p-8">
               <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-accent-cyan/70 mb-4 block font-mono">
-                Foco Principal
+                {t.hero.statCard.badge}
               </span>
               <span className="text-5xl sm:text-6xl font-extrabold gradient-text leading-none">
-                Frontend
+                {t.hero.statCard.title}
               </span>
               <span className="text-xs font-mono text-white/30 mt-4 block tracking-wider">
-                React · TypeScript · Next.js · Tailwind
+                {t.hero.statCard.stack}
               </span>
             </div>
 
@@ -169,7 +141,7 @@ export function Hero() {
                   100%
                 </span>
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
-                  Dedicação
+                  {t.hero.dedicationLabel}
                 </span>
               </div>
               <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
@@ -177,13 +149,13 @@ export function Hero() {
                   24/7
                 </span>
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
-                  Aprendizado
+                  {t.hero.learningLabel}
                 </span>
               </div>
             </div>
 
             <div className="glass-card rounded-2xl p-5 flex flex-wrap gap-2">
-              {["React", "Next.js", "TypeScript", "Node.js", "Firebase", "Figma"].map((tech) => (
+              {["React", "Next.js", "TypeScript", "Node.js", "ChatGPT API", "n8n"].map((tech) => (
                 <span
                   key={tech}
                   className="text-xs px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-white/55 font-mono font-medium"
@@ -204,7 +176,7 @@ export function Hero() {
         >
           <a
             href="#about"
-            aria-label="Rolar para baixo"
+            aria-label={t.hero.scrollAria}
             className="flex flex-col items-center gap-2.5 text-white/25 hover:text-white/55 transition-colors"
           >
             <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em]">

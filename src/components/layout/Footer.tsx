@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 function GithubIcon({ size = 18 }: { size?: number }) {
   return (
@@ -19,6 +20,7 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 }
 
 export function Footer() {
+  const t = useT();
   return (
     <footer className="border-t border-white/[0.06] bg-dark py-8 px-6">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -33,7 +35,7 @@ export function Footer() {
         </div>
 
         <p className="text-[0.7rem] text-white/25 font-mono">
-          &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva. {t.footer.rights}
         </p>
 
         <div className="flex items-center gap-5">

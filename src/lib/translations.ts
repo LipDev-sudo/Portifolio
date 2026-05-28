@@ -18,6 +18,7 @@ const ptMessages = {
   },
   hero: {
     badge: "LipDev.BR · AI Automation Developer",
+    available: "Disponível para projetos",
     titleStart: "Eu crio ",
     titleHighlight: "automações com IA",
     titleEnd: " que escalam operações e geram receita.",
@@ -130,6 +131,11 @@ const ptMessages = {
     title: "Resultados reais com automação.",
     description:
       "Veja como a IA resolve problemas concretos de negócios.",
+    labels: {
+      problem: "Problema",
+      solution: "Solução",
+      result: "Resultado",
+    },
     cases: [
       {
         title: "Assistente de WhatsApp com IA",
@@ -169,6 +175,7 @@ const ptMessages = {
     viewCode: "Ver Código",
   },
   finalCta: {
+    eyebrow: "e ai, bora?",
     title: "Vamos automatizar seu negócio com IA.",
     description:
       "Agende uma conversa gratuita e descubra como a IA pode economizar tempo e aumentar a receita da sua empresa.",
@@ -218,6 +225,7 @@ const enMessages: Messages = {
   },
   hero: {
     badge: "LipDev.BR · AI Automation Developer",
+    available: "Available for projects",
     titleStart: "I build ",
     titleHighlight: "AI automations",
     titleEnd: " that scale operations and drive revenue.",
@@ -330,6 +338,11 @@ const enMessages: Messages = {
     title: "Real results with automation.",
     description:
       "See how AI solves concrete business problems.",
+    labels: {
+      problem: "Problem",
+      solution: "Solution",
+      result: "Result",
+    },
     cases: [
       {
         title: "AI WhatsApp Assistant",
@@ -369,6 +382,7 @@ const enMessages: Messages = {
     viewCode: "Source Code",
   },
   finalCta: {
+    eyebrow: "let's go?",
     title: "Let's automate your business with AI.",
     description:
       "Book a free discovery call and find out how AI can save time and increase your company's revenue.",
