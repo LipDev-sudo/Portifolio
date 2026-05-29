@@ -13,6 +13,35 @@ function rankLabel(rank: number): string {
   return "A";
 }
 
+/** Balatro-style card material based on rank */
+function getCardMaterial(rank: number): {
+  bg: string;
+  frame: string;
+  sheen: string | null;
+  tag: string | null;
+} {
+  if (rank === 14)
+    return {
+      bg: "linear-gradient(160deg, #f4e89a 0%, #e8d870 100%)",
+      frame: "#aa8a00",
+      sheen: "linear-gradient(130deg, rgba(255,220,60,0.45) 0%, transparent 50%)",
+      tag: "Gold",
+    };
+  if (rank >= 11)
+    return {
+      bg: "linear-gradient(160deg, #e8f0fa 0%, #d4e2f2 100%)",
+      frame: "#4d7aaa",
+      sheen: "linear-gradient(130deg, rgba(150,200,255,0.35) 0%, transparent 50%)",
+      tag: "Foil",
+    };
+  return {
+    bg: "linear-gradient(160deg, #f2e8d5 0%, #e4d4bc 100%)",
+    frame: "#7a5030",
+    sheen: null,
+    tag: null,
+  };
+}
+
 interface GameCardProps {
   card: Card;
   selected: boolean;
@@ -22,8 +51,16 @@ interface GameCardProps {
   chipPopup?: number | null;
 }
 
-export function GameCard({ card, selected, onClick, disabled, dealIndex = 0, chipPopup }: GameCardProps) {
+export function GameCard({
+  card,
+  selected,
+  onClick,
+  disabled,
+  dealIndex = 0,
+  chipPopup,
+}: GameCardProps) {
   const meta = SUIT_META[card.suit];
+  const mat = getCardMaterial(card.rank);
 
   function handleClick() {
     if (disabled) return;
@@ -35,45 +72,161 @@ export function GameCard({ card, selected, onClick, disabled, dealIndex = 0, chi
     <div className="relative" style={{ flexShrink: 0 }}>
       <motion.button
         onClick={handleClick}
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: selected ? -18 : 0, opacity: 1 }}
+        initial={{ y: 50, opacity: 0, rotateY: -18 }}
+        animate={{ y: selected ? -20 : 0, opacity: 1, rotateY: 0 }}
         transition={{
-          type: "spring", stiffness: 340, damping: 26,
-          opacity: { delay: dealIndex * 0.055, duration: 0.25 },
-          y: { delay: selected ? 0 : undefined },
+          type: "spring",
+          stiffness: 340,
+          damping: 26,
+          opacity: { delay: dealIndex * 0.055, duration: 0.22 },
+          rotateY: { delay: dealIndex * 0.04, duration: 0.28 },
         }}
-        whileHover={!disabled ? { scale: 1.07, y: selected ? -20 : -5 } : {}}
-        className="relative flex flex-col items-center justify-between rounded-xl outline-none"
+        whileHover={!disabled ? { scale: 1.1, y: selected ? -23 : -7 } : {}}
+        className="relative rounded-xl outline-none overflow-hidden"
         style={{
-          width: 50, height: 74, padding: "6px 5px 5px",
-          background: "linear-gradient(160deg, #1e1e38 0%, #111128 100%)",
-          border: `2px solid ${selected ? meta.color : "rgba(255,255,255,0.10)"}`,
-          boxShadow: selected ? `0 8px 28px ${meta.glow}, 0 0 0 1px ${meta.color}55` : "0 2px 8px rgba(0,0,0,0.4)",
+          width: 52,
+          height: 76,
+          display: "flex",
+          flexDirection: "column",
+          background: mat.bg,
+          border: `2.5px solid ${selected ? meta.color : mat.frame}`,
+          boxShadow: selected
+            ? `0 14px 36px ${meta.glow}, 0 0 0 2px ${meta.color}99, inset 0 1px 0 rgba(255,255,255,0.7)`
+            : `0 4px 14px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.15)`,
           cursor: disabled ? "default" : "pointer",
         }}
       >
-        <div className="w-full text-left font-bold leading-none" style={{ fontSize: 11, color: meta.color }}>
-          {rankLabel(card.rank)}
+        {/* Material sheen overlay */}
+        {mat.sheen && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: mat.sheen,
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+        )}
+
+        {/* Selected bottom glow */}
+        {selected && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: `radial-gradient(ellipse 80% 60% at 50% 110%, ${meta.glow} 0%, transparent 70%)`,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          />
+        )}
+
+        {/* Top-left: rank in suit color */}
+        <div
+          style={{
+            padding: "4px 5px 0",
+            position: "relative",
+            zIndex: 2,
+            lineHeight: 1,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Courier New', monospace",
+              fontSize: 13,
+              fontWeight: 900,
+              color: meta.color,
+              textShadow: selected ? `0 0 8px ${meta.color}` : "none",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            {rankLabel(card.rank)}
+          </span>
         </div>
-        <div className="flex flex-col items-center gap-0.5 flex-1 justify-center">
-          <span style={{ fontSize: 18, lineHeight: 1 }}>{meta.icon}</span>
-          <span className="text-center text-white/70 leading-tight" style={{ fontSize: 7, maxWidth: 40, wordBreak: "break-word" }}>
+
+        {/* Center: suit emoji + card name */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 2,
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 22,
+              lineHeight: 1,
+              filter: selected
+                ? `drop-shadow(0 0 6px ${meta.color})`
+                : "drop-shadow(0 1px 2px rgba(0,0,0,0.25))",
+            }}
+          >
+            {meta.icon}
+          </span>
+          <span
+            style={{
+              fontSize: 6,
+              color: "rgba(0,0,0,0.5)",
+              textAlign: "center",
+              maxWidth: 44,
+              lineHeight: 1.2,
+              fontWeight: 700,
+              letterSpacing: "0.2px",
+            }}
+          >
             {card.name}
           </span>
         </div>
-        <div className="w-full text-right font-semibold text-yellow-300" style={{ fontSize: 9 }}>
-          {card.chips}
+
+        {/* Bottom-right: chip value */}
+        <div
+          style={{
+            padding: "0 5px 5px",
+            display: "flex",
+            justifyContent: "flex-end",
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 8,
+              fontWeight: 900,
+              fontFamily: "monospace",
+              background: "rgba(0,0,0,0.18)",
+              borderRadius: 3,
+              padding: "1px 3px",
+              color: "rgba(0,0,0,0.6)",
+              border: "1px solid rgba(0,0,0,0.1)",
+            }}
+          >
+            {card.chips}
+          </span>
         </div>
       </motion.button>
 
+      {/* Chip popup */}
       {chipPopup != null && (
         <motion.div
-          initial={{ y: 0, opacity: 0, scale: 0.7 }}
-          animate={{ y: -28, opacity: 1, scale: 1 }}
-          exit={{ y: -40, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 280, damping: 18 }}
-          className="absolute left-1/2 -translate-x-1/2 top-0 z-20 pointer-events-none font-black rounded-lg px-2 py-0.5 text-yellow-300"
-          style={{ fontSize: 12, background: "rgba(12,12,22,0.92)", border: "1px solid rgba(245,158,11,0.4)", whiteSpace: "nowrap" }}
+          initial={{ y: 0, opacity: 0, scale: 0.6 }}
+          animate={{ y: -34, opacity: 1, scale: 1 }}
+          exit={{ y: -46, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 18 }}
+          className="absolute left-1/2 -translate-x-1/2 top-0 z-20 pointer-events-none font-black rounded-lg px-2 py-0.5"
+          style={{
+            fontSize: 12,
+            background: "rgba(0,100,220,0.95)",
+            color: "#aaddff",
+            border: "1.5px solid rgba(0,180,255,0.9)",
+            boxShadow: "0 0 12px rgba(0,180,255,0.5)",
+            whiteSpace: "nowrap",
+          }}
         >
           +{chipPopup}
         </motion.div>

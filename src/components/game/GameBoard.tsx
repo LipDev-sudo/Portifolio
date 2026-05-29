@@ -12,15 +12,20 @@ import type { Card } from "@/lib/game/cards";
 
 function getPreviewHandName(hand: Card[], selectedIds: string[]): string | null {
   if (selectedIds.length === 0) return null;
-  try { return detectHand(hand.filter((c) => selectedIds.includes(c.id))).config.name; }
-  catch { return null; }
+  try {
+    return detectHand(hand.filter((c) => selectedIds.includes(c.id))).config.name;
+  } catch {
+    return null;
+  }
 }
 
 type ScoreStep = "idle" | "name" | "chips" | "mult" | "total";
 
 export function GameBoard() {
-  const { phase, ante, blindIndex, score, target, handsLeft, discardsLeft, money,
-    hand, selectedIds, jokers, lastScore, toggleSelect, playHand, discard, goToShop } = useGameStore();
+  const {
+    phase, ante, blindIndex, score, target, handsLeft, discardsLeft, money,
+    hand, selectedIds, jokers, lastScore, toggleSelect, playHand, discard, goToShop,
+  } = useGameStore();
 
   const blind = BLINDS[ante]?.[blindIndex] ?? BLINDS[0][0];
   const progress = Math.min(score / Math.max(target, 1), 1);
@@ -35,11 +40,15 @@ export function GameBoard() {
   useEffect(() => {
     if (!lastScore || lastScore === lastScoreRef.current) return;
     lastScoreRef.current = lastScore;
-    setScoreStep("name"); sounds.playHand();
-    const t1 = setTimeout(() => { setScoreStep("chips"); sounds.tick();
-      const p: Record<number,number> = {};
-      hand.forEach((c,i) => { if (selectedIds.includes(c.id)) p[i] = c.chips; });
-      setChipPopups(p); }, 450);
+    setScoreStep("name");
+    sounds.playHand();
+    const t1 = setTimeout(() => {
+      setScoreStep("chips");
+      sounds.tick();
+      const p: Record<number, number> = {};
+      hand.forEach((c, i) => { if (selectedIds.includes(c.id)) p[i] = c.chips; });
+      setChipPopups(p);
+    }, 450);
     const t2 = setTimeout(() => { setScoreStep("mult"); sounds.tick(); setChipPopups({}); }, 1050);
     const t3 = setTimeout(() => { setScoreStep("total"); sounds.tick(); }, 1600);
     const t4 = setTimeout(() => setScoreStep("idle"), 3000);
@@ -58,71 +67,348 @@ export function GameBoard() {
   }, [phase]);
 
   return (
-    <div className="flex flex-col bg-[#08080f]" style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8 shrink-0">
-        <div className="min-w-0">
-          <p className="text-[9px] text-white/35 uppercase tracking-widest">Ante {ante+1} · {blind.isBoss?"BOSS":"Blind"}</p>
-          <p className="text-sm font-bold truncate" style={{ color: blind.isBoss?"#ff4d6d":"#00d4ff" }}>{blind.name}</p>
-          <p className="text-[9px] text-white/35 truncate">{blind.description}</p>
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        background: "linear-gradient(180deg, #0a1a0a 0%, #0d1f0d 100%)",
+      }}
+    >
+      {/* CRT scanlines overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "repeating-linear-gradient(transparent 0px, transparent 3px, rgba(0,0,0,0.06) 3px, rgba(0,0,0,0.06) 4px)",
+          pointerEvents: "none",
+          zIndex: 50,
+        }}
+      />
+      {/* CRT vignette */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 85% 85% at 50% 50%, transparent 50%, rgba(0,0,0,0.55) 100%)",
+          pointerEvents: "none",
+          zIndex: 50,
+        }}
+      />
+
+      {/* ── Top bar ───────────────────────────────────── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "10px 14px 8px",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          background: "rgba(0,0,0,0.45)",
+          flexShrink: 0,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        {/* Blind info */}
+        <div style={{ minWidth: 0 }}>
+          <p
+            style={{
+              fontSize: 8,
+              color: "rgba(255,255,255,0.3)",
+              textTransform: "uppercase",
+              letterSpacing: "0.18em",
+              marginBottom: 2,
+            }}
+          >
+            Ante {ante + 1} · {blind.isBoss ? "BOSS" : "Blind"}
+          </p>
+          <p
+            style={{
+              fontSize: 13,
+              fontWeight: 900,
+              color: blind.isBoss ? "#ff4455" : "#44ccff",
+              textShadow: blind.isBoss
+                ? "0 0 10px rgba(255,50,70,0.5)"
+                : "0 0 10px rgba(0,200,255,0.4)",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {blind.name}
+          </p>
         </div>
-        <div className="text-center shrink-0 mx-3">
-          <p className="text-[9px] text-white/35 uppercase tracking-widest">Pontos</p>
-          <motion.p key={score} initial={{ scale: 1.5, color: "#bef264" }} animate={{ scale: 1, color: "#ffffff" }}
-            transition={{ duration: 0.4 }} className="text-2xl font-black tabular-nums leading-none">
+
+        {/* Score counter */}
+        <div style={{ textAlign: "center", flexShrink: 0, margin: "0 10px" }}>
+          <p
+            style={{
+              fontSize: 8,
+              color: "rgba(255,255,255,0.3)",
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              marginBottom: 2,
+            }}
+          >
+            Pontos
+          </p>
+          <motion.p
+            key={score}
+            initial={{ scale: 1.6, color: "#88ff44" }}
+            animate={{ scale: 1, color: "#ffffff" }}
+            transition={{ duration: 0.45 }}
+            style={{
+              fontSize: 22,
+              fontWeight: 900,
+              fontFamily: "monospace",
+              lineHeight: 1,
+              textShadow: "0 0 12px rgba(255,255,255,0.2)",
+            }}
+          >
             {score.toLocaleString("pt-BR")}
           </motion.p>
-          <p className="text-[9px] text-white/35">/ {target.toLocaleString("pt-BR")}</p>
+          <p
+            style={{
+              fontSize: 8,
+              color: "rgba(255,255,255,0.28)",
+              fontFamily: "monospace",
+            }}
+          >
+            / {target.toLocaleString("pt-BR")}
+          </p>
         </div>
-        <div className="text-right shrink-0">
-          <p className="text-[9px] text-white/35 uppercase tracking-widest">Dinheiro</p>
-          <p className="text-lg font-black text-yellow-300">${money}</p>
+
+        {/* Money */}
+        <div style={{ textAlign: "right", flexShrink: 0 }}>
+          <p
+            style={{
+              fontSize: 8,
+              color: "rgba(255,255,255,0.3)",
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              marginBottom: 2,
+            }}
+          >
+            Dinheiro
+          </p>
+          <p
+            style={{
+              fontSize: 16,
+              fontWeight: 900,
+              fontFamily: "monospace",
+              color: "#ffcc44",
+              textShadow: "0 0 10px rgba(255,200,0,0.4)",
+            }}
+          >
+            ${money}
+          </p>
         </div>
       </div>
 
-      {/* Progress bar */}
-      <div className="h-[5px] bg-white/5 shrink-0">
-        <motion.div className="h-full rounded-r-full" animate={{ width: `${progress * 100}%` }}
-          transition={{ duration: 0.5 }} style={{ background: progress>=1?"#bef264":"#00d4ff" }} />
+      {/* ── Progress bar ─────────────────────────────── */}
+      <div
+        style={{
+          height: 7,
+          background: "rgba(0,0,0,0.4)",
+          flexShrink: 0,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        <motion.div
+          animate={{ width: `${progress * 100}%` }}
+          transition={{ duration: 0.55 }}
+          style={{
+            height: "100%",
+            borderRadius: "0 4px 4px 0",
+            background:
+              progress >= 1
+                ? "linear-gradient(90deg, #5adf20, #88ff44)"
+                : "linear-gradient(90deg, #0088cc, #44ccff)",
+            boxShadow:
+              progress >= 1
+                ? "0 0 10px rgba(100,255,50,0.6)"
+                : "0 0 8px rgba(0,180,255,0.5)",
+          }}
+        />
       </div>
 
-      {/* Jokers */}
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-white/8 shrink-0 overflow-x-auto">
-        <span className="text-[9px] text-white/30 uppercase tracking-widest mr-1 shrink-0">Jokers</span>
-        {Array.from({ length: MAX_JOKERS }).map((_,i) => <JokerSlot key={i} joker={jokers[i]} />)}
+      {/* ── Joker tray ───────────────────────────────── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "8px 12px",
+          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          background: "rgba(0,0,0,0.3)",
+          flexShrink: 0,
+          overflowX: "auto",
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        <span
+          style={{
+            fontSize: 7,
+            color: "rgba(255,255,255,0.22)",
+            textTransform: "uppercase",
+            letterSpacing: "0.18em",
+            marginRight: 2,
+            flexShrink: 0,
+          }}
+        >
+          Jokers
+        </span>
+        {Array.from({ length: MAX_JOKERS }).map((_, i) => (
+          <JokerSlot key={i} joker={jokers[i]} />
+        ))}
       </div>
 
-      {/* Score display */}
-      <div className="px-4 py-2 shrink-0" style={{ minHeight: 60 }}>
+      {/* ── Score reveal ─────────────────────────────── */}
+      <div
+        style={{
+          padding: "8px 14px",
+          flexShrink: 0,
+          minHeight: 66,
+          background: "rgba(0,0,0,0.2)",
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
         <AnimatePresence mode="wait">
           {scoreStep !== "idle" && lastScore && (
-            <motion.div key="score-anim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="flex flex-col gap-0.5">
-              {["name","chips","mult","total"].includes(scoreStep) && (
-                <motion.p initial={{ x: -12, opacity: 0 }} animate={{ x: 0, opacity: 1 }}
-                  className="text-sm font-bold text-white/90">{lastScore.handName}</motion.p>
+            <motion.div
+              key="score-anim"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ display: "flex", flexDirection: "column", gap: 4 }}
+            >
+              {/* Hand name */}
+              {["name", "chips", "mult", "total"].includes(scoreStep) && (
+                <motion.p
+                  initial={{ x: -14, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 900,
+                    color: "rgba(255,255,255,0.9)",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {lastScore.handName}
+                </motion.p>
               )}
-              <div className="flex items-center gap-2 flex-wrap">
-                {["chips","mult","total"].includes(scoreStep) && (
-                  <motion.span initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                    className="font-black tabular-nums rounded-lg px-2 py-0.5"
-                    style={{ fontSize:13, background:"rgba(0,212,255,0.12)", border:"1px solid rgba(0,212,255,0.3)", color:"#00d4ff" }}>
-                    {lastScore.chips} chips
+
+              {/* Chips × Mult = Total */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+                {["chips", "mult", "total"].includes(scoreStep) && (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    style={{
+                      background: "rgba(0,80,180,0.85)",
+                      border: "1.5px solid rgba(0,160,255,0.7)",
+                      borderRadius: 8,
+                      padding: "3px 10px 4px",
+                      boxShadow: "0 0 14px rgba(0,150,255,0.4)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 900,
+                        color: "#44ccff",
+                        fontFamily: "monospace",
+                        display: "block",
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      {lastScore.chips}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 6,
+                        color: "rgba(100,200,255,0.6)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        display: "block",
+                        textAlign: "center",
+                      }}
+                    >
+                      chips
+                    </span>
+                  </motion.div>
+                )}
+
+                {["mult", "total"].includes(scoreStep) && (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    style={{ fontSize: 14, color: "rgba(255,255,255,0.3)", fontWeight: 900 }}
+                  >
+                    ×
                   </motion.span>
                 )}
-                {["mult","total"].includes(scoreStep) && (
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-white/30 font-bold" style={{ fontSize:13 }}>×</motion.span>
+
+                {["mult", "total"].includes(scoreStep) && (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    style={{
+                      background: "rgba(160,0,0,0.85)",
+                      border: "1.5px solid rgba(255,80,80,0.7)",
+                      borderRadius: 8,
+                      padding: "3px 10px 4px",
+                      boxShadow: "0 0 14px rgba(255,60,60,0.4)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 900,
+                        color: "#ff6666",
+                        fontFamily: "monospace",
+                        display: "block",
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      {lastScore.mult}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 6,
+                        color: "rgba(255,150,150,0.6)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        display: "block",
+                        textAlign: "center",
+                      }}
+                    >
+                      mult
+                    </span>
+                  </motion.div>
                 )}
-                {["mult","total"].includes(scoreStep) && (
-                  <motion.span initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                    className="font-black tabular-nums rounded-lg px-2 py-0.5"
-                    style={{ fontSize:13, background:"rgba(255,77,109,0.12)", border:"1px solid rgba(255,77,109,0.3)", color:"#ff4d6d" }}>
-                    {lastScore.mult} mult
-                  </motion.span>
-                )}
+
                 {scoreStep === "total" && (
-                  <motion.span initial={{ scale: 1.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                    className="font-black tabular-nums text-yellow-300 ml-auto" style={{ fontSize:16 }}>
+                  <motion.span
+                    initial={{ scale: 1.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    style={{
+                      fontSize: 17,
+                      fontWeight: 900,
+                      fontFamily: "monospace",
+                      color: "#ffcc44",
+                      textShadow: "0 0 12px rgba(255,200,0,0.5)",
+                      marginLeft: "auto",
+                    }}
+                  >
                     +{lastScore.total.toLocaleString("pt-BR")}
                   </motion.span>
                 )}
@@ -132,77 +418,272 @@ export function GameBoard() {
         </AnimatePresence>
       </div>
 
-      <div className="flex-1 min-h-0" />
+      {/* Flex spacer */}
+      <div style={{ flex: 1, minHeight: 0 }} />
 
-      {/* Hand preview */}
-      <div className="px-4 shrink-0" style={{ minHeight: 22 }}>
+      {/* ── Hand preview label ───────────────────────── */}
+      <div style={{ padding: "4px 14px", flexShrink: 0, minHeight: 24, position: "relative", zIndex: 10 }}>
         <AnimatePresence mode="wait">
           {previewHand && phase === "playing" && scoreStep === "idle" && (
-            <motion.p key={previewHand} initial={{ opacity:0, y:4 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0 }}
-              className="text-center text-xs font-semibold" style={{ color:"#00d4ff" }}>✨ {previewHand}</motion.p>
+            <motion.p
+              key={previewHand}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              style={{
+                textAlign: "center",
+                fontSize: 11,
+                fontWeight: 800,
+                color: "#44ccff",
+                textShadow: "0 0 10px rgba(0,200,255,0.5)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              ✨ {previewHand}
+            </motion.p>
           )}
         </AnimatePresence>
       </div>
 
-      {/* Hand cards */}
-      <div className="px-2 pb-2 shrink-0">
-        <div className="flex justify-center gap-1.5 flex-wrap">
-          {hand.map((card,i) => (
-            <GameCard key={card.id} card={card} selected={selectedIds.includes(card.id)}
-              onClick={() => toggleSelect(card.id)} disabled={phase!=="playing"}
-              dealIndex={i} chipPopup={chipPopups[i]??null} />
+      {/* ── Hand cards (felt area) ────────────────────── */}
+      <div
+        style={{
+          padding: "6px 8px 8px",
+          flexShrink: 0,
+          background:
+            "radial-gradient(ellipse at 50% 50%, rgba(20,50,20,0.6) 0%, transparent 80%)",
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        {/* Felt dot texture */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px)",
+            backgroundSize: "10px 10px",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 5,
+            flexWrap: "wrap",
+            position: "relative",
+          }}
+        >
+          {hand.map((card, i) => (
+            <GameCard
+              key={card.id}
+              card={card}
+              selected={selectedIds.includes(card.id)}
+              onClick={() => toggleSelect(card.id)}
+              disabled={phase !== "playing"}
+              dealIndex={i}
+              chipPopup={chipPopups[i] ?? null}
+            />
           ))}
         </div>
       </div>
 
-      {/* Action bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-t border-white/8 shrink-0">
-        <div className="flex gap-4">
-          <div className="text-center">
-            <p className="text-xl font-black tabular-nums leading-none" style={{ color:"#00d4ff" }}>{handsLeft}</p>
-            <p className="text-[9px] text-white/35 uppercase tracking-widest mt-0.5">Mãos</p>
+      {/* ── Action bar ───────────────────────────────── */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "10px 14px 12px",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          background: "rgba(0,0,0,0.5)",
+          flexShrink: 0,
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
+        {/* Counters */}
+        <div style={{ display: "flex", gap: 14 }}>
+          <div style={{ textAlign: "center" }}>
+            <p
+              style={{
+                fontSize: 20,
+                fontWeight: 900,
+                fontFamily: "monospace",
+                lineHeight: 1,
+                color: "#44ccff",
+                textShadow: "0 0 10px rgba(0,180,255,0.5)",
+              }}
+            >
+              {handsLeft}
+            </p>
+            <p
+              style={{
+                fontSize: 7,
+                color: "rgba(255,255,255,0.3)",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                marginTop: 2,
+              }}
+            >
+              Mãos
+            </p>
           </div>
-          <div className="text-center">
-            <p className="text-xl font-black tabular-nums leading-none" style={{ color:"#a855f7" }}>{discardsLeft}</p>
-            <p className="text-[9px] text-white/35 uppercase tracking-widest mt-0.5">Descartes</p>
+          <div style={{ textAlign: "center" }}>
+            <p
+              style={{
+                fontSize: 20,
+                fontWeight: 900,
+                fontFamily: "monospace",
+                lineHeight: 1,
+                color: "#cc88ff",
+                textShadow: "0 0 10px rgba(168,100,255,0.5)",
+              }}
+            >
+              {discardsLeft}
+            </p>
+            <p
+              style={{
+                fontSize: 7,
+                color: "rgba(255,255,255,0.3)",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                marginTop: 2,
+              }}
+            >
+              Descartes
+            </p>
           </div>
         </div>
-        <div className="flex gap-2">
-          <button onClick={() => { if(!canDiscard) return; sounds.discard(); discard(); }}
-            style={{ padding:"8px 14px", borderRadius:10, fontSize:13, fontWeight:700, cursor:canDiscard?"pointer":"default",
-              background:canDiscard?"rgba(168,85,247,0.15)":"rgba(255,255,255,0.04)",
-              border:`1.5px solid ${canDiscard?"#a855f7":"rgba(255,255,255,0.08)"}`,
-              color:canDiscard?"#a855f7":"rgba(255,255,255,0.25)", transition:"all 0.15s" }}>
+
+        {/* Buttons */}
+        <div style={{ display: "flex", gap: 8 }}>
+          <button
+            onClick={() => { if (!canDiscard) return; sounds.discard(); discard(); }}
+            style={{
+              padding: "8px 12px",
+              borderRadius: 10,
+              fontSize: 12,
+              fontWeight: 800,
+              cursor: canDiscard ? "pointer" : "default",
+              background: canDiscard ? "rgba(140,60,220,0.2)" : "rgba(255,255,255,0.03)",
+              border: `1.5px solid ${canDiscard ? "#9944ee" : "rgba(255,255,255,0.06)"}`,
+              color: canDiscard ? "#cc88ff" : "rgba(255,255,255,0.2)",
+              boxShadow: canDiscard ? "0 0 10px rgba(140,60,220,0.3)" : "none",
+              transition: "all 0.15s",
+            }}
+          >
             Descartar
           </button>
-          <button onClick={() => { if(canPlay) playHand(); }}
-            style={{ padding:"8px 16px", borderRadius:10, fontSize:13, fontWeight:700, cursor:canPlay?"pointer":"default",
-              background:canPlay?"#00d4ff":"rgba(255,255,255,0.04)",
-              color:canPlay?"#08080f":"rgba(255,255,255,0.25)",
-              boxShadow:canPlay?"0 0 18px rgba(0,212,255,0.45)":"none", transition:"all 0.15s" }}>
+          <button
+            onClick={() => { if (canPlay) playHand(); }}
+            style={{
+              padding: "8px 14px",
+              borderRadius: 10,
+              fontSize: 12,
+              fontWeight: 900,
+              cursor: canPlay ? "pointer" : "default",
+              background: canPlay
+                ? "linear-gradient(90deg, #0088cc, #44ccff)"
+                : "rgba(255,255,255,0.03)",
+              border: `1.5px solid ${canPlay ? "#44ccff" : "rgba(255,255,255,0.06)"}`,
+              color: canPlay ? "#001a33" : "rgba(255,255,255,0.2)",
+              boxShadow: canPlay ? "0 0 18px rgba(0,180,255,0.5)" : "none",
+              transition: "all 0.15s",
+              letterSpacing: "0.03em",
+            }}
+          >
             Jogar Mão
           </button>
         </div>
       </div>
 
-      {/* Scoring overlay */}
+      {/* ── Blind cleared overlay ────────────────────── */}
       <AnimatePresence>
         {phase === "scoring" && (
-          <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
-            className="absolute inset-0 flex items-center justify-center z-40"
-            style={{ background:"rgba(8,8,15,0.78)", backdropFilter:"blur(6px)" }}>
-            <motion.div initial={{ scale:0.8, y:20 }} animate={{ scale:1, y:0 }} exit={{ scale:0.9, opacity:0 }}
-              transition={{ type:"spring", stiffness:280, damping:24 }}
-              className="text-center rounded-2xl"
-              style={{ padding:"28px 36px", background:"rgba(12,12,22,0.97)",
-                border:"1.5px solid rgba(190,242,100,0.35)", boxShadow:"0 0 48px rgba(190,242,100,0.15)" }}>
-              <motion.p animate={{ rotate:[0,-8,8,-4,0] }} transition={{ duration:0.5, delay:0.2 }}
-                style={{ fontSize:40, lineHeight:1 }}>🎉</motion.p>
-              <p className="text-xl font-black mt-2 mb-1" style={{ color:"#bef264" }}>Blind Superado!</p>
-              <p className="text-sm text-white/50 mb-0.5">Score: <span className="text-white font-bold">{score.toLocaleString("pt-BR")}</span></p>
-              <p className="text-xs text-yellow-300 mb-5">+${blind.reward} ganhos</p>
-              <button onClick={goToShop} className="font-bold rounded-xl hover:opacity-90"
-                style={{ padding:"10px 28px", fontSize:14, background:"#bef264", color:"#08080f" }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 60,
+              background: "rgba(5,12,5,0.82)",
+              backdropFilter: "blur(6px)",
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.75, y: 24 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.88, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 280, damping: 22 }}
+              style={{
+                textAlign: "center",
+                borderRadius: 20,
+                padding: "28px 32px",
+                background: "linear-gradient(160deg, #0e1e0e 0%, #141f14 100%)",
+                border: "2px solid rgba(100,220,60,0.4)",
+                boxShadow:
+                  "0 0 60px rgba(100,220,60,0.2), 0 24px 60px rgba(0,0,0,0.8)",
+              }}
+            >
+              <motion.p
+                animate={{ rotate: [0, -10, 10, -5, 5, 0] }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                style={{ fontSize: 42, lineHeight: 1 }}
+              >
+                🎉
+              </motion.p>
+              <p
+                style={{
+                  fontSize: 19,
+                  fontWeight: 900,
+                  color: "#88ff44",
+                  textShadow: "0 0 20px rgba(130,255,60,0.5)",
+                  marginTop: 10,
+                  marginBottom: 4,
+                }}
+              >
+                Blind Superado!
+              </p>
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", marginBottom: 2 }}>
+                Score:{" "}
+                <span style={{ color: "#fff", fontWeight: 800 }}>
+                  {score.toLocaleString("pt-BR")}
+                </span>
+              </p>
+              <p
+                style={{
+                  fontSize: 12,
+                  fontWeight: 800,
+                  color: "#ffcc44",
+                  textShadow: "0 0 8px rgba(255,200,0,0.4)",
+                  marginBottom: 20,
+                }}
+              >
+                +${blind.reward} ganhos
+              </p>
+              <button
+                onClick={goToShop}
+                style={{
+                  padding: "10px 28px",
+                  borderRadius: 12,
+                  fontSize: 13,
+                  fontWeight: 900,
+                  background: "linear-gradient(90deg, #5adf20, #88ff44)",
+                  color: "#0a1a0a",
+                  border: "none",
+                  cursor: "pointer",
+                  boxShadow: "0 0 20px rgba(120,255,50,0.4)",
+                  letterSpacing: "0.04em",
+                }}
+              >
                 Ir para a Loja →
               </button>
             </motion.div>
