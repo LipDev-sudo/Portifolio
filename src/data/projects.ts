@@ -48,6 +48,23 @@ export const projects: Project[] = [
     isPrivate: true,
   },
 
+  // ── Game Projects ────────────────────────────────────────────
+  {
+    id: "game-1",
+    title: "Dev Balatro",
+    title_en: "Dev Balatro",
+    description:
+      "Jogo roguelike de cartas inspirado no Balatro. Monte mãos de poker com tecnologias reais (React, Docker, GPT...), use Jokers e sobreviva até derrotar o CTO.",
+    description_en:
+      "Balatro-inspired roguelike card game. Build poker hands with real tech stacks (React, Docker, GPT...), combine Jokers and survive until you beat the CTO.",
+    techs: ["Next.js", "React 19", "Zustand", "Framer Motion", "TypeScript", "Web Audio API"],
+    imageUrl: "",
+    githubUrl: "https://github.com/LipDev-sudo",
+    gameUrl: "http://localhost:3001",
+    order: 12,
+    category: "web",
+  },
+
   // ── Web Projects ─────────────────────────────────────────────
   {
     id: "1",

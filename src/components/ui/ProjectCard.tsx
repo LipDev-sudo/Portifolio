@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Lock } from "lucide-react";
+import { ExternalLink, Lock, Gamepad2 } from "lucide-react";
 import type { Project } from "@/types";
 import { useT } from "@/lib/i18n";
 
@@ -20,6 +20,7 @@ const neonColors = {
 
 interface ProjectCardProps {
   project: Project;
+  onPlay?: () => void;
 }
 
 const cardVariants = {
@@ -27,7 +28,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, onPlay }: ProjectCardProps) {
   const t = useT();
   const palette = neonColors[project.category];
   const color = palette[project.order % palette.length];
@@ -84,6 +85,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <GithubIcon size={17} />
               </a>
             )}
+            {project.gameUrl && onPlay && (
+              <button
+                onClick={onPlay}
+                className="transition-colors"
+                style={{ color }}
+                aria-label="Jogar"
+                title="Jogar no portfólio"
+              >
+                <Gamepad2 size={17} />
+              </button>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
@@ -136,14 +148,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {t.projects.viewCode}
             </a>
           )}
-          {project.liveUrl && (
+          {project.gameUrl && onPlay ? (
+            <button
+              onClick={onPlay}
+              className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80"
+              style={{ color }}
+            >
+              <Gamepad2 size={12} />
+              Jogar Agora
+            </button>
+          ) : project.liveUrl ? (
             <span
               className="text-[0.7rem] font-bold uppercase tracking-wider font-mono"
               style={{ color }}
             >
               {t.projects.viewLive}
             </span>
-          )}
+          ) : null}
         </div>
       </div>
     </motion.article>

@@ -11,6 +11,8 @@ export interface Project {
   order: number;
   category: "web" | "ai";
   isPrivate?: boolean;
+  /** URL to open in the in-portfolio game modal */
+  gameUrl?: string;
 }
 
 export interface ContactMessage {
