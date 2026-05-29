@@ -3,15 +3,16 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { GameApp } from "@/components/game/GameApp";
 
 interface GameModalProps {
   open: boolean;
   onClose: () => void;
-  gameUrl: string;
+  gameUrl?: string;
   title: string;
 }
 
-export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
+export function GameModal({ open, onClose, title }: GameModalProps) {
   // Close on Escape
   useEffect(() => {
     if (!open) return;
@@ -99,14 +100,10 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 </button>
               </div>
 
-              {/* ── Game iframe ─────────────────────────────── */}
-              <iframe
-                src={gameUrl}
-                title={title}
-                allow="autoplay"
-                className="flex-1 border-0 w-full"
-                style={{ background: "#08080f" }}
-              />
+              {/* ── Embedded game ───────────────────────────── */}
+              <div style={{ position: "relative", flex: 1, overflow: "hidden" }}>
+                <GameApp />
+              </div>
             </div>
           </motion.div>
         </>
