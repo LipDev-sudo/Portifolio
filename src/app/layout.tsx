@@ -20,6 +20,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = getSiteUrl();
+const socialPreviewImage = new URL(
+  "/images/portfolio-link-preview-2026.png",
+  siteUrl
+).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,12 +42,14 @@ export const metadata: Metadata = {
     title: "Hamilton Felipe | LipDev.BR — AI Automation Developer",
     description:
       "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
+    url: siteUrl,
+    siteName: "LipDev.BR",
     type: "website",
     locale: "pt_BR",
     alternateLocale: ["en_US"],
     images: [
       {
-        url: "/images/portfolio-og.png",
+        url: socialPreviewImage,
         width: 1200,
         height: 630,
         alt: "LipDev.BR portfolio preview",
@@ -55,7 +61,7 @@ export const metadata: Metadata = {
     title: "Hamilton Felipe | LipDev.BR â€” AI Automation Developer",
     description:
       "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
-    images: ["/images/portfolio-og.png"],
+    images: [socialPreviewImage],
   },
 };
 
