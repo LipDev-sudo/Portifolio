@@ -41,7 +41,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     alternateLocale: ["en_US"],
-    images: [{ url: "/images/premium_ecommerce.png" }],
+    images: [
+      {
+        url: "/images/portfolio-og.png",
+        width: 1200,
+        height: 630,
+        alt: "LipDev.BR portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hamilton Felipe | LipDev.BR â€” AI Automation Developer",
+    description:
+      "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
+    images: ["/images/portfolio-og.png"],
   },
 };
 
