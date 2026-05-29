@@ -1,4 +1,4 @@
-import type { Card, Suit } from "./cards";
+import type { Suit } from "./cards";
 import type { HandResult } from "./hands";
 
 export interface Joker {

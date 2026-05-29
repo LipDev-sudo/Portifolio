@@ -64,7 +64,11 @@ export function GameCard({
 
   function handleClick() {
     if (disabled) return;
-    selected ? sounds.cardDeselect() : sounds.cardSelect();
+    if (selected) {
+      sounds.cardDeselect();
+    } else {
+      sounds.cardSelect();
+    }
     onClick();
   }
 
