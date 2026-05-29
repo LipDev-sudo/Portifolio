@@ -75,7 +75,8 @@ body {
 }
 
 @media (pointer: fine) {
-  body { cursor: none; }
+  /* Hide native cursor on every element — including inline cursor:pointer overrides */
+  *, *::before, *::after { cursor: none !important; }
 }
 
 /* Custom scrollbar */

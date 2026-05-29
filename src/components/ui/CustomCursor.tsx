@@ -10,74 +10,62 @@ export function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Dot — fast
-  const dotX = useSpring(mouseX, { damping: 50, stiffness: 900, mass: 0.3 });
-  const dotY = useSpring(mouseY, { damping: 50, stiffness: 900, mass: 0.3 });
-
-  // Ring — lags behind
-  const ringX = useSpring(mouseX, { damping: 28, stiffness: 280, mass: 0.6 });
-  const ringY = useSpring(mouseY, { damping: 28, stiffness: 280, mass: 0.6 });
+  // Follows mouse with a smooth spring lag
+  const x = useSpring(mouseX, { damping: 28, stiffness: 260, mass: 0.5 });
+  const y = useSpring(mouseY, { damping: 28, stiffness: 260, mass: 0.5 });
 
   useEffect(() => {
-    const handleMove = (e: MouseEvent) => {
+    const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      if (!visible) setVisible(true);
+      setVisible(true);
 
-      const target = e.target as Element;
+      const el = e.target as Element;
       setHovering(
-        window.getComputedStyle(target).cursor === "pointer" ||
-          !!target.closest("a, button, [role='button']")
+        window.getComputedStyle(el).cursor === "pointer" ||
+        !!el.closest("a, button, [role='button'], [data-hover]")
       );
     };
+    const onLeave = () => setVisible(false);
 
-    const handleLeave = () => setVisible(false);
-
-    window.addEventListener("mousemove", handleMove);
-    document.documentElement.addEventListener("mouseleave", handleLeave);
+    window.addEventListener("mousemove", onMove);
+    document.documentElement.addEventListener("mouseleave", onLeave);
     return () => {
-      window.removeEventListener("mousemove", handleMove);
-      document.documentElement.removeEventListener("mouseleave", handleLeave);
+      window.removeEventListener("mousemove", onMove);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
     };
-  }, [mouseX, mouseY, visible]);
+  }, [mouseX, mouseY]);
 
   return (
-    <>
-      {/* Trailing ring */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9998] hidden lg:block"
-        style={{
-          x: ringX,
-          y: ringY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-        animate={{
-          scale: hovering ? 1.6 : 1,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{ scale: { duration: 0.2 }, opacity: { duration: 0.3 } }}
-      >
-        <div className="w-9 h-9 rounded-full border border-accent-cyan/35" />
-      </motion.div>
-
-      {/* Inner dot */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:block"
-        style={{
-          x: dotX,
-          y: dotY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-        animate={{
-          scale: hovering ? 0.4 : 1,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{ scale: { duration: 0.15 }, opacity: { duration: 0.3 } }}
-      >
-        <div className="w-[6px] h-[6px] rounded-full bg-accent-cyan" />
-      </motion.div>
-    </>
+    // Single ring — scale(0.26) when idle, scale(1) when hovering
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:block"
+      style={{
+        x,
+        y,
+        translateX: "-50%",
+        translateY: "-50%",
+        width: 40,
+        height: 40,
+        borderRadius: "50%",
+        border: "1.5px solid rgba(0,212,255,0.7)",
+      }}
+      animate={{
+        scale: hovering ? 1 : 0.26,
+        opacity: visible ? 1 : 0,
+        borderColor: hovering
+          ? "rgba(0,212,255,1)"
+          : "rgba(0,212,255,0.7)",
+        boxShadow: hovering
+          ? "0 0 18px rgba(0,212,255,0.4), inset 0 0 10px rgba(0,212,255,0.06)"
+          : "none",
+      }}
+      transition={{
+        scale: { type: "spring", stiffness: 420, damping: 22 },
+        opacity: { duration: 0.2 },
+        borderColor: { duration: 0.15 },
+        boxShadow: { duration: 0.18 },
+      }}
+    />
   );
 }
