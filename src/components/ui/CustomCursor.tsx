@@ -48,21 +48,28 @@ export function CustomCursor() {
         width: 40,
         height: 40,
         borderRadius: "50%",
-        border: "1.5px solid rgba(0,212,255,0.7)",
+        border: "2px solid rgba(34,211,238,0.95)",
+        background: "rgba(34,211,238,0.18)",
+        outline: "1px solid rgba(255,255,255,0.22)",
+        outlineOffset: 2,
       }}
       animate={{
-        scale: hovering ? 1 : 0.26,
+        scale: hovering ? 1.05 : 0.36,
         opacity: visible ? 1 : 0,
+        backgroundColor: hovering
+          ? "rgba(34,211,238,0.08)"
+          : "rgba(34,211,238,0.34)",
         borderColor: hovering
-          ? "rgba(0,212,255,1)"
-          : "rgba(0,212,255,0.7)",
+          ? "rgba(34,211,238,1)"
+          : "rgba(125,211,252,1)",
         boxShadow: hovering
-          ? "0 0 18px rgba(0,212,255,0.4), inset 0 0 10px rgba(0,212,255,0.06)"
-          : "none",
+          ? "0 0 0 6px rgba(34,211,238,0.08), 0 0 28px rgba(34,211,238,0.55), inset 0 0 12px rgba(34,211,238,0.12)"
+          : "0 0 0 5px rgba(34,211,238,0.12), 0 0 16px rgba(34,211,238,0.38)",
       }}
       transition={{
         scale: { type: "spring", stiffness: 420, damping: 22 },
         opacity: { duration: 0.2 },
+        backgroundColor: { duration: 0.15 },
         borderColor: { duration: 0.15 },
         boxShadow: { duration: 0.18 },
       }}
