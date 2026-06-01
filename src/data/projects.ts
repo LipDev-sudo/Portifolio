@@ -172,33 +172,4 @@ export const projects: Project[] = [
     order: 9,
     category: "web",
   },
-  {
-    id: "8",
-    title: "Dashboard G-Pro",
-    title_en: "Dashboard G-Pro",
-    description:
-      "Organizador de tarefas profissional com Kanban, prioridades, prazos, busca, métricas de progresso e persistência local.",
-    description_en:
-      "Professional task organizer with Kanban board, priorities, due dates, search, progress metrics and local persistence.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite", "LocalStorage"],
-    imageUrl: "",
-    githubUrl: "https://github.com/LipDev-sudo/Dashboard-G-Pro",
-    order: 10,
-    category: "web",
-  },
-  {
-    id: "9",
-    title: "Dashboard Corporativo Minimalista",
-    title_en: "Minimalist Corporate Dashboard",
-    description:
-      "Protótipo de sistema de gestão corporativo com visual minimalista, baseado em design do Figma.",
-    description_en:
-      "Corporate management system prototype with minimalist visual, based on a Figma design.",
-    techs: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    imageUrl: "",
-    githubUrl:
-      "https://github.com/LipDev-sudo/corporate-minimalist-dashboard",
-    order: 11,
-    category: "web",
-  },
 ];
