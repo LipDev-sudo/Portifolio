@@ -177,10 +177,10 @@ export const projects: Project[] = [
     title: "Dashboard G-Pro",
     title_en: "Dashboard G-Pro",
     description:
-      "Dashboard de gestão profissional com métricas, gráficos interativos e interface limpa para tomada de decisão.",
+      "Organizador de tarefas profissional com Kanban, prioridades, prazos, busca, métricas de progresso e persistência local.",
     description_en:
-      "Professional management dashboard with metrics, interactive charts and clean decision-making UI.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "Professional task organizer with Kanban board, priorities, due dates, search, progress metrics and local persistence.",
+    techs: ["React", "TypeScript", "Tailwind CSS", "Vite", "LocalStorage"],
     imageUrl: "",
     githubUrl: "https://github.com/LipDev-sudo/Dashboard-G-Pro",
     order: 10,
