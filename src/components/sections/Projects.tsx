@@ -27,9 +27,9 @@ export function Projects() {
     web: t.projects.filterWeb,
   };
 
-  const filtered = filter === "all"
-    ? projects
-    : projects.filter((p) => p.category === filter);
+  const filtered = [...projects]
+    .sort((a, b) => a.order - b.order)
+    .filter((p) => filter === "all" || p.category === filter);
 
   return (
     <>
@@ -90,10 +90,11 @@ export function Projects() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8"
             >
-              {filtered.map((project) => (
+              {filtered.map((project, index) => (
                 <ProjectCard
                   key={project.id}
                   project={project}
+                  displayIndex={index + 1}
                   onPlay={
                     project.gameUrl
                       ? () => setGameProject(project)

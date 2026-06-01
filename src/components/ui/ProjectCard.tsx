@@ -20,6 +20,7 @@ const neonColors = {
 
 interface ProjectCardProps {
   project: Project;
+  displayIndex: number;
   onPlay?: () => void;
 }
 
@@ -28,10 +29,10 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export function ProjectCard({ project, onPlay }: ProjectCardProps) {
+export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
   const t = useT();
   const palette = neonColors[project.category];
-  const color = palette[project.order % palette.length];
+  const color = palette[(displayIndex - 1) % palette.length];
   const isAi = project.category === "ai";
   const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
 
@@ -54,7 +55,7 @@ export function ProjectCard({ project, onPlay }: ProjectCardProps) {
               className="text-4xl font-black font-mono leading-none select-none"
               style={{ color: `${color}22` }}
             >
-              {String(project.order + 1).padStart(2, "0")}
+              {String(displayIndex).padStart(2, "0")}
             </span>
             {/* Category badge */}
             <span
