@@ -18,9 +18,19 @@ type ScoreStore = {
   scores: ScoreEntry[];
 };
 
+type SupabaseScoreRow = {
+  id: string;
+  access_number: number;
+  player_name: string;
+  score: number;
+  wave: number;
+  created_at: string;
+};
+
 const SCORE_LIMIT = 5;
 const MAX_SCORE = 9_999_999;
 const MAX_WAVE = 999;
+const SCORE_TABLE = "groovy_invaders_scores";
 const STORE_DIR = path.join(process.cwd(), "data");
 const STORE_FILE = path.join(STORE_DIR, "groovy-invaders-scores.json");
 
@@ -41,6 +51,104 @@ function corsHeaders(request: NextRequest) {
     "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Cache-Control": "no-store",
+  };
+}
+
+function getSupabaseConfig() {
+  const url = process.env.SUPABASE_URL?.replace(/\/$/, "");
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !serviceRoleKey || serviceRoleKey.includes("cole_aqui")) {
+    return null;
+  }
+
+  return { url, serviceRoleKey };
+}
+
+function supabaseHeaders(serviceRoleKey: string) {
+  return {
+    apikey: serviceRoleKey,
+    Authorization: `Bearer ${serviceRoleKey}`,
+    "Content-Type": "application/json",
+  };
+}
+
+function mapSupabaseRow(row: SupabaseScoreRow): ScoreEntry {
+  return {
+    id: row.id,
+    accessNumber: Number(row.access_number),
+    playerName: `Visitante #${row.access_number}`,
+    score: Number(row.score),
+    wave: Number(row.wave),
+    submittedAt: row.created_at,
+  };
+}
+
+async function fetchSupabaseScores(order: string) {
+  const config = getSupabaseConfig();
+  if (!config) return null;
+
+  const url = new URL(`${config.url}/rest/v1/${SCORE_TABLE}`);
+  url.searchParams.set("select", "id,access_number,player_name,score,wave,created_at");
+  url.searchParams.set("order", order);
+  url.searchParams.set("limit", String(SCORE_LIMIT));
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: supabaseHeaders(config.serviceRoleKey),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Supabase score read failed: ${response.status}`);
+  }
+
+  const rows = await response.json() as SupabaseScoreRow[];
+  return rows.map(mapSupabaseRow);
+}
+
+async function insertSupabaseScore(score: number, wave: number) {
+  const config = getSupabaseConfig();
+  if (!config) return null;
+
+  const url = new URL(`${config.url}/rest/v1/${SCORE_TABLE}`);
+  url.searchParams.set("select", "id,access_number,player_name,score,wave,created_at");
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      ...supabaseHeaders(config.serviceRoleKey),
+      Prefer: "return=representation",
+    },
+    body: JSON.stringify({
+      player_name: "Visitante",
+      score,
+      wave,
+    }),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Supabase score insert failed: ${response.status}`);
+  }
+
+  const rows = await response.json() as SupabaseScoreRow[];
+  return rows[0] ? mapSupabaseRow(rows[0]) : null;
+}
+
+async function supabaseScorePayload() {
+  const [topScores, recentScores] = await Promise.all([
+    fetchSupabaseScores("score.desc,wave.desc,created_at.asc"),
+    fetchSupabaseScores("created_at.desc"),
+  ]);
+
+  if (!topScores || !recentScores) return null;
+
+  return {
+    topScores,
+    recentScores,
+    champion: topScores[0] ?? null,
+    latest: recentScores[0] ?? null,
   };
 }
 
@@ -116,6 +224,18 @@ export async function OPTIONS(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const headers = corsHeaders(request);
+  const supabaseScores = await supabaseScorePayload();
+
+  if (supabaseScores) {
+    return NextResponse.json(
+      {
+        ok: true,
+        ...supabaseScores,
+      },
+      { headers },
+    );
+  }
+
   const store = await readStore();
 
   return scoreResponse(store, headers);
@@ -142,6 +262,29 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { ok: false, message: "Score ou wave invalidos." },
       { status: 400, headers },
+    );
+  }
+
+  try {
+    const insertedScore = await insertSupabaseScore(score, wave);
+    const supabaseScores = await supabaseScorePayload();
+
+    if (insertedScore && supabaseScores) {
+      return NextResponse.json(
+        {
+          ok: true,
+          submitted: insertedScore,
+          ...supabaseScores,
+        },
+        { headers },
+      );
+    }
+  } catch (error) {
+    console.error("Groovy Invaders Supabase score error:", error);
+
+    return NextResponse.json(
+      { ok: false, message: "Nao foi possivel salvar o score no Supabase." },
+      { status: 502, headers },
     );
   }
 
