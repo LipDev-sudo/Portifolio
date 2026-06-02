@@ -20,6 +20,9 @@
 # production
 /build
 
+# runtime score storage
+/data/groovy-invaders-scores.json
+
 # misc
 .DS_Store
 *.pem
