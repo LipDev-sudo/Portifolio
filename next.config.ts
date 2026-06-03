@@ -7,7 +7,7 @@ const contentSecurityPolicy = [
   "base-uri 'self'",
   "font-src 'self' data:",
   "form-action 'self'",
-  "frame-ancestors 'none'",
+  "frame-ancestors 'self'",
   "img-src 'self' data: blob:",
   "object-src 'none'",
   `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
@@ -31,7 +31,7 @@ const securityHeaders = [
   },
   {
     key: "X-Frame-Options",
-    value: "DENY",
+    value: "SAMEORIGIN",
   },
   {
     key: "Permissions-Policy",
