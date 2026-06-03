@@ -111,6 +111,7 @@ export function Projects() {
       <GameModal
         open={gameProject !== null}
         onClose={() => setGameProject(null)}
+        gameUrl={gameProject?.gameUrl}
         title={gameProject?.title ?? ""}
       />
     </>

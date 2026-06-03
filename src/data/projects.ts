@@ -50,6 +50,22 @@ export const projects: Project[] = [
 
   // ── Game Projects ────────────────────────────────────────────
   {
+    id: "game-2",
+    title: "Groovy Invaders",
+    title_en: "Groovy Invaders",
+    description:
+      "Jogo arcade 16-bit com nave mecanica, aliens pixel art, ondas, tiros e placar compartilhado via Supabase.",
+    description_en:
+      "16-bit arcade shooter with mechanical ship, pixel-art aliens, waves, bullets and shared Supabase scoreboard.",
+    techs: ["React", "TypeScript", "Vite", "Canvas API", "Supabase"],
+    imageUrl: "",
+    githubUrl: "https://github.com/LipDev-sudo/Groovy-Invaders",
+    liveUrl: "/games/groovy-invaders/",
+    gameUrl: "/games/groovy-invaders/",
+    order: 10,
+    category: "web",
+  },
+  {
     id: "game-1",
     title: "Dev Balatro",
     title_en: "Dev Balatro",
