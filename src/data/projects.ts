@@ -59,11 +59,12 @@ export const projects: Project[] = [
       "16-bit arcade shooter with mechanical ship, pixel-art aliens, waves, bullets and shared Supabase scoreboard.",
     techs: ["React", "TypeScript", "Vite", "Canvas API", "Supabase"],
     imageUrl: "",
-    githubUrl: "https://github.com/LipDev-sudo/Groovy-Invaders",
+    githubUrl: "https://github.com/LipDev-sudo",
     liveUrl: "/games/groovy-invaders/index.html",
     gameUrl: "/games/groovy-invaders/index.html",
     order: 10,
     category: "web",
+    isPrivate: true,
   },
   {
     id: "game-1",
@@ -79,6 +80,7 @@ export const projects: Project[] = [
     gameUrl: "http://localhost:3001",
     order: 12,
     category: "web",
+    isPrivate: true,
   },
 
   // ── Web Projects ─────────────────────────────────────────────
