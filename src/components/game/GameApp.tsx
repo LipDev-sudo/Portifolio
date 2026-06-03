@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useGameStore } from "@/lib/game/store";
 import { GameBoard } from "./GameBoard";
@@ -663,8 +664,158 @@ function VictoryScreen() {
 }
 
 // ── Embedded game root ────────────────────────────────────────────────────────
+function PauseButton() {
+  const { phase, pauseGame } = useGameStore();
+  const canPause = ["blind_select", "playing", "scoring", "shop"].includes(phase);
+
+  if (!canPause) return null;
+
+  return (
+    <button
+      type="button"
+      onClick={pauseGame}
+      aria-label="Pausar jogo"
+      style={{
+        position: "absolute",
+        top: 8,
+        right: 8,
+        zIndex: 95,
+        minWidth: 42,
+        minHeight: 34,
+        padding: "0 10px",
+        borderRadius: 10,
+        border: "1px solid rgba(255,255,255,0.16)",
+        background: "rgba(0,0,0,0.62)",
+        color: "rgba(255,255,255,0.72)",
+        fontSize: 10,
+        fontWeight: 900,
+        letterSpacing: "0.08em",
+        cursor: "pointer",
+        backdropFilter: "blur(10px)",
+        touchAction: "manipulation",
+      }}
+    >
+      II
+    </button>
+  );
+}
+
+function PausedScreen() {
+  const { resumeGame, startRun, goToMenu, phaseBeforePause } = useGameStore();
+
+  return (
+    <Screen>
+      <motion.div
+        initial={{ scale: 0.86, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 240, damping: 22 }}
+        style={{ maxWidth: 320, width: "100%", textAlign: "center", margin: "0 auto" }}
+      >
+        <p
+          style={{
+            fontSize: 9,
+            color: "rgba(255,255,255,0.3)",
+            textTransform: "uppercase",
+            letterSpacing: "0.22em",
+            marginBottom: 10,
+          }}
+        >
+          Run em pausa
+        </p>
+        <h2
+          style={{
+            fontSize: 32,
+            fontWeight: 900,
+            color: "#44ccff",
+            textShadow: "0 0 20px rgba(0,180,255,0.45)",
+            marginBottom: 8,
+          }}
+        >
+          Dev Balatro
+        </h2>
+        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.42)", lineHeight: 1.6, marginBottom: 22 }}>
+          {phaseBeforePause === "shop"
+            ? "A loja ficou aberta esperando sua decisao."
+            : "A mesa congelou exatamente onde voce parou."}
+        </p>
+        <div style={{ display: "grid", gap: 10 }}>
+          <button
+            type="button"
+            onClick={resumeGame}
+            style={{
+              minHeight: 46,
+              borderRadius: 12,
+              border: "none",
+              background: "linear-gradient(90deg, #0088cc, #44ccff)",
+              color: "#001a33",
+              fontSize: 13,
+              fontWeight: 900,
+              cursor: "pointer",
+              letterSpacing: "0.04em",
+              touchAction: "manipulation",
+            }}
+          >
+            Continuar
+          </button>
+          <button
+            type="button"
+            onClick={startRun}
+            style={{
+              minHeight: 44,
+              borderRadius: 12,
+              border: "1px solid rgba(255,255,255,0.12)",
+              background: "rgba(255,255,255,0.06)",
+              color: "rgba(255,255,255,0.76)",
+              fontSize: 12,
+              fontWeight: 800,
+              cursor: "pointer",
+              touchAction: "manipulation",
+            }}
+          >
+            Nova Run
+          </button>
+          <button
+            type="button"
+            onClick={goToMenu}
+            style={{
+              minHeight: 42,
+              borderRadius: 12,
+              border: "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(0,0,0,0.34)",
+              color: "rgba(255,255,255,0.5)",
+              fontSize: 11,
+              fontWeight: 800,
+              cursor: "pointer",
+              touchAction: "manipulation",
+            }}
+          >
+            Menu Principal
+          </button>
+        </div>
+      </motion.div>
+    </Screen>
+  );
+}
+
 export function GameApp() {
   const phase = useGameStore((s) => s.phase);
+  const pauseGame = useGameStore((s) => s.pauseGame);
+  const resumeGame = useGameStore((s) => s.resumeGame);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      if (useGameStore.getState().phase === "paused") {
+        resumeGame();
+      } else {
+        pauseGame();
+      }
+    };
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [pauseGame, resumeGame]);
 
   return (
     <div
@@ -676,11 +827,13 @@ export function GameApp() {
         background: "#0a1a0a",
       }}
     >
+      <PauseButton />
       <AnimatePresence mode="wait">
         {phase === "menu"         && <MenuScreen        key="menu"         />}
         {phase === "blind_select" && <BlindSelectScreen key="blind_select" />}
         {(phase === "playing" || phase === "scoring") && <GameBoard key="board" />}
         {phase === "shop"         && <Shop              key="shop"         />}
+        {phase === "paused"       && <PausedScreen      key="paused"       />}
         {phase === "game_over"    && <GameOverScreen    key="game_over"    />}
         {phase === "victory"      && <VictoryScreen     key="victory"      />}
       </AnimatePresence>

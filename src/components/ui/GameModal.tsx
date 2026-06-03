@@ -17,7 +17,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
     if (!open) return;
 
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape" && event.shiftKey) onClose();
     };
 
     window.addEventListener("keydown", onKey);
@@ -30,6 +30,10 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const embeddedGameUrl = gameUrl
+    ? `${gameUrl}${gameUrl.includes("?") ? "&" : "?"}embed=1`
+    : undefined;
 
   return (
     <AnimatePresence>
@@ -52,13 +56,13 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
             className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
-            style={{ padding: "16px" }}
+            style={{ padding: "max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom))" }}
           >
             <div
               className="relative pointer-events-auto flex flex-col overflow-hidden rounded-2xl"
               style={{
-                width: gameUrl ? "min(430px, 100%)" : "min(390px, 100%)",
-                height: gameUrl ? "min(920px, 100dvh - 32px)" : "min(760px, 100dvh - 32px)",
+                width: gameUrl ? "min(430px, calc(100vw - 20px))" : "min(390px, calc(100vw - 20px))",
+                height: gameUrl ? "min(900px, calc(100dvh - 20px))" : "min(760px, calc(100dvh - 20px))",
                 border: "1.5px solid rgba(0,212,255,0.20)",
                 boxShadow:
                   "0 0 0 1px rgba(0,212,255,0.08), 0 0 60px rgba(0,212,255,0.12), 0 32px 80px rgba(0,0,0,0.75)",
@@ -102,7 +106,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
               <div style={{ position: "relative", flex: 1, overflow: "hidden" }}>
                 {gameUrl ? (
                   <iframe
-                    src={gameUrl}
+                    src={embeddedGameUrl}
                     title={title}
                     className="h-full w-full border-0"
                     allow="fullscreen"

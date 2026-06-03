@@ -39,16 +39,21 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
           {/* Left — Text */}
-          <div>
+          <div className="max-w-[calc(100vw-3rem)] sm:max-w-none">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="mb-8"
             >
-              <span className="badge badge-cyan">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
-                {t.hero.badge} · {t.hero.available}
+              <span className="badge badge-cyan w-full max-w-full flex-wrap leading-relaxed sm:w-auto sm:flex-nowrap">
+                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-accent-cyan animate-pulse" />
+                <span className="min-w-0 break-words">
+                  {t.hero.badge}
+                </span>
+                <span className="w-full min-w-0 break-words sm:w-auto">
+                  {t.hero.available}
+                </span>
               </span>
             </motion.div>
 
@@ -56,18 +61,19 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.06] tracking-tight text-white"
+              className="max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] tracking-tight text-white [overflow-wrap:break-word]"
             >
-              {t.hero.titleStart}
+              <span>{t.hero.titleStart}</span>
               <span className="gradient-text">{t.hero.titleHighlight}</span>
-              {t.hero.titleEnd}
+              <span className="block sm:inline">{t.hero.titleEnd.trim()}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45, duration: 0.6 }}
-              className="mt-7 text-base sm:text-lg text-white/45 max-w-lg leading-relaxed"
+              className="mt-7 max-w-full text-base sm:text-lg text-white/45 sm:max-w-lg leading-relaxed [overflow-wrap:anywhere]"
+              style={{ overflowWrap: "anywhere" }}
             >
               {t.hero.description}
             </motion.p>

@@ -7,7 +7,8 @@ import {
   HAND_SIZE, MAX_JOKERS, type Blind,
 } from "./progression";
 
-export type Phase = "menu" | "blind_select" | "playing" | "scoring" | "shop" | "game_over" | "victory";
+export type Phase = "menu" | "blind_select" | "playing" | "scoring" | "shop" | "paused" | "game_over" | "victory";
+type PausablePhase = "blind_select" | "playing" | "scoring" | "shop";
 
 export interface ScoreEvent {
   chips: number;
@@ -19,6 +20,7 @@ export interface ScoreEvent {
 interface GameStore {
   // ── Phase & progression ─────────────────────────────────
   phase: Phase;
+  phaseBeforePause: PausablePhase | null;
   ante: number;       // 0-based (0=ante1)
   blindIndex: number; // 0-based within ante
 
@@ -53,6 +55,8 @@ interface GameStore {
   goToShop: () => void;
   buyJoker: (joker: Joker) => void;
   nextBlind: () => void;
+  pauseGame: () => void;
+  resumeGame: () => void;
   goToMenu: () => void;
 }
 
@@ -67,6 +71,7 @@ function initDrawPile(): { drawPile: Card[]; hand: Card[] } {
 
 export const useGameStore = create<GameStore>((set, get) => ({
   phase: "menu",
+  phaseBeforePause: null,
   ante: 0,
   blindIndex: 0,
   score: 0,
@@ -86,6 +91,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   startRun: () => {
     set({
       phase: "blind_select",
+      phaseBeforePause: null,
       ante: 0,
       blindIndex: 0,
       score: 0,
@@ -109,6 +115,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { drawPile, hand } = initDrawPile();
     set({
       phase: "playing",
+      phaseBeforePause: null,
       score: 0,
       target: blind.target,
       handsLeft: STARTING_HANDS,
@@ -255,5 +262,17 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
-  goToMenu: () => set({ phase: "menu" }),
+  pauseGame: () => {
+    const { phase } = get();
+    if (!["blind_select", "playing", "scoring", "shop"].includes(phase)) return;
+    set({ phase: "paused", phaseBeforePause: phase as PausablePhase });
+  },
+
+  resumeGame: () => {
+    const { phaseBeforePause } = get();
+    if (!phaseBeforePause) return;
+    set({ phase: phaseBeforePause, phaseBeforePause: null });
+  },
+
+  goToMenu: () => set({ phase: "menu", phaseBeforePause: null }),
 }));

@@ -66,12 +66,14 @@
 /* ===== Base ===== */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 @media (pointer: fine) {
@@ -221,6 +223,16 @@ body {
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 480px) {
+  .badge {
+    align-items: flex-start;
+    border-radius: 1rem;
+    font-size: 0.58rem;
+    line-height: 1.65;
+    white-space: normal;
+  }
 }
 
 /* ===== Buttons ===== */

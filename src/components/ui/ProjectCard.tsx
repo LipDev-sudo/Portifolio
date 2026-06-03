@@ -49,8 +49,8 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
 
       <div className="p-6 flex flex-col flex-1">
         {/* Header row */}
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-2.5">
+        <div className="flex items-start justify-between gap-3 mb-4">
+          <div className="flex min-w-0 items-center gap-2.5">
             <span
               className="text-4xl font-black font-mono leading-none select-none"
               style={{ color: `${color}22` }}
@@ -70,7 +70,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             {project.isPrivate ? (
               <span className="text-white/20" title={t.projects.privateLabel}>
                 <Lock size={15} />
@@ -132,7 +132,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
         </div>
 
         {/* Bottom row */}
-        <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.06]">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mt-5 pt-4 border-t border-white/[0.06]">
           {project.isPrivate ? (
             <span className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/20 font-mono">
               <Lock size={11} />
@@ -152,7 +152,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
           {project.gameUrl && onPlay ? (
             <button
               onClick={onPlay}
-              className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80"
+              className="flex min-h-9 items-center justify-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80 sm:min-h-0 sm:justify-start"
               style={{ color }}
             >
               <Gamepad2 size={12} />
