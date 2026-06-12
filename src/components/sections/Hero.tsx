@@ -22,23 +22,27 @@ const socialLinks = [
   },
 ];
 
+const stackTags = ["React", "Next.js", "TypeScript", "Node.js", "ChatGPT API", "n8n"];
+
 export function Hero() {
   const t = useT();
+  const pipeline = t.hero.commandCenter.pipeline;
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Animated background */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none select-none">
         <div className="orb orb-1" />
         <div className="orb orb-2" />
         <div className="orb orb-3" />
         <div className="grid-overlay" />
+        <div className="hero-noise" />
       </div>
 
       <div className="section-container w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-          {/* Left — Text */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center">
           <div className="max-w-[calc(100vw-3rem)] sm:max-w-none">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -48,9 +52,7 @@ export function Hero() {
             >
               <span className="badge badge-cyan w-full max-w-full flex-wrap leading-relaxed sm:w-auto sm:flex-nowrap">
                 <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-accent-cyan animate-pulse" />
-                <span className="min-w-0 break-words">
-                  {t.hero.badge}
-                </span>
+                <span className="min-w-0 break-words">{t.hero.badge}</span>
                 <span className="w-full min-w-0 break-words sm:w-auto">
                   {t.hero.available}
                 </span>
@@ -61,7 +63,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.1] tracking-tight text-white [overflow-wrap:break-word]"
+              className="max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.6rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
             >
               <span>{t.hero.titleStart}</span>
               <span className="gradient-text">{t.hero.titleHighlight}</span>
@@ -72,8 +74,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45, duration: 0.6 }}
-              className="mt-7 max-w-full text-base sm:text-lg text-white/45 sm:max-w-lg leading-relaxed [overflow-wrap:anywhere]"
-              style={{ overflowWrap: "anywhere" }}
+              className="mt-7 max-w-full text-base sm:text-lg text-white/50 sm:max-w-xl leading-relaxed [overflow-wrap:anywhere]"
             >
               {t.hero.description}
             </motion.p>
@@ -122,63 +123,120 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Stat cards */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col gap-4"
+            className="relative max-w-[calc(100vw-3rem)] sm:max-w-none"
           >
-            <div className="glass-card rounded-2xl p-8">
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-accent-cyan/70 mb-4 block font-mono">
-                {t.hero.statCard.badge}
-              </span>
-              <span className="text-5xl sm:text-6xl font-extrabold gradient-text leading-none">
-                {t.hero.statCard.title}
-              </span>
-              <span className="text-xs font-mono text-white/30 mt-4 block tracking-wider">
-                {t.hero.statCard.stack}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-                <span className="text-4xl font-extrabold text-accent-lime">
-                  9+
-                </span>
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
-                  {t.hero.dedicationLabel}
-                </span>
+            <div className="command-panel rounded-[1.75rem] p-5 sm:p-6">
+              <div className="flex items-center justify-between gap-5 mb-6">
+                <div>
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-accent-cyan/70 font-mono">
+                    {t.hero.commandCenter.label}
+                  </span>
+                  <h2 className="mt-2 text-3xl sm:text-4xl font-black gradient-text">
+                    {t.hero.statCard.title}
+                  </h2>
+                </div>
+                <div className="relative shrink-0 w-16 h-16 rounded-full border border-accent-cyan/20 bg-accent-cyan/[0.04]">
+                  <motion.span
+                    className="absolute inset-2 rounded-full border border-accent-cyan/30"
+                    animate={{ scale: [0.85, 1.15, 0.85], opacity: [0.8, 0.2, 0.8] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center text-[0.72rem] font-black text-accent-cyan">
+                    AI
+                  </span>
+                </div>
               </div>
-              <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-                <span className="text-4xl font-extrabold text-accent-cyan">
-                  3+
-                </span>
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/35 mt-2">
-                  {t.hero.learningLabel}
-                </span>
-              </div>
-            </div>
 
-            <div className="glass-card rounded-2xl p-5 flex flex-wrap gap-2">
-              {["React", "Next.js", "TypeScript", "Node.js", "ChatGPT API", "n8n"].map((tech) => (
-                <span
-                  key={tech}
-                  className="text-xs px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-white/55 font-mono font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                {[t.hero.commandCenter.build, t.hero.commandCenter.automate, t.hero.commandCenter.measure].map((item, i) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.65 + i * 0.08 }}
+                    className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4"
+                  >
+                    <span className="text-[0.58rem] text-white/25 font-mono">0{i + 1}</span>
+                    <p className="mt-2 text-sm font-semibold text-white/75 leading-snug">{item}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="rounded-2xl border border-white/[0.08] bg-black/25 p-4 overflow-hidden">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="w-2 h-2 rounded-full bg-accent-coral" />
+                  <span className="w-2 h-2 rounded-full bg-accent-orange" />
+                  <span className="w-2 h-2 rounded-full bg-accent-lime" />
+                  <span className="ml-auto text-[0.6rem] uppercase tracking-[0.18em] text-white/20 font-mono">
+                    pipeline
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  {pipeline.map((step, i) => (
+                    <div key={step} className="flex items-center gap-2">
+                      <span
+                        className="rounded-full border px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em]"
+                        style={{
+                          color: i % 2 === 0 ? "#00d4ff" : "#bef264",
+                          borderColor: i % 2 === 0 ? "rgba(0,212,255,0.25)" : "rgba(190,242,100,0.25)",
+                          background: i % 2 === 0 ? "rgba(0,212,255,0.06)" : "rgba(190,242,100,0.06)",
+                        }}
+                      >
+                        {step}
+                      </span>
+                      {i < pipeline.length - 1 && <span className="text-white/15">&gt;</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mt-5">
+                <div className="rounded-2xl border border-accent-lime/15 bg-accent-lime/[0.055] p-5">
+                  <span className="text-3xl font-black text-accent-lime">9+</span>
+                  <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
+                    {t.hero.dedicationLabel}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-accent-cyan/15 bg-accent-cyan/[0.055] p-5">
+                  <span className="text-3xl font-black text-accent-cyan">3+</span>
+                  <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
+                    {t.hero.learningLabel}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {stackTags.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-white/55 font-mono font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 gap-3 text-xs font-mono">
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-lime">
+                  {t.hero.commandCenter.metricOne}
+                </div>
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-cyan">
+                  {t.hero.commandCenter.metricTwo}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="flex justify-center mt-20"
+          className="flex justify-center mt-16 lg:mt-20"
         >
           <a
             href="#about"

@@ -27,9 +27,9 @@ const socialPreviewImage = new URL(
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Hamilton Felipe | LipDev.BR — AI Automation Developer",
+  title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
   description:
-    "AI Automation Developer — Automacoes inteligentes que escalam operacoes e geram receita. Next.js, React, TypeScript, AI APIs.",
+    "Desenvolvimento web moderno e automações com IA para empresas. Next.js, React, TypeScript, APIs de IA, n8n e integrações.",
   alternates: {
     canonical: "/",
     languages: {
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hamilton Felipe | LipDev.BR — AI Automation Developer",
+    title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
     description:
-      "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
+      "Sites modernos e automações com IA que economizam tempo, capturam leads e aumentam conversões.",
     url: siteUrl,
     siteName: "LipDev.BR",
     type: "website",
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamilton Felipe | LipDev.BR â€” AI Automation Developer",
+    title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
     description:
-      "AI automations that scale operations and drive revenue. Next.js, React, TypeScript, AI APIs.",
+      "Sites modernos e automações com IA que economizam tempo, capturam leads e aumentam conversões.",
     images: [socialPreviewImage],
   },
 };

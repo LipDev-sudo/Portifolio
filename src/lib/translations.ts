@@ -27,13 +27,22 @@ const ptMessages = {
     primaryCta: "Ver Serviços",
     secondaryCta: "Agendar diagnóstico gratuito",
     statCard: {
-      badge: "Especialidades",
+      badge: "Sistema de crescimento",
       title: "Web + IA",
       stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
     },
     dedicationLabel: "Projetos Web",
     learningLabel: "Cases de IA",
     scrollAria: "Rolar para baixo",
+    commandCenter: {
+      label: "Central LipDev",
+      build: "Site de alta conversão",
+      automate: "Atendimento com IA",
+      measure: "Métricas e melhoria contínua",
+      pipeline: ["Brief", "UX", "Código", "Automação", "Entrega"],
+      metricOne: "15h/semana poupadas",
+      metricTwo: "+35% conversão",
+    },
   },
   about: {
     badge: "Sobre Mim",
@@ -55,6 +64,34 @@ const ptMessages = {
         title: "Integração Total",
         description:
           "Conecto WhatsApp, e-mail, CRM e sistemas internos em fluxos automatizados que funcionam sem intervenção manual.",
+      },
+    ],
+  },
+  system: {
+    badge: "Método LipDev",
+    title: "Do primeiro clique ao processo automatizado.",
+    description:
+      "Cada entrega nasce como um pequeno sistema: interface clara, automação útil, dados mensuráveis e evolução contínua.",
+    items: [
+      {
+        title: "Diagnóstico",
+        description:
+          "Mapeio o objetivo do negócio, gargalos operacionais e oportunidades de conversão antes de escrever código.",
+      },
+      {
+        title: "Interface",
+        description:
+          "Crio páginas e sistemas rápidos, responsivos e com experiência visual alinhada à marca.",
+      },
+      {
+        title: "Automação",
+        description:
+          "Conecto formulários, WhatsApp, e-mail, CRM e APIs de IA para reduzir tarefas manuais.",
+      },
+      {
+        title: "Métrica",
+        description:
+          "Organizo os dados de leads, respostas e conversões para melhorar a solução depois da entrega.",
       },
     ],
   },
@@ -110,7 +147,7 @@ const ptMessages = {
       {
         title: "Automação de Processos com IA",
         description:
-          "Automatizações que eliminam tarefas manuais repetitivas.",
+          "Automações que eliminam tarefas manuais repetitivas.",
         bullets: [
           "Processamento de e-mails",
           "Extração de dados de PDFs",
@@ -191,7 +228,7 @@ const ptMessages = {
     categoryBadgeWeb: "Web",
   },
   finalCta: {
-    eyebrow: "e ai, bora?",
+    eyebrow: "e aí, bora?",
     title: "Vamos automatizar seu negócio com IA.",
     description:
       "Agende uma conversa gratuita e descubra como a IA pode economizar tempo e aumentar a receita da sua empresa.",
@@ -240,7 +277,7 @@ const enMessages: Messages = {
     closeMenu: "Close menu",
   },
   hero: {
-    badge: "LipDev.BR · Dev Web & AI Automation",
+    badge: "LipDev.BR · Web Dev & AI Automation",
     available: "Available for projects",
     titleStart: "I build ",
     titleHighlight: "websites and AI automations",
@@ -250,13 +287,22 @@ const enMessages: Messages = {
     primaryCta: "View Services",
     secondaryCta: "Book a free discovery call",
     statCard: {
-      badge: "Specialties",
+      badge: "Growth system",
       title: "Web + AI",
       stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
     },
     dedicationLabel: "Web Projects",
     learningLabel: "AI Cases",
     scrollAria: "Scroll down",
+    commandCenter: {
+      label: "LipDev Command",
+      build: "High-converting website",
+      automate: "AI-powered customer support",
+      measure: "Metrics and continuous improvement",
+      pipeline: ["Brief", "UX", "Code", "Automation", "Launch"],
+      metricOne: "15h/week saved",
+      metricTwo: "+35% conversion",
+    },
   },
   about: {
     badge: "About Me",
@@ -278,6 +324,34 @@ const enMessages: Messages = {
         title: "Full Integration",
         description:
           "I connect WhatsApp, email, CRM and internal systems into automated workflows that run without manual intervention.",
+      },
+    ],
+  },
+  system: {
+    badge: "LipDev Method",
+    title: "From first click to automated workflow.",
+    description:
+      "Every delivery is built as a small system: clear interface, useful automation, measurable data and continuous improvement.",
+    items: [
+      {
+        title: "Diagnosis",
+        description:
+          "I map the business goal, operational bottlenecks and conversion opportunities before writing code.",
+      },
+      {
+        title: "Interface",
+        description:
+          "I build fast, responsive pages and systems with a visual experience aligned to the brand.",
+      },
+      {
+        title: "Automation",
+        description:
+          "I connect forms, WhatsApp, email, CRM and AI APIs to reduce manual work.",
+      },
+      {
+        title: "Metrics",
+        description:
+          "I organize lead, response and conversion data to improve the solution after launch.",
       },
     ],
   },
