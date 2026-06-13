@@ -1,10 +1,22 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { GameApp } from "@/components/game/GameApp";
 import { useT } from "@/lib/i18n";
+
+const GameApp = dynamic(
+  () => import("@/components/game/GameApp").then((mod) => mod.GameApp),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full w-full items-center justify-center bg-[#0a1a0a] text-xs font-bold uppercase tracking-[0.18em] text-white/40">
+        Carregando Dev Balatro...
+      </div>
+    ),
+  }
+);
 
 interface GameModalProps {
   open: boolean;

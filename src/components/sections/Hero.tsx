@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
@@ -44,12 +43,7 @@ export function Hero() {
       <div className="section-container w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center">
           <div className="max-w-[calc(100vw-3rem)] sm:max-w-none">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8"
-            >
+            <div className="hero-reveal mb-8">
               <span className="badge badge-cyan w-full max-w-full flex-wrap leading-relaxed sm:w-auto sm:flex-nowrap">
                 <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-accent-cyan animate-pulse" />
                 <span className="min-w-0 break-words">{t.hero.badge}</span>
@@ -57,33 +51,24 @@ export function Hero() {
                   {t.hero.available}
                 </span>
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.6rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
+            <h1
+              className="hero-reveal hero-delay-1 max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.6rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
             >
               <span>{t.hero.titleStart}</span>
               <span className="gradient-text">{t.hero.titleHighlight}</span>
               <span className="block sm:inline">{t.hero.titleEnd.trim()}</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
-              className="mt-7 max-w-full text-base sm:text-lg text-white/50 sm:max-w-xl leading-relaxed [overflow-wrap:anywhere]"
+            <p
+              className="hero-reveal hero-delay-2 mt-7 max-w-full text-base sm:text-lg text-white/50 sm:max-w-xl leading-relaxed [overflow-wrap:anywhere]"
             >
               {t.hero.description}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.5 }}
-              className="flex gap-4 mt-10 flex-wrap"
+            <div
+              className="hero-reveal hero-delay-3 flex gap-4 mt-10 flex-wrap"
             >
               <a href="#services" className="btn-primary">
                 {t.hero.primaryCta}
@@ -91,13 +76,10 @@ export function Hero() {
               <a href="#contact" className="btn-secondary">
                 {t.hero.secondaryCta}
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="flex items-center gap-5 mt-10"
+            <div
+              className="hero-reveal hero-delay-4 flex items-center gap-5 mt-10"
             >
               {socialLinks.map((s) => (
                 <a
@@ -120,14 +102,11 @@ export function Hero() {
               >
                 hamiltonfelipe019@gmail.com
               </a>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-w-[calc(100vw-3rem)] sm:max-w-none"
+          <div
+            className="hero-reveal hero-delay-2 relative max-w-[calc(100vw-3rem)] sm:max-w-none"
           >
             <div className="command-panel rounded-[1.75rem] p-5 sm:p-6">
               <div className="flex items-center justify-between gap-5 mb-6">
@@ -140,11 +119,7 @@ export function Hero() {
                   </h2>
                 </div>
                 <div className="relative shrink-0 w-16 h-16 rounded-full border border-accent-cyan/20 bg-accent-cyan/[0.04]">
-                  <motion.span
-                    className="absolute inset-2 rounded-full border border-accent-cyan/30"
-                    animate={{ scale: [0.85, 1.15, 0.85], opacity: [0.8, 0.2, 0.8] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <span className="hero-pulse-ring absolute inset-2 rounded-full border border-accent-cyan/30" />
                   <span className="absolute inset-0 flex items-center justify-center text-[0.72rem] font-black text-accent-cyan">
                     AI
                   </span>
@@ -153,16 +128,13 @@ export function Hero() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
                 {[t.hero.commandCenter.build, t.hero.commandCenter.automate, t.hero.commandCenter.measure].map((item, i) => (
-                  <motion.div
+                  <div
                     key={item}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.65 + i * 0.08 }}
-                    className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4"
+                    className={`hero-reveal hero-card-delay-${i + 1} rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4`}
                   >
                     <span className="text-[0.58rem] text-white/25 font-mono">0{i + 1}</span>
                     <p className="mt-2 text-sm font-semibold text-white/75 leading-snug">{item}</p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
@@ -229,14 +201,11 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          className="flex justify-center mt-16 lg:mt-20"
+        <div
+          className="hero-reveal hero-delay-5 flex justify-center mt-16 lg:mt-20"
         >
           <a
             href="#about"
@@ -246,14 +215,11 @@ export function Hero() {
             <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em]">
               {t.hero.scrollLabel}
             </span>
-            <motion.div
-              animate={{ y: [0, 7, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="scroll-bounce">
               <ArrowDown size={14} />
-            </motion.div>
+            </div>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

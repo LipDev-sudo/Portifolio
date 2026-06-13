@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const cursorImage = "/cursors/3d-pixel-cursor.png";
@@ -9,6 +9,8 @@ const pointerImage = "/cursors/3d-pixel-pointer.png";
 export function CustomCursor() {
   const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
+  const visibleRef = useRef(false);
+  const hoveringRef = useRef(false);
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
@@ -17,15 +19,22 @@ export function CustomCursor() {
     const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      setVisible(true);
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setVisible(true);
+      }
 
       const el = e.target as Element;
-      setHovering(
-        window.getComputedStyle(el).cursor === "pointer" ||
-        !!el.closest("a, button, [role='button'], [data-hover]")
-      );
+      const nextHovering = !!el.closest("a, button, [role='button'], [data-hover]");
+      if (hoveringRef.current !== nextHovering) {
+        hoveringRef.current = nextHovering;
+        setHovering(nextHovering);
+      }
     };
-    const onLeave = () => setVisible(false);
+    const onLeave = () => {
+      visibleRef.current = false;
+      setVisible(false);
+    };
 
     window.addEventListener("mousemove", onMove);
     document.documentElement.addEventListener("mouseleave", onLeave);
