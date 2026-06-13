@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Lock, Gamepad2 } from "lucide-react";
 import type { Project } from "@/types";
-import { useT } from "@/lib/i18n";
+import { useLanguage } from "@/lib/i18n";
 
 function GithubIcon({ size = 14 }: { size?: number }) {
   return (
@@ -30,11 +30,14 @@ const cardVariants = {
 };
 
 export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
-  const t = useT();
+  const { lang, t } = useLanguage();
   const palette = neonColors[project.category];
   const color = palette[(displayIndex - 1) % palette.length];
   const isAi = project.category === "ai";
   const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
+  const title = lang === "en" && project.title_en ? project.title_en : project.title;
+  const description =
+    lang === "en" && project.description_en ? project.description_en : project.description;
 
   return (
     <motion.article
@@ -91,8 +94,8 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
                 onClick={onPlay}
                 className="transition-colors"
                 style={{ color }}
-                aria-label="Jogar"
-                title="Jogar no portfólio"
+                aria-label={`${t.projects.playAria}: ${title}`}
+                title={t.projects.playTitle}
               >
                 <Gamepad2 size={17} />
               </button>
@@ -113,10 +116,10 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
 
         {/* Title & description */}
         <h3 className="font-extrabold text-lg text-white mb-2 leading-snug">
-          {project.title}
+          {title}
         </h3>
         <p className="text-white/40 text-sm leading-relaxed flex-1">
-          {project.description}
+          {description}
         </p>
 
         {/* Tech tags */}
@@ -156,7 +159,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
               style={{ color }}
             >
               <Gamepad2 size={12} />
-              Jogar Agora
+              {t.projects.playNow}
             </button>
           ) : project.liveUrl ? (
             <span

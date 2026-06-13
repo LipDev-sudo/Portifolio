@@ -172,7 +172,7 @@ export function Hero() {
                   <span className="w-2 h-2 rounded-full bg-accent-orange" />
                   <span className="w-2 h-2 rounded-full bg-accent-lime" />
                   <span className="ml-auto text-[0.6rem] uppercase tracking-[0.18em] text-white/20 font-mono">
-                    pipeline
+                    {t.hero.commandCenter.pipelineLabel}
                   </span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -244,7 +244,7 @@ export function Hero() {
             className="flex flex-col items-center gap-2.5 text-white/25 hover:text-white/55 transition-colors"
           >
             <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em]">
-              scroll
+              {t.hero.scrollLabel}
             </span>
             <motion.div
               animate={{ y: [0, 7, 0] }}

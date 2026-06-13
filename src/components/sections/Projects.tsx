@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { GameModal } from "@/components/ui/GameModal";
-import { useT } from "@/lib/i18n";
+import { useLanguage } from "@/lib/i18n";
 import type { Project } from "@/types";
 
 type Filter = "all" | "ai" | "web";
@@ -17,9 +17,13 @@ const filterConfig: { key: Filter; color: string; activeBg: string; activeBorder
 ];
 
 export function Projects() {
-  const t = useT();
+  const { lang, t } = useLanguage();
   const [filter, setFilter]     = useState<Filter>("all");
   const [gameProject, setGameProject] = useState<Project | null>(null);
+  const gameTitle =
+    gameProject && lang === "en" && gameProject.title_en
+      ? gameProject.title_en
+      : gameProject?.title ?? "";
 
   const filterLabels: Record<Filter, string> = {
     all: t.projects.filterAll,
@@ -112,7 +116,7 @@ export function Projects() {
         open={gameProject !== null}
         onClose={() => setGameProject(null)}
         gameUrl={gameProject?.gameUrl}
-        title={gameProject?.title ?? ""}
+        title={gameTitle}
       />
     </>
   );

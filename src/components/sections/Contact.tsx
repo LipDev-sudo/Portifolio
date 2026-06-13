@@ -142,8 +142,7 @@ export function Contact() {
           >
             <span className="badge badge-coral">{t.contact.badge}</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-5 leading-tight text-white">
-              Vamos construir algo{" "}
-              <span className="gradient-text">incrível juntos?</span>
+              {t.contact.title}
             </h2>
             <p className="text-white/40 mt-6 text-base sm:text-lg leading-relaxed max-w-md">
               {t.contact.description}

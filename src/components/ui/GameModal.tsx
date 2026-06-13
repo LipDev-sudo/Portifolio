@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { GameApp } from "@/components/game/GameApp";
+import { useT } from "@/lib/i18n";
 
 interface GameModalProps {
   open: boolean;
@@ -13,6 +14,8 @@ interface GameModalProps {
 }
 
 export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
+  const t = useT();
+
   useEffect(() => {
     if (!open) return;
 
@@ -34,6 +37,8 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
   const embeddedGameUrl = gameUrl
     ? `${gameUrl}${gameUrl.includes("?") ? "&" : "?"}embed=1`
     : undefined;
+  const shouldRenderDevBalatro =
+    !gameUrl || title.toLowerCase().includes("balatro");
 
   return (
     <AnimatePresence>
@@ -61,8 +66,8 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
             <div
               className="relative pointer-events-auto flex flex-col overflow-hidden rounded-2xl"
               style={{
-                width: gameUrl ? "min(430px, calc(100vw - 20px))" : "min(390px, calc(100vw - 20px))",
-                height: gameUrl ? "min(900px, calc(100dvh - 20px))" : "min(760px, calc(100dvh - 20px))",
+                width: shouldRenderDevBalatro ? "min(390px, calc(100vw - 20px))" : "min(430px, calc(100vw - 20px))",
+                height: shouldRenderDevBalatro ? "min(760px, calc(100dvh - 20px))" : "min(900px, calc(100dvh - 20px))",
                 border: "1.5px solid rgba(0,212,255,0.20)",
                 boxShadow:
                   "0 0 0 1px rgba(0,212,255,0.08), 0 0 60px rgba(0,212,255,0.12), 0 32px 80px rgba(0,0,0,0.75)",
@@ -81,7 +86,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                     onClick={onClose}
                     className="h-3 w-3 rounded-full transition-opacity hover:opacity-80"
                     style={{ background: "#ff5f57" }}
-                    title="Fechar"
+                    title={t.gameModal.close}
                   />
                   <div className="h-3 w-3 rounded-full" style={{ background: "#febc2e" }} />
                   <div className="h-3 w-3 rounded-full" style={{ background: "#28c840" }} />
@@ -97,22 +102,22 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 <button
                   onClick={onClose}
                   className="text-white/20 transition-colors hover:text-white/60"
-                  aria-label="Fechar jogo"
+                  aria-label={t.gameModal.closeGame}
                 >
                   <X size={14} />
                 </button>
               </div>
 
               <div style={{ position: "relative", flex: 1, overflow: "hidden" }}>
-                {gameUrl ? (
+                {shouldRenderDevBalatro ? (
+                  <GameApp />
+                ) : (
                   <iframe
                     src={embeddedGameUrl}
                     title={title}
                     className="h-full w-full border-0"
                     allow="fullscreen"
                   />
-                ) : (
-                  <GameApp />
                 )}
               </div>
             </div>
