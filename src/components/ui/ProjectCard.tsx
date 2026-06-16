@@ -162,12 +162,17 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
               {t.projects.playNow}
             </button>
           ) : project.liveUrl ? (
-            <span
-              className="text-[0.7rem] font-bold uppercase tracking-wider font-mono"
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-9 items-center justify-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80 sm:min-h-0 sm:justify-start"
               style={{ color }}
+              aria-label={`${t.projects.viewLive}: ${title}`}
             >
+              <ExternalLink size={12} />
               {t.projects.viewLive}
-            </span>
+            </a>
           ) : null}
         </div>
       </div>
