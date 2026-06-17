@@ -11,6 +11,7 @@ const ptMessages = {
       contact: "CONTATO",
     },
     cta: "Fale Comigo",
+    resume: "Currículo",
     toggleLabel: "Mudar para inglês",
     toggleShort: "EN",
     openMenu: "Abrir menu",
@@ -22,6 +23,11 @@ const ptMessages = {
     titleStart: "Eu crio ",
     titleHighlight: "web + IA",
     titleEnd: " para ideias ganharem forma.",
+    hello: "Olá, eu sou",
+    name: "Hamilton Felipe.",
+    roleMain: "Web & IA",
+    roleOutline: "Developer",
+    location: "Baseado no Brasil.",
     description:
       "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
     primaryCta: "Ver como posso ajudar",
@@ -99,6 +105,8 @@ const ptMessages = {
   },
   skills: {
     badge: "Habilidades",
+    headingStart: "Minhas",
+    headingBold: "Habilidades",
     title: "As ferramentas que eu uso para tirar ideia do papel.",
     description:
       "Gosto de trabalhar com uma stack moderna, mas sem transformar tecnologia em complicação desnecessária.",
@@ -114,6 +122,33 @@ const ptMessages = {
       "Aprendizado Rápido",
       "Organização",
       "Proatividade",
+    ],
+  },
+  experience: {
+    headingStart: "Minha",
+    headingBold: "Experiência",
+    items: [
+      {
+        company: "LipDev.BR",
+        role: "Desenvolvedor Web & IA",
+        period: "2025 — Presente",
+        description:
+          "Crio sites, portfólios, sistemas e automações com IA para transformar ideias em produtos digitais claros, responsivos e úteis para negócios reais.",
+      },
+      {
+        company: "Projetos autorais e clientes",
+        role: "Web Apps, Bots e Integrações",
+        period: "2024 — Presente",
+        description:
+          "Desenvolvo landing pages, lojas virtuais, plataformas de curso, chatbot de atendimento, automações com APIs e jogos web como o Dev Balatro.",
+      },
+      {
+        company: "Stack moderna",
+        role: "React, Next.js, TypeScript e Automação",
+        period: "2023 — Presente",
+        description:
+          "Estudo e aplico tecnologias modernas com foco em performance, responsividade, organização de código, integrações e uso prático de IA.",
+      },
     ],
   },
   aiSolutions: {
@@ -259,6 +294,8 @@ const ptMessages = {
   },
   projects: {
     badge: "Portfólio",
+    headingStart: "Meus",
+    headingBold: "Projetos",
     title: "Projetos que mostram como eu penso e construo.",
     description:
       "Aqui entram meus estudos, entregas web, automações e experimentos. Cada um mostra um pedaço do meu jeito de resolver problema.",
@@ -323,6 +360,7 @@ const enMessages: Messages = {
       contact: "CONTACT",
     },
     cta: "Get in Touch",
+    resume: "Resume",
     toggleLabel: "Switch to Portuguese",
     toggleShort: "PT",
     openMenu: "Open menu",
@@ -334,6 +372,11 @@ const enMessages: Messages = {
     titleStart: "I build ",
     titleHighlight: "web + AI",
     titleEnd: " that give ideas shape.",
+    hello: "Hello I’am",
+    name: "Hamilton Felipe.",
+    roleMain: "Web & AI",
+    roleOutline: "Developer",
+    location: "Based In Brazil.",
     description:
       "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",
     primaryCta: "See how I can help",
@@ -411,6 +454,8 @@ const enMessages: Messages = {
   },
   skills: {
     badge: "Skills",
+    headingStart: "My",
+    headingBold: "Skills",
     title: "The tools I use to get ideas out of the notebook.",
     description:
       "I like working with a modern stack without turning technology into unnecessary complexity.",
@@ -426,6 +471,33 @@ const enMessages: Messages = {
       "Fast Learning",
       "Organization",
       "Proactivity",
+    ],
+  },
+  experience: {
+    headingStart: "My",
+    headingBold: "Experience",
+    items: [
+      {
+        company: "LipDev.BR",
+        role: "Web & AI Developer",
+        period: "2025 — Present",
+        description:
+          "I build websites, portfolios, systems and AI automations that turn ideas into clear, responsive and useful digital products for real businesses.",
+      },
+      {
+        company: "Personal and client projects",
+        role: "Web Apps, Bots and Integrations",
+        period: "2024 — Present",
+        description:
+          "I develop landing pages, online stores, course platforms, customer-support chatbots, API automations and web games like Dev Balatro.",
+      },
+      {
+        company: "Modern stack",
+        role: "React, Next.js, TypeScript and Automation",
+        period: "2023 — Present",
+        description:
+          "I study and apply modern technologies with focus on performance, responsive UI, code organization, integrations and practical AI usage.",
+      },
     ],
   },
   aiSolutions: {
@@ -571,6 +643,8 @@ const enMessages: Messages = {
   },
   projects: {
     badge: "Portfolio",
+    headingStart: "My",
+    headingBold: "Projects",
     title: "Projects that show how I think and build.",
     description:
       "This is where my studies, web builds, automations and experiments live. Each one shows a piece of how I solve problems.",

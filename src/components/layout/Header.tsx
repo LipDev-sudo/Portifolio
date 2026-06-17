@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, Languages } from "lucide-react";
+import { Download, Languages, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 
@@ -17,41 +17,37 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: t.header.nav.hero, href: "#hero" },
     { label: t.header.nav.about, href: "#about" },
     { label: t.header.nav.skills, href: "#skills" },
-    { label: t.header.nav.services, href: "#services" },
     { label: t.header.nav.projects, href: "#projects" },
     { label: t.header.nav.contact, href: "#contact" },
   ];
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50">
-      <nav className="max-w-[1200px] mx-auto px-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+      <nav className="max-w-[1080px] mx-auto px-5">
         <div
-          className={`flex items-center justify-between h-14 px-6 rounded-full border transition-all duration-300 ${
+          className={`flex h-16 items-center justify-between transition-all duration-300 ${
             scrolled
-              ? "border-[#e8ddca]/[0.14] bg-[#10100f]/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.42)]"
-              : "border-[#e8ddca]/[0.09] bg-[#10100f]/70 backdrop-blur-xl"
+              ? "border-b border-black/10"
+              : "border-b border-transparent"
           }`}
         >
-          {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#f0dfbd] to-[#b99d73] flex items-center justify-center text-[#12100d] font-black text-xs shadow-[0_12px_24px_rgba(0,0,0,0.28)] transition-shadow">
-              L
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-xs font-black text-white">
+              P
             </div>
-            <span className="text-sm font-semibold tracking-tight text-white">
-              LipDev<span className="text-primary">.BR</span>
+            <span className="text-sm font-black tracking-tight text-black">
+              Personal
             </span>
           </a>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-7">
+          <ul className="hidden items-center gap-9 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[0.7rem] font-medium tracking-wide text-white/50 hover:text-white transition-colors duration-200"
+                  className="text-xs font-black text-black transition-opacity duration-200 hover:opacity-55"
                 >
                   {link.label}
                 </a>
@@ -59,7 +55,6 @@ export function Header() {
             ))}
           </ul>
 
-          {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <button
               type="button"
@@ -67,7 +62,7 @@ export function Header() {
               translate="no"
               aria-label={t.header.toggleLabel}
               title={t.header.toggleLabel}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#e8ddca]/[0.12] text-[0.65rem] font-medium text-white/55 hover:text-primary-light hover:border-primary/35 transition-all duration-300"
+              className="inline-flex items-center gap-1.5 border border-black px-3 py-2 text-xs font-black text-black transition-colors hover:bg-black hover:text-white"
             >
               <Languages size={12} />
               <span aria-hidden="true">{lang === "pt" ? "EN" : "PT"}</span>
@@ -75,15 +70,14 @@ export function Header() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#f0dfbd] to-[#d4b98d] text-[#12100d] text-[0.7rem] font-bold hover:shadow-[0_16px_28px_rgba(0,0,0,0.35)] transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-black px-4 py-2 text-xs font-black text-white transition-opacity hover:opacity-75"
             >
-              {t.header.cta} <ArrowRight size={12} />
+              {t.header.resume} <Download size={13} />
             </a>
           </div>
 
-          {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
+            className="p-2 text-black transition-opacity hover:opacity-60 lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
           >
@@ -99,7 +93,7 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden mx-4 mt-2 rounded-2xl border border-[#e8ddca]/[0.1] bg-[#10100f]/95 backdrop-blur-xl overflow-hidden"
+            className="mx-5 border border-black bg-white lg:hidden"
           >
             <ul className="flex flex-col p-5 gap-4">
               {navLinks.map((link) => (
@@ -107,7 +101,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+                    className="text-sm font-black text-black transition-opacity hover:opacity-60"
                   >
                     {link.label}
                   </a>
@@ -118,7 +112,7 @@ export function Header() {
                   type="button"
                   onClick={() => { setMenuOpen(false); toggle(); }}
                   translate="no"
-                  className="flex-1 inline-flex justify-center items-center gap-2 py-2.5 rounded-full border border-[#e8ddca]/[0.12] text-sm font-medium text-white/60 hover:text-primary-light transition-colors"
+                  className="flex-1 inline-flex justify-center items-center gap-2 border border-black py-2.5 text-sm font-black text-black"
                 >
                   <Languages size={14} />
                   {lang === "pt" ? "EN" : "PT"}
@@ -126,9 +120,9 @@ export function Header() {
                 <a
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex-1 btn-primary justify-center text-sm py-2.5"
+                  className="flex-1 justify-center bg-black px-4 py-2.5 text-center text-sm font-black text-white"
                 >
-                  {t.header.cta}
+                  {t.header.resume}
                 </a>
               </li>
             </ul>

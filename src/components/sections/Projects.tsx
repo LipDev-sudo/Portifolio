@@ -10,10 +10,10 @@ import type { Project } from "@/types";
 
 type Filter = "all" | "ai" | "web";
 
-const filterConfig: { key: Filter; color: string; activeBg: string; activeBorder: string }[] = [
-  { key: "all",  color: "#f5f0e7", activeBg: "rgba(232,221,202,0.08)", activeBorder: "rgba(232,221,202,0.22)" },
-  { key: "ai",   color: "#d4b98d", activeBg: "rgba(212,185,141,0.09)", activeBorder: "rgba(212,185,141,0.32)" },
-  { key: "web",  color: "#e8ddca", activeBg: "rgba(232,221,202,0.08)", activeBorder: "rgba(232,221,202,0.26)" },
+const filterConfig: { key: Filter }[] = [
+  { key: "all" },
+  { key: "ai" },
+  { key: "web" },
 ];
 
 export function Projects() {
@@ -37,46 +37,38 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="relative border-t border-white/[0.06]">
-        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="section-container relative z-10">
+      <section id="projects" className="relative bg-black py-20 text-white">
+        <div className="mx-auto max-w-[1080px] px-5">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
+            className="text-center"
           >
-            <span className="badge">{t.projects.badge}</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 max-w-2xl leading-tight">
-              {t.projects.title}
+            <h2 className="text-3xl font-normal tracking-tight sm:text-4xl">
+              {t.projects.headingStart}{" "}
+              <span className="font-black">{t.projects.headingBold}</span>
             </h2>
-            <p className="text-white/40 mt-4 max-w-xl text-base">
+            <p className="mx-auto mt-4 max-w-[620px] text-sm leading-6 text-white/55">
               {t.projects.description}
             </p>
           </motion.div>
 
           {/* Filter tabs */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="flex items-center gap-2 mt-8 flex-wrap"
+            className="mt-9 flex flex-wrap items-center justify-center gap-2"
           >
-            {filterConfig.map(({ key, color, activeBg, activeBorder }) => {
+            {filterConfig.map(({ key }) => {
               const active = filter === key;
               return (
                 <button
                   key={key}
                   type="button"
                   onClick={() => setFilter(key)}
-                  className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.12em] border transition-all duration-200"
-                  style={
+                  className={`border px-4 py-2 text-xs font-black uppercase tracking-[0.12em] transition-colors ${
                     active
-                      ? { color, background: activeBg, borderColor: activeBorder }
-                      : { color: "rgba(255,255,255,0.35)", background: "transparent", borderColor: "rgba(255,255,255,0.08)" }
-                  }
+                      ? "border-white bg-white text-black"
+                      : "border-white/25 bg-transparent text-white/55 hover:border-white hover:text-white"
+                  }`}
                 >
                   {filterLabels[key]}
                 </button>
@@ -92,7 +84,7 @@ export function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8"
+              className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2"
             >
               {filtered.map((project, index) => (
                 <ProjectCard

@@ -1,72 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, DollarSign, Link2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
-const highlightStyles = [
-  {
-    icon: Zap,
-    bgStyle: { background: "rgba(212, 185, 141, 0.1)", border: "1px solid rgba(212, 185, 141, 0.22)" },
-    iconColor: "text-primary-light",
-  },
-  {
-    icon: DollarSign,
-    bgStyle: { background: "rgba(232, 221, 202, 0.08)", border: "1px solid rgba(232, 221, 202, 0.18)" },
-    iconColor: "text-accent-lime",
-  },
-  {
-    icon: Link2,
-    bgStyle: { background: "rgba(183, 143, 107, 0.1)", border: "1px solid rgba(183, 143, 107, 0.2)" },
-    iconColor: "text-accent-coral",
-  },
-];
+function AboutIllustration() {
+  return (
+    <svg viewBox="0 0 360 280" className="h-auto w-full" role="img" aria-label="Developer illustration">
+      <rect x="54" y="12" width="252" height="188" rx="3" fill="#fff" stroke="#000" strokeWidth="4" />
+      <path d="M122 199c15-38 34-58 58-58s43 20 58 58" fill="#000" />
+      <path d="M130 165c-20 12-40 34-54 72 49 30 161 31 209 0-15-38-34-60-55-72" fill="#000" />
+      <path d="M139 201c34 33 83 33 117 0" fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="round" />
+      <path d="M122 113c18-24 42-36 72-36 31 0 53 14 67 39-9-40-31-62-66-66-38-5-64 17-73 63Z" fill="#000" />
+      <path d="M137 115c8-36 31-52 65-49 33 3 52 22 58 57-1 38-26 63-63 63-36 0-60-26-60-71Z" fill="#fff" stroke="#000" strokeWidth="4" />
+      <path d="M143 104c25 1 49-7 72-24 9 20 23 32 42 37" fill="none" stroke="#000" strokeWidth="8" strokeLinecap="round" />
+      <circle cx="176" cy="128" r="4" fill="#000" />
+      <circle cx="222" cy="128" r="4" fill="#000" />
+      <path d="M186 156c10 7 22 7 34 0" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" />
+      <path d="M65 242c50-28 103-40 161-34" fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="round" />
+      <path d="M224 207c28 2 53 10 75 24" fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="round" />
+      <path d="M93 241c50 20 111 20 182 0" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export function About() {
   const t = useT();
 
   return (
-    <section id="about" className="border-t border-white/[0.06]">
-      <div className="section-container">
+    <section id="about" className="bg-white py-20 text-black">
+      <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-start gap-12 px-5 md:grid-cols-[0.75fr_1.25fr]">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.45 }}
+          className="mx-auto w-full max-w-[360px]"
         >
-          <span className="badge badge-cyan">{t.about.badge}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-5 max-w-2xl leading-tight text-white">
-            {t.about.title}
-          </h2>
-          <p className="text-white/45 mt-6 max-w-2xl text-base sm:text-lg leading-relaxed">
-            {t.about.description}
-          </p>
+          <AboutIllustration />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">
-          {t.about.highlights.map((item, index) => {
-            const style = highlightStyles[index];
-            return (
-              <motion.div
+        <motion.div
+          transition={{ duration: 0.45, delay: 0.08 }}
+        >
+          <h2 className="text-3xl font-normal tracking-tight sm:text-4xl">
+            {t.about.badge.split(" ")[0]}{" "}
+            <span className="font-black">{t.about.badge.split(" ").slice(1).join(" ") || "Me"}</span>
+          </h2>
+          <p className="mt-7 max-w-[620px] text-sm leading-7 text-black/65 sm:text-base sm:leading-8">
+            {t.about.description}
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {t.about.highlights.map((item, index) => (
+              <motion.article
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="card-bold p-6 group"
+                transition={{ duration: 0.35, delay: 0.12 + index * 0.05 }}
+                className="border border-black p-4 transition-colors hover:bg-black hover:text-white"
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                  style={style.bgStyle}
-                >
-                  <style.icon size={20} className={style.iconColor} />
-                </div>
-                <h3 className="font-extrabold text-lg mb-2 text-white">{item.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{item.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
+                <span className="text-xs font-black">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-sm font-black">{item.title}</h3>
+                <p className="mt-3 text-xs leading-5 opacity-70">{item.description}</p>
+              </motion.article>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Lock, Gamepad2 } from "lucide-react";
+import { ExternalLink, Gamepad2, Lock } from "lucide-react";
 import type { Project } from "@/types";
 import { useLanguage } from "@/lib/i18n";
 
@@ -13,11 +13,6 @@ function GithubIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-const cardAccents = {
-  web: ["#d4b98d", "#e8ddca", "#b78f6b", "#c9a56f", "#8f887c", "#f0dfbd"],
-  ai:  ["#d4b98d", "#f0dfbd", "#b78f6b"],
-};
-
 interface ProjectCardProps {
   project: Project;
   displayIndex: number;
@@ -26,13 +21,11 @@ interface ProjectCardProps {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
   const { lang, t } = useLanguage();
-  const palette = cardAccents[project.category];
-  const color = palette[(displayIndex - 1) % palette.length];
   const isAi = project.category === "ai";
   const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
   const title = lang === "en" && project.title_en ? project.title_en : project.title;
@@ -42,139 +35,112 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
   return (
     <motion.article
       variants={cardVariants}
-      className="card-bold overflow-hidden group flex flex-col"
+      className="group flex min-h-[310px] flex-col border border-white/20 bg-[#111115] p-5 text-white transition-colors hover:border-white/55 sm:p-6"
     >
-      {/* Warm top accent line */}
-      <div
-        className="h-px w-full"
-        style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
-      />
-
-      <div className="p-6 flex flex-col flex-1">
-        {/* Header row */}
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="flex min-w-0 items-center gap-2.5">
-            <span
-              className="text-4xl font-black font-mono leading-none select-none"
-              style={{ color: `${color}22` }}
-            >
-              {String(displayIndex).padStart(2, "0")}
-            </span>
-            {/* Category badge */}
-            <span
-              className="text-[0.6rem] font-bold uppercase tracking-[0.12em] px-2 py-0.5 rounded-full border"
-              style={{
-                color,
-                borderColor: `${color}30`,
-                background: `${color}0d`,
-              }}
-            >
-              {categoryLabel}
-            </span>
-          </div>
-
-          <div className="flex shrink-0 items-center gap-3">
-            {project.isPrivate ? (
-              <span className="text-white/20" title={t.projects.privateLabel}>
-                <Lock size={15} />
-              </span>
-            ) : (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/25 hover:text-white/70 transition-colors"
-                aria-label={t.projects.viewCode}
-              >
-                <GithubIcon size={17} />
-              </a>
-            )}
-            {project.gameUrl && onPlay && (
-              <button
-                onClick={onPlay}
-                className="transition-colors"
-                style={{ color }}
-                aria-label={`${t.projects.playAria}: ${title}`}
-                title={t.projects.playTitle}
-              >
-                <Gamepad2 size={17} />
-              </button>
-            )}
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/25 hover:text-white/70 transition-colors"
-                aria-label={t.projects.viewLive}
-              >
-                <ExternalLink size={16} />
-              </a>
-            )}
-          </div>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <span className="font-mono text-5xl font-black leading-none text-white/10">
+            {String(displayIndex).padStart(2, "0")}
+          </span>
+          <span className="ml-3 inline-flex border border-white/25 px-2 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-white/65">
+            {categoryLabel}
+          </span>
         </div>
 
-        {/* Title & description */}
-        <h3 className="font-extrabold text-lg text-white mb-2 leading-snug">
-          {title}
-        </h3>
-        <p className="text-white/40 text-sm leading-relaxed flex-1">
-          {description}
-        </p>
-
-        {/* Tech tags */}
-        <div className="flex flex-wrap gap-2 mt-5">
-          {project.techs.map((tech) => (
-            <span
-              key={tech}
-              className="text-[0.68rem] px-2.5 py-1 rounded-full border border-white/[0.08] bg-white/[0.03] text-white/40 font-mono"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Bottom row */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mt-5 pt-4 border-t border-white/[0.06]">
+        <div className="flex items-center gap-3 text-white/55">
           {project.isPrivate ? (
-            <span className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/20 font-mono">
-              <Lock size={11} />
-              {t.projects.privateNote}
+            <span title={t.projects.privateLabel}>
+              <Lock size={16} />
             </span>
           ) : (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider text-white/30 hover:text-white/70 transition-colors font-mono"
+              className="transition-colors hover:text-white"
+              aria-label={t.projects.viewCode}
             >
-              <GithubIcon size={13} />
-              {t.projects.viewCode}
+              <GithubIcon size={17} />
             </a>
           )}
           {project.gameUrl && onPlay ? (
             <button
+              type="button"
               onClick={onPlay}
-              className="flex min-h-9 items-center justify-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80 sm:min-h-0 sm:justify-start"
-              style={{ color }}
+              className="transition-colors hover:text-white"
+              aria-label={`${t.projects.playAria}: ${title}`}
+              title={t.projects.playTitle}
             >
-              <Gamepad2 size={12} />
-              {t.projects.playNow}
+              <Gamepad2 size={17} />
             </button>
-          ) : project.liveUrl ? (
+          ) : null}
+          {project.liveUrl ? (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-9 items-center justify-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-wider font-mono transition-opacity hover:opacity-80 sm:min-h-0 sm:justify-start"
-              style={{ color }}
+              className="transition-colors hover:text-white"
               aria-label={`${t.projects.viewLive}: ${title}`}
             >
-              <ExternalLink size={12} />
-              {t.projects.viewLive}
+              <ExternalLink size={17} />
             </a>
           ) : null}
         </div>
+      </div>
+
+      <h3 className="mt-6 text-xl font-black leading-snug text-white">{title}</h3>
+      <p className="mt-4 flex-1 text-sm leading-7 text-white/58">{description}</p>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {project.techs.slice(0, 6).map((tech) => (
+          <span
+            key={tech}
+            className="border border-white/15 px-2.5 py-1 font-mono text-[0.65rem] text-white/55"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-6 flex flex-col gap-3 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        {project.isPrivate ? (
+          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-white/35">
+            <Lock size={13} />
+            {t.projects.privateNote}
+          </span>
+        ) : (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center justify-center gap-2 border border-white/25 px-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black sm:min-h-0 sm:py-2"
+          >
+            <GithubIcon size={13} />
+            {t.projects.viewCode}
+          </a>
+        )}
+
+        {project.gameUrl && onPlay ? (
+          <button
+            type="button"
+            onClick={onPlay}
+            className="inline-flex min-h-10 items-center justify-center gap-2 bg-white px-3 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
+          >
+            <Gamepad2 size={13} />
+            {t.projects.playNow}
+          </button>
+        ) : project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center justify-center gap-2 bg-white px-3 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
+            aria-label={`${t.projects.viewLive}: ${title}`}
+          >
+            <ExternalLink size={13} />
+            {t.projects.viewLive}
+          </a>
+        ) : null}
       </div>
     </motion.article>
   );
