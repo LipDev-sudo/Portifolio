@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ===== Design Tokens — Dark Neon Palette ===== */
+/* ===== Design Tokens - Warm Editorial Palette ===== */
 :root {
   --color-bg: #10100f;
   --color-bg-secondary: #171614;
@@ -156,6 +156,133 @@ body {
   mix-blend-mode: soft-light;
   mask-image: radial-gradient(ellipse at center, black 0%, transparent 78%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 78%);
+}
+
+.portfolio-hero {
+  background:
+    radial-gradient(circle at 72% 22%, rgba(255, 250, 240, 0.14), transparent 18rem),
+    radial-gradient(circle at 12% 86%, rgba(85, 73, 52, 0.24), transparent 24rem),
+    linear-gradient(145deg, #68614d 0%, #968263 46%, #ba9765 100%);
+  color: #fffaf0;
+}
+
+.portfolio-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(12, 11, 9, 0.08), rgba(12, 11, 9, 0.16)),
+    radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.18) 92%);
+}
+
+.portfolio-hero-grain {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14) 0 1px, transparent 1px);
+  background-size: 100% 8px, 13px 13px;
+  mix-blend-mode: soft-light;
+}
+
+.hero-signature {
+  position: absolute;
+  z-index: 1;
+  top: clamp(6.2rem, 12vh, 8.5rem);
+  left: clamp(1.5rem, 10vw, 8rem);
+  transform: rotate(-9deg);
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: clamp(2.7rem, 7vw, 6.8rem);
+  font-weight: 400;
+  line-height: 0.8;
+  color: rgba(255, 250, 240, 0.88);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+}
+
+.poster-title {
+  position: absolute;
+  z-index: 0;
+  top: clamp(8.5rem, 18vh, 13rem);
+  left: 50%;
+  width: min(1120px, 104vw);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.1rem, 0.7vw, 0.7rem);
+  color: #fffaf0;
+  opacity: 0.96;
+}
+
+.poster-title span {
+  display: block;
+  font-size: clamp(5.3rem, 17vw, 14rem);
+  font-weight: 1000;
+  line-height: 0.74;
+  letter-spacing: -0.095em;
+  text-transform: uppercase;
+  -webkit-text-stroke: clamp(5px, 0.8vw, 10px) rgba(178, 145, 94, 0.82);
+  text-shadow:
+    14px 14px 0 rgba(116, 100, 73, 0.46),
+    25px 24px 0 rgba(255, 250, 240, 0.2),
+    0 28px 40px rgba(40, 31, 22, 0.28);
+}
+
+.hero-portrait-wrap {
+  position: relative;
+  z-index: 3;
+  width: min(78vw, 430px);
+  aspect-ratio: 0.76;
+  overflow: hidden;
+  border: 1px solid rgba(255, 250, 240, 0.18);
+  border-radius: 2.2rem;
+  background: rgba(255, 250, 240, 0.08);
+  box-shadow:
+    0 34px 70px rgba(28, 22, 15, 0.42),
+    0 0 0 10px rgba(255, 250, 240, 0.045);
+}
+
+.hero-portrait-wrap img {
+  object-position: 46% 48%;
+  filter: saturate(0.86) contrast(1.04) sepia(0.08);
+}
+
+@media (max-width: 1024px) {
+  .poster-title {
+    top: 8.4rem;
+    opacity: 0.74;
+  }
+
+  .hero-signature {
+    top: 5.8rem;
+    left: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .poster-title {
+    top: 8rem;
+    width: 118vw;
+    opacity: 0.5;
+  }
+
+  .poster-title span {
+    font-size: clamp(4.4rem, 25vw, 7rem);
+    -webkit-text-stroke-width: 5px;
+    text-shadow:
+      8px 8px 0 rgba(116, 100, 73, 0.42),
+      15px 14px 0 rgba(255, 250, 240, 0.16);
+  }
+
+  .hero-signature {
+    font-size: 2.6rem;
+    opacity: 0.72;
+  }
+
+  .hero-portrait-wrap {
+    width: min(82vw, 340px);
+    border-radius: 1.6rem;
+  }
 }
 
 .hero-reveal {

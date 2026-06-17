@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
@@ -25,44 +26,38 @@ const stackTags = ["React", "Next.js", "TypeScript", "Node.js", "ChatGPT API", "
 
 export function Hero() {
   const t = useT();
-  const pipeline = t.hero.commandCenter.pipeline;
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      className="portfolio-hero relative min-h-screen overflow-hidden pt-20"
     >
-      <div className="absolute inset-0 pointer-events-none select-none">
-        <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div className="orb orb-3" />
-        <div className="grid-overlay" />
-        <div className="hero-noise" />
+      <div className="portfolio-hero-grain absolute inset-0 pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+        <p className="hero-signature">Hamilton Felipe</p>
+        <div className="poster-title">
+          <span>PORT</span>
+          <span>FOLIO</span>
+        </div>
       </div>
 
-      <div className="section-container w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center">
-          <div className="max-w-[calc(100vw-3rem)] sm:max-w-none">
-            <div className="hero-reveal mb-8">
-              <span className="badge badge-cyan w-full max-w-full flex-wrap leading-relaxed sm:w-auto sm:flex-nowrap">
-                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-                <span className="min-w-0 break-words">{t.hero.badge}</span>
-                <span className="w-full min-w-0 break-words sm:w-auto">
-                  {t.hero.available}
-                </span>
-              </span>
-            </div>
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-[1200px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+          <div className="hero-reveal max-w-[calc(100vw-3rem)] sm:max-w-xl">
+            <p className="mb-5 text-[0.7rem] font-black uppercase tracking-[0.24em] text-white/70">
+              {t.hero.badge}
+            </p>
 
             <h1
-              className="hero-reveal hero-delay-1 max-w-full text-[2.1rem] sm:text-5xl lg:text-[4rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
+              className="hero-reveal hero-delay-1 max-w-full text-[2.35rem] font-black leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.65rem] [overflow-wrap:break-word]"
             >
               <span>{t.hero.titleStart}</span>
-              <span className="gradient-text">{t.hero.titleHighlight}</span>
+              <span className="text-[#fffaf0]">{t.hero.titleHighlight}</span>
               <span className="block sm:inline">{t.hero.titleEnd}</span>
             </h1>
 
             <p
-              className="hero-reveal hero-delay-2 mt-7 max-w-full text-base sm:text-lg text-white/50 sm:max-w-xl leading-relaxed [overflow-wrap:anywhere]"
+              className="hero-reveal hero-delay-2 mt-7 hidden max-w-full text-base leading-relaxed text-white/78 sm:block sm:max-w-lg sm:text-lg [overflow-wrap:anywhere]"
             >
               {t.hero.description}
             </p>
@@ -79,7 +74,7 @@ export function Hero() {
             </div>
 
             <div
-              className="hero-reveal hero-delay-4 flex items-center gap-5 mt-10"
+              className="hero-reveal hero-delay-4 mt-7 flex flex-wrap items-center gap-4 sm:mt-9"
             >
               {socialLinks.map((s) => (
                 <a
@@ -88,17 +83,17 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-white/30 hover:text-primary-light transition-colors duration-300"
+                  className="text-white/65 transition-colors duration-300 hover:text-white"
                 >
                   <svg width={16} height={16} viewBox="0 0 24 24" fill="currentColor">
                     <path d={s.path} />
                   </svg>
                 </a>
               ))}
-              <span className="text-white/10 text-xs">|</span>
+              <span className="text-xs text-white/25">|</span>
               <a
                 href="mailto:hamiltonfelipe019@gmail.com"
-                className="text-[0.7rem] text-white/30 hover:text-primary-light transition-colors duration-300"
+                className="text-[0.72rem] font-semibold text-white/65 transition-colors duration-300 hover:text-white"
               >
                 hamiltonfelipe019@gmail.com
               </a>
@@ -106,111 +101,55 @@ export function Hero() {
           </div>
 
           <div
-            className="hero-reveal hero-delay-2 relative max-w-[calc(100vw-3rem)] sm:max-w-none"
+            className="hero-reveal hero-delay-2 relative mx-auto flex w-full max-w-[500px] justify-center lg:max-w-none"
           >
-            <div className="command-panel rounded-[1.75rem] p-5 sm:p-6">
-              <div className="flex items-center justify-between gap-5 mb-6">
-                <div>
-                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-primary-light/70 font-mono">
-                    {t.hero.commandCenter.label}
-                  </span>
-                  <h2 className="mt-2 text-3xl sm:text-4xl font-black gradient-text">
-                    {t.hero.statCard.title}
-                  </h2>
-                </div>
-                <div className="relative shrink-0 w-16 h-16 rounded-full border border-primary/25 bg-primary/[0.055]">
-                  <span className="hero-pulse-ring absolute inset-2 rounded-full border border-primary/35" />
-                  <span className="absolute inset-0 flex items-center justify-center text-[0.72rem] font-black text-primary-light">
-                    AI
-                  </span>
-                </div>
-              </div>
+            <div className="hero-portrait-wrap">
+              <Image
+                src="/images/felipe.jpeg"
+                alt="Hamilton Felipe, desenvolvedor web e IA"
+                fill
+                priority
+                sizes="(max-width: 768px) 78vw, 430px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/8" />
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
-                {[t.hero.commandCenter.build, t.hero.commandCenter.automate, t.hero.commandCenter.measure].map((item, i) => (
-                  <div
-                    key={item}
-                    className={`hero-reveal hero-card-delay-${i + 1} rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4`}
-                  >
-                    <span className="text-[0.58rem] text-white/25 font-mono">0{i + 1}</span>
-                    <p className="mt-2 text-sm font-semibold text-white/75 leading-snug">{item}</p>
-                  </div>
-                ))}
+            <div className="absolute -bottom-4 left-2 right-2 grid grid-cols-2 gap-3 sm:left-6 sm:right-6">
+              <div className="rounded-2xl border border-white/18 bg-black/28 p-4 backdrop-blur-md">
+                <span className="text-2xl font-black text-white">9+</span>
+                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-white/62">
+                  {t.hero.dedicationLabel}
+                </p>
               </div>
-
-              <div className="rounded-2xl border border-white/[0.08] bg-black/25 p-4 overflow-hidden">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 rounded-full bg-accent-coral" />
-                  <span className="w-2 h-2 rounded-full bg-accent-orange" />
-                  <span className="w-2 h-2 rounded-full bg-primary-light" />
-                  <span className="ml-auto text-[0.6rem] uppercase tracking-[0.18em] text-white/20 font-mono">
-                    {t.hero.commandCenter.pipelineLabel}
-                  </span>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  {pipeline.map((step, i) => (
-                    <div key={step} className="flex items-center gap-2">
-                      <span
-                        className="rounded-full border px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em]"
-                        style={{
-                          color: i % 2 === 0 ? "#f0dfbd" : "#d4b98d",
-                          borderColor: i % 2 === 0 ? "rgba(240,223,189,0.25)" : "rgba(212,185,141,0.25)",
-                          background: i % 2 === 0 ? "rgba(240,223,189,0.06)" : "rgba(212,185,141,0.07)",
-                        }}
-                      >
-                        {step}
-                      </span>
-                      {i < pipeline.length - 1 && <span className="text-white/15">&gt;</span>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mt-5">
-                <div className="rounded-2xl border border-primary/20 bg-primary/[0.065] p-5">
-                  <span className="text-3xl font-black text-primary-light">9+</span>
-                  <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
-                    {t.hero.dedicationLabel}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-accent-coral/20 bg-accent-coral/[0.065] p-5">
-                  <span className="text-3xl font-black text-accent-coral">3+</span>
-                  <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
-                    {t.hero.learningLabel}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
-                {stackTags.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-white/55 font-mono font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-5 hidden grid-cols-2 gap-3 text-xs font-mono sm:grid">
-                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-primary-light">
-                  {t.hero.commandCenter.metricOne}
-                </div>
-                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-coral">
-                  {t.hero.commandCenter.metricTwo}
-                </div>
+              <div className="rounded-2xl border border-white/18 bg-black/28 p-4 backdrop-blur-md">
+                <span className="text-2xl font-black text-white">3+</span>
+                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-white/62">
+                  {t.hero.learningLabel}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
+        <div className="hero-reveal hero-delay-5 mt-12 hidden flex-wrap items-center justify-center gap-2 lg:flex">
+          {stackTags.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-white/16 bg-white/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-white/68"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
         <div
-          className="hero-reveal hero-delay-5 flex justify-center mt-16 lg:mt-20"
+          className="hero-reveal hero-delay-5 mt-12 flex justify-center lg:mt-14"
         >
           <a
             href="#about"
             aria-label={t.hero.scrollAria}
-            className="flex flex-col items-center gap-2.5 text-white/25 hover:text-white/55 transition-colors"
+            className="flex flex-col items-center gap-2.5 text-white/50 transition-colors hover:text-white"
           >
             <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em]">
               {t.hero.scrollLabel}
