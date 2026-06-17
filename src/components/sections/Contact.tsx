@@ -221,7 +221,7 @@ export function Contact() {
                 <input
                   {...register("name")}
                   placeholder={t.contact.form.name}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-accent-cyan/40 focus:shadow-[0_0_15px_rgba(0,212,255,0.08)] transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300"
                 />
                 {errors.name && (
                   <span className="text-accent-coral text-xs mt-1.5 block font-semibold">
@@ -235,7 +235,7 @@ export function Contact() {
                   {...register("email")}
                   placeholder={t.contact.form.email}
                   type="email"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-accent-cyan/40 focus:shadow-[0_0_15px_rgba(0,212,255,0.08)] transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300"
                 />
                 {errors.email && (
                   <span className="text-accent-coral text-xs mt-1.5 block font-semibold">
@@ -249,7 +249,7 @@ export function Contact() {
                   {...register("message")}
                   placeholder={t.contact.form.message}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-accent-cyan/40 focus:shadow-[0_0_15px_rgba(0,212,255,0.08)] transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300 resize-none"
                 />
                 {errors.message && (
                   <span className="text-accent-coral text-xs mt-1.5 block font-semibold">

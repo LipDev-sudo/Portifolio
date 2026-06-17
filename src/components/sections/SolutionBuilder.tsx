@@ -17,23 +17,23 @@ import { useT } from "@/lib/i18n";
 const accents = [
   {
     icon: Building2,
-    color: "#00d4ff",
-    glow: "rgba(0, 212, 255, 0.22)",
+    color: "#d4b98d",
+    glow: "rgba(212, 185, 141, 0.2)",
   },
   {
     icon: ShoppingBag,
-    color: "#bef264",
-    glow: "rgba(190, 242, 100, 0.2)",
+    color: "#e8ddca",
+    glow: "rgba(232, 221, 202, 0.14)",
   },
   {
     icon: LayoutDashboard,
-    color: "#a855f7",
-    glow: "rgba(168, 85, 247, 0.22)",
+    color: "#8f887c",
+    glow: "rgba(143, 136, 124, 0.2)",
   },
   {
     icon: UserRound,
-    color: "#ff4d6d",
-    glow: "rgba(255, 77, 109, 0.2)",
+    color: "#b78f6b",
+    glow: "rgba(183, 143, 107, 0.18)",
   },
 ];
 
@@ -47,8 +47,8 @@ export function SolutionBuilder() {
   return (
     <section className="relative border-t border-white/[0.06] overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute right-[-12%] top-24 h-80 w-80 rounded-full bg-accent-cyan/10 blur-[100px]" />
-        <div className="absolute left-[-10%] bottom-16 h-72 w-72 rounded-full bg-accent-purple/10 blur-[100px]" />
+        <div className="absolute right-[-12%] top-24 h-80 w-80 rounded-full bg-primary/8 blur-[100px]" />
+        <div className="absolute left-[-10%] bottom-16 h-72 w-72 rounded-full bg-accent-coral/8 blur-[100px]" />
       </div>
 
       <div className="section-container relative z-10">
@@ -111,8 +111,8 @@ export function SolutionBuilder() {
           </motion.div>
 
           <div className="relative">
-            <div className="absolute -inset-px rounded-[1.75rem] bg-gradient-to-br from-accent-cyan/30 via-white/5 to-accent-purple/25 blur-sm" />
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.1] bg-[#0b0b16]/90 p-5 sm:p-7 shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
+            <div className="absolute -inset-px rounded-[1.75rem] bg-gradient-to-br from-primary/25 via-white/5 to-accent-coral/20 blur-sm" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.1] bg-[#11100e]/90 p-5 sm:p-7 shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
               <div
                 className="absolute right-[-4rem] top-[-4rem] h-44 w-44 rounded-full blur-[70px]"
                 style={{ background: accent.glow }}
@@ -163,7 +163,7 @@ export function SolutionBuilder() {
 
                   <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <article className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5">
-                      <div className="flex items-center gap-2 text-accent-lime">
+                      <div className="flex items-center gap-2 text-primary-light">
                         <LayoutDashboard size={16} />
                         <span className="text-xs font-bold uppercase tracking-[0.16em]">
                           {t.solutionBuilder.labels.web}
@@ -175,7 +175,7 @@ export function SolutionBuilder() {
                     </article>
 
                     <article className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5">
-                      <div className="flex items-center gap-2 text-accent-cyan">
+                      <div className="flex items-center gap-2 text-accent-coral">
                         <Bot size={16} />
                         <span className="text-xs font-bold uppercase tracking-[0.16em]">
                           {t.solutionBuilder.labels.ai}
@@ -187,11 +187,11 @@ export function SolutionBuilder() {
                     </article>
                   </div>
 
-                  <div className="mt-4 rounded-2xl border border-accent-lime/18 bg-accent-lime/[0.055] p-5">
+                  <div className="mt-4 rounded-2xl border border-primary/20 bg-primary/[0.06] p-5">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 shrink-0 text-accent-lime" size={18} />
+                      <CheckCircle2 className="mt-0.5 shrink-0 text-primary-light" size={18} />
                       <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-accent-lime">
+                        <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary-light">
                           {t.solutionBuilder.labels.outcome}
                         </span>
                         <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">

@@ -45,7 +45,7 @@ export function Hero() {
           <div className="max-w-[calc(100vw-3rem)] sm:max-w-none">
             <div className="hero-reveal mb-8">
               <span className="badge badge-cyan w-full max-w-full flex-wrap leading-relaxed sm:w-auto sm:flex-nowrap">
-                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-accent-cyan animate-pulse" />
+                <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
                 <span className="min-w-0 break-words">{t.hero.badge}</span>
                 <span className="w-full min-w-0 break-words sm:w-auto">
                   {t.hero.available}
@@ -54,11 +54,11 @@ export function Hero() {
             </div>
 
             <h1
-              className="hero-reveal hero-delay-1 max-w-full text-[2.28rem] sm:text-6xl lg:text-[4.6rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
+              className="hero-reveal hero-delay-1 max-w-full text-[2.1rem] sm:text-5xl lg:text-[4rem] font-extrabold leading-[1.08] lg:leading-[1.03] tracking-tight text-white [overflow-wrap:break-word]"
             >
               <span>{t.hero.titleStart}</span>
               <span className="gradient-text">{t.hero.titleHighlight}</span>
-              <span className="block sm:inline">{t.hero.titleEnd.trim()}</span>
+              <span className="block sm:inline">{t.hero.titleEnd}</span>
             </h1>
 
             <p
@@ -88,7 +88,7 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-white/30 hover:text-accent-cyan transition-colors duration-300"
+                  className="text-white/30 hover:text-primary-light transition-colors duration-300"
                 >
                   <svg width={16} height={16} viewBox="0 0 24 24" fill="currentColor">
                     <path d={s.path} />
@@ -98,7 +98,7 @@ export function Hero() {
               <span className="text-white/10 text-xs">|</span>
               <a
                 href="mailto:hamiltonfelipe019@gmail.com"
-                className="text-[0.7rem] text-white/30 hover:text-accent-cyan transition-colors duration-300"
+                className="text-[0.7rem] text-white/30 hover:text-primary-light transition-colors duration-300"
               >
                 hamiltonfelipe019@gmail.com
               </a>
@@ -111,16 +111,16 @@ export function Hero() {
             <div className="command-panel rounded-[1.75rem] p-5 sm:p-6">
               <div className="flex items-center justify-between gap-5 mb-6">
                 <div>
-                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-accent-cyan/70 font-mono">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-primary-light/70 font-mono">
                     {t.hero.commandCenter.label}
                   </span>
                   <h2 className="mt-2 text-3xl sm:text-4xl font-black gradient-text">
                     {t.hero.statCard.title}
                   </h2>
                 </div>
-                <div className="relative shrink-0 w-16 h-16 rounded-full border border-accent-cyan/20 bg-accent-cyan/[0.04]">
-                  <span className="hero-pulse-ring absolute inset-2 rounded-full border border-accent-cyan/30" />
-                  <span className="absolute inset-0 flex items-center justify-center text-[0.72rem] font-black text-accent-cyan">
+                <div className="relative shrink-0 w-16 h-16 rounded-full border border-primary/25 bg-primary/[0.055]">
+                  <span className="hero-pulse-ring absolute inset-2 rounded-full border border-primary/35" />
+                  <span className="absolute inset-0 flex items-center justify-center text-[0.72rem] font-black text-primary-light">
                     AI
                   </span>
                 </div>
@@ -142,7 +142,7 @@ export function Hero() {
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-2 h-2 rounded-full bg-accent-coral" />
                   <span className="w-2 h-2 rounded-full bg-accent-orange" />
-                  <span className="w-2 h-2 rounded-full bg-accent-lime" />
+                  <span className="w-2 h-2 rounded-full bg-primary-light" />
                   <span className="ml-auto text-[0.6rem] uppercase tracking-[0.18em] text-white/20 font-mono">
                     {t.hero.commandCenter.pipelineLabel}
                   </span>
@@ -153,9 +153,9 @@ export function Hero() {
                       <span
                         className="rounded-full border px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em]"
                         style={{
-                          color: i % 2 === 0 ? "#00d4ff" : "#bef264",
-                          borderColor: i % 2 === 0 ? "rgba(0,212,255,0.25)" : "rgba(190,242,100,0.25)",
-                          background: i % 2 === 0 ? "rgba(0,212,255,0.06)" : "rgba(190,242,100,0.06)",
+                          color: i % 2 === 0 ? "#f0dfbd" : "#d4b98d",
+                          borderColor: i % 2 === 0 ? "rgba(240,223,189,0.25)" : "rgba(212,185,141,0.25)",
+                          background: i % 2 === 0 ? "rgba(240,223,189,0.06)" : "rgba(212,185,141,0.07)",
                         }}
                       >
                         {step}
@@ -167,21 +167,21 @@ export function Hero() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-5">
-                <div className="rounded-2xl border border-accent-lime/15 bg-accent-lime/[0.055] p-5">
-                  <span className="text-3xl font-black text-accent-lime">9+</span>
+                <div className="rounded-2xl border border-primary/20 bg-primary/[0.065] p-5">
+                  <span className="text-3xl font-black text-primary-light">9+</span>
                   <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
                     {t.hero.dedicationLabel}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-accent-cyan/15 bg-accent-cyan/[0.055] p-5">
-                  <span className="text-3xl font-black text-accent-cyan">3+</span>
+                <div className="rounded-2xl border border-accent-coral/20 bg-accent-coral/[0.065] p-5">
+                  <span className="text-3xl font-black text-accent-coral">3+</span>
                   <p className="mt-2 text-[0.68rem] uppercase tracking-[0.16em] text-white/35 font-bold">
                     {t.hero.learningLabel}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
                 {stackTags.map((tech) => (
                   <span
                     key={tech}
@@ -192,11 +192,11 @@ export function Hero() {
                 ))}
               </div>
 
-              <div className="mt-5 grid grid-cols-2 gap-3 text-xs font-mono">
-                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-lime">
+              <div className="mt-5 hidden grid-cols-2 gap-3 text-xs font-mono sm:grid">
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-primary-light">
                   {t.hero.commandCenter.metricOne}
                 </div>
-                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-cyan">
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3 text-accent-coral">
                   {t.hero.commandCenter.metricTwo}
                 </div>
               </div>

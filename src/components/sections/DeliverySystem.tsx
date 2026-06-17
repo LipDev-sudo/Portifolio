@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { useT } from "@/lib/i18n";
 
 const accents = [
-  { color: "#00d4ff", label: "01" },
-  { color: "#a855f7", label: "02" },
-  { color: "#bef264", label: "03" },
-  { color: "#ff4d6d", label: "04" },
+  { color: "#d4b98d", label: "01" },
+  { color: "#e8ddca", label: "02" },
+  { color: "#b78f6b", label: "03" },
+  { color: "#8f887c", label: "04" },
 ];
 
 export function DeliverySystem() {
@@ -15,9 +15,9 @@ export function DeliverySystem() {
 
   return (
     <section className="relative border-t border-white/[0.06] overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/40 to-transparent" />
-      <div className="absolute -right-28 top-16 h-72 w-72 rounded-full bg-accent-purple/10 blur-[90px]" />
-      <div className="absolute -left-24 bottom-8 h-64 w-64 rounded-full bg-accent-cyan/10 blur-[90px]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute -right-28 top-16 h-72 w-72 rounded-full bg-primary/8 blur-[90px]" />
+      <div className="absolute -left-24 bottom-8 h-64 w-64 rounded-full bg-accent-coral/8 blur-[90px]" />
 
       <div className="section-container relative z-10">
         <motion.div
@@ -60,7 +60,7 @@ export function DeliverySystem() {
                     className="h-2.5 w-2.5 rounded-full"
                     style={{
                       background: accent.color,
-                      boxShadow: `0 0 20px ${accent.color}`,
+                      boxShadow: `0 0 18px ${accent.color}55`,
                     }}
                   />
                 </div>

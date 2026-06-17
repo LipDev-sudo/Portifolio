@@ -26,11 +26,11 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-accent-cyan to-primary flex items-center justify-center text-[#06060d] font-black text-xs">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#f0dfbd] to-[#b99d73] flex items-center justify-center text-[#12100d] font-black text-xs">
             L
           </div>
           <span className="text-sm font-bold tracking-tight text-white/80">
-            LipDev<span className="text-accent-cyan">.BR</span>
+            LipDev<span className="text-primary">.BR</span>
           </span>
         </div>
 
@@ -44,7 +44,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-white/25 hover:text-accent-lime transition-colors"
+            className="text-white/25 hover:text-primary-light transition-colors"
           >
             <GithubIcon />
           </a>
@@ -53,14 +53,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-white/25 hover:text-accent-cyan transition-colors"
+            className="text-white/25 hover:text-primary-light transition-colors"
           >
             <LinkedinIcon />
           </a>
           <a
             href="mailto:hamiltonfelipe019@gmail.com"
             aria-label="E-mail"
-            className="text-white/25 hover:text-accent-coral transition-colors"
+            className="text-white/25 hover:text-primary-light transition-colors"
           >
             <Mail size={18} />
           </a>

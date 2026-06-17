@@ -17,91 +17,91 @@ const ptMessages = {
     closeMenu: "Fechar menu",
   },
   hero: {
-    badge: "LipDev.BR · Dev Web & AI Automation",
-    available: "Disponível para projetos",
+    badge: "Hamilton Felipe · LipDev.BR",
+    available: "Web, IA e automações sob medida",
     titleStart: "Eu crio ",
     titleHighlight: "sites e automações com IA",
-    titleEnd: " para o seu negócio crescer.",
+    titleEnd: " para ideias ganharem forma.",
     description:
-      "Desenvolvo sites modernos e automações inteligentes que economizam tempo, atraem clientes e geram mais receita.",
-    primaryCta: "Ver Serviços",
-    secondaryCta: "Agendar diagnóstico gratuito",
+      "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
+    primaryCta: "Ver como posso ajudar",
+    secondaryCta: "Conversar comigo",
     statCard: {
-      badge: "Sistema de crescimento",
+      badge: "Meu jeito de trabalhar",
       title: "Web + IA",
       stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
     },
-    dedicationLabel: "Projetos Web",
-    learningLabel: "Cases de IA",
+    dedicationLabel: "Projetos web",
+    learningLabel: "Soluções com IA",
     scrollAria: "Rolar para baixo",
     scrollLabel: "rolar",
     commandCenter: {
-      label: "Central LipDev",
-      build: "Site de alta conversão",
-      automate: "Atendimento com IA",
-      measure: "Métricas e melhoria contínua",
-      pipelineLabel: "pipeline",
-      pipeline: ["Brief", "UX", "Código", "Automação", "Entrega"],
-      metricOne: "15h/semana poupadas",
-      metricTwo: "+35% conversão",
+      label: "Estúdio LipDev",
+      build: "Design limpo e responsivo",
+      automate: "Automação que resolve rotina",
+      measure: "Entrega pensada para evoluir",
+      pipelineLabel: "processo",
+      pipeline: ["Conversa", "Plano", "Código", "IA", "Entrega"],
+      metricOne: "menos tarefas manuais",
+      metricTwo: "mais presença online",
     },
   },
   about: {
-    badge: "Sobre Mim",
-    title: "Hamilton Felipe Soares da Silva.",
+    badge: "Sobre mim",
+    title: "Oi, eu sou o Hamilton Felipe.",
     description:
-      "Sou desenvolvedor especializado em automações com IA para empresas. Ajudo negócios a economizar tempo e reduzir custos operacionais automatizando atendimento ao cliente, geração de leads e processos internos. Trabalho com tecnologias modernas — Next.js, React, TypeScript, APIs de IA e plataformas de automação — para entregar soluções que geram resultado real.",
+      "Eu gosto de pegar uma ideia ainda meio solta e transformar em algo que funciona de verdade: um site, um sistema, um chatbot ou uma automação. Meu foco é unir desenvolvimento web com IA de um jeito simples de entender, bonito de usar e útil no dia a dia.",
     highlights: [
       {
-        title: "Automação Inteligente",
+        title: "Web com intenção",
         description:
-          "Automatizo processos manuais e repetitivos para que sua equipe foque no que importa. Menos trabalho operacional, mais resultado.",
+          "Crio páginas e sistemas pensando na experiência de quem vai usar, não só em deixar a tela bonita.",
       },
       {
-        title: "Redução de Custos",
+        title: "IA sem complicar",
         description:
-          "Chatbots e assistentes de IA que atendem 24/7, capturam leads e agendam compromissos — sem precisar de mais funcionários.",
+          "Uso IA para automatizar atendimento, organizar informações e tirar tarefas repetitivas do caminho.",
       },
       {
-        title: "Integração Total",
+        title: "Entrega próxima",
         description:
-          "Conecto WhatsApp, e-mail, CRM e sistemas internos em fluxos automatizados que funcionam sem intervenção manual.",
+          "Gosto de conversar, entender o contexto e construir junto. Projeto bom nasce dessa troca.",
       },
     ],
   },
   system: {
-    badge: "Método LipDev",
-    title: "Do primeiro clique ao processo automatizado.",
+    badge: "Meu processo",
+    title: "Do papo inicial até uma entrega que dá para usar.",
     description:
-      "Cada entrega nasce como um pequeno sistema: interface clara, automação útil, dados mensuráveis e evolução contínua.",
+      "Eu organizo cada projeto como um caminho simples: entender, desenhar, construir, automatizar e ajustar com calma.",
     items: [
       {
         title: "Diagnóstico",
         description:
-          "Mapeio o objetivo do negócio, gargalos operacionais e oportunidades de conversão antes de escrever código.",
+          "Entendo o que você quer resolver, onde o processo trava e o que precisa ficar claro para o cliente.",
       },
       {
         title: "Interface",
         description:
-          "Crio páginas e sistemas rápidos, responsivos e com experiência visual alinhada à marca.",
+          "Crio páginas e sistemas rápidos, responsivos e com uma aparência que combina com a sua marca.",
       },
       {
         title: "Automação",
         description:
-          "Conecto formulários, WhatsApp, e-mail, CRM e APIs de IA para reduzir tarefas manuais.",
+          "Conecto formulários, WhatsApp, e-mail, CRM e IA para reduzir tarefas manuais de verdade.",
       },
       {
         title: "Métrica",
         description:
-          "Organizo os dados de leads, respostas e conversões para melhorar a solução depois da entrega.",
+          "Deixo a solução pronta para evoluir com dados, feedback e novas ideias depois da entrega.",
       },
     ],
   },
   skills: {
     badge: "Habilidades",
-    title: "Stack moderna. Resultado real.",
+    title: "As ferramentas que eu uso para tirar ideia do papel.",
     description:
-      "Tecnologias e ferramentas que domino para entregar projetos de alto nível.",
+      "Gosto de trabalhar com uma stack moderna, mas sem transformar tecnologia em complicação desnecessária.",
     groups: {
       frontend: "Frontend",
       backend: "Backend & Tools",
@@ -162,23 +162,23 @@ const ptMessages = {
   },
   services: {
     badge: "Serviços",
-    title: "Tudo que você precisa para crescer online.",
+    title: "Sites, sistemas e IA no mesmo lugar.",
     description:
-      "De automações inteligentes com IA até sites e lojas virtuais — entrego soluções completas para o seu negócio.",
+      "Você pode chegar com uma ideia simples ou uma operação bagunçada. Eu ajudo a transformar isso em presença online, fluxo automatizado e uma experiência mais profissional.",
     aiGroup: {
       label: "IA & Automação",
-      description: "Automações que trabalham 24h por dia para o seu negócio.",
+      description: "Fluxos que ajudam você a atender melhor e perder menos tempo com repetição.",
     },
     webGroup: {
       label: "Desenvolvimento Web",
-      description: "Sites e sistemas sob medida para pequenos e médios negócios.",
+      description: "Interfaces sob medida para apresentar, vender, organizar e escalar sua ideia.",
     },
   },
   solutionBuilder: {
-    badge: "Soluções por cenário",
-    title: "Escolha o tipo de negócio e veja o pacote ideal.",
+    badge: "Caminhos possíveis",
+    title: "Alguns jeitos de transformar sua ideia em projeto.",
     description:
-      "Em vez de vender peças soltas, eu combino site, sistema, automação e IA em fluxos prontos para gerar resultado.",
+      "Em vez de vender peças soltas, eu penso no conjunto: página, sistema, automação e IA trabalhando na mesma direção.",
     labels: {
       bestFor: "Ideal para",
       web: "Entrega web",
@@ -259,9 +259,9 @@ const ptMessages = {
   },
   projects: {
     badge: "Portfólio",
-    title: "Projetos que falam por si.",
+    title: "Projetos que mostram como eu penso e construo.",
     description:
-      "Cada projeto é uma oportunidade de aprender, resolver problemas e entregar valor real.",
+      "Aqui entram meus estudos, entregas web, automações e experimentos. Cada um mostra um pedaço do meu jeito de resolver problema.",
     viewLive: "Ver Online",
     viewCode: "Ver Código",
     filterAll: "Todos",
@@ -281,16 +281,16 @@ const ptMessages = {
   },
   finalCta: {
     eyebrow: "e aí, bora?",
-    title: "Vamos automatizar seu negócio com IA.",
+    title: "Se você tem uma ideia, eu posso ajudar a dar forma.",
     description:
-      "Agende uma conversa gratuita e descubra como a IA pode economizar tempo e aumentar a receita da sua empresa.",
-    cta: "Agendar diagnóstico gratuito",
+      "Me chama, me conta o contexto e eu te digo o caminho mais simples para transformar isso em site, sistema ou automação com IA.",
+    cta: "Começar uma conversa",
   },
   contact: {
     badge: "Contato",
-    title: "Vamos construir algo incrível juntos?",
+    title: "Me conta o que você quer construir.",
     description:
-      "Tem um projeto em mente? Quer bater um papo sobre tech? Manda uma mensagem e eu respondo o mais rápido possível.",
+      "Pode ser uma ideia pequena, um projeto em andamento ou só uma dúvida. Manda uma mensagem e eu respondo com calma.",
     whatsapp: "Chamar no WhatsApp",
     form: {
       name: "Seu nome",
@@ -329,91 +329,91 @@ const enMessages: Messages = {
     closeMenu: "Close menu",
   },
   hero: {
-    badge: "LipDev.BR · Web Dev & AI Automation",
-    available: "Available for projects",
+    badge: "Hamilton Felipe · LipDev.BR",
+    available: "Custom web, AI and automation",
     titleStart: "I build ",
     titleHighlight: "websites and AI automations",
-    titleEnd: " that grow your business.",
+    titleEnd: " that give ideas shape.",
     description:
-      "I develop modern websites and smart AI automations that save time, attract customers and drive more revenue.",
-    primaryCta: "View Services",
-    secondaryCta: "Book a free discovery call",
+      "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",
+    primaryCta: "See how I can help",
+    secondaryCta: "Talk to me",
     statCard: {
-      badge: "Growth system",
+      badge: "How I work",
       title: "Web + AI",
       stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
     },
-    dedicationLabel: "Web Projects",
-    learningLabel: "AI Cases",
+    dedicationLabel: "Web projects",
+    learningLabel: "AI solutions",
     scrollAria: "Scroll down",
     scrollLabel: "scroll",
     commandCenter: {
-      label: "LipDev Command",
-      build: "High-converting website",
-      automate: "AI-powered customer support",
-      measure: "Metrics and continuous improvement",
-      pipelineLabel: "pipeline",
-      pipeline: ["Brief", "UX", "Code", "Automation", "Launch"],
-      metricOne: "15h/week saved",
-      metricTwo: "+35% conversion",
+      label: "LipDev Studio",
+      build: "Clean responsive design",
+      automate: "Automation that removes busywork",
+      measure: "Built to evolve after launch",
+      pipelineLabel: "process",
+      pipeline: ["Talk", "Plan", "Code", "AI", "Launch"],
+      metricOne: "less manual work",
+      metricTwo: "stronger online presence",
     },
   },
   about: {
-    badge: "About Me",
-    title: "Hamilton Felipe Soares da Silva.",
+    badge: "About me",
+    title: "Hi, I'm Hamilton Felipe.",
     description:
-      "I'm a developer specialized in AI automations for businesses. I help companies save time and reduce operational costs by automating customer support, lead generation and internal processes. I work with modern technologies — Next.js, React, TypeScript, AI APIs and automation platforms — to deliver solutions that drive real results.",
+      "I like taking an idea that is still a bit loose and turning it into something that actually works: a website, a system, a chatbot or an automation. My focus is combining web development and AI in a way that is simple to understand, good to use and useful day to day.",
     highlights: [
       {
-        title: "Smart Automation",
+        title: "Web with intention",
         description:
-          "I automate manual, repetitive processes so your team can focus on what matters. Less busywork, more results.",
+          "I build pages and systems around the people who will use them, not only around making the screen look nice.",
       },
       {
-        title: "Cost Reduction",
+        title: "AI without the fog",
         description:
-          "AI chatbots and assistants that serve customers 24/7, capture leads and book appointments — without hiring more staff.",
+          "I use AI to automate support, organize information and get repetitive tasks out of the way.",
       },
       {
-        title: "Full Integration",
+        title: "Close delivery",
         description:
-          "I connect WhatsApp, email, CRM and internal systems into automated workflows that run without manual intervention.",
+          "I like to talk, understand the context and build together. Good projects come from that exchange.",
       },
     ],
   },
   system: {
-    badge: "LipDev Method",
-    title: "From first click to automated workflow.",
+    badge: "My process",
+    title: "From the first chat to something you can actually use.",
     description:
-      "Every delivery is built as a small system: clear interface, useful automation, measurable data and continuous improvement.",
+      "I organize each project as a simple path: understand, design, build, automate and calmly improve.",
     items: [
       {
         title: "Diagnosis",
         description:
-          "I map the business goal, operational bottlenecks and conversion opportunities before writing code.",
+          "I understand what you want to solve, where the process gets stuck and what needs to feel clear for the customer.",
       },
       {
         title: "Interface",
         description:
-          "I build fast, responsive pages and systems with a visual experience aligned to the brand.",
+          "I build fast, responsive pages and systems with a look that feels aligned with your brand.",
       },
       {
         title: "Automation",
         description:
-          "I connect forms, WhatsApp, email, CRM and AI APIs to reduce manual work.",
+          "I connect forms, WhatsApp, email, CRM and AI so repetitive work actually gets reduced.",
       },
       {
         title: "Metrics",
         description:
-          "I organize lead, response and conversion data to improve the solution after launch.",
+          "I leave the solution ready to evolve with data, feedback and new ideas after launch.",
       },
     ],
   },
   skills: {
     badge: "Skills",
-    title: "Modern stack. Real results.",
+    title: "The tools I use to get ideas out of the notebook.",
     description:
-      "Technologies and tools I master to deliver high-end projects.",
+      "I like working with a modern stack without turning technology into unnecessary complexity.",
     groups: {
       frontend: "Frontend",
       backend: "Backend & Tools",
@@ -474,23 +474,23 @@ const enMessages: Messages = {
   },
   services: {
     badge: "Services",
-    title: "Everything you need to grow online.",
+    title: "Websites, systems and AI in the same place.",
     description:
-      "From smart AI automations to websites and e-commerce — I deliver complete solutions for your business.",
+      "You can bring a simple idea or a messy operation. I help turn it into online presence, automated flow and a more professional experience.",
     aiGroup: {
       label: "AI & Automation",
-      description: "Automations that work 24/7 for your business.",
+      description: "Flows that help you serve better and spend less time repeating tasks.",
     },
     webGroup: {
       label: "Web Development",
-      description: "Custom websites and systems for small and mid-sized businesses.",
+      description: "Custom interfaces to present, sell, organize and scale your idea.",
     },
   },
   solutionBuilder: {
-    badge: "Scenario-based solutions",
-    title: "Pick the business type and see the ideal package.",
+    badge: "Possible paths",
+    title: "A few ways to turn your idea into a project.",
     description:
-      "Instead of selling isolated pieces, I combine websites, systems, automation and AI into flows designed to create results.",
+      "Instead of selling isolated pieces, I think about the whole: page, system, automation and AI working in the same direction.",
     labels: {
       bestFor: "Best for",
       web: "Web delivery",
@@ -571,9 +571,9 @@ const enMessages: Messages = {
   },
   projects: {
     badge: "Portfolio",
-    title: "Projects that speak for themselves.",
+    title: "Projects that show how I think and build.",
     description:
-      "Each project is an opportunity to learn, solve problems and deliver real value.",
+      "This is where my studies, web builds, automations and experiments live. Each one shows a piece of how I solve problems.",
     viewLive: "Live Demo",
     viewCode: "Source Code",
     filterAll: "All",
@@ -593,16 +593,16 @@ const enMessages: Messages = {
   },
   finalCta: {
     eyebrow: "let's go?",
-    title: "Let's automate your business with AI.",
+    title: "If you have an idea, I can help give it shape.",
     description:
-      "Book a free discovery call and find out how AI can save time and increase your company's revenue.",
-    cta: "Book a free discovery call",
+      "Tell me the context and I'll show you the simplest path to turn it into a website, system or AI automation.",
+    cta: "Start a conversation",
   },
   contact: {
     badge: "Contact",
-    title: "Let's build something amazing together?",
+    title: "Tell me what you want to build.",
     description:
-      "Got a project in mind? Want to chat about tech? Drop a message and I'll get back to you as fast as possible.",
+      "It can be a small idea, a project already in motion or just a question. Send a message and I'll reply with care.",
     whatsapp: "Chat on WhatsApp",
     form: {
       name: "Your name",

@@ -5,13 +5,13 @@ import { Bot, Target, Cog } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 const cardStyles = [
-  { bgStyle: { background: "rgba(0, 212, 255, 0.08)", border: "1px solid rgba(0, 212, 255, 0.18)" }, iconColor: "text-accent-cyan" },
-  { bgStyle: { background: "rgba(168, 85, 247, 0.08)", border: "1px solid rgba(168, 85, 247, 0.18)" }, iconColor: "text-accent-purple" },
-  { bgStyle: { background: "rgba(190, 242, 100, 0.08)", border: "1px solid rgba(190, 242, 100, 0.18)" }, iconColor: "text-accent-lime" },
+  { bgStyle: { background: "rgba(212, 185, 141, 0.1)", border: "1px solid rgba(212, 185, 141, 0.22)" }, iconColor: "text-primary-light" },
+  { bgStyle: { background: "rgba(143, 136, 124, 0.12)", border: "1px solid rgba(143, 136, 124, 0.24)" }, iconColor: "text-accent-purple" },
+  { bgStyle: { background: "rgba(183, 143, 107, 0.1)", border: "1px solid rgba(183, 143, 107, 0.22)" }, iconColor: "text-accent-coral" },
 ];
 const cardIcons = [Bot, Target, Cog];
 
-const priceColors = ["text-accent-cyan", "text-accent-purple", "text-accent-lime"];
+const priceColors = ["text-primary-light", "text-accent-purple", "text-accent-coral"];
 
 export function AiSolutions() {
   const t = useT();

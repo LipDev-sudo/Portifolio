@@ -8,17 +8,17 @@ import { useLanguage } from "@/lib/i18n";
 // ── AI cards config ──────────────────────────────────────────
 const aiCardStyles = [
   {
-    bgStyle: { background: "rgba(0, 212, 255, 0.08)", border: "1px solid rgba(0, 212, 255, 0.18)" },
-    iconColor: "text-accent-cyan",
-    priceColor: "text-accent-cyan",
+    bgStyle: { background: "rgba(212, 185, 141, 0.1)", border: "1px solid rgba(212, 185, 141, 0.22)" },
+    iconColor: "text-primary-light",
+    priceColor: "text-primary-light",
   },
   {
-    bgStyle: { background: "rgba(168, 85, 247, 0.08)", border: "1px solid rgba(168, 85, 247, 0.18)" },
+    bgStyle: { background: "rgba(143, 136, 124, 0.12)", border: "1px solid rgba(143, 136, 124, 0.24)" },
     iconColor: "text-accent-purple",
     priceColor: "text-accent-purple",
   },
   {
-    bgStyle: { background: "rgba(190, 242, 100, 0.08)", border: "1px solid rgba(190, 242, 100, 0.18)" },
+    bgStyle: { background: "rgba(183, 143, 107, 0.1)", border: "1px solid rgba(183, 143, 107, 0.22)" },
     iconColor: "text-accent-lime",
     priceColor: "text-accent-lime",
   },
@@ -27,12 +27,12 @@ const aiCardIcons = [Bot, Target, Cog];
 
 // ── Web cards accent colors ───────────────────────────────────
 const webAccents = [
-  { text: "text-accent-cyan",   border: "border-accent-cyan/20",   num: "text-accent-cyan/30"   },
-  { text: "text-accent-purple", border: "border-accent-purple/20", num: "text-accent-purple/30" },
-  { text: "text-accent-lime",   border: "border-accent-lime/20",   num: "text-accent-lime/30"   },
-  { text: "text-accent-coral",  border: "border-accent-coral/20",  num: "text-accent-coral/30"  },
-  { text: "text-accent-orange", border: "border-accent-orange/20", num: "text-accent-orange/30" },
   { text: "text-primary-light", border: "border-primary/20",       num: "text-primary/30"       },
+  { text: "text-accent-lime",   border: "border-accent-lime/20",   num: "text-accent-lime/25"   },
+  { text: "text-accent-coral",  border: "border-accent-coral/20",  num: "text-accent-coral/28"  },
+  { text: "text-accent-orange", border: "border-accent-orange/20", num: "text-accent-orange/28" },
+  { text: "text-accent-purple", border: "border-accent-purple/20", num: "text-accent-purple/28" },
+  { text: "text-primary",       border: "border-primary/20",       num: "text-primary/25"       },
 ];
 
 export function Services() {
@@ -67,7 +67,7 @@ export function Services() {
           className="mt-14"
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border border-accent-cyan/25 text-accent-cyan bg-accent-cyan/[0.06]">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border border-primary/25 text-primary-light bg-primary/[0.07]">
               <Bot size={12} />
               {t.services.aiGroup.label}
             </span>

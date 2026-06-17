@@ -18,7 +18,7 @@ export function FinalCta() {
           className="flex flex-col md:flex-row items-center justify-between gap-10"
         >
           <div className="max-w-lg">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-cyan/50 mb-3 font-mono">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-light/60 mb-3 font-mono">
               {t.finalCta.eyebrow}
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
@@ -33,14 +33,14 @@ export function FinalCta() {
             href="#contact"
             className="group relative flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-full flex-shrink-0"
             style={{
-              background: "linear-gradient(135deg, var(--color-accent-cyan), var(--color-primary))",
-              boxShadow: "0 0 40px rgba(0, 212, 255, 0.25)",
+              background: "linear-gradient(135deg, #f0dfbd, #d4b98d)",
+              boxShadow: "0 22px 44px rgba(0, 0, 0, 0.38)",
             }}
           >
-            <div className="absolute inset-0 rounded-full border border-accent-cyan/30 scale-110 group-hover:scale-125 transition-transform duration-500" />
+            <div className="absolute inset-0 rounded-full border border-primary/30 scale-110 group-hover:scale-125 transition-transform duration-500" />
             <ArrowRight
               size={28}
-              className="text-[#06060d] transition-transform duration-300 group-hover:translate-x-1"
+              className="text-[#12100d] transition-transform duration-300 group-hover:translate-x-1"
             />
           </a>
         </motion.div>

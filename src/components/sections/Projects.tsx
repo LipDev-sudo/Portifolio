@@ -11,9 +11,9 @@ import type { Project } from "@/types";
 type Filter = "all" | "ai" | "web";
 
 const filterConfig: { key: Filter; color: string; activeBg: string; activeBorder: string }[] = [
-  { key: "all",  color: "#ffffff",  activeBg: "rgba(255,255,255,0.08)", activeBorder: "rgba(255,255,255,0.2)" },
-  { key: "ai",   color: "#00d4ff",  activeBg: "rgba(0,212,255,0.08)",   activeBorder: "rgba(0,212,255,0.3)"   },
-  { key: "web",  color: "#bef264",  activeBg: "rgba(190,242,100,0.08)", activeBorder: "rgba(190,242,100,0.3)" },
+  { key: "all",  color: "#f5f0e7", activeBg: "rgba(232,221,202,0.08)", activeBorder: "rgba(232,221,202,0.22)" },
+  { key: "ai",   color: "#d4b98d", activeBg: "rgba(212,185,141,0.09)", activeBorder: "rgba(212,185,141,0.32)" },
+  { key: "web",  color: "#e8ddca", activeBg: "rgba(232,221,202,0.08)", activeBorder: "rgba(232,221,202,0.26)" },
 ];
 
 export function Projects() {

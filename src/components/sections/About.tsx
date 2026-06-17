@@ -7,18 +7,18 @@ import { useT } from "@/lib/i18n";
 const highlightStyles = [
   {
     icon: Zap,
-    bgStyle: { background: "rgba(0, 212, 255, 0.08)", border: "1px solid rgba(0, 212, 255, 0.18)" },
-    iconColor: "text-accent-cyan",
+    bgStyle: { background: "rgba(212, 185, 141, 0.1)", border: "1px solid rgba(212, 185, 141, 0.22)" },
+    iconColor: "text-primary-light",
   },
   {
     icon: DollarSign,
-    bgStyle: { background: "rgba(190, 242, 100, 0.08)", border: "1px solid rgba(190, 242, 100, 0.18)" },
+    bgStyle: { background: "rgba(232, 221, 202, 0.08)", border: "1px solid rgba(232, 221, 202, 0.18)" },
     iconColor: "text-accent-lime",
   },
   {
     icon: Link2,
-    bgStyle: { background: "rgba(168, 85, 247, 0.08)", border: "1px solid rgba(168, 85, 247, 0.18)" },
-    iconColor: "text-accent-purple",
+    bgStyle: { background: "rgba(183, 143, 107, 0.1)", border: "1px solid rgba(183, 143, 107, 0.2)" },
+    iconColor: "text-accent-coral",
   },
 ];
 

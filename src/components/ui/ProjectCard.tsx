@@ -13,9 +13,9 @@ function GithubIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-const neonColors = {
-  web: ["#00d4ff", "#a855f7", "#bef264", "#ff4d6d", "#fb923c", "#60a5fa"],
-  ai:  ["#00d4ff", "#a855f7", "#bef264"],
+const cardAccents = {
+  web: ["#d4b98d", "#e8ddca", "#b78f6b", "#c9a56f", "#8f887c", "#f0dfbd"],
+  ai:  ["#d4b98d", "#f0dfbd", "#b78f6b"],
 };
 
 interface ProjectCardProps {
@@ -31,7 +31,7 @@ const cardVariants = {
 
 export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
   const { lang, t } = useLanguage();
-  const palette = neonColors[project.category];
+  const palette = cardAccents[project.category];
   const color = palette[(displayIndex - 1) % palette.length];
   const isAi = project.category === "ai";
   const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
@@ -44,7 +44,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
       variants={cardVariants}
       className="card-bold overflow-hidden group flex flex-col"
     >
-      {/* Neon top accent line */}
+      {/* Warm top accent line */}
       <div
         className="h-px w-full"
         style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
