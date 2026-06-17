@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
+import { HeroMotionPlayer } from "@/components/motion/HeroMotionPlayer";
 import { useT } from "@/lib/i18n";
 
 const socialLinks = [
@@ -102,6 +103,7 @@ export function Hero() {
             className="hero-reveal hero-delay-2 relative mx-auto flex w-full max-w-[500px] justify-center lg:max-w-none"
           >
             <div className="illustration-card">
+              <HeroMotionPlayer />
               <div className="illustration-code-bubble">
                 <span>{"<LipDev />"}</span>
               </div>
