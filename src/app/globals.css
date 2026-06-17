@@ -185,6 +185,120 @@ body {
   mix-blend-mode: soft-light;
 }
 
+.illustration-hero {
+  background:
+    radial-gradient(circle at 86% 18%, rgba(212, 185, 141, 0.34), transparent 20rem),
+    radial-gradient(circle at 12% 82%, rgba(23, 18, 12, 0.08), transparent 22rem),
+    linear-gradient(135deg, #fffaf0 0%, #f3ead8 48%, #dec69a 100%);
+  color: #17120c;
+}
+
+.illustration-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(23, 18, 12, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 18, 12, 0.026) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 78% 78% at 50% 48%, black 10%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 48%, black 10%, transparent 88%);
+}
+
+.illustration-hero-grid {
+  background-image:
+    radial-gradient(circle, rgba(23, 18, 12, 0.08) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  opacity: 0.28;
+}
+
+.hero-handnote {
+  position: absolute;
+  top: clamp(6.3rem, 13vh, 8.5rem);
+  right: clamp(1.5rem, 8vw, 7rem);
+  z-index: 1;
+  transform: rotate(7deg);
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: clamp(2rem, 5vw, 5.2rem);
+  color: rgba(23, 18, 12, 0.55);
+}
+
+.sketch-orbit {
+  position: absolute;
+  border: 3px solid rgba(23, 18, 12, 0.16);
+  border-radius: 999px;
+  transform: rotate(-18deg);
+}
+
+.sketch-orbit-one {
+  right: 7%;
+  top: 20%;
+  width: min(42vw, 470px);
+  height: min(24vw, 270px);
+}
+
+.sketch-orbit-two {
+  left: 5%;
+  bottom: 12%;
+  width: min(32vw, 360px);
+  height: min(18vw, 210px);
+  transform: rotate(21deg);
+}
+
+.illustration-card {
+  position: relative;
+  z-index: 3;
+  width: min(86vw, 500px);
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration-card::before {
+  content: "";
+  position: absolute;
+  inset: 4.5rem 2rem 2rem 2rem;
+  border: 3px solid rgba(23, 18, 12, 0.9);
+  border-radius: 2rem;
+  background: rgba(255, 250, 240, 0.42);
+  box-shadow: 14px 14px 0 rgba(23, 18, 12, 0.16);
+  transform: rotate(-2.5deg);
+}
+
+.illustration-code-bubble,
+.illustration-shadow-card {
+  position: absolute;
+  z-index: 5;
+  border: 2px solid #17120c;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #17120c;
+  box-shadow: 6px 6px 0 rgba(23, 18, 12, 0.2);
+  font-weight: 900;
+}
+
+.illustration-code-bubble {
+  left: 1.5rem;
+  top: 4.2rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.illustration-shadow-card {
+  right: 0.7rem;
+  top: 8.8rem;
+  max-width: 12rem;
+  padding: 0.78rem 1rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: #d4b98d;
+}
+
 .hero-signature {
   position: absolute;
   z-index: 1;
@@ -231,15 +345,15 @@ body {
 .hero-portrait-wrap {
   position: relative;
   z-index: 3;
-  width: min(78vw, 430px);
+  width: min(74vw, 350px);
   aspect-ratio: 0.76;
   overflow: hidden;
-  border: 1px solid rgba(255, 250, 240, 0.18);
-  border-radius: 2.2rem;
-  background: rgba(255, 250, 240, 0.08);
+  border: 3px solid #17120c;
+  border-radius: 2rem;
+  background: rgba(255, 250, 240, 0.72);
   box-shadow:
-    0 34px 70px rgba(28, 22, 15, 0.42),
-    0 0 0 10px rgba(255, 250, 240, 0.045);
+    12px 12px 0 rgba(23, 18, 12, 0.24),
+    0 32px 58px rgba(28, 22, 15, 0.24);
 }
 
 .hero-portrait-wrap img {
@@ -280,8 +394,30 @@ body {
   }
 
   .hero-portrait-wrap {
-    width: min(82vw, 340px);
+    width: min(76vw, 300px);
     border-radius: 1.6rem;
+  }
+
+  .illustration-card {
+    min-height: 455px;
+    width: min(92vw, 350px);
+  }
+
+  .illustration-card::before {
+    inset: 4.2rem 0.8rem 1.8rem 0.8rem;
+    border-radius: 1.5rem;
+    box-shadow: 9px 9px 0 rgba(23, 18, 12, 0.15);
+  }
+
+  .illustration-code-bubble {
+    left: 0;
+    top: 3.5rem;
+  }
+
+  .illustration-shadow-card {
+    right: 0;
+    top: 7.2rem;
+    max-width: 10.5rem;
   }
 }
 

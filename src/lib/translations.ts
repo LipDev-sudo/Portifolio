@@ -20,7 +20,7 @@ const ptMessages = {
     badge: "Hamilton Felipe · LipDev.BR",
     available: "Web, IA e automações sob medida",
     titleStart: "Eu crio ",
-    titleHighlight: "sites e automações com IA",
+    titleHighlight: "web + IA",
     titleEnd: " para ideias ganharem forma.",
     description:
       "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
@@ -332,7 +332,7 @@ const enMessages: Messages = {
     badge: "Hamilton Felipe · LipDev.BR",
     available: "Custom web, AI and automation",
     titleStart: "I build ",
-    titleHighlight: "websites and AI automations",
+    titleHighlight: "web + AI",
     titleEnd: " that give ideas shape.",
     description:
       "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",

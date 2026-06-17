@@ -30,34 +30,32 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="portfolio-hero relative min-h-screen overflow-hidden pt-20"
+      className="illustration-hero relative min-h-screen overflow-hidden pt-20"
     >
-      <div className="portfolio-hero-grain absolute inset-0 pointer-events-none" />
+      <div className="illustration-hero-grid absolute inset-0 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-        <p className="hero-signature">Hamilton Felipe</p>
-        <div className="poster-title">
-          <span>PORT</span>
-          <span>FOLIO</span>
-        </div>
+        <div className="sketch-orbit sketch-orbit-one" />
+        <div className="sketch-orbit sketch-orbit-two" />
+        <p className="hero-handnote">web + ai</p>
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-[1200px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div className="hero-reveal max-w-[calc(100vw-3rem)] sm:max-w-xl">
-            <p className="mb-5 text-[0.7rem] font-black uppercase tracking-[0.24em] text-white/70">
+            <p className="mb-5 text-[0.72rem] font-black uppercase tracking-[0.24em] text-[#17120c]/60">
               {t.hero.badge}
             </p>
 
             <h1
-              className="hero-reveal hero-delay-1 max-w-full text-[2.35rem] font-black leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.65rem] [overflow-wrap:break-word]"
+              className="hero-reveal hero-delay-1 max-w-full text-[2.45rem] font-black leading-[1.03] tracking-[-0.055em] text-[#11100e] sm:text-5xl lg:text-[4.45rem] [overflow-wrap:break-word]"
             >
               <span>{t.hero.titleStart}</span>
-              <span className="text-[#fffaf0]">{t.hero.titleHighlight}</span>
+              <span className="text-[#11100e] underline decoration-[#b99d73] decoration-[0.18em] underline-offset-[-0.08em]">{t.hero.titleHighlight}</span>
               <span className="block sm:inline">{t.hero.titleEnd}</span>
             </h1>
 
             <p
-              className="hero-reveal hero-delay-2 mt-7 hidden max-w-full text-base leading-relaxed text-white/78 sm:block sm:max-w-lg sm:text-lg [overflow-wrap:anywhere]"
+              className="hero-reveal hero-delay-2 mt-7 hidden max-w-full text-base leading-relaxed text-[#17120c]/68 sm:block sm:max-w-lg sm:text-lg [overflow-wrap:anywhere]"
             >
               {t.hero.description}
             </p>
@@ -83,17 +81,17 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-white/65 transition-colors duration-300 hover:text-white"
+                  className="text-[#17120c]/52 transition-colors duration-300 hover:text-[#11100e]"
                 >
                   <svg width={16} height={16} viewBox="0 0 24 24" fill="currentColor">
                     <path d={s.path} />
                   </svg>
                 </a>
               ))}
-              <span className="text-xs text-white/25">|</span>
+              <span className="text-xs text-[#17120c]/20">|</span>
               <a
                 href="mailto:hamiltonfelipe019@gmail.com"
-                className="text-[0.72rem] font-semibold text-white/65 transition-colors duration-300 hover:text-white"
+                className="text-[0.72rem] font-semibold text-[#17120c]/55 transition-colors duration-300 hover:text-[#11100e]"
               >
                 hamiltonfelipe019@gmail.com
               </a>
@@ -103,7 +101,11 @@ export function Hero() {
           <div
             className="hero-reveal hero-delay-2 relative mx-auto flex w-full max-w-[500px] justify-center lg:max-w-none"
           >
-            <div className="hero-portrait-wrap">
+            <div className="illustration-card">
+              <div className="illustration-code-bubble">
+                <span>{"<LipDev />"}</span>
+              </div>
+              <div className="hero-portrait-wrap">
               <Image
                 src="/images/felipe.jpeg"
                 alt="Hamilton Felipe, desenvolvedor web e IA"
@@ -112,19 +114,23 @@ export function Hero() {
                 sizes="(max-width: 768px) 78vw, 430px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/8" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10" />
+              </div>
+              <div className="illustration-shadow-card">
+                <span>{t.hero.available}</span>
+              </div>
             </div>
 
-            <div className="absolute -bottom-4 left-2 right-2 grid grid-cols-2 gap-3 sm:left-6 sm:right-6">
-              <div className="rounded-2xl border border-white/18 bg-black/28 p-4 backdrop-blur-md">
-                <span className="text-2xl font-black text-white">9+</span>
-                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-white/62">
+            <div className="absolute -bottom-4 left-2 right-2 grid grid-cols-2 gap-3 sm:left-8 sm:right-8">
+              <div className="rounded-2xl border-2 border-[#17120c] bg-[#fffaf0] p-4 shadow-[6px_6px_0_rgba(23,18,12,0.22)]">
+                <span className="text-2xl font-black text-[#17120c]">9+</span>
+                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#17120c]/58">
                   {t.hero.dedicationLabel}
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/18 bg-black/28 p-4 backdrop-blur-md">
-                <span className="text-2xl font-black text-white">3+</span>
-                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-white/62">
+              <div className="rounded-2xl border-2 border-[#17120c] bg-[#d4b98d] p-4 shadow-[6px_6px_0_rgba(23,18,12,0.22)]">
+                <span className="text-2xl font-black text-[#17120c]">3+</span>
+                <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#17120c]/62">
                   {t.hero.learningLabel}
                 </p>
               </div>
@@ -136,7 +142,7 @@ export function Hero() {
           {stackTags.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-white/16 bg-white/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-white/68"
+              className="rounded-full border-2 border-[#17120c]/20 bg-[#fffaf0]/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#17120c]/68"
             >
               {tech}
             </span>
@@ -149,7 +155,7 @@ export function Hero() {
           <a
             href="#about"
             aria-label={t.hero.scrollAria}
-            className="flex flex-col items-center gap-2.5 text-white/50 transition-colors hover:text-white"
+            className="flex flex-col items-center gap-2.5 text-[#17120c]/45 transition-colors hover:text-[#17120c]"
           >
             <span className="text-[0.6rem] font-mono uppercase tracking-[0.25em]">
               {t.hero.scrollLabel}
