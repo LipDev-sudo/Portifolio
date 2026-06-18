@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { GameModal } from "@/components/ui/GameModal";
@@ -18,7 +18,7 @@ const filterConfig: { key: Filter }[] = [
 
 export function Projects() {
   const { lang, t } = useLanguage();
-  const [filter, setFilter]     = useState<Filter>("all");
+  const [filter, setFilter] = useState<Filter>("all");
   const [gameProject, setGameProject] = useState<Project | null>(null);
   const gameTitle =
     gameProject && lang === "en" && gameProject.title_en
@@ -27,7 +27,7 @@ export function Projects() {
 
   const filterLabels: Record<Filter, string> = {
     all: t.projects.filterAll,
-    ai:  t.projects.filterAi,
+    ai: t.projects.filterAi,
     web: t.projects.filterWeb,
   };
 
@@ -37,13 +37,10 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="relative bg-black py-20 text-white">
-        <div className="mx-auto max-w-[1080px] px-5">
-          <motion.div
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <h2 className="text-3xl font-normal tracking-tight sm:text-4xl">
+      <section id="projects" className="relative bg-black py-24 text-white sm:py-28">
+        <div className="mx-auto max-w-[1120px] px-5">
+          <motion.div transition={{ duration: 0.5 }} className="mx-auto max-w-[690px] text-center">
+            <h2 className="text-[2.35rem] font-normal tracking-[-0.045em] sm:text-5xl">
               {t.projects.headingStart}{" "}
               <span className="font-black">{t.projects.headingBold}</span>
             </h2>
@@ -52,7 +49,6 @@ export function Projects() {
             </p>
           </motion.div>
 
-          {/* Filter tabs */}
           <motion.div
             transition={{ duration: 0.4, delay: 0.15 }}
             className="mt-9 flex flex-wrap items-center justify-center gap-2"
@@ -64,7 +60,7 @@ export function Projects() {
                   key={key}
                   type="button"
                   onClick={() => setFilter(key)}
-                  className={`border px-4 py-2 text-xs font-black uppercase tracking-[0.12em] transition-colors ${
+                  className={`rounded-full border px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.12em] transition-colors ${
                     active
                       ? "border-white bg-white text-black"
                       : "border-white/25 bg-transparent text-white/55 hover:border-white hover:text-white"
@@ -76,7 +72,6 @@ export function Projects() {
             })}
           </motion.div>
 
-          {/* Cards grid */}
           <AnimatePresence mode="wait">
             <motion.div
               key={filter}
@@ -84,18 +79,14 @@ export function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2"
+              className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
             >
               {filtered.map((project, index) => (
                 <ProjectCard
                   key={project.id}
                   project={project}
                   displayIndex={index + 1}
-                  onPlay={
-                    project.gameUrl
-                      ? () => setGameProject(project)
-                      : undefined
-                  }
+                  onPlay={project.gameUrl ? () => setGameProject(project) : undefined}
                 />
               ))}
             </motion.div>
@@ -103,7 +94,6 @@ export function Projects() {
         </div>
       </section>
 
-      {/* Game modal — rendered outside section to avoid z-index issues */}
       <GameModal
         open={gameProject !== null}
         onClose={() => setGameProject(null)}

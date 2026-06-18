@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { CheckCircle, Mail, MessageCircle, Send } from "lucide-react";
 import {
   buildEmailTemplateParams,
   contactFormSchema,
@@ -13,7 +14,6 @@ import {
   type ContactFormValues,
 } from "@/lib/contact";
 import { useT } from "@/lib/i18n";
-import Image from "next/image";
 
 function GithubIcon() {
   return (
@@ -128,158 +128,153 @@ export function Contact() {
     }
   }
 
+  const inputClass =
+    "w-full rounded-none border border-black/20 bg-white px-4 py-3 text-sm font-semibold text-black placeholder:text-black/35 outline-none transition-colors focus:border-black";
+
   return (
-    <section id="contact" className="border-t border-white/[0.06] bg-secondary">
-      <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="contact" className="border-t border-black/10 bg-white py-24 text-black sm:py-28">
+      <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <motion.div transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em]">
+            {t.contact.badge}
+          </span>
+          <h2 className="mt-5 max-w-[540px] text-[2.35rem] font-black leading-[1.02] tracking-[-0.055em] sm:text-5xl">
+            {t.contact.title}
+          </h2>
+          <p className="mt-6 max-w-[470px] text-sm leading-7 text-black/58 sm:text-base">
+            {t.contact.description}
+          </p>
 
-          {/* Left — CTA */}
-          <motion.div
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="badge badge-coral">{t.contact.badge}</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-5 leading-tight text-white">
-              {t.contact.title}
-            </h2>
-            <p className="text-white/40 mt-6 text-base sm:text-lg leading-relaxed max-w-md">
-              {t.contact.description}
-            </p>
-
-            <div className="flex flex-col gap-4 mt-10">
-              <a
-                href={WHATSAPP_ENDPOINT}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-5 py-3.5 rounded-xl bg-[#25D366]/10 border border-[#25D366]/25 text-[#25D366] font-bold text-sm hover:bg-[#25D366]/18 hover:border-[#25D366]/40 transition-all w-fit"
-              >
-                <MessageCircle size={17} />
-                {t.contact.whatsapp}
-              </a>
-
-              <a
-                href="https://github.com/LipDev-sudo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors font-semibold text-sm"
-              >
-                <span className="text-white/30"><GithubIcon /></span>
-                github.com/LipDev-sudo
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors font-semibold text-sm"
-              >
-                <span className="text-white/30"><LinkedinIcon /></span>
-                LinkedIn — Hamilton Felipe
-              </a>
-            </div>
-
-            {/* Instagram QR */}
-            <div className="mt-8 flex items-center gap-4">
-              <div className="w-20 h-20 rounded-xl overflow-hidden border border-white/[0.06] bg-white p-1">
-                <Image
-                  src="/images/instagram-qr.png"
-                  alt="Instagram @lip.devbr"
-                  width={72}
-                  height={72}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <p className="text-xs text-white/40 font-medium">Instagram</p>
-                <p className="text-sm font-semibold text-white">@lip.devbr</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right — Form */}
-          <motion.div
-            transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-4 card-bold p-6 sm:p-8"
+          <div className="mt-10 grid gap-3">
+            <a
+              href={WHATSAPP_ENDPOINT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-black bg-black px-5 py-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75"
             >
-              <div className="hidden" aria-hidden="true">
-                <input
-                  {...register("website")}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
+              <MessageCircle size={15} />
+              {t.contact.whatsapp}
+            </a>
 
-              <div>
-                <input
-                  {...register("name")}
-                  placeholder={t.contact.form.name}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300"
-                />
-                {errors.name && (
-                  <span className="text-accent-coral text-xs mt-1.5 block font-semibold">
-                    {errors.name.message}
-                  </span>
-                )}
-              </div>
+            <a
+              href="mailto:hamiltonfelipe019@gmail.com"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+            >
+              <Mail size={16} />
+              hamiltonfelipe019@gmail.com
+            </a>
 
-              <div>
-                <input
-                  {...register("email")}
-                  placeholder={t.contact.form.email}
-                  type="email"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300"
-                />
-                {errors.email && (
-                  <span className="text-accent-coral text-xs mt-1.5 block font-semibold">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
+            <a
+              href="https://github.com/LipDev-sudo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+            >
+              <GithubIcon />
+              github.com/LipDev-sudo
+            </a>
 
-              <div>
-                <textarea
-                  {...register("message")}
-                  placeholder={t.contact.form.message}
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-primary/45 focus:shadow-[0_0_15px_rgba(212,185,141,0.08)] transition-all duration-300 resize-none"
-                />
-                {errors.message && (
-                  <span className="text-accent-coral text-xs mt-1.5 block font-semibold">
-                    {errors.message.message}
-                  </span>
-                )}
-              </div>
+            <a
+              href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+            >
+              <LinkedinIcon />
+              LinkedIn - Hamilton Felipe
+            </a>
+          </div>
 
-              {errorMessage && (
-                <div className="text-accent-coral text-sm font-medium text-center p-3 bg-accent-coral/10 rounded-lg border border-accent-coral/20">
-                  {errorMessage}
-                </div>
+          <div className="mt-8 flex items-center gap-4 border border-black p-3">
+            <div className="h-20 w-20 shrink-0 bg-white">
+              <Image
+                src="/images/instagram-qr.png"
+                alt="Instagram @lip.devbr"
+                width={80}
+                height={80}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.12em] text-black/40">Instagram</p>
+              <p className="mt-1 text-sm font-black text-black">@lip.devbr</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div transition={{ delay: 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4 border border-black p-5 sm:p-7"
+          >
+            <div className="hidden" aria-hidden="true">
+              <input {...register("website")} tabIndex={-1} autoComplete="off" />
+            </div>
+
+            <div>
+              <input {...register("name")} placeholder={t.contact.form.name} className={inputClass} />
+              {errors.name && (
+                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                  {errors.name.message}
+                </span>
               )}
+            </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary w-full justify-center"
-              >
-                {isSubmitting ? (
-                  t.contact.form.submitting
-                ) : sent ? (
-                  <>
-                    <CheckCircle size={15} />
-                    {t.contact.form.success}
-                  </>
-                ) : (
-                  <>
-                    <Send size={15} />
-                    {t.contact.form.submit}
-                  </>
-                )}
-              </button>
-            </form>
-          </motion.div>
-        </div>
+            <div>
+              <input
+                {...register("email")}
+                placeholder={t.contact.form.email}
+                type="email"
+                className={inputClass}
+              />
+              {errors.email && (
+                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                  {errors.email.message}
+                </span>
+              )}
+            </div>
+
+            <div>
+              <textarea
+                {...register("message")}
+                placeholder={t.contact.form.message}
+                rows={6}
+                className={`${inputClass} resize-none`}
+              />
+              {errors.message && (
+                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                  {errors.message.message}
+                </span>
+              )}
+            </div>
+
+            {errorMessage && (
+              <div className="border border-red-600/30 bg-red-50 p-3 text-center text-sm font-semibold text-red-700">
+                {errorMessage}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-black px-5 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75 disabled:opacity-40"
+            >
+              {isSubmitting ? (
+                t.contact.form.submitting
+              ) : sent ? (
+                <>
+                  <CheckCircle size={15} />
+                  {t.contact.form.success}
+                </>
+              ) : (
+                <>
+                  <Send size={15} />
+                  {t.contact.form.submit}
+                </>
+              )}
+            </button>
+          </form>
+        </motion.div>
       </div>
     </section>
   );

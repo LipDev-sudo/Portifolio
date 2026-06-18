@@ -35,14 +35,14 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
   return (
     <motion.article
       variants={cardVariants}
-      className="group flex min-h-[310px] flex-col border border-white/20 bg-[#111115] p-5 text-white transition-colors hover:border-white/55 sm:p-6"
+      className="group flex min-h-[330px] flex-col border border-white/20 bg-[#080808] p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/60 sm:p-6"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <span className="font-mono text-5xl font-black leading-none text-white/10">
+          <span className="font-mono text-5xl font-black leading-none text-white/12">
             {String(displayIndex).padStart(2, "0")}
           </span>
-          <span className="ml-3 inline-flex border border-white/25 px-2 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-white/65">
+          <span className="ml-3 inline-flex rounded-full border border-white/25 px-2.5 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-white/65">
             {categoryLabel}
           </span>
         </div>
@@ -88,14 +88,16 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
         </div>
       </div>
 
-      <h3 className="mt-6 text-xl font-black leading-snug text-white">{title}</h3>
+      <h3 className="mt-7 text-xl font-black leading-snug tracking-[-0.03em] text-white sm:text-2xl">
+        {title}
+      </h3>
       <p className="mt-4 flex-1 text-sm leading-7 text-white/58">{description}</p>
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.techs.slice(0, 6).map((tech) => (
           <span
             key={tech}
-            className="border border-white/15 px-2.5 py-1 font-mono text-[0.65rem] text-white/55"
+            className="rounded-full border border-white/15 px-2.5 py-1 font-mono text-[0.65rem] text-white/55"
           >
             {tech}
           </span>
@@ -113,7 +115,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center justify-center gap-2 border border-white/25 px-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black sm:min-h-0 sm:py-2"
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-white/25 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black sm:min-h-0 sm:py-2"
           >
             <GithubIcon size={13} />
             {t.projects.viewCode}
@@ -124,7 +126,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
           <button
             type="button"
             onClick={onPlay}
-            className="inline-flex min-h-10 items-center justify-center gap-2 bg-white px-3 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
           >
             <Gamepad2 size={13} />
             {t.projects.playNow}
@@ -134,7 +136,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center justify-center gap-2 bg-white px-3 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
             aria-label={`${t.projects.viewLive}: ${title}`}
           >
             <ExternalLink size={13} />

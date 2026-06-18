@@ -21,30 +21,30 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 
 export function Footer() {
   const t = useT();
+
   return (
-    <footer className="border-t border-white/[0.06] bg-dark py-8 px-6">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Logo */}
+    <footer className="border-t border-black/10 bg-white px-5 py-8 text-black">
+      <div className="mx-auto flex max-w-[1120px] flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#f0dfbd] to-[#b99d73] flex items-center justify-center text-[#12100d] font-black text-xs">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-black text-white">
             L
           </div>
-          <span className="text-sm font-bold tracking-tight text-white/80">
-            LipDev<span className="text-primary">.BR</span>
+          <span className="text-sm font-black tracking-tight">
+            LipDev<span className="font-normal">.BR</span>
           </span>
         </div>
 
-        <p className="text-[0.7rem] text-white/25 font-mono">
+        <p className="text-center font-mono text-[0.7rem] text-black/42">
           &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva. {t.footer.rights}
         </p>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4">
           <a
             href="https://github.com/LipDev-sudo"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-white/25 hover:text-primary-light transition-colors"
+            className="text-black/45 transition-colors hover:text-black"
           >
             <GithubIcon />
           </a>
@@ -53,14 +53,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-white/25 hover:text-primary-light transition-colors"
+            className="text-black/45 transition-colors hover:text-black"
           >
             <LinkedinIcon />
           </a>
           <a
             href="mailto:hamiltonfelipe019@gmail.com"
             aria-label="E-mail"
-            className="text-white/25 hover:text-primary-light transition-colors"
+            className="text-black/45 transition-colors hover:text-black"
           >
             <Mail size={18} />
           </a>
