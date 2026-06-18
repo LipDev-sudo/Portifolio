@@ -96,9 +96,20 @@ body {
   paint-order: stroke fill;
 }
 
+.portfolio-remotion-frame {
+  width: min(100%, 560px);
+  aspect-ratio: 3 / 2;
+  background: #ffffff;
+  overflow: hidden;
+}
+
 @media (max-width: 640px) {
   .text-outline {
     -webkit-text-stroke-width: 1.15px;
+  }
+
+  .portfolio-remotion-frame {
+    width: min(100%, 390px);
   }
 }
 

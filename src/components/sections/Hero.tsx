@@ -1,6 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useT } from "@/lib/i18n";
+
+const PortfolioZoomPlayer = dynamic(
+  () =>
+    import("@/components/motion/PortfolioZoomPlayer").then(
+      (mod) => mod.PortfolioZoomPlayer
+    ),
+  {
+    ssr: false,
+    loading: () => <div className="portfolio-remotion-frame" aria-hidden="true" />,
+  }
+);
 
 const socialLinks = [
   {
@@ -25,62 +37,31 @@ const socialLinks = [
   },
 ];
 
-function HeroIllustration() {
-  return (
-    <svg
-      viewBox="0 0 540 360"
-      role="img"
-      aria-label="Ilustração de desenvolvedor usando notebook"
-      className="w-full max-w-[520px]"
-    >
-      <path d="M89 313h407" stroke="#111" strokeWidth="3" strokeLinecap="round" />
-      <path d="M310 68c-16-15-43-9-48 12-4 17 5 33 21 37 18 4 34-5 39-22 3-10-2-21-12-27Z" fill="#111" />
-      <path d="M289 94c-4 20 5 38 24 42 20 4 36-8 42-29 4-17-2-35-20-43" fill="#fff" stroke="#111" strokeWidth="3" />
-      <path d="M292 91c17 5 35 1 47-10 5 12 17 19 30 22-1-28-20-47-48-51-26-3-46 10-51 32 5 4 12 6 22 7Z" fill="#111" />
-      <path d="M323 134c-3 27-8 50-17 68" stroke="#fff" strokeWidth="3" />
-      <path d="M252 143c-40 13-67 50-76 105l83 29c17-54 28-101 30-141-13 0-25 2-37 7Z" fill="#111" />
-      <path d="M331 142c56 12 89 54 105 125l-88 29c-18-61-24-111-17-154Z" fill="#111" />
-      <path d="M303 139c-12 36-21 76-26 120 33 10 61 10 91 0-6-45-16-85-29-120-11 4-23 4-36 0Z" fill="#111" />
-      <path d="M302 146c12 9 25 9 38 0" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-      <path d="M371 168c25 16 44 41 58 78" stroke="#fff" strokeWidth="2" opacity=".8" />
-      <path d="M387 206c18 7 38 13 58 17" stroke="#fff" strokeWidth="2" opacity=".8" />
-      <path d="M238 164c-14 30-24 65-30 105" stroke="#fff" strokeWidth="2" opacity=".8" />
-      <path d="M274 254h-162l-50-98h166l46 98Z" fill="#fff" stroke="#111" strokeWidth="4" />
-      <path d="M116 254h210c13 0 23 10 23 23H128c-7 0-12-5-12-12v-11Z" fill="#fff" stroke="#111" strokeWidth="4" />
-      <circle cx="161" cy="197" r="8" fill="#111" />
-      <path d="M274 254c20 7 42 6 66-3" stroke="#111" strokeWidth="4" strokeLinecap="round" />
-      <path d="M351 277c26 23 38 55 35 96H250c-7-39 1-70 24-93" fill="#fff" stroke="#111" strokeWidth="4" />
-      <path d="M386 278c31 23 46 55 45 95H326c-8-36 1-67 27-93" fill="#fff" stroke="#111" strokeWidth="4" />
-      <path d="M266 277c-15 17-25 39-31 66" stroke="#111" strokeWidth="3" />
-      <path d="M352 280c-14 17-23 38-27 63" stroke="#111" strokeWidth="3" />
-      <path d="M299 91c8 9 21 10 36 3" stroke="#111" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export function Hero() {
   const t = useT();
 
   return (
-    <section id="hero" className="template-hero bg-white pt-24 text-black">
-      <div className="mx-auto grid min-h-[560px] max-w-[1080px] grid-cols-1 items-center gap-12 px-5 py-10 md:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <h1 className="text-[2rem] font-normal leading-[1.25] tracking-[-0.04em] text-black sm:text-[2.7rem]">
-            {t.hero.hello}{" "}
-            <span className="font-black">{t.hero.name}</span>
+    <section id="hero" className="bg-white pt-20 text-black">
+      <div className="mx-auto grid min-h-[610px] max-w-[1080px] grid-cols-1 items-center gap-10 px-5 py-10 md:grid-cols-[0.88fr_1.12fr] md:py-6">
+        <div className="relative z-10">
+          <h1 className="text-[2.1rem] font-normal leading-[1.12] tracking-[-0.045em] text-black sm:text-[2.9rem]">
+            {t.hero.hello} <span className="font-black">{t.hero.name}</span>
           </h1>
-          <h2 className="mt-2 text-[2.15rem] font-black leading-[1.08] tracking-[-0.04em] text-black sm:text-[3rem]">
+
+          <h2 className="mt-2 text-[2.25rem] font-black leading-[1.02] tracking-[-0.045em] text-black sm:text-[3.2rem]">
             {t.hero.roleMain}{" "}
             <span className="text-outline">{t.hero.roleOutline}</span>
           </h2>
-          <h3 className="mt-2 text-[2rem] font-normal leading-[1.15] tracking-[-0.04em] text-black sm:text-[2.75rem]">
+
+          <h3 className="mt-2 text-[2rem] font-normal leading-[1.12] tracking-[-0.045em] text-black sm:text-[2.9rem]">
             {t.hero.location}
           </h3>
-          <p className="mt-7 max-w-[520px] text-[0.85rem] font-medium leading-relaxed text-black/45">
+
+          <p className="mt-7 max-w-[490px] text-[0.82rem] font-medium leading-[1.75] text-black/48">
             {t.hero.description}
           </p>
 
-          <div className="mt-16 flex items-center gap-5">
+          <div className="mt-14 flex items-center gap-5">
             {socialLinks.map((social, index) => (
               <a
                 key={social.label}
@@ -101,7 +82,7 @@ export function Hero() {
         </div>
 
         <div className="flex justify-center md:justify-end">
-          <HeroIllustration />
+          <PortfolioZoomPlayer />
         </div>
       </div>
     </section>
