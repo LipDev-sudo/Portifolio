@@ -3,12 +3,12 @@ export type Language = "pt" | "en";
 const ptMessages = {
   header: {
     nav: {
-      hero: "INÍCIO",
-      about: "SOBRE",
-      skills: "HABILIDADES",
-      services: "SERVIÇOS",
-      projects: "PROJETOS",
-      contact: "CONTATO",
+      hero: "Home",
+      about: "Sobre",
+      skills: "Habilidades",
+      services: "Serviços",
+      projects: "Projetos",
+      contact: "Contato",
     },
     cta: "Fale Comigo",
     resume: "Currículo",
@@ -19,7 +19,7 @@ const ptMessages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Web, IA e automações sob medida",
+    available: "Disponível para freelas",
     titleStart: "Eu crio ",
     titleHighlight: "web + IA",
     titleEnd: " para ideias ganharem forma.",
@@ -28,9 +28,10 @@ const ptMessages = {
     roleMain: "Web & IA",
     roleOutline: "Developer",
     location: "Baseado no Brasil.",
+    availableNow: "Disponível agora",
     description:
       "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
-    primaryCta: "Ver como posso ajudar",
+    primaryCta: "Contrate-me",
     secondaryCta: "Conversar comigo",
     statCard: {
       badge: "Meu jeito de trabalhar",
@@ -352,12 +353,12 @@ export type Messages = typeof ptMessages;
 const enMessages: Messages = {
   header: {
     nav: {
-      hero: "HOME",
-      about: "ABOUT",
-      skills: "SKILLS",
-      services: "SERVICES",
-      projects: "PROJECTS",
-      contact: "CONTACT",
+      hero: "Home",
+      about: "About",
+      skills: "Skills",
+      services: "Services",
+      projects: "Projects",
+      contact: "Contact",
     },
     cta: "Get in Touch",
     resume: "Resume",
@@ -368,7 +369,7 @@ const enMessages: Messages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Custom web, AI and automation",
+    available: "Available for freelance work",
     titleStart: "I build ",
     titleHighlight: "web + AI",
     titleEnd: " that give ideas shape.",
@@ -377,9 +378,10 @@ const enMessages: Messages = {
     roleMain: "Web & AI",
     roleOutline: "Developer",
     location: "Based In Brazil.",
+    availableNow: "Available now",
     description:
       "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",
-    primaryCta: "See how I can help",
+    primaryCta: "Hire Me",
     secondaryCta: "Talk to me",
     statCard: {
       badge: "How I work",

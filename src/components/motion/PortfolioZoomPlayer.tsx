@@ -3,122 +3,162 @@
 import { Player } from "@remotion/player";
 import type { PlayerRef } from "@remotion/player";
 import { useEffect, useRef } from "react";
-import {
-  AbsoluteFill,
-  Easing,
-  interpolate,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 
 const clamp = {
   extrapolateLeft: "clamp" as const,
   extrapolateRight: "clamp" as const,
 };
 
-function MiniPortfolio({ opacity = 1 }: { opacity?: number }) {
-  return (
-    <g opacity={opacity}>
-      <rect x="0" y="0" width="162" height="90" fill="#fff" stroke="#000" strokeWidth="2" />
-      <rect x="0" y="0" width="162" height="13" fill="#000" />
-      <circle cx="9" cy="6.5" r="3" fill="#fff" />
-      <rect x="58" y="5.5" width="18" height="2" fill="#fff" />
-      <rect x="84" y="5.5" width="18" height="2" fill="#fff" />
-      <rect x="110" y="5.5" width="18" height="2" fill="#fff" />
-      <text x="11" y="35" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="400" fill="#000">
-        Hello I&apos;am
-      </text>
-      <text x="11" y="49" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="900" fill="#000">
-        Hamilton
-      </text>
-      <text x="11" y="64" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="900" fill="#000">
-        Web &amp; IA
-      </text>
-      <rect x="110" y="30" width="34" height="34" fill="#000" />
-      <path d="M117 49c2-10 8-15 16-15 7 0 11 4 13 11-5 0-9-2-12-5-4 5-10 8-17 9Z" fill="#fff" />
-      <rect x="11" y="73" width="18" height="5" fill="#000" />
-      <rect x="35" y="73" width="18" height="5" fill="#000" fillOpacity=".18" />
-      <rect x="59" y="73" width="18" height="5" fill="#000" fillOpacity=".18" />
-    </g>
-  );
-}
-
-function ProgrammerScene() {
+function FelipeCodingIllustration() {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  const typeCursor = interpolate(frame % (1.4 * fps), [0, 0.7 * fps, 1.4 * fps], [0, 58, 88], clamp);
-  const handTap = Math.sin((frame / fps) * Math.PI * 8) * 2;
-  const zoom = interpolate(frame, [1.8 * fps, 3.7 * fps], [0, 1], {
-    ...clamp,
-    easing: Easing.bezier(0.45, 0, 0.2, 1),
-  });
-  const panelOpacity = interpolate(frame, [2.15 * fps, 2.65 * fps], [0, 1], {
-    ...clamp,
-    easing: Easing.bezier(0.16, 1, 0.3, 1),
-  });
-  const panelScale = interpolate(zoom, [0, 1], [0.24, 1]);
-  const panelX = interpolate(zoom, [0, 1], [151, 318]);
-  const panelY = interpolate(zoom, [0, 1], [184, 70]);
-  const screenGlow = interpolate(frame, [1.5 * fps, 2.3 * fps, 4.5 * fps], [0, 1, 0], clamp);
+  const loop = frame % 150;
+  const blink = loop > 58 && loop < 64 ? 1 : 0;
+  const hairMove = Math.sin(frame / 12) * 1.2;
+  const handMove = Math.sin(frame / 20) * 2.5;
+  const cursor = interpolate(loop, [0, 70, 149], [0, 56, 96], clamp);
+  const screenGlow = interpolate(loop, [24, 60, 104, 149], [0, 1, 1, 0], clamp);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#fff" }}>
-      <svg viewBox="0 0 540 360" width="100%" height="100%" aria-hidden="true">
-        <rect x="0" y="0" width="540" height="360" fill="#fff" />
+      <svg viewBox="0 0 620 430" width="100%" height="100%" aria-hidden="true">
+        <rect width="620" height="430" fill="#fff" />
 
-        <g opacity={1}>
-          <path d="M78 313h395" stroke="#111" strokeWidth="3" strokeLinecap="round" />
+        <g transform="translate(34 32)">
+          <rect x="96" y="112" width="24" height="210" rx="8" fill="#1b1d1e" />
+          <rect x="103" y="119" width="11" height="194" rx="4" fill="#575c5e" opacity=".55" />
+          <rect x="78" y="322" width="64" height="10" rx="5" fill="#242526" />
 
-          <g transform="translate(292 48)">
-            <path d="M43 8c-31-6-57 13-63 43 12 4 27 3 43-4 16-7 28-17 36-30-3-4-8-7-16-9Z" fill="#000" />
-            <path d="M-4 52c-2 29 16 50 43 50 29 0 48-20 48-50 0-25-19-43-47-43C14 9-3 26-4 52Z" fill="#fff" stroke="#000" strokeWidth="4" />
-            <path d="M-1 47c25 0 45-9 62-27 6 14 16 24 30 29-2-28-19-47-51-52C12-1-8 15-13 40c3 4 7 6 12 7Z" fill="#000" />
-            <circle cx="29" cy="62" r="3" fill="#000" />
-            <path d="M24 82c11 8 24 8 38 0" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" />
-          </g>
+          <path
+            d="M214 330c34 10 124 12 178 0 34 15 57 34 69 58H159c10-25 28-45 55-58Z"
+            fill="#111"
+          />
+          <path
+            d="M180 345c-25 7-42 20-52 41h68c10-17 24-30 41-39"
+            fill="#fff"
+            stroke="#111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
 
-          <path d="M256 143c-40 13-67 51-78 108l78 29c20-51 32-98 35-139-13-1-24 0-35 2Z" fill="#000" />
-          <path d="M335 141c57 12 90 54 102 128l-87 28c-18-61-23-113-15-156Z" fill="#000" />
-          <path d="M300 135c-13 38-22 79-26 123 32 10 62 10 91 0-6-45-16-86-31-123-10 5-22 5-34 0Z" fill="#000" />
-          <path d="M303 144c11 9 24 9 37 0" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-          <path d="M372 167c25 15 43 40 55 75" stroke="#fff" strokeWidth="2" opacity=".85" />
-          <path d="M390 207c17 7 36 12 57 16" stroke="#fff" strokeWidth="2" opacity=".8" />
+          <path
+            d="M240 199c-33 20-51 63-51 129 64 23 145 22 222-3-1-74-25-118-72-132-27 18-60 20-99 6Z"
+            fill="#111"
+          />
 
-          <g transform={`translate(0 ${handTap})`}>
-            <path d="M256 246c22 8 48 8 76-1" stroke="#000" strokeWidth="9" strokeLinecap="round" />
-            <path d="M256 246c22 8 48 8 76-1" stroke="#fff" strokeWidth="4" strokeLinecap="round" />
-          </g>
+          <path
+            d="M302 146c-47 0-78 32-78 80 0 50 31 84 78 84 46 0 78-34 78-84 0-48-31-80-78-80Z"
+            fill="#f6dfd2"
+            stroke="#111"
+            strokeWidth="4"
+          />
+          <path
+            d={`M219 ${164 + hairMove}c25-39 84-54 126-31 31 17 48 45 49 87-26-8-48-23-64-46-30 28-67 42-111 42 0-21 0-36 0-52Z`}
+            fill="#141414"
+          />
+          <path
+            d="M239 171c-20 6-36 20-48 42 25 6 54 5 87-5"
+            fill="#141414"
+          />
+          <path
+            d="M352 145c15-7 31-7 47 1-13 2-24 8-31 18"
+            fill="none"
+            stroke="#111"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <path
+            d="M375 132c12-9 26-10 42-2-17 2-28 8-34 18"
+            fill="none"
+            stroke="#111"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+          <path
+            d="M410 154c13-2 24 3 33 15-12-4-22-4-30 2"
+            fill="none"
+            stroke="#111"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
 
-          <path d="M276 254H112L62 156h166l48 98Z" fill="#fff" stroke="#111" strokeWidth="4" />
-          <path d="M116 254h208c14 0 24 10 24 23H129c-7 0-13-6-13-13v-10Z" fill="#fff" stroke="#111" strokeWidth="4" />
-          <circle cx="160" cy="197" r="8" fill="#111" />
+          {blink ? (
+            <>
+              <path d="M272 236h16" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              <path d="M333 236h16" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+            </>
+          ) : (
+            <>
+              <ellipse cx="280" cy="234" rx="7" ry="10" fill="#111" />
+              <ellipse cx="341" cy="234" rx="7" ry="10" fill="#111" />
+            </>
+          )}
+          <path d="M297 265c18 12 38 12 59 0" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+          <path d="M306 250c4 5 8 5 13 0" fill="none" stroke="#111" strokeWidth="3" strokeLinecap="round" />
 
-          <g opacity={1 - panelOpacity * 0.35}>
-            <rect x="123" y="176" width="86" height="4" fill="#000" opacity=".16" />
-            <rect x="123" y="188" width="118" height="4" fill="#000" opacity=".12" />
-            <rect x="123" y="200" width="96" height="4" fill="#000" opacity=".12" />
-            <rect x={128 + typeCursor} y="213" width="18" height="5" fill="#000" />
-          </g>
-          <g transform="translate(121 174) scale(.55)" opacity={panelOpacity}>
-            <MiniPortfolio />
-          </g>
+          <path
+            d={`M366 ${192 + handMove}c30-22 55-23 75-2 13 14 8 31-12 42-19 11-38 14-56 8`}
+            fill="#f6dfd2"
+            stroke="#111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path d="M420 186c5-15 8-30 9-45" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+          <path d="M402 185c4-14 6-28 7-43" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+          <path d="M389 192c1-14 0-27-4-40" stroke="#111" strokeWidth="4" strokeLinecap="round" />
 
-          <rect x="121" y="174" width="92" height="52" fill="#000" opacity={screenGlow * 0.08} />
+          <path
+            d="M178 338c53-5 107-5 162 0"
+            stroke="#f6dfd2"
+            strokeWidth="16"
+            strokeLinecap="round"
+          />
+          <path
+            d="M177 338c53-5 107-5 162 0"
+            stroke="#111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M138 342h207c12 0 22 10 22 22H152c-8 0-14-6-14-14v-8Z"
+            fill="#fff"
+            stroke="#111"
+            strokeWidth="4"
+          />
+          <path
+            d="M146 247h176l47 97H188l-42-97Z"
+            fill="#fff"
+            stroke="#111"
+            strokeWidth="4"
+          />
+          <rect
+            x="182"
+            y="276"
+            width="86"
+            height="7"
+            fill="#111"
+            opacity={0.12 + screenGlow * 0.18}
+          />
+          <rect
+            x="182"
+            y="292"
+            width="116"
+            height="7"
+            fill="#111"
+            opacity={0.1 + screenGlow * 0.14}
+          />
+          <rect
+            x="182"
+            y="308"
+            width="72"
+            height="8"
+            fill="#111"
+            opacity={0.16}
+          />
+          <rect x={190 + cursor} y="320" width="20" height="6" fill="#111" />
+          <circle cx="237" cy="305" r="10" fill="#111" />
 
-          <path d="M350 277c27 24 39 56 35 96H250c-7-39 1-71 25-94" fill="#fff" stroke="#111" strokeWidth="4" />
-          <path d="M385 278c31 23 46 55 45 95H326c-8-36 1-67 27-93" fill="#fff" stroke="#111" strokeWidth="4" />
-          <path d="M266 277c-15 17-25 39-31 66" stroke="#111" strokeWidth="3" />
-          <path d="M352 280c-14 17-23 38-27 63" stroke="#111" strokeWidth="3" />
-        </g>
-
-        <g
-          opacity={panelOpacity}
-          transform={`translate(${panelX} ${panelY}) scale(${panelScale})`}
-          style={{ transformOrigin: "0 0" }}
-        >
-          <rect x="-10" y="-10" width="182" height="110" fill="#fff" stroke="#000" strokeWidth="3" />
-          <MiniPortfolio />
+          <path d="M100 382h424" stroke="#111" strokeWidth="3" strokeLinecap="round" />
         </g>
       </svg>
     </AbsoluteFill>
@@ -145,21 +185,18 @@ export function PortfolioZoomPlayer() {
   }, []);
 
   return (
-    <div className="portfolio-remotion-frame">
+    <div className="portfolio-remotion-frame" aria-label="Hamilton Felipe coding illustration">
       <Player
         ref={playerRef}
-        component={ProgrammerScene}
+        component={FelipeCodingIllustration}
         durationInFrames={150}
-        compositionWidth={540}
-        compositionHeight={360}
+        compositionWidth={620}
+        compositionHeight={430}
         fps={30}
         controls={false}
         clickToPlay={false}
         acknowledgeRemotionLicense
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
+        style={{ width: "100%", height: "100%" }}
       />
     </div>
   );

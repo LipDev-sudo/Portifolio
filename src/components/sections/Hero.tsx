@@ -41,27 +41,60 @@ export function Hero() {
   const t = useT();
 
   return (
-    <section id="hero" className="bg-white pt-20 text-black">
-      <div className="mx-auto grid min-h-[610px] max-w-[1080px] grid-cols-1 items-center gap-10 px-5 py-10 md:grid-cols-[0.88fr_1.12fr] md:py-6">
+    <section id="hero" className="bg-white pt-24 text-black">
+      <div className="mx-auto grid min-h-[590px] max-w-[1120px] grid-cols-1 items-center gap-10 px-5 py-8 md:grid-cols-[0.92fr_1.08fr] md:py-4">
         <div className="relative z-10">
-          <h1 className="text-[2.1rem] font-normal leading-[1.12] tracking-[-0.045em] text-black sm:text-[2.9rem]">
-            {t.hero.hello} <span className="font-black">{t.hero.name}</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-black" />
+            {t.hero.available}
+          </span>
+
+          <h1 className="mt-7 max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black sm:text-[4.15rem]">
+            {t.hero.hello}{" "}
+            <span className="block">{t.hero.name.replace(".", "")}</span>
           </h1>
 
-          <h2 className="mt-2 text-[2.25rem] font-black leading-[1.02] tracking-[-0.045em] text-black sm:text-[3.2rem]">
-            {t.hero.roleMain}{" "}
-            <span className="text-outline">{t.hero.roleOutline}</span>
+          <h2 className="mt-5 font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black sm:text-[2.35rem]">
+            {t.hero.roleMain} {t.hero.roleOutline}
+            <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black" />
           </h2>
 
-          <h3 className="mt-2 text-[2rem] font-normal leading-[1.12] tracking-[-0.045em] text-black sm:text-[2.9rem]">
-            {t.hero.location}
-          </h3>
-
-          <p className="mt-7 max-w-[490px] text-[0.82rem] font-medium leading-[1.75] text-black/48">
+          <p className="mt-4 max-w-[520px] text-[0.83rem] font-medium leading-[1.55] text-black/68">
             {t.hero.description}
           </p>
 
-          <div className="mt-14 flex items-center gap-5">
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-[0.72rem] font-semibold text-black/65">
+            <span className="inline-flex items-center gap-1.5">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
+              </svg>
+              {t.hero.location}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-black" />
+              {t.hero.availableNow}
+            </span>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75"
+            >
+              {t.hero.primaryCta}
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white"
+            >
+              {t.header.resume}
+            </a>
+          </div>
+
+          <div className="mt-8 h-px w-full max-w-[540px] bg-black/35" />
+
+          <div className="mt-5 flex items-center gap-4">
+            <span className="text-[0.78rem] font-semibold text-black/70">Follow me:</span>
             {socialLinks.map((social, index) => (
               <a
                 key={social.label}
@@ -69,11 +102,11 @@ export function Hero() {
                 target={social.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={social.label}
-                className={`flex h-10 w-10 items-center justify-center border-2 border-black transition-colors hover:bg-black hover:text-white ${
+                className={`flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-black hover:text-white ${
                   index === 0 ? "bg-black text-white" : "bg-white text-black"
                 }`}
               >
-                <svg width={16} height={16} viewBox="0 0 24 24" fill="currentColor">
+                <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor">
                   <path d={social.path} />
                 </svg>
               </a>

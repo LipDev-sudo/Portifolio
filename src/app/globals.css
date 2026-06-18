@@ -98,7 +98,7 @@ body {
 
 .portfolio-remotion-frame {
   width: min(100%, 560px);
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 620 / 430;
   background: #ffffff;
   overflow: hidden;
 }

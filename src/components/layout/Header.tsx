@@ -1,132 +1,123 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Download, Languages, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import {
+  Code2,
+  Download,
+  FolderOpen,
+  Home,
+  Languages,
+  Mail,
+  Menu,
+  User,
+  X,
+} from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { lang, toggle, t } = useLanguage();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const navLinks = [
-    { label: t.header.nav.about, href: "#about" },
-    { label: t.header.nav.skills, href: "#skills" },
-    { label: t.header.nav.projects, href: "#projects" },
-    { label: t.header.nav.contact, href: "#contact" },
+    { label: t.header.nav.hero, href: "#hero", icon: Home },
+    { label: t.header.nav.about, href: "#about", icon: User },
+    { label: t.header.nav.projects, href: "#projects", icon: FolderOpen },
+    { label: t.header.nav.services, href: "#skills", icon: Code2 },
+    { label: t.header.nav.contact, href: "#contact", icon: Mail },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
-      <nav className="max-w-[1080px] mx-auto px-5">
-        <div
-          className={`flex h-16 items-center justify-between transition-all duration-300 ${
-            scrolled
-              ? "border-b border-black/10"
-              : "border-b border-transparent"
-          }`}
+    <header className="fixed left-0 right-0 top-4 z-50 px-4">
+      <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3">
+        <a
+          href="#hero"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] lg:hidden"
+          aria-label="LipDev"
         >
-          <a href="#hero" className="flex items-center gap-2 group">
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-xs font-black text-white">
-              P
-            </div>
-            <span className="text-sm font-black tracking-tight text-black">
-              Personal
-            </span>
-          </a>
+          L
+        </a>
 
-          <ul className="hidden items-center gap-9 lg:flex">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-xs font-black text-black transition-opacity duration-200 hover:opacity-55"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={toggle}
-              translate="no"
-              aria-label={t.header.toggleLabel}
-              title={t.header.toggleLabel}
-              className="inline-flex items-center gap-1.5 border border-black px-3 py-2 text-xs font-black text-black transition-colors hover:bg-black hover:text-white"
-            >
-              <Languages size={12} />
-              <span aria-hidden="true">{lang === "pt" ? "EN" : "PT"}</span>
-            </button>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-black px-4 py-2 text-xs font-black text-white transition-opacity hover:opacity-75"
-            >
-              {t.header.resume} <Download size={13} />
-            </a>
-          </div>
-
-          <button
-            className="p-2 text-black transition-opacity hover:opacity-60 lg:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="mx-5 border border-black bg-white lg:hidden"
-          >
-            <ul className="flex flex-col p-5 gap-4">
-              {navLinks.map((link) => (
+        <nav className="hidden flex-1 justify-center lg:flex">
+          <ul className="flex items-center gap-1 rounded-full border border-black/10 bg-white/92 px-2 py-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.08)] backdrop-blur-md">
+            {navLinks.map((link, index) => {
+              const Icon = link.icon;
+              return (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-sm font-black text-black transition-opacity hover:opacity-60"
+                    className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[0.72rem] font-bold transition-colors ${
+                      index === 0
+                        ? "bg-black text-white"
+                        : "text-black/75 hover:bg-black hover:text-white"
+                    }`}
                   >
-                    {link.label}
+                    <Icon size={12} strokeWidth={2.4} />
+                    <span>{link.label}</span>
                   </a>
                 </li>
-              ))}
-              <li className="flex gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => { setMenuOpen(false); toggle(); }}
-                  translate="no"
-                  className="flex-1 inline-flex justify-center items-center gap-2 border border-black py-2.5 text-sm font-black text-black"
-                >
-                  <Languages size={14} />
-                  {lang === "pt" ? "EN" : "PT"}
-                </button>
-                <a
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex-1 justify-center bg-black px-4 py-2.5 text-center text-sm font-black text-white"
-                >
-                  {t.header.resume}
-                </a>
-              </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={toggle}
+            translate="no"
+            aria-label={t.header.toggleLabel}
+            title={t.header.toggleLabel}
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 text-[0.72rem] font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white"
+          >
+            <Languages size={12} />
+            {lang === "pt" ? "EN" : "PT"}
+          </button>
+
+          <a
+            href="#contact"
+            className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75"
+          >
+            {t.header.resume}
+            <Download size={12} />
+          </a>
+        </div>
+
+        <button
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] lg:hidden"
+          onClick={() => setMenuOpen((value) => !value)}
+          aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
+        >
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="mx-auto mt-3 max-w-[360px] rounded-3xl border border-black/10 bg-white p-2 shadow-[0_18px_45px_rgba(0,0,0,0.12)] lg:hidden"
+          >
+            <ul className="grid gap-1">
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-black hover:bg-black hover:text-white"
+                    >
+                      <Icon size={14} />
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>
