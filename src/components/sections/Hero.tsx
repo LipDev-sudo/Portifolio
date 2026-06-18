@@ -1,18 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useT } from "@/lib/i18n";
-
-const PortfolioZoomPlayer = dynamic(
-  () =>
-    import("@/components/motion/PortfolioZoomPlayer").then(
-      (mod) => mod.PortfolioZoomPlayer
-    ),
-  {
-    ssr: false,
-    loading: () => <div className="portfolio-remotion-frame" aria-hidden="true" />,
-  }
-);
 
 const socialLinks = [
   {
@@ -42,7 +31,7 @@ export function Hero() {
 
   return (
     <section id="hero" className="bg-white pt-24 text-black">
-      <div className="mx-auto grid min-h-[590px] max-w-[1120px] grid-cols-1 items-center gap-10 px-5 py-8 md:grid-cols-[0.92fr_1.08fr] md:py-4">
+      <div className="mx-auto grid min-h-[590px] max-w-[1180px] grid-cols-1 items-center gap-8 px-5 py-8 md:grid-cols-[0.86fr_1.14fr] md:py-4">
         <div className="relative z-10">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70">
             <span className="h-1.5 w-1.5 rounded-full bg-black" />
@@ -114,8 +103,18 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end">
-          <PortfolioZoomPlayer />
+        <div className="relative flex justify-center md:justify-end">
+          <div className="hero-anime-portrait">
+            <Image
+              src="/images/felipe-anime-coding.png"
+              alt="Ilustração de Hamilton Felipe programando no computador"
+              width={1536}
+              height={1024}
+              priority
+              sizes="(max-width: 768px) 96vw, 56vw"
+              className="h-auto w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>

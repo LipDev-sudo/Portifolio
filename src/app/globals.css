@@ -97,10 +97,19 @@ body {
 }
 
 .portfolio-remotion-frame {
-  width: min(100%, 560px);
+  width: min(100%, 640px);
   aspect-ratio: 620 / 430;
   background: #ffffff;
   overflow: hidden;
+}
+
+.hero-anime-portrait {
+  width: min(112%, 720px);
+  transform: translateX(1.5rem);
+}
+
+.hero-anime-portrait img {
+  filter: saturate(0.96) contrast(1.03);
 }
 
 @media (max-width: 640px) {
@@ -109,7 +118,12 @@ body {
   }
 
   .portfolio-remotion-frame {
-    width: min(100%, 390px);
+    width: min(100%, 430px);
+  }
+
+  .hero-anime-portrait {
+    width: min(118vw, 520px);
+    transform: translateX(0);
   }
 }
 
