@@ -17,9 +17,9 @@ export const services: Service[] = [
     titulo: "Site Institucional",
     titulo_en: "Business Website",
     descricao:
-      "Site completo com 3 a 5 páginas: início, sobre, serviços e contato. Perfeito para apresentar sua empresa de forma profissional.",
+      "Site completo com páginas de início, sobre, serviços e contato. Perfeito para apresentar sua empresa de forma profissional.",
     descricao_en:
-      "Full website with 3 to 5 pages: home, about, services and contact. Perfect to present your business professionally.",
+      "Full website with home, about, services and contact pages. Perfect to present your business professionally.",
     preco: "A partir de R$ 1.300",
     preco_en: "From $250",
   },
@@ -50,9 +50,9 @@ export const services: Service[] = [
     titulo: "Plataforma de Cursos",
     titulo_en: "Online Course Platform",
     descricao:
-      "Sistema com área de alunos, aulas em vídeo, progresso e certificados. Monetize seu conhecimento.",
+      "Sistema com área de alunos, aulas em vídeo, progresso e certificados. Um caminho para vender conhecimento online.",
     descricao_en:
-      "Platform with student area, video lessons, progress tracking and certificates. Monetize your knowledge.",
+      "Platform with student area, video lessons, progress tracking and certificates. A way to sell knowledge online.",
     preco: "A partir de R$ 3.800",
     preco_en: "From $750",
   },
@@ -61,20 +61,20 @@ export const services: Service[] = [
     titulo: "Dashboard / Painel Admin",
     titulo_en: "Admin Dashboard",
     descricao:
-      "Painel administrativo com gráficos, relatórios e gestão de dados. Controle total do seu negócio em tempo real.",
+      "Painel administrativo com gráficos, relatórios e gestão de dados. Controle do seu negócio em tempo real.",
     descricao_en:
-      "Admin panel with charts, reports and data management. Full control of your business in real time.",
+      "Admin panel with charts, reports and data management. Real-time control for your business.",
     preco: "A partir de R$ 1.800",
     preco_en: "From $350",
   },
   {
     id: 7,
-    titulo: "Criação de Bots para Discord",
+    titulo: "Bots para Discord",
     titulo_en: "Custom Discord Bots",
     descricao:
-      "Bots personalizados para automação, atendimento, moderação e abertura de tickets no Discord. Ideal para comunidades e suporte organizado.",
+      "Bots personalizados para automação, atendimento, moderação e abertura de tickets no Discord.",
     descricao_en:
-      "Custom bots for automation, support, moderation and ticket flows on Discord. Perfect for communities and structured support.",
+      "Custom bots for automation, support, moderation and ticket flows on Discord.",
     preco: "A partir de R$ 1.800",
     preco_en: "From $350",
   },
@@ -83,9 +83,9 @@ export const services: Service[] = [
     titulo: "Atendimento via WhatsApp",
     titulo_en: "WhatsApp Support Flow",
     descricao:
-      "Fluxo de atendimento com respostas automáticas, triagem de contatos e encaminhamento rápido no WhatsApp. Perfeito para vendas e suporte.",
+      "Fluxo de atendimento com respostas automáticas, triagem de contatos e encaminhamento rápido no WhatsApp.",
     descricao_en:
-      "Conversation flow with auto-replies, contact triage and fast routing on WhatsApp. Perfect for sales and support.",
+      "Conversation flow with auto-replies, contact triage and fast routing on WhatsApp.",
     preco: "A partir de R$ 1.600",
     preco_en: "From $300",
   },
