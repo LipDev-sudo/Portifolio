@@ -23,7 +23,7 @@ export function Header() {
     { label: t.header.nav.hero, href: "#hero", icon: Home },
     { label: t.header.nav.about, href: "#about", icon: User },
     { label: t.header.nav.projects, href: "#projects", icon: FolderOpen },
-    { label: t.header.nav.services, href: "#skills", icon: Code2 },
+    { label: t.header.nav.services, href: "#services", icon: Code2 },
     { label: t.header.nav.contact, href: "#contact", icon: Mail },
   ];
 
