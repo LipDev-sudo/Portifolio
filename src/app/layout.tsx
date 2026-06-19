@@ -4,7 +4,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LanguageProvider } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -77,7 +76,6 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <LanguageProvider>
-          <CustomCursor />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

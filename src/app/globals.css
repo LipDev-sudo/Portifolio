@@ -76,11 +76,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (pointer: fine) {
-  /* Hide native cursor on every element — including inline cursor:pointer overrides */
-  *, *::before, *::after { cursor: none !important; }
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
