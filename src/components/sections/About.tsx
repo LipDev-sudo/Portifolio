@@ -9,99 +9,94 @@ function AboutIllustration() {
       viewBox="0 0 420 320"
       className="h-auto w-full"
       role="img"
-      aria-label="Ilustração anime de Hamilton Felipe em uma pose diferente"
+      aria-label="Anime illustration of Hamilton Felipe in a different pose"
     >
       <rect x="38" y="18" width="344" height="252" rx="3" fill="#fff" stroke="#000" strokeWidth="3" />
-      <path d="M78 274h264" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M84 62h63" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M84 79h38" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M323 60h26" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M336 47v26" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+      <path d="M76 274h268" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+      <path d="M84 61h62" stroke="#000" strokeWidth="3" strokeLinecap="round" opacity=".75" />
+      <path d="M84 78h38" stroke="#000" strokeWidth="3" strokeLinecap="round" opacity=".75" />
+      <path d="M324 63h27" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+      <path d="M337.5 49.5v27" stroke="#000" strokeWidth="3" strokeLinecap="round" />
 
       <path
-        d="M134 258c8-54 37-89 88-103 50 12 82 47 96 103-57 20-118 20-184 0Z"
-        fill="#111"
+        d="M129 258c14-55 48-89 101-99 54 10 89 44 105 99-62 22-131 22-206 0Z"
+        fill="#161616"
         stroke="#000"
         strokeWidth="3"
       />
-      <path
-        d="M171 176c17 19 34 29 51 30 20-3 37-13 51-30"
-        fill="none"
-        stroke="#2b2b2b"
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M172 254c34-27 66-50 96-68"
-        fill="none"
-        stroke="#f3d7c7"
-        strokeWidth="27"
-        strokeLinecap="round"
-      />
-      <path
-        d="M172 254c34-27 66-50 96-68"
-        fill="none"
-        stroke="#000"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M286 255c-37-26-72-48-105-66"
-        fill="none"
-        stroke="#f3d7c7"
-        strokeWidth="27"
-        strokeLinecap="round"
-      />
-      <path
-        d="M286 255c-37-26-72-48-105-66"
-        fill="none"
-        stroke="#000"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M157 248c45 24 92 25 140 1"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
+      <path d="M171 181c30 27 66 34 108 0" stroke="#2d2d2d" strokeWidth="6" strokeLinecap="round" />
+      <path d="M168 213c42 28 85 28 128 0" stroke="#303030" strokeWidth="4" strokeLinecap="round" />
 
       <path
-        d="M179 126c-1 41 21 70 53 70 32 0 53-28 52-70-1-38-21-59-53-59-31 0-50 21-52 59Z"
-        fill="#f3d7c7"
+        d="M141 250c35-25 74-44 117-57"
+        fill="none"
+        stroke="#f3d3c0"
+        strokeWidth="28"
+        strokeLinecap="round"
+      />
+      <path
+        d="M141 250c35-25 74-44 117-57"
+        fill="none"
+        stroke="#000"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M322 251c-38-27-78-47-120-60"
+        fill="none"
+        stroke="#f3d3c0"
+        strokeWidth="28"
+        strokeLinecap="round"
+      />
+      <path
+        d="M322 251c-38-27-78-47-120-60"
+        fill="none"
+        stroke="#000"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <path d="M155 244c49 24 101 24 156 0" stroke="#f8f8f8" strokeWidth="6" strokeLinecap="round" />
+      <path d="M168 250c44 14 87 14 131 0" stroke="#000" strokeWidth="3" strokeLinecap="round" opacity=".55" />
+
+      <path
+        d="M179 124c1 43 22 72 55 72 32 0 52-29 52-72 0-39-21-61-54-61-32 0-51 22-53 61Z"
+        fill="#f3d3c0"
         stroke="#000"
         strokeWidth="3"
       />
       <path
-        d="M178 117c10-34 30-53 61-57 32 2 51 18 58 47-18 2-37-1-56-9-18 16-39 22-63 19Z"
-        fill="#111"
+        d="M178 116c9-38 31-59 66-63 34 3 53 22 58 53-17 2-36-2-58-10-18 14-40 21-66 20Z"
+        fill="#121212"
       />
-      <path d="M193 86c28-13 57-14 88-3" stroke="#303030" strokeWidth="2" strokeLinecap="round" opacity=".7" />
-      <path d="M204 76c25-7 49-6 72 3" stroke="#303030" strokeWidth="2" strokeLinecap="round" opacity=".55" />
-      <path d="M189 113c18-8 36-17 53-28" stroke="#000" strokeWidth="4" strokeLinecap="round" />
-      <path d="M242 91c15 11 32 16 51 16" stroke="#000" strokeWidth="4" strokeLinecap="round" />
+      <path d="M190 85c30-15 62-18 96-7" stroke="#303030" strokeWidth="2.3" strokeLinecap="round" opacity=".7" />
+      <path d="M199 76c28-9 57-9 84 2" stroke="#303030" strokeWidth="2.3" strokeLinecap="round" opacity=".55" />
+      <path d="M207 68c24-5 47-3 70 6" stroke="#303030" strokeWidth="2" strokeLinecap="round" opacity=".45" />
+      <path d="M188 111c22-6 42-16 60-31" stroke="#000" strokeWidth="4.2" strokeLinecap="round" />
+      <path d="M243 88c17 12 36 18 57 18" stroke="#000" strokeWidth="4.2" strokeLinecap="round" />
 
       <path
-        d="M281 124c10-8 23-6 31 5 8 12 4 27-9 34-8 4-17 3-24-2"
-        fill="#f3d7c7"
+        d="M283 123c10-8 23-6 31 6 8 13 3 28-11 35-9 4-18 3-25-3"
+        fill="#f3d3c0"
         stroke="#000"
         strokeWidth="3"
       />
-      <path d="M198 139c11-6 22-6 33 0" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M252 138c10-5 20-4 30 2" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <ellipse cx="213" cy="151" rx="4.5" ry="6" fill="#111" />
-      <ellipse cx="265" cy="151" rx="4.5" ry="6" fill="#111" />
-      <path d="M229 174c15 8 30 8 45 0" fill="none" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-      <path d="M231 163c4 4 8 4 13 0" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M193 170c10 14 24 24 41 30" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" opacity=".45" />
-      <path d="M275 169c-9 16-22 26-39 31" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" opacity=".45" />
+      <path d="M293 143c5-7 10-8 16-2" stroke="#000" strokeWidth="2" strokeLinecap="round" opacity=".55" />
+      <path d="M198 139c11-7 23-7 36 0" stroke="#000" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M252 138c11-6 22-5 33 2" stroke="#000" strokeWidth="3.2" strokeLinecap="round" />
+      <ellipse cx="214" cy="151" rx="4.6" ry="6.6" fill="#111" />
+      <ellipse cx="267" cy="151" rx="4.6" ry="6.6" fill="#111" />
+      <path d="M231 163c4 4 9 4 14 0" stroke="#000" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M229 176c14 8 30 8 46 0" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+      <path d="M193 170c10 15 25 25 43 30" stroke="#000" strokeWidth="2.5" strokeLinecap="round" opacity=".42" />
+      <path d="M277 169c-10 16-23 27-40 32" stroke="#000" strokeWidth="2.5" strokeLinecap="round" opacity=".42" />
+      <path d="M198 181c23 20 49 22 78 4" stroke="#000" strokeWidth="2" strokeLinecap="round" opacity=".22" />
+      <path d="M190 196c10 12 25 18 45 18 21 0 38-7 50-20" stroke="#000" strokeWidth="2.5" strokeLinecap="round" opacity=".18" />
 
-      <path d="M154 244h45" stroke="#000" strokeWidth="4" strokeLinecap="round" opacity=".22" />
-      <path d="M258 244h48" stroke="#000" strokeWidth="4" strokeLinecap="round" opacity=".22" />
-      <path d="M123 105l18 18 24-34" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="300" y="193" width="40" height="28" rx="3" fill="#fff" stroke="#000" strokeWidth="3" />
-      <path d="M309 206h20" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+      <path d="M157 252h48" stroke="#000" strokeWidth="4" strokeLinecap="round" opacity=".2" />
+      <path d="M258 252h52" stroke="#000" strokeWidth="4" strokeLinecap="round" opacity=".2" />
+      <path d="M123 106l18 18 25-35" fill="none" stroke="#000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="301" y="194" width="41" height="28" rx="3" fill="#fff" stroke="#000" strokeWidth="3" />
+      <path d="M310 207h20" stroke="#000" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
 }
