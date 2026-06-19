@@ -42,7 +42,7 @@ export function Skills() {
               <motion.div
                 key={skill.label}
                 transition={{ delay: index * 0.04, duration: 0.35 }}
-                className={`group flex aspect-square flex-col items-center justify-center border border-black transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white ${
+                className={`group flex aspect-square flex-col items-center justify-center border border-black transition-all duration-300 hover:-translate-y-1 ${
                   skill.active ? "bg-black text-white" : "bg-white text-black"
                 }`}
               >
