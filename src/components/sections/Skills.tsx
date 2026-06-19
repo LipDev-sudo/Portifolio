@@ -6,7 +6,7 @@ import { useT } from "@/lib/i18n";
 
 const skills = [
   { label: "Git", icon: GitBranch },
-  { label: "JavaScript", icon: Code2, active: true },
+  { label: "JavaScript", icon: Code2 },
   { label: "React", icon: Sparkles },
   { label: "Next.js", icon: Zap },
   { label: "TypeScript", icon: Code2 },
@@ -42,9 +42,7 @@ export function Skills() {
               <motion.div
                 key={skill.label}
                 transition={{ delay: index * 0.04, duration: 0.35 }}
-                className={`group flex aspect-square flex-col items-center justify-center border border-black transition-all duration-300 hover:-translate-y-1 ${
-                  skill.active ? "bg-black text-white" : "bg-white text-black"
-                }`}
+                className="group flex aspect-square flex-col items-center justify-center border border-black bg-white text-black transition-all duration-300 hover:-translate-y-1"
               >
                 <Icon size={34} strokeWidth={2.5} />
                 <span className="mt-5 text-sm font-black tracking-[-0.02em]">{skill.label}</span>
