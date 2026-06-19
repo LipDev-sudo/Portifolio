@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
 
 const socialLinks = [
@@ -26,8 +27,75 @@ const socialLinks = [
   },
 ];
 
+function useTypewriter(lines: string[], speed = 34, linePause = 180, startDelay = 80) {
+  const [visibleLines, setVisibleLines] = useState(() => lines.map(() => ""));
+  const textKey = useMemo(() => lines.join("\n"), [lines]);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let cancelled = false;
+    const timers: number[] = [];
+
+    const schedule = (callback: () => void, delay: number) => {
+      const timer = window.setTimeout(callback, delay);
+      timers.push(timer);
+    };
+
+    if (reduceMotion) {
+      schedule(() => setVisibleLines(lines), 0);
+      return () => {
+        cancelled = true;
+        timers.forEach(window.clearTimeout);
+      };
+    }
+
+    schedule(() => setVisibleLines(lines.map(() => "")), 0);
+
+    const typeLine = (lineIndex: number, charIndex: number) => {
+      if (cancelled) return;
+
+      if (lineIndex >= lines.length) return;
+
+      if (charIndex <= lines[lineIndex].length) {
+        setVisibleLines((current) => {
+          const next = [...current];
+          next[lineIndex] = lines[lineIndex].slice(0, charIndex);
+          return next;
+        });
+
+        schedule(() => typeLine(lineIndex, charIndex + 1), speed);
+        return;
+      }
+
+      schedule(() => typeLine(lineIndex + 1, 1), linePause);
+    };
+
+    schedule(() => typeLine(0, 1), startDelay);
+
+    return () => {
+      cancelled = true;
+      timers.forEach(window.clearTimeout);
+    };
+  }, [textKey, lines, speed, linePause, startDelay]);
+
+  return visibleLines;
+}
+
 export function Hero() {
   const t = useT();
+  const nameWithoutPeriod = t.hero.name.replace(".", "");
+  const titleLines = useMemo(
+    () => [`${t.hero.hello} ${nameWithoutPeriod}`],
+    [nameWithoutPeriod, t.hero.hello]
+  );
+  const roleLine = useMemo(
+    () => [`${t.hero.roleMain} ${t.hero.roleOutline}`],
+    [t.hero.roleMain, t.hero.roleOutline]
+  );
+  const roleDelay = 240 + titleLines[0].length * 30;
+  const [typedTitle] = useTypewriter(titleLines, 30, 120);
+  const [typedRole] = useTypewriter(roleLine, 34, 120, roleDelay);
+  const titleDone = typedTitle === titleLines[0];
 
   return (
     <section id="hero" className="bg-white pt-24 text-black">
@@ -38,14 +106,28 @@ export function Hero() {
             {t.hero.available}
           </span>
 
-          <h1 className="mt-7 max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black sm:text-[4.15rem]">
-            {t.hero.hello}{" "}
-            <span className="block">{t.hero.name.replace(".", "")}</span>
+          <h1
+            className="mt-7 min-h-[9rem] max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black sm:min-h-[8.2rem] sm:text-[4.15rem]"
+            aria-label={`${t.hero.hello} ${nameWithoutPeriod}`}
+          >
+            <span aria-hidden="true">
+              {typedTitle || "\u00a0"}
+              {!titleDone && (
+                <span className="ml-1 inline-block h-[0.82em] w-[3px] translate-y-1 bg-black align-baseline hero-type-cursor" />
+              )}
+            </span>
           </h1>
 
-          <h2 className="mt-5 font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black sm:text-[2.35rem]">
-            {t.hero.roleMain} {t.hero.roleOutline}
-            <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black" />
+          <h2
+            className="mt-5 min-h-[2.35rem] font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black sm:min-h-[2.85rem] sm:text-[2.35rem]"
+            aria-label={`${t.hero.roleMain} ${t.hero.roleOutline}`}
+          >
+            <span aria-hidden="true">
+              {typedRole || "\u00a0"}
+              {titleDone && (
+                <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black hero-type-cursor" />
+              )}
+            </span>
           </h2>
 
           <p className="mt-4 max-w-[520px] text-[0.83rem] font-medium leading-[1.55] text-black/68">

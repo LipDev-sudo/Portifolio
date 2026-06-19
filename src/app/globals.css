@@ -112,6 +112,15 @@ body {
   filter: saturate(0.96) contrast(1.03);
 }
 
+.hero-type-cursor {
+  animation: heroTypeCursor 0.85s steps(1, end) infinite;
+}
+
+@keyframes heroTypeCursor {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
 @media (max-width: 640px) {
   .text-outline {
     -webkit-text-stroke-width: 1.15px;
