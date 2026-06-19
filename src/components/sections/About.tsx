@@ -13,7 +13,7 @@ function AboutIllustration() {
       aria-label="Anime illustration of Hamilton Felipe"
     >
       <Image
-        src="/images/felipe-anime-coding.png"
+        src="/images/felipe-anime-about.png"
         alt=""
         fill
         sizes="(max-width: 768px) 90vw, 360px"
