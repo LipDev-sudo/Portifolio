@@ -47,3 +47,6 @@ next-env.d.ts
 
 # PDF rendering intermediates
 /tmp/
+
+# Local development logs
+/.runlogs/
