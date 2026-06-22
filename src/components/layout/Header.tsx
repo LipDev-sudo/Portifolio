@@ -75,7 +75,8 @@ export function Header() {
           </button>
 
           <a
-            href="#contact"
+            href="/documents/curriculo-hamilton-felipe.pdf"
+            download
             className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75"
           >
             {t.header.resume}

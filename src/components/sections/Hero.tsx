@@ -155,7 +155,8 @@ export function Hero() {
               {t.hero.primaryCta}
             </a>
             <a
-              href="#contact"
+              href="/documents/curriculo-hamilton-felipe.pdf"
+              download
               className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white"
             >
               {t.header.resume}
