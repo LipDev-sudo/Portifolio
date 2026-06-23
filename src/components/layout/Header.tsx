@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Code2,
   Download,
@@ -15,8 +15,11 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 
+const sectionIds = ["hero", "about", "projects", "services", "contact"];
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#hero");
   const { lang, toggle, t } = useLanguage();
 
   const navLinks = [
@@ -26,6 +29,39 @@ export function Header() {
     { label: t.header.nav.services, href: "#services", icon: Code2 },
     { label: t.header.nav.contact, href: "#contact", icon: Mail },
   ];
+
+  useEffect(() => {
+    const setHash = () => {
+      const hash = window.location.hash;
+      if (sectionIds.some((id) => hash === `#${id}`)) {
+        setActiveHref(hash);
+      }
+    };
+
+    setHash();
+    window.addEventListener("hashchange", setHash);
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries.find((entry) => entry.isIntersecting);
+        if (activeEntry) {
+          setActiveHref(`#${activeEntry.target.id}`);
+        }
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      window.removeEventListener("hashchange", setHash);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <header className="fixed left-0 right-0 top-4 z-50 px-4">
@@ -40,14 +76,15 @@ export function Header() {
 
         <nav className="hidden flex-1 justify-center lg:flex">
           <ul className="flex items-center gap-1 rounded-full border border-black/10 bg-white/92 px-2 py-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.08)] backdrop-blur-md">
-            {navLinks.map((link, index) => {
+            {navLinks.map((link) => {
               const Icon = link.icon;
               return (
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    onClick={() => setActiveHref(link.href)}
                     className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[0.72rem] font-bold transition-colors ${
-                      index === 0
+                      activeHref === link.href
                         ? "bg-black text-white"
                         : "text-black/75 hover:bg-black hover:text-white"
                     }`}
@@ -108,8 +145,15 @@ export function Header() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-black hover:bg-black hover:text-white"
+                      onClick={() => {
+                        setActiveHref(link.href);
+                        setMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                        activeHref === link.href
+                          ? "bg-black text-white"
+                          : "text-black hover:bg-black hover:text-white"
+                      }`}
                     >
                       <Icon size={14} />
                       {link.label}
