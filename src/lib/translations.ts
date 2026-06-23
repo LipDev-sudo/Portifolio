@@ -31,7 +31,7 @@ const ptMessages = {
     availableNow: "Disponível agora",
     description:
       "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
-    primaryCta: "Contrate-me",
+    primaryCta: "Entre em contato",
     secondaryCta: "Conversar comigo",
     statCard: {
       badge: "Meu jeito de trabalhar",
@@ -381,7 +381,7 @@ const enMessages: Messages = {
     availableNow: "Available now",
     description:
       "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",
-    primaryCta: "Hire Me",
+    primaryCta: "Get in touch",
     secondaryCta: "Talk to me",
     statCard: {
       badge: "How I work",
