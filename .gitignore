@@ -53,3 +53,6 @@ next-env.d.ts
 
 # Local design companion sessions
 /.superpowers/
+
+# Local Git worktrees
+/.worktrees/
