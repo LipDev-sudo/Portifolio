@@ -17,7 +17,7 @@ O modo escuro usara a direcao **Grafite suave** escolhida pelo usuario:
 - Texto discreto: `#777b82`
 - Acao primaria no modo escuro: fundo `#f4f4f2` e texto `#161719`
 
-O tema continuara monocromatico. Nao serao adicionados gradientes coloridos, azul dominante, efeitos neon ou filtros nas ilustracoes.
+O tema continuara monocromatico. Nao serao adicionados gradientes coloridos, azul dominante ou efeitos neon.
 
 ## Comportamento
 
@@ -61,7 +61,16 @@ O Tailwind v4 recebera uma variante escura baseada na classe `.dark`. Os compone
 - Fundo grafite e tipografia clara.
 - Botoes invertem corretamente o contraste.
 - Linhas, badge, indicadores e links sociais usam tons secundarios.
-- A ilustracao permanece inalterada e sem inversao de cor.
+- A ilustracao troca para uma versao equivalente com camisa branca no modo escuro.
+
+### Ilustracoes anime
+
+- O personagem do hero e o personagem da secao `About` terao arquivos especificos para o modo escuro.
+- As versoes escuras preservam rosto, tom de pele, cabelo curto, oculos, barba, pose, monitor, teclado e enquadramento das imagens atuais.
+- A unica alteracao de roupa sera a camisa branca ou branco suave, garantindo contraste com o fundo grafite.
+- Os novos arquivos usarao fundo transparente ou grafite integrado, sem retangulo branco ao redor da arte.
+- Os assets serao exportados em formato otimizado para evitar carregar imagens grandes ou as duas variantes simultaneamente no hero.
+- A troca de imagem acompanha a preferencia ativa, inclusive quando o visitante muda o tema manualmente.
 
 ### Secoes claras
 
@@ -95,13 +104,15 @@ O conteudo interno dos jogos mantem sua propria direcao visual. Somente a moldur
 2. Alternar para escuro e recarregar, confirmando persistencia.
 3. Alternar para claro e recarregar, confirmando persistencia.
 4. Verificar hero, habilidades, experiencia, sobre, projetos, servicos, contato e rodape.
-5. Verificar formulario, cards, hovers, foco por teclado e menu mobile.
-6. Validar desktop e celular, sem overflow, flash branco ou erro de hidratacao.
-7. Executar TypeScript, ESLint e build de producao.
+5. Confirmar que as duas ilustracoes usam camisa branca somente no modo escuro e camisa preta no modo claro.
+6. Confirmar que apenas a variante visual ativa e carregada no hero.
+7. Verificar formulario, cards, hovers, foco por teclado e menu mobile.
+8. Validar desktop e celular, sem overflow, flash branco ou erro de hidratacao.
+9. Executar TypeScript, ESLint e build de producao.
 
 ## Fora do escopo
 
 - Alterar a identidade visual do modo claro.
-- Recolorir ou regenerar ilustracoes.
+- Alterar pose, rosto, cenario ou enquadramento das ilustracoes alem da troca de camisa exigida pelo modo escuro.
 - Criar uma terceira paleta ou seletor de cores.
 - Mudar textos, projetos, ordem das secoes ou funcionalidades dos jogos.
