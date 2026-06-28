@@ -26,7 +26,7 @@ const socialLinks = [
   },
 ];
 
-function useTypewriter(lines: string[], speed = 34, linePause = 180, startDelay = 80) {
+function useTypewriter(lines: string[], speed = 34, linePause = 180, startDelay = 0) {
   const [visibleLines, setVisibleLines] = useState(() => lines.map(() => ""));
   const textKey = useMemo(() => lines.join("\n"), [lines]);
 
@@ -91,8 +91,8 @@ export function Hero() {
     () => [`${t.hero.roleMain} ${t.hero.roleOutline}`],
     [t.hero.roleMain, t.hero.roleOutline]
   );
-  const roleDelay = 240 + titleLines[0].length * 30;
-  const [typedTitle] = useTypewriter(titleLines, 30, 120);
+  const roleDelay = titleLines[0].length * 30 + 30;
+  const [typedTitle] = useTypewriter(titleLines, 30, 120, 0);
   const [typedRole] = useTypewriter(roleLine, 34, 120, roleDelay);
   const titleDone = typedTitle === titleLines[0];
 
