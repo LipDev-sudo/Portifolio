@@ -129,19 +129,19 @@ export function Contact() {
   }
 
   const inputClass =
-    "w-full rounded-none border border-black/20 bg-white px-4 py-3 text-sm font-semibold text-black placeholder:text-black/35 outline-none transition-colors focus:border-black";
+    "w-full rounded-none border border-black/20 bg-white px-4 py-3 text-sm font-semibold text-black placeholder:text-black/35 outline-none transition-colors focus:border-black dark:border-white/20 dark:bg-[#202225] dark:text-[#f4f4f2] dark:placeholder:text-[#777b82] dark:focus:border-white/60";
 
   return (
-    <section id="contact" className="border-t border-black/10 bg-white py-24 text-black sm:py-28">
+    <section id="contact" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2] sm:py-28">
       <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em]">
+          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] dark:border-white/20">
             {t.contact.badge}
           </span>
           <h2 className="mt-5 max-w-[540px] text-[2.35rem] font-black leading-[1.02] tracking-[-0.055em] sm:text-5xl">
             {t.contact.title}
           </h2>
-          <p className="mt-6 max-w-[470px] text-sm leading-7 text-black/58 sm:text-base">
+          <p className="mt-6 max-w-[470px] text-sm leading-7 text-black/58 dark:text-[#afb1b5] sm:text-base">
             {t.contact.description}
           </p>
 
@@ -150,7 +150,7 @@ export function Contact() {
               href={WHATSAPP_ENDPOINT}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-black bg-black px-5 py-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-black bg-black px-5 py-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75 dark:border-[#f4f4f2] dark:bg-[#f4f4f2] dark:text-[#161719]"
             >
               <MessageCircle size={15} />
               {t.contact.whatsapp}
@@ -158,7 +158,7 @@ export function Contact() {
 
             <a
               href="mailto:hamiltonfelipe019@gmail.com"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <Mail size={16} />
               hamiltonfelipe019@gmail.com
@@ -168,7 +168,7 @@ export function Contact() {
               href="https://github.com/LipDev-sudo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <GithubIcon />
               github.com/LipDev-sudo
@@ -178,14 +178,14 @@ export function Contact() {
               href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black"
+              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <LinkedinIcon />
               LinkedIn - Hamilton Felipe
             </a>
           </div>
 
-          <div className="mt-8 flex items-center gap-4 border border-black p-3">
+          <div className="mt-8 flex items-center gap-4 border border-black p-3 dark:border-white/20 dark:bg-[#202225]">
             <div className="h-20 w-20 shrink-0 bg-white">
               <Image
                 src="/images/instagram-qr.png"
@@ -196,8 +196,8 @@ export function Contact() {
               />
             </div>
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.12em] text-black/40">Instagram</p>
-              <p className="mt-1 text-sm font-black text-black">@lip.devbr</p>
+              <p className="text-xs font-black uppercase tracking-[0.12em] text-black/40 dark:text-[#777b82]">Instagram</p>
+              <p className="mt-1 text-sm font-black text-black dark:text-[#f4f4f2]">@lip.devbr</p>
             </div>
           </div>
         </motion.div>
@@ -205,7 +205,7 @@ export function Contact() {
         <motion.div transition={{ delay: 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4 border border-black p-5 sm:p-7"
+            className="flex flex-col gap-4 border border-black p-5 dark:border-white/20 dark:bg-[#202225] sm:p-7"
           >
             <div className="hidden" aria-hidden="true">
               <input {...register("website")} tabIndex={-1} autoComplete="off" />
@@ -249,7 +249,7 @@ export function Contact() {
             </div>
 
             {errorMessage && (
-              <div className="border border-red-600/30 bg-red-50 p-3 text-center text-sm font-semibold text-red-700">
+              <div className="border border-red-600/30 bg-red-50 p-3 text-center text-sm font-semibold text-red-700 dark:bg-red-950/25 dark:text-red-300">
                 {errorMessage}
               </div>
             )}
@@ -257,7 +257,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-black px-5 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75 disabled:opacity-40"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-black px-5 text-xs font-black uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-75 disabled:opacity-40 dark:bg-[#f4f4f2] dark:text-[#161719]"
             >
               {isSubmitting ? (
                 t.contact.form.submitting

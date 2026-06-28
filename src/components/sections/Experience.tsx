@@ -10,7 +10,7 @@ export function Experience() {
   const t = useT();
 
   return (
-    <section className="bg-black py-24 text-white sm:py-28" id="experience">
+    <section className="bg-black py-24 text-white transition-colors dark:bg-[#101113] sm:py-28" id="experience">
       <div className="mx-auto max-w-[1120px] px-5">
         <motion.h2
           transition={{ duration: 0.45 }}
@@ -29,7 +29,7 @@ export function Experience() {
                 key={`${item.company}-${item.role}`}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
                 className={`border border-white/20 px-5 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/55 sm:px-6 ${
-                  index === 1 ? "bg-white/[0.11]" : "bg-[#080808]"
+                  index === 1 ? "bg-white/[0.11]" : "bg-[#080808] dark:bg-[#161719]"
                 }`}
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">

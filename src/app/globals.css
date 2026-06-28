@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ===== Design Tokens - Warm Editorial Palette ===== */
 :root {
   --color-bg: #10100f;
@@ -74,6 +76,12 @@ body {
   color: #000000;
   font-family: var(--font-body);
   overflow-x: hidden;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.dark body {
+  background: #161719;
+  color: #f4f4f2;
 }
 
 /* Custom scrollbar */
@@ -84,6 +92,19 @@ body {
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover { background: rgba(240, 223, 189, 0.72); }
+
+.dark ::-webkit-scrollbar-track { background: #161719; }
+.dark ::-webkit-scrollbar-thumb { background: #4d5158; }
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background: #f4f4f2;
+  color: #161719;
+}
 
 .text-outline {
   color: #ffffff;
@@ -105,6 +126,31 @@ body {
 
 .hero-anime-portrait img {
   filter: saturate(0.96) contrast(1.03);
+}
+
+.hero-anime-image,
+.about-anime-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero-anime-image {
+  aspect-ratio: 3 / 2;
+  background-image: url("/images/felipe-anime-coding.webp");
+  filter: saturate(0.96) contrast(1.03);
+}
+
+.about-anime-image {
+  background-image: url("/images/felipe-anime-about.webp");
+}
+
+.dark .hero-anime-image {
+  background-image: url("/images/felipe-anime-coding-dark.webp");
+}
+
+.dark .about-anime-image {
+  background-image: url("/images/felipe-anime-about-dark.webp");
 }
 
 .hero-type-cursor {

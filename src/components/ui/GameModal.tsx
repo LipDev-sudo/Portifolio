@@ -85,10 +85,9 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
               }}
             >
               <div
-                className="flex shrink-0 items-center gap-3 px-4"
+                className="flex shrink-0 items-center gap-3 bg-white px-4 dark:bg-[#202225]"
                 style={{
                   height: 40,
-                  background: "#ffffff",
                   borderBottom: "1px solid rgba(0,0,0,0.12)",
                 }}
               >
@@ -104,15 +103,15 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 </div>
 
                 <span
-                  className="flex-1 text-center font-semibold"
-                  style={{ fontSize: 11, color: "rgba(0,0,0,0.58)", letterSpacing: "0.05em" }}
+                  className="flex-1 text-center font-semibold text-black/60 dark:text-[#afb1b5]"
+                  style={{ fontSize: 11, letterSpacing: "0.05em" }}
                 >
                   {title}
                 </span>
 
                 <button
                   onClick={onClose}
-                  className="text-black/35 transition-colors hover:text-black"
+                  className="text-black/35 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
                   aria-label={t.gameModal.closeGame}
                 >
                   <X size={14} />

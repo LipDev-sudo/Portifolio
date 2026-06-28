@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
 
@@ -98,43 +97,43 @@ export function Hero() {
   const titleDone = typedTitle === titleLines[0];
 
   return (
-    <section id="hero" className="bg-white pt-24 text-black">
+    <section id="hero" className="bg-white pt-24 text-black transition-colors dark:bg-[#161719] dark:text-[#f4f4f2]">
       <div className="mx-auto grid min-h-[590px] max-w-[1180px] grid-cols-1 items-center gap-8 px-5 py-8 md:grid-cols-[0.86fr_1.14fr] md:py-4">
         <div className="relative z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-black" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70 dark:border-white/15 dark:bg-white/[0.05] dark:text-[#afb1b5]">
+            <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
             {t.hero.available}
           </span>
 
           <h1
-            className="mt-7 min-h-[9rem] max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black sm:min-h-[8.2rem] sm:text-[4.15rem]"
+            className="mt-7 min-h-[9rem] max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black dark:text-[#f4f4f2] sm:min-h-[8.2rem] sm:text-[4.15rem]"
             aria-label={`${t.hero.hello} ${nameWithoutPeriod}`}
           >
             <span aria-hidden="true">
               {typedTitle || "\u00a0"}
               {!titleDone && (
-                <span className="ml-1 inline-block h-[0.82em] w-[3px] translate-y-1 bg-black align-baseline hero-type-cursor" />
+                <span className="ml-1 inline-block h-[0.82em] w-[3px] translate-y-1 bg-black align-baseline hero-type-cursor dark:bg-[#f4f4f2]" />
               )}
             </span>
           </h1>
 
           <h2
-            className="mt-5 min-h-[2.35rem] font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black sm:min-h-[2.85rem] sm:text-[2.35rem]"
+            className="mt-5 min-h-[2.35rem] font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black dark:text-[#f4f4f2] sm:min-h-[2.85rem] sm:text-[2.35rem]"
             aria-label={`${t.hero.roleMain} ${t.hero.roleOutline}`}
           >
             <span aria-hidden="true">
               {typedRole || "\u00a0"}
               {titleDone && (
-                <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black hero-type-cursor" />
+                <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black hero-type-cursor dark:bg-[#f4f4f2]" />
               )}
             </span>
           </h2>
 
-          <p className="mt-4 max-w-[520px] text-[0.83rem] font-medium leading-[1.55] text-black/68">
+          <p className="mt-4 max-w-[520px] text-[0.83rem] font-medium leading-[1.55] text-black/68 dark:text-[#afb1b5]">
             {t.hero.description}
           </p>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-[0.72rem] font-semibold text-black/65">
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-[0.72rem] font-semibold text-black/65 dark:text-[#afb1b5]">
             <span className="inline-flex items-center gap-1.5">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
@@ -142,7 +141,7 @@ export function Hero() {
               {t.hero.location}
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-black" />
+              <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
               {t.hero.availableNow}
             </span>
           </div>
@@ -150,23 +149,23 @@ export function Hero() {
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75"
+              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:bg-[#f4f4f2] dark:text-[#161719]"
             >
               {t.hero.primaryCta}
             </a>
             <a
               href="/documents/curriculo-hamilton-felipe.pdf"
               download
-              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white"
+              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
             >
               {t.header.resume}
             </a>
           </div>
 
-          <div className="mt-8 h-px w-full max-w-[540px] bg-black/35" />
+          <div className="mt-8 h-px w-full max-w-[540px] bg-black/35 dark:bg-white/20" />
 
           <div className="mt-5 flex items-center gap-4">
-            <span className="text-[0.78rem] font-semibold text-black/70">Follow me:</span>
+            <span className="text-[0.78rem] font-semibold text-black/70 dark:text-[#afb1b5]">Follow me:</span>
             {socialLinks.map((social, index) => (
               <a
                 key={social.label}
@@ -175,7 +174,7 @@ export function Hero() {
                 rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={social.label}
                 className={`flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-black hover:text-white ${
-                  index === 0 ? "bg-black text-white" : "bg-white text-black"
+                  index === 0 ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]" : "bg-white text-black dark:bg-[#161719] dark:text-[#f4f4f2]"
                 }`}
               >
                 <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor">
@@ -188,14 +187,10 @@ export function Hero() {
 
         <div className="relative flex justify-center md:justify-end">
           <div className="hero-anime-portrait">
-            <Image
-              src="/images/felipe-anime-coding.png"
-              alt="Ilustração de Hamilton Felipe programando no computador"
-              width={1536}
-              height={1024}
-              priority
-              sizes="(max-width: 768px) 96vw, 56vw"
-              className="h-auto w-full object-contain"
+            <div
+              className="hero-anime-image w-full"
+              role="img"
+              aria-label="Ilustração de Hamilton Felipe programando no computador"
             />
           </div>
         </div>

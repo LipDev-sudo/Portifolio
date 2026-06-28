@@ -23,10 +23,10 @@ export function Footer() {
   const t = useT();
 
   return (
-    <footer className="border-t border-black/10 bg-white px-5 py-8 text-black">
+    <footer className="border-t border-black/10 bg-white px-5 py-8 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2]">
       <div className="mx-auto flex max-w-[1120px] flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-black text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]">
             L
           </div>
           <span className="text-sm font-black tracking-tight">
@@ -34,7 +34,7 @@ export function Footer() {
           </span>
         </div>
 
-        <p className="text-center font-mono text-[0.7rem] text-black/42">
+        <p className="text-center font-mono text-[0.7rem] text-black/42 dark:text-[#777b82]">
           &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva. {t.footer.rights}
         </p>
 
@@ -44,7 +44,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-black/45 transition-colors hover:text-black"
+            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <GithubIcon />
           </a>
@@ -53,14 +53,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-black/45 transition-colors hover:text-black"
+            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <LinkedinIcon />
           </a>
           <a
             href="mailto:hamiltonfelipe019@gmail.com"
             aria-label="E-mail"
-            className="text-black/45 transition-colors hover:text-black"
+            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <Mail size={18} />
           </a>

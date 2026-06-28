@@ -9,11 +9,14 @@ import {
   Languages,
   Mail,
   Menu,
+  Moon,
+  Sun,
   User,
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
+import { useTheme } from "@/lib/theme";
 
 const sectionIds = ["hero", "about", "projects", "services", "contact"];
 
@@ -21,6 +24,10 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#hero");
   const { lang, toggle, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
+  const themeLabel = theme === "dark"
+    ? (lang === "pt" ? "Ativar modo claro" : "Switch to light mode")
+    : (lang === "pt" ? "Ativar modo escuro" : "Switch to dark mode");
 
   const navLinks = [
     { label: t.header.nav.hero, href: "#hero", icon: Home },
@@ -68,14 +75,14 @@ export function Header() {
       <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3">
         <a
           href="#hero"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] lg:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] lg:hidden"
           aria-label="LipDev"
         >
           L
         </a>
 
         <nav className="hidden flex-1 justify-center lg:flex">
-          <ul className="flex items-center gap-1 rounded-full border border-black/10 bg-white/92 px-2 py-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.08)] backdrop-blur-md">
+          <ul className="flex items-center gap-1 rounded-full border border-black/10 bg-white/92 px-2 py-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.08)] backdrop-blur-md transition-colors dark:border-white/10 dark:bg-[#202225]/92 dark:shadow-[0_10px_35px_rgba(0,0,0,0.3)]">
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -85,8 +92,8 @@ export function Header() {
                     onClick={() => setActiveHref(link.href)}
                     className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[0.72rem] font-bold transition-colors ${
                       activeHref === link.href
-                        ? "bg-black text-white"
-                        : "text-black/75 hover:bg-black hover:text-white"
+                        ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]"
+                        : "text-black/75 hover:bg-black hover:text-white dark:text-[#afb1b5] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
                     }`}
                   >
                     <Icon size={12} strokeWidth={2.4} />
@@ -101,11 +108,22 @@ export function Header() {
         <div className="hidden items-center gap-2 lg:flex">
           <button
             type="button"
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
+          >
+            <Moon size={14} className="dark:hidden" />
+            <Sun size={14} className="hidden dark:block" />
+          </button>
+
+          <button
+            type="button"
             onClick={toggle}
             translate="no"
             aria-label={t.header.toggleLabel}
             title={t.header.toggleLabel}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 text-[0.72rem] font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 text-[0.72rem] font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
           >
             <Languages size={12} />
             {lang === "pt" ? "EN" : "PT"}
@@ -114,20 +132,32 @@ export function Header() {
           <a
             href="/documents/curriculo-hamilton-felipe.pdf"
             download
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75"
+            className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:border-[#f4f4f2] dark:bg-[#f4f4f2] dark:text-[#161719]"
           >
             {t.header.resume}
             <Download size={12} />
           </a>
         </div>
 
-        <button
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] lg:hidden"
-          onClick={() => setMenuOpen((value) => !value)}
-          aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
-        >
-          {menuOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
+          >
+            <Moon size={16} className="dark:hidden" />
+            <Sun size={16} className="hidden dark:block" />
+          </button>
+          <button
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
+            onClick={() => setMenuOpen((value) => !value)}
+            aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -136,7 +166,7 @@ export function Header() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="mx-auto mt-3 max-w-[360px] rounded-3xl border border-black/10 bg-white p-2 shadow-[0_18px_45px_rgba(0,0,0,0.12)] lg:hidden"
+            className="mx-auto mt-3 max-w-[360px] rounded-3xl border border-black/10 bg-white p-2 shadow-[0_18px_45px_rgba(0,0,0,0.12)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:shadow-[0_18px_45px_rgba(0,0,0,0.36)] lg:hidden"
           >
             <ul className="grid gap-1">
               {navLinks.map((link) => {
@@ -151,8 +181,8 @@ export function Header() {
                       }}
                       className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
                         activeHref === link.href
-                          ? "bg-black text-white"
-                          : "text-black hover:bg-black hover:text-white"
+                          ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]"
+                          : "text-black hover:bg-black hover:text-white dark:text-[#afb1b5] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
                       }`}
                     >
                       <Icon size={14} />

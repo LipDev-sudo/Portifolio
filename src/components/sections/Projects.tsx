@@ -37,7 +37,7 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="relative bg-black py-24 text-white sm:py-28">
+      <section id="projects" className="relative bg-black py-24 text-white transition-colors dark:bg-[#101113] sm:py-28">
         <div className="mx-auto max-w-[1120px] px-5">
           <motion.div transition={{ duration: 0.5 }} className="mx-auto max-w-[690px] text-center">
             <h2 className="text-[2.35rem] font-normal tracking-[-0.045em] sm:text-5xl">

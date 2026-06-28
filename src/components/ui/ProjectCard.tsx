@@ -35,7 +35,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
   return (
     <motion.article
       variants={cardVariants}
-      className="group flex min-h-[330px] flex-col border border-white/20 bg-[#080808] p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/60 sm:p-6"
+      className="group flex min-h-[330px] flex-col border border-white/20 bg-[#080808] p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/60 dark:bg-[#161719] sm:p-6"
     >
       <div className="flex items-start justify-between gap-4">
         <div>

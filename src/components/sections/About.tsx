@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useT } from "@/lib/i18n";
@@ -8,18 +7,10 @@ import { useT } from "@/lib/i18n";
 function AboutIllustration() {
   return (
     <div
-      className="relative aspect-[3/2] w-full overflow-hidden bg-white"
+      className="about-anime-image relative aspect-[3/2] w-full overflow-hidden bg-white dark:bg-[#161719]"
       role="img"
       aria-label="Anime illustration of Hamilton Felipe"
-    >
-      <Image
-        src="/images/felipe-anime-about.png"
-        alt=""
-        fill
-        sizes="(max-width: 768px) 90vw, 360px"
-        className="object-contain"
-      />
-    </div>
+    />
   );
 }
 
@@ -113,11 +104,11 @@ export function About() {
   }, []);
 
   return (
-    <section id="about" className="border-t border-black/10 bg-white py-24 text-black sm:py-28">
+    <section id="about" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2] sm:py-28">
       <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-start gap-12 px-5 md:grid-cols-[0.78fr_1.22fr]">
         <motion.div
           transition={{ duration: 0.45 }}
-          className="mx-auto w-full max-w-[420px] border border-black p-3"
+          className="mx-auto w-full max-w-[420px] border border-black p-3 dark:border-white/25 dark:bg-[#202225]"
         >
           <AboutIllustration />
         </motion.div>
@@ -137,18 +128,18 @@ export function About() {
                 {typedHeading.slice(headingFirst.length + 1)}
               </span>
               {!headingDone && shouldType ? (
-                <span className="ml-1 inline-block h-[0.82em] w-[2px] translate-y-1 bg-black align-baseline hero-type-cursor" />
+                <span className="ml-1 inline-block h-[0.82em] w-[2px] translate-y-1 bg-black align-baseline hero-type-cursor dark:bg-[#f4f4f2]" />
               ) : null}
             </span>
           </h2>
           <p
-            className="mt-7 min-h-[9.75rem] max-w-[660px] text-sm leading-7 text-black/62 sm:min-h-[8rem] sm:text-base sm:leading-8"
+            className="mt-7 min-h-[9.75rem] max-w-[660px] text-sm leading-7 text-black/62 dark:text-[#afb1b5] sm:min-h-[8rem] sm:text-base sm:leading-8"
             aria-label={t.about.description}
           >
             <span aria-hidden="true">
               {typedDescription || "\u00a0"}
               {headingDone && typedDescription !== t.about.description ? (
-                <span className="ml-1 inline-block h-[1em] w-[2px] translate-y-0.5 bg-black/60 align-baseline hero-type-cursor" />
+                <span className="ml-1 inline-block h-[1em] w-[2px] translate-y-0.5 bg-black/60 align-baseline hero-type-cursor dark:bg-[#afb1b5]" />
               ) : null}
             </span>
           </p>
@@ -158,7 +149,7 @@ export function About() {
               <motion.article
                 key={item.title}
                 transition={{ duration: 0.35, delay: 0.12 + index * 0.05 }}
-                className="border border-black p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white"
+                className="border border-black bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white dark:border-white/20 dark:bg-[#202225] dark:hover:border-white/45 dark:hover:bg-[#292b2f]"
               >
                 <span className="font-mono text-xs font-black">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 text-sm font-black">{item.title}</h3>
