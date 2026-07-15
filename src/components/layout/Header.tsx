@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Code2,
   Download,
@@ -23,6 +23,8 @@ const sectionIds = ["hero", "about", "projects", "services", "contact"];
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#hero");
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLElement>(null);
   const { lang, toggle, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const themeLabel = theme === "dark"
@@ -70,6 +72,20 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
   return (
     <header className="fixed left-0 right-0 top-4 z-50 px-4">
       <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3">
@@ -90,6 +106,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={() => setActiveHref(link.href)}
+                    aria-current={activeHref === link.href ? "page" : undefined}
                     className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[0.72rem] font-bold transition-colors ${
                       activeHref === link.href
                         ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]"
@@ -151,9 +168,12 @@ export function Header() {
             <Sun size={16} className="hidden dark:block" />
           </button>
           <button
+            ref={menuButtonRef}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -163,6 +183,9 @@ export function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
+            ref={mobileMenuRef}
+            id="mobile-navigation"
+            aria-label={t.header.mobileNavLabel}
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -179,6 +202,7 @@ export function Header() {
                         setActiveHref(link.href);
                         setMenuOpen(false);
                       }}
+                      aria-current={activeHref === link.href ? "page" : undefined}
                       className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
                         activeHref === link.href
                           ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]"

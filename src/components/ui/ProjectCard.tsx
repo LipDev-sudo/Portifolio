@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Gamepad2, Lock } from "lucide-react";
+import { ExternalLink, Gamepad2, Star } from "lucide-react";
 import type { Project } from "@/types";
 import { useLanguage } from "@/lib/i18n";
 
@@ -20,129 +21,122 @@ interface ProjectCardProps {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
   const { lang, t } = useLanguage();
-  const isAi = project.category === "ai";
-  const categoryLabel = isAi ? t.projects.categoryBadgeAi : t.projects.categoryBadgeWeb;
   const title = lang === "en" && project.title_en ? project.title_en : project.title;
-  const description =
-    lang === "en" && project.description_en ? project.description_en : project.description;
+  const description = lang === "en" && project.description_en ? project.description_en : project.description;
+  const problem = lang === "en" && project.problem_en ? project.problem_en : project.problem;
+  const solution = lang === "en" && project.solution_en ? project.solution_en : project.solution;
+  const statusLabels: Record<Project["status"], string> = {
+    complete: t.projects.statuses.complete,
+    "functional-demo": t.projects.statuses.functionalDemo,
+    prototype: t.projects.statuses.prototype,
+    "in-development": t.projects.statuses.inDevelopment,
+  };
 
   return (
     <motion.article
       variants={cardVariants}
-      className="group flex min-h-[330px] flex-col border border-white/20 bg-[#080808] p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/60 dark:bg-[#161719] sm:p-6"
+      className="group flex min-h-full flex-col overflow-hidden border border-white/20 bg-[#080808] text-white transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-white/60 dark:bg-[#161719]"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <span className="font-mono text-5xl font-black leading-none text-white/12">
-            {String(displayIndex).padStart(2, "0")}
-          </span>
-          <span className="ml-3 inline-flex rounded-full border border-white/25 px-2.5 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-white/65">
-            {categoryLabel}
-          </span>
+      {project.imageUrl ? (
+        <div className="relative aspect-[16/9] overflow-hidden border-b border-white/15 bg-white/5">
+          <Image
+            src={project.imageUrl}
+            alt={`${title} — ${t.projects.previewLabel}`}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]"
+          />
         </div>
+      ) : null}
 
-        <div className="flex items-center gap-3 text-white/55">
-          {project.isPrivate ? (
-            <span title={t.projects.privateLabel}>
-              <Lock size={16} />
+      <div className="flex flex-1 flex-col p-5 sm:p-7">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-mono text-xs font-black text-white/45">
+              {String(displayIndex).padStart(2, "0")}
             </span>
-          ) : (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
-              aria-label={t.projects.viewCode}
-            >
-              <GithubIcon size={17} />
-            </a>
-          )}
-          {project.gameUrl && onPlay ? (
-            <button
-              type="button"
-              onClick={onPlay}
-              className="transition-colors hover:text-white"
-              aria-label={`${t.projects.playAria}: ${title}`}
-              title={t.projects.playTitle}
-            >
-              <Gamepad2 size={17} />
-            </button>
-          ) : null}
-          {project.liveUrl ? (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
-              aria-label={`${t.projects.viewLive}: ${title}`}
-            >
-              <ExternalLink size={17} />
-            </a>
-          ) : null}
+            <span className="rounded-full border border-white/25 px-2.5 py-1 text-[0.6rem] font-black uppercase tracking-[0.12em] text-white/75">
+              {statusLabels[project.status]}
+            </span>
+            {project.featured ? (
+              <span className="inline-flex items-center gap-1 text-[0.6rem] font-black uppercase tracking-[0.12em] text-white/65">
+                <Star size={11} aria-hidden="true" />
+                {t.projects.featuredLabel}
+              </span>
+            ) : null}
+          </div>
+          <span className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
+            {t.projects.categoryBadgeWeb}
+          </span>
         </div>
-      </div>
 
-      <h3 className="mt-7 text-xl font-black leading-snug tracking-[-0.03em] text-white sm:text-2xl">
-        {title}
-      </h3>
-      <p className="mt-4 flex-1 text-sm leading-7 text-white/58">{description}</p>
+        <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-0.035em] text-white sm:text-[1.7rem]">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-white/65">{description}</p>
 
-      <div className="mt-6 flex flex-wrap gap-2">
-        {project.techs.slice(0, 6).map((tech) => (
-          <span
-            key={tech}
-            className="rounded-full border border-white/15 px-2.5 py-1 font-mono text-[0.65rem] text-white/55"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
+        <dl className="mt-6 grid gap-4 border-y border-white/15 py-5 sm:grid-cols-2">
+          <div>
+            <dt className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
+              {t.projects.problemLabel}
+            </dt>
+            <dd className="mt-2 text-xs leading-5 text-white/70">{problem}</dd>
+          </div>
+          <div>
+            <dt className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
+              {t.projects.solutionLabel}
+            </dt>
+            <dd className="mt-2 text-xs leading-5 text-white/70">{solution}</dd>
+          </div>
+        </dl>
 
-      <div className="mt-6 flex flex-col gap-3 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
-        {project.isPrivate ? (
-          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-white/35">
-            <Lock size={13} />
-            {t.projects.privateNote}
-          </span>
-        ) : (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.techs.slice(0, 6).map((tech) => (
+            <span key={tech} className="rounded-full border border-white/15 px-2.5 py-1 font-mono text-[0.62rem] text-white/60">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-white/25 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black sm:min-h-0 sm:py-2"
+            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black"
           >
             <GithubIcon size={13} />
             {t.projects.viewCode}
           </a>
-        )}
 
-        {project.gameUrl && onPlay ? (
-          <button
-            type="button"
-            onClick={onPlay}
-            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
-          >
-            <Gamepad2 size={13} />
-            {t.projects.playNow}
-          </button>
-        ) : project.liveUrl ? (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80 sm:min-h-0 sm:py-2"
-            aria-label={`${t.projects.viewLive}: ${title}`}
-          >
-            <ExternalLink size={13} />
-            {t.projects.viewLive}
-          </a>
-        ) : null}
+          {onPlay ? (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80"
+            >
+              <Gamepad2 size={14} />
+              {t.projects.playNow}
+            </button>
+          ) : project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80"
+              aria-label={`${t.projects.viewLive}: ${title}`}
+            >
+              <ExternalLink size={14} />
+              {t.projects.viewLive}
+            </a>
+          ) : null}
+        </div>
       </div>
     </motion.article>
   );

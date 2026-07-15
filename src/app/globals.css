@@ -84,6 +84,19 @@ body {
   color: #f4f4f2;
 }
 
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.dark :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline-color: #f4f4f2;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
