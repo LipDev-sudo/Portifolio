@@ -60,7 +60,7 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
-              {t.hero.availableNow}
+              {t.hero.proof}
             </span>
           </div>
 
@@ -72,11 +72,10 @@ export function Hero() {
               {t.hero.primaryCta}
             </a>
             <a
-              href="/documents/curriculo-hamilton-felipe.pdf"
-              download
+              href="#contact"
               className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
             >
-              {t.header.resume}
+              {t.hero.secondaryCta}
             </a>
           </div>
 

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Hamilton Felipe",
   },
   description:
-    "Portfólio de Hamilton Felipe com aplicações web, sistemas, interfaces responsivas e experimentos de automação com IA.",
+    "Hamilton Felipe desenvolve sites, sistemas e automações para transformar processos e ideias em experiências digitais claras e responsivas.",
   applicationName: "LipDev.BR",
   authors: [{ name: "Hamilton Felipe", url: siteUrl }],
   creator: "Hamilton Felipe",
@@ -45,6 +45,8 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
     "automação com IA",
+    "desenvolvedor freelancer",
+    "sistemas web",
     "portfólio",
   ],
   alternates: {
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
     description:
-      "Aplicações web, sistemas, interfaces responsivas e experimentos de automação com IA.",
+      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
     url: siteUrl,
     siteName: "LipDev.BR",
     type: "website",
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
     description:
-      "Aplicações web, sistemas, interfaces responsivas e experimentos de automação com IA.",
+      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
     images: [socialPreviewImage],
   },
 };

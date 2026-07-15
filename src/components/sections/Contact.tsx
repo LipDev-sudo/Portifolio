@@ -271,9 +271,15 @@ export function Contact() {
                 placeholder={t.contact.form.message}
                 rows={6}
                 aria-invalid={Boolean(errors.message)}
-                aria-describedby={errors.message ? "contact-message-error" : undefined}
+                aria-describedby={errors.message ? "contact-message-help contact-message-error" : "contact-message-help"}
                 className={`${inputClass} resize-none`}
               />
+              <span
+                id="contact-message-help"
+                className="mt-2 block text-xs leading-5 text-black/50 dark:text-[#afb1b5]"
+              >
+                {t.contact.form.messageHelp}
+              </span>
               {errors.message && (
                 <span
                   id="contact-message-error"
