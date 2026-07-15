@@ -88,13 +88,25 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
-:where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline: 3px solid #2563eb;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #2563eb !important;
   outline-offset: 3px;
+  box-shadow: 0 0 0 3px #2563eb !important;
 }
 
-.dark :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline-color: #f4f4f2;
+.dark a:focus-visible,
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible,
+.dark select:focus-visible,
+.dark [tabindex]:focus-visible {
+  outline-color: #f4f4f2 !important;
+  box-shadow: 0 0 0 3px #f4f4f2 !important;
 }
 
 /* Custom scrollbar */
