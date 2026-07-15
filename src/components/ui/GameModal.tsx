@@ -12,7 +12,7 @@ const GameApp = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-full w-full items-center justify-center bg-black text-xs font-bold uppercase tracking-[0.18em] text-white/40">
-        Carregando Dev Balatro...
+        <span className="h-2 w-2 animate-pulse rounded-full bg-white/60" />
       </div>
     ),
   }
@@ -32,7 +32,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
     if (!open) return;
 
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && event.shiftKey) onClose();
+      if (event.key === "Escape") onClose();
     };
 
     window.addEventListener("keydown", onKey);
@@ -77,6 +77,9 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
           >
             <div
               className="relative pointer-events-auto flex flex-col overflow-hidden rounded-2xl"
+              role="dialog"
+              aria-modal="true"
+              aria-label={title}
             style={{
                 width: shouldRenderDevBalatro ? "min(390px, calc(100vw - 20px))" : "min(430px, calc(100vw - 20px))",
                 height: shouldRenderDevBalatro ? "min(760px, calc(100dvh - 20px))" : "min(900px, calc(100dvh - 20px))",
@@ -93,7 +96,9 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
               >
                 <div className="flex items-center gap-1.5">
                   <button
+                    type="button"
                     onClick={onClose}
+                    aria-label={t.gameModal.closeGame}
                     className="h-3 w-3 rounded-full transition-opacity hover:opacity-80"
                     style={{ background: "#ff5f57" }}
                     title={t.gameModal.close}
@@ -110,6 +115,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 </span>
 
                 <button
+                  type="button"
                   onClick={onClose}
                   className="text-black/35 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
                   aria-label={t.gameModal.closeGame}

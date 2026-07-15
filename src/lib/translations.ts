@@ -16,6 +16,7 @@ const ptMessages = {
     toggleShort: "EN",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
+    mobileNavLabel: "Navegação principal",
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
@@ -29,6 +30,8 @@ const ptMessages = {
     roleOutline: "& Automação com IA",
     location: "Baseado no Brasil.",
     availableNow: "Disponível agora",
+    socialLabel: "Redes:",
+    imageAlt: "Ilustração de Hamilton Felipe programando no computador",
     description:
       "Desenvolvo aplicações web, sistemas internos e automações com IA usando React, Next.js, TypeScript e integrações com APIs. Meu foco é transformar problemas em experiências claras, responsivas e fáceis de manter.",
     primaryCta: "Ver projetos",
@@ -313,6 +316,8 @@ const ptMessages = {
       inDevelopment: "Em desenvolvimento",
     },
     filterAll: "Todos",
+    filterFeatured: "Destaques",
+    filterLabel: "Filtrar projetos",
     filterAi: "IA & Automação",
     filterWeb: "Web",
     privateLabel: "Projeto Privado",
@@ -322,6 +327,7 @@ const ptMessages = {
     playNow: "Jogar Agora",
     playAria: "Jogar projeto",
     playTitle: "Jogar no portfólio",
+    previewLabel: "prévia do projeto",
   },
   gameModal: {
     close: "Fechar",
@@ -376,6 +382,7 @@ const enMessages: Messages = {
     toggleShort: "PT",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    mobileNavLabel: "Main navigation",
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
@@ -389,6 +396,8 @@ const enMessages: Messages = {
     roleOutline: "& AI Automation",
     location: "Based In Brazil.",
     availableNow: "Available now",
+    socialLabel: "Social:",
+    imageAlt: "Illustration of Hamilton Felipe coding at a computer",
     description:
       "I build web applications, internal systems and AI automations with React, Next.js, TypeScript and API integrations. My focus is turning problems into clear, responsive and maintainable experiences.",
     primaryCta: "View projects",
@@ -673,6 +682,8 @@ const enMessages: Messages = {
       inDevelopment: "In development",
     },
     filterAll: "All",
+    filterFeatured: "Featured",
+    filterLabel: "Filter projects",
     filterAi: "AI & Automation",
     filterWeb: "Web",
     privateLabel: "Private Project",
@@ -682,6 +693,7 @@ const enMessages: Messages = {
     playNow: "Play Now",
     playAria: "Play project",
     playTitle: "Play inside portfolio",
+    previewLabel: "project preview",
   },
   gameModal: {
     close: "Close",

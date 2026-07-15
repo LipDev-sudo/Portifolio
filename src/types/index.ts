@@ -17,9 +17,6 @@ export interface Project {
   solution: string;
   solution_en?: string;
   playable?: boolean;
-  /** Legacy fields retained until the project-card interface migration. */
-  isPrivate?: boolean;
-  gameUrl?: string;
 }
 
 export interface ContactMessage {
