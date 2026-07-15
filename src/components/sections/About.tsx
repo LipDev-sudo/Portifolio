@@ -1,16 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useT } from "@/lib/i18n";
 
-function AboutIllustration() {
+function AboutIllustration({ alt }: { alt: string }) {
   return (
-    <div
-      className="about-anime-image relative aspect-[3/2] w-full overflow-hidden bg-white dark:bg-[#161719]"
-      role="img"
-      aria-label="Anime illustration of Hamilton Felipe"
-    />
+    <div className="relative aspect-[3/2] w-full overflow-hidden bg-white dark:bg-[#161719]">
+      <Image
+        src="/images/felipe-anime-about.webp"
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 38vw"
+        className="object-contain dark:hidden"
+      />
+      <Image
+        src="/images/felipe-anime-about-dark.webp"
+        alt=""
+        fill
+        sizes="(max-width: 768px) 100vw, 38vw"
+        className="hidden object-contain dark:block"
+      />
+    </div>
   );
 }
 
@@ -110,7 +122,7 @@ export function About() {
           transition={{ duration: 0.45 }}
           className="mx-auto w-full max-w-[420px] border border-black p-3 dark:border-white/25 dark:bg-[#202225]"
         >
-          <AboutIllustration />
+          <AboutIllustration alt={t.about.imageAlt} />
         </motion.div>
 
         <motion.div
