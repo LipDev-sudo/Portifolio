@@ -61,6 +61,7 @@ const ptMessages = {
     title: "Oi, eu sou o Hamilton Felipe.",
     description:
       "Eu gosto de pegar uma ideia ainda meio solta e transformar em algo que funciona de verdade: um site, um sistema, um chatbot ou uma automação. Meu foco é unir desenvolvimento web com IA de um jeito simples de entender, bonito de usar e útil no dia a dia.",
+    imageAlt: "Ilustração de Hamilton Felipe concentrado no computador",
     highlights: [
       {
         title: "Web com intenção",
@@ -427,6 +428,7 @@ const enMessages: Messages = {
     title: "Hi, I'm Hamilton Felipe.",
     description:
       "I like taking an idea that is still a bit loose and turning it into something that actually works: a website, a system, a chatbot or an automation. My focus is combining web development and AI in a way that is simple to understand, good to use and useful day to day.",
+    imageAlt: "Illustration of Hamilton Felipe focused at a computer",
     highlights: [
       {
         title: "Web with intention",
