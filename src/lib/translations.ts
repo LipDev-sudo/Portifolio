@@ -19,19 +19,19 @@ const ptMessages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Disponível para freelas",
+    available: "Disponível para projetos web e automação",
     titleStart: "Eu crio ",
     titleHighlight: "web + IA",
     titleEnd: " para ideias ganharem forma.",
     hello: "Olá, eu sou",
     name: "Hamilton Felipe.",
-    roleMain: "Web & IA",
-    roleOutline: "Developer",
+    roleMain: "Desenvolvedor Web",
+    roleOutline: "& Automação com IA",
     location: "Baseado no Brasil.",
     availableNow: "Disponível agora",
     description:
-      "Eu sou o Felipe, dev por trás da LipDev.BR. Transformo ideias em páginas, sistemas e automações que deixam o seu negócio mais organizado, bonito e fácil de atender.",
-    primaryCta: "Entre em contato",
+      "Desenvolvo aplicações web, sistemas internos e automações com IA usando React, Next.js, TypeScript e integrações com APIs. Meu foco é transformar problemas em experiências claras, responsivas e fáceis de manter.",
+    primaryCta: "Ver projetos",
     secondaryCta: "Conversar comigo",
     statCard: {
       badge: "Meu jeito de trabalhar",
@@ -126,27 +126,27 @@ const ptMessages = {
     ],
   },
   experience: {
-    headingStart: "Minha",
-    headingBold: "Experiência",
+    headingStart: "Atuação",
+    headingBold: "Técnica",
     items: [
       {
         company: "LipDev.BR",
-        role: "Desenvolvedor Web & IA",
-        period: "2025 — Presente",
+        role: "Desenvolvimento Web & Automação",
+        period: "Projeto em evolução",
         description:
-          "Crio sites, portfólios, sistemas e automações com IA para transformar ideias em produtos digitais claros, responsivos e úteis para negócios reais.",
+          "Desenvolvo aplicações web e experimentos de automação reunidos neste portfólio, com foco em interfaces responsivas, integrações e organização de código.",
       },
       {
-        company: "Projetos autorais e clientes",
+        company: "Projetos autorais",
         role: "Web Apps, Bots e Integrações",
-        period: "2024 — Presente",
+        period: "Portfólio público",
         description:
-          "Desenvolvo landing pages, lojas virtuais, plataformas de curso, chatbot de atendimento, automações com APIs e jogos web como o Dev Balatro.",
+          "Construo dashboards, plataformas de pedidos e cursos, interfaces de e-commerce e jogos web, com código e demonstrações disponíveis nos projetos publicados.",
       },
       {
         company: "Stack moderna",
         role: "React, Next.js, TypeScript e Automação",
-        period: "2023 — Presente",
+        period: "Estudo e prática contínuos",
         description:
           "Estudo e aplico tecnologias modernas com foco em performance, responsividade, organização de código, integrações e uso prático de IA.",
       },
@@ -156,12 +156,12 @@ const ptMessages = {
     badge: "Soluções de IA",
     title: "Soluções de IA para Empresas",
     description:
-      "Automações inteligentes que trabalham 24 horas por dia para o seu negócio.",
+      "Automações inteligentes para organizar tarefas e integrar informações do negócio.",
     items: [
       {
         title: "Assistente de Atendimento com IA",
         description:
-          "Assistente que responde clientes 24h por dia no WhatsApp, site ou e-mail.",
+          "Assistente para organizar respostas a clientes no WhatsApp, site ou e-mail.",
         bullets: [
           "Respostas automáticas",
           "Captura de leads",
@@ -255,9 +255,9 @@ const ptMessages = {
   },
   caseStudies: {
     badge: "Cases de IA",
-    title: "Resultados reais com automação.",
+    title: "Aplicações possíveis de automação.",
     description:
-      "Veja como a IA resolve problemas concretos de negócios.",
+      "Exemplos de fluxos que podem ser projetados e validados conforme o contexto do negócio.",
     labels: {
       problem: "Problema",
       solution: "Solução",
@@ -267,29 +267,29 @@ const ptMessages = {
       {
         title: "Assistente de WhatsApp com IA",
         problem:
-          "Uma clínica odontológica perdia 40% dos contatos de novos pacientes por não conseguir responder rápido no WhatsApp.",
+          "Equipes de atendimento podem precisar responder dúvidas recorrentes e organizar solicitações recebidas pelo WhatsApp.",
         solution:
-          "Implementei um assistente de IA que responde automaticamente, tira dúvidas sobre procedimentos e agenda consultas direto na agenda do dentista.",
+          "Proposta de assistente integrado a uma base de informações e a um fluxo de agendamento.",
         result:
-          "Tempo de resposta caiu de 2h para 15 segundos. Agendamentos aumentaram 60% no primeiro mês.",
+          "Objetivo: organizar o atendimento e encaminhar solicitações para revisão humana quando necessário.",
       },
       {
         title: "Resposta Automática de E-mails com IA",
         problem:
-          "Um escritório de advocacia gastava 3h por dia respondendo e-mails repetitivos de clientes sobre status de processos.",
+          "Caixas de entrada com mensagens repetitivas podem exigir triagem e respostas padronizadas.",
         solution:
-          "Criei uma automação que lê os e-mails, consulta o sistema interno e responde automaticamente com o status atualizado.",
+          "Proposta de classificação de e-mails e preparação de respostas a partir de dados autorizados.",
         result:
-          "Economia de 15h por semana. Equipe redirecionou tempo para casos estratégicos.",
+          "Objetivo: reduzir tarefas manuais sem remover a supervisão da equipe responsável.",
       },
       {
         title: "Bot de Captura de Leads com IA",
         problem:
-          "Uma imobiliária recebia leads por 5 canais diferentes (site, Instagram, WhatsApp, e-mail, portais) e perdia oportunidades por falta de organização.",
+          "Leads recebidos por canais diferentes podem ficar dispersos e sem acompanhamento consistente.",
         solution:
-          "Desenvolvi um bot que centraliza todos os leads, qualifica automaticamente por perfil e envia para o corretor certo no CRM.",
+          "Proposta de centralização, classificação por critérios definidos e envio para o CRM.",
         result:
-          "Taxa de conversão subiu 35%. Nenhum lead perdido desde a implementação.",
+          "Objetivo: criar um processo rastreável para a equipe acompanhar cada contato.",
       },
     ],
   },
@@ -302,11 +302,21 @@ const ptMessages = {
       "Aqui entram meus estudos, entregas web, automações e experimentos. Cada um mostra um pedaço do meu jeito de resolver problema.",
     viewLive: "Ver Online",
     viewCode: "Ver Código",
+    problemLabel: "Problema",
+    solutionLabel: "Solução",
+    featuredLabel: "Em destaque",
+    statusLabel: "Estado",
+    statuses: {
+      complete: "Aplicação completa",
+      functionalDemo: "Demonstração funcional",
+      prototype: "Protótipo",
+      inDevelopment: "Em desenvolvimento",
+    },
     filterAll: "Todos",
     filterAi: "IA & Automação",
     filterWeb: "Web",
     privateLabel: "Projeto Privado",
-    privateNote: "Desenvolvido para cliente — código confidencial.",
+    privateNote: "Repositório não disponível publicamente.",
     categoryBadgeAi: "IA",
     categoryBadgeWeb: "Web",
     playNow: "Jogar Agora",
@@ -369,19 +379,19 @@ const enMessages: Messages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Available for freelance work",
+    available: "Available for web and automation projects",
     titleStart: "I build ",
     titleHighlight: "web + AI",
     titleEnd: " that give ideas shape.",
     hello: "Hello I’am",
     name: "Hamilton Felipe.",
-    roleMain: "Web & AI",
-    roleOutline: "Developer",
+    roleMain: "Web Developer",
+    roleOutline: "& AI Automation",
     location: "Based In Brazil.",
     availableNow: "Available now",
     description:
-      "I'm Felipe, the developer behind LipDev.BR. I turn ideas into pages, systems and automations that make your business feel more organized, beautiful and easier to run.",
-    primaryCta: "Get in touch",
+      "I build web applications, internal systems and AI automations with React, Next.js, TypeScript and API integrations. My focus is turning problems into clear, responsive and maintainable experiences.",
+    primaryCta: "View projects",
     secondaryCta: "Talk to me",
     statCard: {
       badge: "How I work",
@@ -476,27 +486,27 @@ const enMessages: Messages = {
     ],
   },
   experience: {
-    headingStart: "My",
-    headingBold: "Experience",
+    headingStart: "Technical",
+    headingBold: "Practice",
     items: [
       {
         company: "LipDev.BR",
-        role: "Web & AI Developer",
-        period: "2025 — Present",
+        role: "Web Development & Automation",
+        period: "Evolving project",
         description:
-          "I build websites, portfolios, systems and AI automations that turn ideas into clear, responsive and useful digital products for real businesses.",
+          "I build web applications and automation experiments collected in this portfolio, focusing on responsive interfaces, integrations and code organization.",
       },
       {
-        company: "Personal and client projects",
+        company: "Personal projects",
         role: "Web Apps, Bots and Integrations",
-        period: "2024 — Present",
+        period: "Public portfolio",
         description:
-          "I develop landing pages, online stores, course platforms, customer-support chatbots, API automations and web games like Dev Balatro.",
+          "I build dashboards, ordering and course platforms, e-commerce interfaces and web games, with code and demos available in the published projects.",
       },
       {
         company: "Modern stack",
         role: "React, Next.js, TypeScript and Automation",
-        period: "2023 — Present",
+        period: "Continuous study and practice",
         description:
           "I study and apply modern technologies with focus on performance, responsive UI, code organization, integrations and practical AI usage.",
       },
@@ -506,12 +516,12 @@ const enMessages: Messages = {
     badge: "AI Solutions",
     title: "AI Solutions for Businesses",
     description:
-      "Smart automations that work 24/7 for your business.",
+      "Smart automations for organizing tasks and connecting business information.",
     items: [
       {
         title: "AI Customer Support Agent",
         description:
-          "AI assistant that answers customers 24/7 on WhatsApp, website or email.",
+          "AI assistant for organizing customer replies across WhatsApp, website or email.",
         bullets: [
           "Automatic replies",
           "Lead capture",
@@ -605,9 +615,9 @@ const enMessages: Messages = {
   },
   caseStudies: {
     badge: "AI Case Studies",
-    title: "Real results with automation.",
+    title: "Possible automation applications.",
     description:
-      "See how AI solves concrete business problems.",
+      "Examples of workflows that can be designed and validated for each business context.",
     labels: {
       problem: "Problem",
       solution: "Solution",
@@ -617,29 +627,29 @@ const enMessages: Messages = {
       {
         title: "AI WhatsApp Assistant",
         problem:
-          "A dental clinic was losing 40% of new patient inquiries because they couldn't reply fast enough on WhatsApp.",
+          "Support teams may need to answer recurring questions and organize requests received through WhatsApp.",
         solution:
-          "I built an AI assistant that auto-replies, answers questions about procedures and books appointments directly on the dentist's calendar.",
+          "Proposed assistant connected to an approved information base and scheduling workflow.",
         result:
-          "Response time dropped from 2 hours to 15 seconds. Bookings increased 60% in the first month.",
+          "Goal: organize support and route requests to human review when necessary.",
       },
       {
         title: "AI Email Auto-Responder",
         problem:
-          "A law firm was spending 3 hours per day answering repetitive client emails asking about case status.",
+          "Inboxes with repetitive messages may require triage and standardized responses.",
         solution:
-          "I created an automation that reads incoming emails, queries the internal system and auto-replies with the updated status.",
+          "Proposed email classification and response preparation based on authorized data.",
         result:
-          "Saved 15 hours per week. The team redirected time to strategic cases.",
+          "Goal: reduce manual tasks without removing supervision from the responsible team.",
       },
       {
         title: "AI Lead Capture Bot",
         problem:
-          "A real estate agency received leads through 5 different channels (website, Instagram, WhatsApp, email, listing portals) and was losing deals due to disorganization.",
+          "Leads received through different channels can become scattered and inconsistently tracked.",
         solution:
-          "I built a bot that centralizes all leads, auto-qualifies them by profile and routes them to the right agent in the CRM.",
+          "Proposed centralization, classification by defined criteria and routing to the CRM.",
         result:
-          "Conversion rate jumped 35%. Zero leads lost since implementation.",
+          "Goal: create a traceable process for the team to follow each contact.",
       },
     ],
   },
@@ -652,11 +662,21 @@ const enMessages: Messages = {
       "This is where my studies, web builds, automations and experiments live. Each one shows a piece of how I solve problems.",
     viewLive: "Live Demo",
     viewCode: "Source Code",
+    problemLabel: "Problem",
+    solutionLabel: "Solution",
+    featuredLabel: "Featured",
+    statusLabel: "Status",
+    statuses: {
+      complete: "Complete application",
+      functionalDemo: "Functional demo",
+      prototype: "Prototype",
+      inDevelopment: "In development",
+    },
     filterAll: "All",
     filterAi: "AI & Automation",
     filterWeb: "Web",
     privateLabel: "Private Project",
-    privateNote: "Built for a client — code is confidential.",
+    privateNote: "Repository is not publicly available.",
     categoryBadgeAi: "AI",
     categoryBadgeWeb: "Web",
     playNow: "Play Now",
