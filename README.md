@@ -27,15 +27,15 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | --- | --- | --- | --- |
 | Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
 | Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
-| Dashboard G-Pro | Demonstração funcional | [Código](https://github.com/LipDev-sudo/Dashboard-G-Pro) | [Online](https://dashboard-g-pro.vercel.app) |
+| Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
 | Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Plataforma de Cursos | Protótipo | [Código](https://github.com/LipDev-sudo/Plataforma-de-cursos-online) | [Online](https://plataforma-de-cursos-online-tau.vercel.app) |
 
 ## Capturas de projetos
 
-| Plataforma de Pedidos | Plataforma de Cursos |
-| --- | --- |
-| ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Plataforma de Cursos Online](public/images/cursos_online.png) |
+| Ritmoar | Plataforma de Pedidos | Plataforma de Cursos |
+| --- | --- | --- |
+| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Plataforma de Cursos Online](public/images/cursos_online.png) |
 
 Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
 

@@ -50,24 +50,25 @@ export const projects: Project[] = [
     status: "in-development",
   },
   {
-    id: "dashboard-g-pro",
-    title: "Dashboard G-Pro",
-    title_en: "Dashboard G-Pro",
+    id: "ritmoar",
+    title: "Ritmoar",
+    title_en: "Ritmoar",
     description:
-      "Organizador de tarefas para freelancers e pequenas equipes com quadro Kanban e indicadores de progresso.",
+      "Demonstração funcional de gestão de trabalho e prioridades para pequenas equipes, freelancers e agências.",
     description_en:
-      "Task organizer for freelancers and small teams with a Kanban board and progress indicators.",
+      "Functional work and priority management demo for small teams, freelancers and agencies.",
     problem:
-      "Acompanhar tarefas, prioridades, prazos e projetos sem depender de uma conta ou configuração inicial.",
+      "Organizar prioridades, responsáveis, prazos e andamento do trabalho com clareza, sem excesso de complexidade.",
     problem_en:
-      "Track tasks, priorities, deadlines and projects without requiring an account or initial setup.",
+      "Organize priorities, owners, deadlines and work progress clearly, without unnecessary complexity.",
     solution:
-      "Dashboard responsivo com criação, busca e filtros de tarefas, quadro Kanban e persistência no navegador.",
+      "Interface operacional responsiva com criação, busca e filtros de tarefas, estados claros e persistência local.",
     solution_en:
-      "Responsive dashboard with task creation, search and filters, Kanban board and browser persistence.",
+      "Responsive operational interface with task creation, search and filters, clear states and local persistence.",
     techs: ["React", "TypeScript", "Vite", "Tailwind CSS", "localStorage"],
-    githubUrl: "https://github.com/LipDev-sudo/Dashboard-G-Pro",
-    liveUrl: "https://dashboard-g-pro.vercel.app/",
+    imageUrl: "/images/ritmoar-desktop.png",
+    githubUrl: "https://github.com/LipDev-sudo/ritmoar",
+    liveUrl: "https://ritmoar.vercel.app/",
     order: 1,
     category: "web",
     featured: true,
