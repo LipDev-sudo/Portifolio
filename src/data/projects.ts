@@ -27,27 +27,29 @@ export const projects: Project[] = [
     status: "complete",
   },
   {
-    id: "bookly",
-    title: "Bookly",
-    title_en: "Bookly",
+    id: "horavia",
+    title: "Horavia",
+    title_en: "Horavia",
     description:
-      "SaaS em desenvolvimento para agendamentos e gestão de clientes de pequenos negócios de serviços.",
+      "Demonstração funcional de agenda, clientes e serviços para pequenos negócios de atendimento.",
     description_en:
-      "SaaS in development for appointment and client management in small service businesses.",
+      "Functional scheduling, client and service management demo for small service businesses.",
     problem:
-      "Centralizar clientes, serviços e agendamentos com isolamento dos dados de cada negócio.",
+      "Organizar horários, clientes e serviços em um fluxo confiável, sem depender de cadastro para demonstrar o produto.",
     problem_en:
-      "Centralize clients, services and appointments while isolating each business's data.",
+      "Organize appointments, clients and services in a reliable flow without requiring sign-up to demonstrate the product.",
     solution:
-      "Base multi-tenant com autenticação Supabase, Row Level Security e dashboard protegido com dados do banco.",
+      "Demo independente do Estúdio Aurora com agenda operacional, persistência local, estados vazios e base protegida para Supabase e Stripe.",
     solution_en:
-      "Multi-tenant foundation with Supabase authentication, Row Level Security and a protected data-backed dashboard.",
-    techs: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Zod"],
-    githubUrl: "https://github.com/LipDev-sudo/bookly",
+      "Independent Estúdio Aurora demo with operational scheduling, local persistence, empty states and a protected Supabase and Stripe foundation.",
+    techs: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Vitest"],
+    imageUrl: "/images/horavia-demo-desktop.png",
+    githubUrl: "https://github.com/LipDev-sudo/horavia",
+    liveUrl: "https://horavia-lip-dev.vercel.app/demo",
     order: 2,
     category: "web",
     featured: true,
-    status: "in-development",
+    status: "functional-demo",
   },
   {
     id: "ritmoar",
