@@ -45,7 +45,7 @@ export const projects: Project[] = [
     techs: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Vitest"],
     imageUrl: "/images/horavia-demo-desktop.png",
     githubUrl: "https://github.com/LipDev-sudo/horavia",
-    liveUrl: "https://horavia-lip-dev.vercel.app/demo",
+    liveUrl: "https://horavia.vercel.app/demo",
     order: 2,
     category: "web",
     featured: true,
