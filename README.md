@@ -26,7 +26,7 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | Projeto | Estado apresentado | Repositório | Demonstração |
 | --- | --- | --- | --- |
 | Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
-| Horavia | Demonstração funcional | [Código](https://github.com/LipDev-sudo/horavia) | [Online](https://horavia-lip-dev.vercel.app/demo) |
+| Horavia | Demonstração funcional | [Código](https://github.com/LipDev-sudo/horavia) | [Online](https://horavia.vercel.app/demo) |
 | Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
 | Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Plataforma de Cursos | Protótipo | [Código](https://github.com/LipDev-sudo/Plataforma-de-cursos-online) | [Online](https://plataforma-de-cursos-online-tau.vercel.app) |
