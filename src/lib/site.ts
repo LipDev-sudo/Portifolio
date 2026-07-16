@@ -6,7 +6,7 @@ export function getSiteUrl() {
     process.env.VERCEL_URL;
 
   if (!rawSiteUrl) {
-    return "http://localhost:3000";
+    return "https://lipdev.vercel.app";
   }
 
   if (

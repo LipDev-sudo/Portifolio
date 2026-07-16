@@ -84,6 +84,31 @@ body {
   color: #f4f4f2;
 }
 
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #2563eb !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #2563eb !important;
+}
+
+.dark a:focus-visible,
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible,
+.dark select:focus-visible,
+.dark [tabindex]:focus-visible {
+  outline-color: #f4f4f2 !important;
+  box-shadow: 0 0 0 3px #f4f4f2 !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
@@ -126,31 +151,6 @@ body {
 
 .hero-anime-portrait img {
   filter: saturate(0.96) contrast(1.03);
-}
-
-.hero-anime-image,
-.about-anime-image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.hero-anime-image {
-  aspect-ratio: 3 / 2;
-  background-image: url("/images/felipe-anime-coding.webp");
-  filter: saturate(0.96) contrast(1.03);
-}
-
-.about-anime-image {
-  background-image: url("/images/felipe-anime-about.webp");
-}
-
-.dark .hero-anime-image {
-  background-image: url("/images/felipe-anime-coding-dark.webp");
-}
-
-.dark .about-anime-image {
-  background-image: url("/images/felipe-anime-about-dark.webp");
 }
 
 .hero-type-cursor {

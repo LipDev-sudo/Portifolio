@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 const socialLinks = [
@@ -26,75 +26,9 @@ const socialLinks = [
   },
 ];
 
-function useTypewriter(lines: string[], speed = 34, linePause = 180, startDelay = 0) {
-  const [visibleLines, setVisibleLines] = useState(() => lines.map(() => ""));
-  const textKey = useMemo(() => lines.join("\n"), [lines]);
-
-  useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let cancelled = false;
-    const timers: number[] = [];
-
-    const schedule = (callback: () => void, delay: number) => {
-      const timer = window.setTimeout(callback, delay);
-      timers.push(timer);
-    };
-
-    if (reduceMotion) {
-      schedule(() => setVisibleLines(lines), 0);
-      return () => {
-        cancelled = true;
-        timers.forEach(window.clearTimeout);
-      };
-    }
-
-    schedule(() => setVisibleLines(lines.map(() => "")), 0);
-
-    const typeLine = (lineIndex: number, charIndex: number) => {
-      if (cancelled) return;
-
-      if (lineIndex >= lines.length) return;
-
-      if (charIndex <= lines[lineIndex].length) {
-        setVisibleLines((current) => {
-          const next = [...current];
-          next[lineIndex] = lines[lineIndex].slice(0, charIndex);
-          return next;
-        });
-
-        schedule(() => typeLine(lineIndex, charIndex + 1), speed);
-        return;
-      }
-
-      schedule(() => typeLine(lineIndex + 1, 1), linePause);
-    };
-
-    schedule(() => typeLine(0, 1), startDelay);
-
-    return () => {
-      cancelled = true;
-      timers.forEach(window.clearTimeout);
-    };
-  }, [textKey, lines, speed, linePause, startDelay]);
-
-  return visibleLines;
-}
-
 export function Hero() {
   const t = useT();
   const nameWithoutPeriod = t.hero.name.replace(".", "");
-  const titleLines = useMemo(
-    () => [`${t.hero.hello} ${nameWithoutPeriod}`],
-    [nameWithoutPeriod, t.hero.hello]
-  );
-  const roleLine = useMemo(
-    () => [`${t.hero.roleMain} ${t.hero.roleOutline}`],
-    [t.hero.roleMain, t.hero.roleOutline]
-  );
-  const roleDelay = titleLines[0].length * 30 + 30;
-  const [typedTitle] = useTypewriter(titleLines, 30, 120, 0);
-  const [typedRole] = useTypewriter(roleLine, 34, 120, roleDelay);
-  const titleDone = typedTitle === titleLines[0];
 
   return (
     <section id="hero" className="bg-white pt-24 text-black transition-colors dark:bg-[#161719] dark:text-[#f4f4f2]">
@@ -105,28 +39,12 @@ export function Hero() {
             {t.hero.available}
           </span>
 
-          <h1
-            className="mt-7 min-h-[9rem] max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black dark:text-[#f4f4f2] sm:min-h-[8.2rem] sm:text-[4.15rem]"
-            aria-label={`${t.hero.hello} ${nameWithoutPeriod}`}
-          >
-            <span aria-hidden="true">
-              {typedTitle || "\u00a0"}
-              {!titleDone && (
-                <span className="ml-1 inline-block h-[0.82em] w-[3px] translate-y-1 bg-black align-baseline hero-type-cursor dark:bg-[#f4f4f2]" />
-              )}
-            </span>
+          <h1 className="hero-reveal mt-7 max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black dark:text-[#f4f4f2] sm:text-[4.15rem]">
+            {t.hero.hello} {nameWithoutPeriod}
           </h1>
 
-          <h2
-            className="mt-5 min-h-[2.35rem] font-serif text-[1.95rem] font-black leading-none tracking-[-0.035em] text-black dark:text-[#f4f4f2] sm:min-h-[2.85rem] sm:text-[2.35rem]"
-            aria-label={`${t.hero.roleMain} ${t.hero.roleOutline}`}
-          >
-            <span aria-hidden="true">
-              {typedRole || "\u00a0"}
-              {titleDone && (
-                <span className="ml-1 inline-block h-[1.9rem] w-[2px] translate-y-1 bg-black hero-type-cursor dark:bg-[#f4f4f2]" />
-              )}
-            </span>
+          <h2 className="hero-reveal hero-delay-1 mt-5 max-w-[620px] font-serif text-[1.75rem] font-black leading-[1.08] tracking-[-0.035em] text-black dark:text-[#f4f4f2] sm:text-[2.25rem]">
+            {t.hero.roleMain} {t.hero.roleOutline}
           </h2>
 
           <p className="mt-4 max-w-[520px] text-[0.83rem] font-medium leading-[1.55] text-black/68 dark:text-[#afb1b5]">
@@ -142,30 +60,29 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
-              {t.hero.availableNow}
+              {t.hero.proof}
             </span>
           </div>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
-              href="#contact"
+              href="#projects"
               className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:bg-[#f4f4f2] dark:text-[#161719]"
             >
               {t.hero.primaryCta}
             </a>
             <a
-              href="/documents/curriculo-hamilton-felipe.pdf"
-              download
+              href="#contact"
               className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
             >
-              {t.header.resume}
+              {t.hero.secondaryCta}
             </a>
           </div>
 
           <div className="mt-8 h-px w-full max-w-[540px] bg-black/35 dark:bg-white/20" />
 
           <div className="mt-5 flex items-center gap-4">
-            <span className="text-[0.78rem] font-semibold text-black/70 dark:text-[#afb1b5]">Follow me:</span>
+            <span className="text-[0.78rem] font-semibold text-black/70 dark:text-[#afb1b5]">{t.hero.socialLabel}</span>
             {socialLinks.map((social, index) => (
               <a
                 key={social.label}
@@ -187,11 +104,23 @@ export function Hero() {
 
         <div className="relative flex justify-center md:justify-end">
           <div className="hero-anime-portrait">
-            <div
-              className="hero-anime-image w-full"
-              role="img"
-              aria-label="Ilustração de Hamilton Felipe programando no computador"
-            />
+            <div className="relative aspect-[3/2] w-full">
+              <Image
+                src="/images/felipe-anime-coding.webp"
+                alt={t.hero.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 55vw"
+                className="object-contain dark:hidden"
+              />
+              <Image
+                src="/images/felipe-anime-coding-dark.webp"
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 55vw"
+                className="hidden object-contain dark:block"
+              />
+            </div>
           </div>
         </div>
       </div>

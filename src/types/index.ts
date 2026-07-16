@@ -5,14 +5,18 @@ export interface Project {
   description: string;
   description_en?: string;
   techs: string[];
-  imageUrl: string;
+  imageUrl?: string;
   githubUrl: string;
   liveUrl?: string;
   order: number;
   category: "web" | "ai";
-  isPrivate?: boolean;
-  /** URL to open in the in-portfolio game modal */
-  gameUrl?: string;
+  featured?: boolean;
+  status: "complete" | "functional-demo" | "prototype" | "in-development";
+  problem: string;
+  problem_en?: string;
+  solution: string;
+  solution_en?: string;
+  playable?: boolean;
 }
 
 export interface ContactMessage {

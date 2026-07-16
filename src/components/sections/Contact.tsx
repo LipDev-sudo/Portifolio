@@ -205,6 +205,7 @@ export function Contact() {
         <motion.div transition={{ delay: 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
           <form
             onSubmit={handleSubmit(onSubmit)}
+            noValidate
             className="flex flex-col gap-4 border border-black p-5 dark:border-white/20 dark:bg-[#202225] sm:p-7"
           >
             <div className="hidden" aria-hidden="true">
@@ -212,47 +213,96 @@ export function Contact() {
             </div>
 
             <div>
-              <input {...register("name")} placeholder={t.contact.form.name} className={inputClass} />
+              <label htmlFor="contact-name" className="sr-only">
+                {t.contact.form.name}
+              </label>
+              <input
+                id="contact-name"
+                {...register("name")}
+                placeholder={t.contact.form.name}
+                autoComplete="name"
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
+                className={inputClass}
+              />
               {errors.name && (
-                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                <span
+                  id="contact-name-error"
+                  role="alert"
+                  className="mt-1.5 block text-xs font-semibold text-red-600"
+                >
                   {errors.name.message}
                 </span>
               )}
             </div>
 
             <div>
+              <label htmlFor="contact-email" className="sr-only">
+                {t.contact.form.email}
+              </label>
               <input
+                id="contact-email"
                 {...register("email")}
                 placeholder={t.contact.form.email}
                 type="email"
+                autoComplete="email"
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "contact-email-error" : undefined}
                 className={inputClass}
               />
               {errors.email && (
-                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                <span
+                  id="contact-email-error"
+                  role="alert"
+                  className="mt-1.5 block text-xs font-semibold text-red-600"
+                >
                   {errors.email.message}
                 </span>
               )}
             </div>
 
             <div>
+              <label htmlFor="contact-message" className="sr-only">
+                {t.contact.form.message}
+              </label>
               <textarea
+                id="contact-message"
                 {...register("message")}
                 placeholder={t.contact.form.message}
                 rows={6}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? "contact-message-help contact-message-error" : "contact-message-help"}
                 className={`${inputClass} resize-none`}
               />
+              <span
+                id="contact-message-help"
+                className="mt-2 block text-xs leading-5 text-black/50 dark:text-[#afb1b5]"
+              >
+                {t.contact.form.messageHelp}
+              </span>
               {errors.message && (
-                <span className="mt-1.5 block text-xs font-semibold text-red-600">
+                <span
+                  id="contact-message-error"
+                  role="alert"
+                  className="mt-1.5 block text-xs font-semibold text-red-600"
+                >
                   {errors.message.message}
                 </span>
               )}
             </div>
 
             {errorMessage && (
-              <div className="border border-red-600/30 bg-red-50 p-3 text-center text-sm font-semibold text-red-700 dark:bg-red-950/25 dark:text-red-300">
+              <div
+                role="alert"
+                className="border border-red-600/30 bg-red-50 p-3 text-center text-sm font-semibold text-red-700 dark:bg-red-950/25 dark:text-red-300"
+              >
                 {errorMessage}
               </div>
             )}
+
+            <p className="sr-only" aria-live="polite">
+              {sent ? t.contact.form.success : ""}
+            </p>
 
             <button
               type="submit"

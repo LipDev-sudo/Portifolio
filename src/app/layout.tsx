@@ -27,40 +27,57 @@ const socialPreviewImage = new URL(
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
+  title: {
+    default: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
+    template: "%s | Hamilton Felipe",
+  },
   description:
-    "Desenvolvimento web moderno e automações com IA para empresas. Next.js, React, TypeScript, APIs de IA, n8n e integrações.",
+    "Hamilton Felipe desenvolve sites, sistemas e automações para transformar processos e ideias em experiências digitais claras e responsivas.",
+  applicationName: "LipDev.BR",
+  authors: [{ name: "Hamilton Felipe", url: siteUrl }],
+  creator: "Hamilton Felipe",
+  publisher: "LipDev.BR",
+  category: "technology",
+  keywords: [
+    "Hamilton Felipe",
+    "desenvolvedor web",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "automação com IA",
+    "desenvolvedor freelancer",
+    "sistemas web",
+    "portfólio",
+  ],
   alternates: {
     canonical: "/",
     languages: {
       "pt-BR": "/",
-      "en-US": `https://translate.google.com/translate?sl=pt&tl=en&u=${encodeURIComponent(siteUrl)}`,
       "x-default": "/",
     },
   },
   openGraph: {
-    title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
+    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
     description:
-      "Sites modernos e automações com IA que economizam tempo, capturam leads e aumentam conversões.",
+      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
     url: siteUrl,
     siteName: "LipDev.BR",
     type: "website",
     locale: "pt_BR",
-    alternateLocale: ["en_US"],
     images: [
       {
         url: socialPreviewImage,
         width: 1200,
         height: 630,
-        alt: "LipDev.BR portfolio preview",
+        alt: "Prévia do portfólio LipDev.BR de Hamilton Felipe",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamilton Felipe | LipDev.BR - Dev Web & AI Automation",
+    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
     description:
-      "Sites modernos e automações com IA que economizam tempo, capturam leads e aumentam conversões.",
+      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
     images: [socialPreviewImage],
   },
 };
