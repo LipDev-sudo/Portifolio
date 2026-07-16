@@ -101,28 +101,28 @@ export const projects: Project[] = [
   },
   {
     id: "courses-platform",
-    title: "Plataforma de Cursos Online",
-    title_en: "Online Course Platform",
+    title: "Trilhara",
+    title_en: "Trilhara",
     description:
-      "Protótipo de vitrine para cursos com catálogo por categorias e interface comercial responsiva.",
+      "Demonstração funcional de aprendizagem online com percurso guiado, aulas e progresso salvo no navegador.",
     description_en:
-      "Course storefront prototype with a category catalog and responsive commercial interface.",
+      "Functional online learning demo with a guided path, lessons, and progress saved in the browser.",
     problem:
-      "Estruturar a apresentação de cursos e benefícios de forma clara para diferentes tamanhos de tela.",
+      "Organizar uma jornada de estudo para que a próxima etapa e o progresso permaneçam claros em qualquer tela.",
     problem_en:
-      "Structure courses and benefits clearly across different screen sizes.",
+      "Organize a learning journey so the next step and progress stay clear on every screen.",
     solution:
-      "Home comercial e catálogo navegável preparados para evoluir com autenticação, progresso e pagamentos.",
+      "Percurso demonstrativo com aulas navegáveis, conclusão por etapa e persistência local sem exigir cadastro.",
     solution_en:
-      "Commercial home and browsable catalog prepared to evolve with authentication, progress and payments.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    imageUrl: "/images/cursos_online.png",
-    githubUrl: "https://github.com/LipDev-sudo/Plataforma-de-cursos-online",
-    liveUrl: "https://plataforma-de-cursos-online-tau.vercel.app/",
+      "A demo learning path with browsable lessons, per-step completion, and local persistence without sign-up.",
+    techs: ["React", "TypeScript", "Tailwind CSS", "Vite", "Playwright"],
+    imageUrl: "/images/trilhara-home-desktop.png",
+    githubUrl: "https://github.com/LipDev-sudo/trilhara",
+    liveUrl: "https://trilhara.vercel.app/",
     order: 5,
     category: "web",
     featured: true,
-    status: "prototype",
+    status: "functional-demo",
   },
   {
     id: "fashion-store",

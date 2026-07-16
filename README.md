@@ -29,13 +29,13 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
 | Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
 | Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
-| Plataforma de Cursos | Protótipo | [Código](https://github.com/LipDev-sudo/Plataforma-de-cursos-online) | [Online](https://plataforma-de-cursos-online-tau.vercel.app) |
+| Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
 
 ## Capturas de projetos
 
-| Ritmoar | Plataforma de Pedidos | Plataforma de Cursos |
+| Ritmoar | Plataforma de Pedidos | Trilhara |
 | --- | --- | --- |
-| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Plataforma de Cursos Online](public/images/cursos_online.png) |
+| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
 
 Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
 
