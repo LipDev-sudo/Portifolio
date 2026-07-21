@@ -119,6 +119,31 @@ export const projects: Project[] = [
     imageUrl: "/images/trilhara-home-desktop.png",
     githubUrl: "https://github.com/LipDev-sudo/trilhara",
     liveUrl: "https://trilhara.vercel.app/",
+    order: 6,
+    category: "web",
+    featured: true,
+    status: "functional-demo",
+  },
+  {
+    id: "pratele",
+    title: "Pratele",
+    title_en: "Pratele",
+    description:
+      "Demonstração funcional de catálogo conversacional para pequenos ateliês apresentarem produtos e receberem consultas pelo WhatsApp.",
+    description_en:
+      "Functional conversational catalog demo for small studios to present products and receive inquiries through WhatsApp.",
+    problem:
+      "Ajudar negócios autorais a explicar materiais, prazos e opções de cada peça sem exigir uma estrutura completa de e-commerce.",
+    problem_en:
+      "Help independent makers explain materials, lead times and product options without requiring a full e-commerce operation.",
+    solution:
+      "Catálogo responsivo com busca, filtros, detalhes objetivos e contato contextual por produto, usando dados demonstrativos do Ateliê Aurora de Barro.",
+    solution_en:
+      "Responsive catalog with search, filters, concise details and product-specific contact, using demo data from Ateliê Aurora de Barro.",
+    techs: ["React", "TypeScript", "Vite", "Tailwind CSS", "Playwright"],
+    imageUrl: "/images/pratele-desktop.png",
+    githubUrl: "https://github.com/LipDev-sudo/pratele",
+    liveUrl: "https://pratele.vercel.app/",
     order: 5,
     category: "web",
     featured: true,
@@ -144,7 +169,7 @@ export const projects: Project[] = [
     imageUrl: "/images/loja_virtual.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-de-moda",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
-    order: 6,
+    order: 7,
     category: "web",
     status: "prototype",
   },
@@ -166,7 +191,7 @@ export const projects: Project[] = [
       "Portfolio-embedded game with Zustand state, animations and Web Audio API sound effects.",
     techs: ["React 19", "TypeScript", "Zustand", "Framer Motion", "Web Audio API"],
     githubUrl: "https://github.com/LipDev-sudo/Portifolio",
-    order: 7,
+    order: 8,
     category: "web",
     status: "functional-demo",
     playable: true,
