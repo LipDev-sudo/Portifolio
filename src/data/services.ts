@@ -3,90 +3,90 @@ import type { Service } from "@/types";
 export const services: Service[] = [
   {
     id: 1,
-    titulo: "Landing Page",
-    titulo_en: "Landing Page",
+    titulo: "Interfaces Responsivas",
+    titulo_en: "Responsive Interfaces",
     descricao:
-      "Página única responsiva com design moderno, animações e formulário de contato. Ideal para divulgar seu produto ou serviço.",
+      "Páginas adaptáveis a diferentes telas, com HTML semântico, componentes reutilizáveis e atenção à acessibilidade.",
     descricao_en:
-      "Responsive single-page site with modern design, animations and contact form. Perfect to launch a product or service.",
-    preco: "A partir de R$ 600",
-    preco_en: "From $120",
+      "Interfaces adapted to different screen sizes, with semantic HTML, reusable components and accessibility in mind.",
+    preco: "HTML5 · CSS3 · Tailwind CSS",
+    preco_en: "HTML5 · CSS3 · Tailwind CSS",
   },
   {
     id: 2,
-    titulo: "Site Institucional",
-    titulo_en: "Business Website",
+    titulo: "Aplicações React",
+    titulo_en: "React Applications",
     descricao:
-      "Site completo com páginas de início, sobre, serviços e contato. Perfeito para apresentar sua empresa de forma profissional.",
+      "Aplicações com componentes, estado e navegação organizados para manter a experiência consistente.",
     descricao_en:
-      "Full website with home, about, services and contact pages. Perfect to present your business professionally.",
-    preco: "A partir de R$ 1.300",
-    preco_en: "From $250",
+      "Applications with components, state and navigation organized to keep the experience consistent.",
+    preco: "React · TypeScript",
+    preco_en: "React · TypeScript",
   },
   {
     id: 3,
-    titulo: "Loja Virtual",
-    titulo_en: "E-commerce Store",
+    titulo: "Aplicações Next.js",
+    titulo_en: "Next.js Applications",
     descricao:
-      "E-commerce com catálogo de produtos, carrinho de compras e integração com meios de pagamento. Pronto para vender online.",
+      "Projetos com App Router, metadados de SEO, rotas de API e renderização adequada a cada conteúdo.",
     descricao_en:
-      "E-commerce with product catalog, shopping cart and payment integration. Ready to sell online.",
-    preco: "A partir de R$ 2.800",
-    preco_en: "From $550",
+      "Projects using App Router, SEO metadata, API routes and rendering suited to each type of content.",
+    preco: "Next.js · React",
+    preco_en: "Next.js · React",
   },
   {
     id: 4,
-    titulo: "Sistema de Pedidos Online",
-    titulo_en: "Online Ordering System",
+    titulo: "Lojas Virtuais",
+    titulo_en: "E-commerce Interfaces",
     descricao:
-      "Plataforma de pedidos para restaurantes e comércios locais, com cardápio digital e painel de gestão.",
+      "Catálogos, páginas de produto e carrinhos navegáveis construídos em estudos de e-commerce publicados.",
     descricao_en:
-      "Ordering platform for restaurants and local businesses, with digital menu and management dashboard.",
-    preco: "A partir de R$ 2.300",
-    preco_en: "From $450",
+      "Catalogs, product pages and navigable carts built in published e-commerce studies.",
+    preco: "Vite · React Router",
+    preco_en: "Vite · React Router",
   },
   {
     id: 5,
-    titulo: "Plataforma de Cursos",
-    titulo_en: "Online Course Platform",
+    titulo: "Plataformas de Pedidos",
+    titulo_en: "Ordering Platforms",
     descricao:
-      "Sistema com área de alunos, aulas em vídeo, progresso e certificados. Um caminho para vender conhecimento online.",
+      "Fluxos mobile-first com cardápio, personalização de itens, carrinho e revisão do pedido.",
     descricao_en:
-      "Platform with student area, video lessons, progress tracking and certificates. A way to sell knowledge online.",
-    preco: "A partir de R$ 3.800",
-    preco_en: "From $750",
+      "Mobile-first flows with menus, item customization, cart and order review.",
+    preco: "Mesaora · Playwright",
+    preco_en: "Mesaora · Playwright",
   },
   {
     id: 6,
-    titulo: "Dashboard / Painel Admin",
-    titulo_en: "Admin Dashboard",
+    titulo: "Dashboards",
+    titulo_en: "Dashboards",
     descricao:
-      "Painel administrativo com gráficos, relatórios e gestão de dados. Controle do seu negócio em tempo real.",
+      "Painéis com tarefas, filtros, indicadores e visualizações para organizar informações operacionais.",
     descricao_en:
-      "Admin panel with charts, reports and data management. Real-time control for your business.",
-    preco: "A partir de R$ 1.800",
-    preco_en: "From $350",
+      "Dashboards with tasks, filters, indicators and visualizations for organizing operational information.",
+    preco: "Ritmoar · Recharts",
+    preco_en: "Ritmoar · Recharts",
   },
   {
     id: 7,
-    titulo: "Bots para Discord",
-    titulo_en: "Custom Discord Bots",
+    titulo: "Formulários Validados",
+    titulo_en: "Validated Forms",
     descricao:
-      "Bots personalizados para automação, atendimento, moderação e abertura de tickets no Discord.",
+      "Formulários com validação de dados, mensagens de erro acessíveis e integração de contato.",
     descricao_en:
-      "Custom bots for automation, support, moderation and ticket flows on Discord.",
-    preco: "A partir de R$ 1.800",
-    preco_en: "From $350",
+      "Forms with data validation, accessible error messages and contact integration.",
+    preco: "Zod · React Hook Form",
+    preco_en: "Zod · React Hook Form",
   },
   {
     id: 8,
-    titulo: "Atendimento via WhatsApp",
-    titulo_en: "WhatsApp Support Flow",
+    titulo: "Testes Automatizados",
+    titulo_en: "Automated Testing",
     descricao:
-      "Fluxo de atendimento com respostas automáticas, triagem de contatos e encaminhamento rápido no WhatsApp.",
+      "Validação de regras e fluxos de navegação com testes unitários e de ponta a ponta nos projetos que os utilizam.",
     descricao_en:
-      "Conversation flow with auto-replies, contact triage and fast routing on WhatsApp.",
-    preco: "A partir de R$ 1.600",
-    preco_en: "From $300",
+      "Validation of rules and navigation flows with unit and end-to-end tests in the projects that use them.",
+    preco: "Vitest · Playwright",
+    preco_en: "Vitest · Playwright",
   },
 ];

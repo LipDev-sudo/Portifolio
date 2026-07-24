@@ -5,15 +5,15 @@ import { Code2, Database, GitBranch, Network, Palette, Sparkles, Workflow, Zap }
 import { useT } from "@/lib/i18n";
 
 const skills = [
-  { label: "Git", icon: GitBranch },
+  { label: "Git / GitHub", icon: GitBranch },
   { label: "JavaScript", icon: Code2 },
   { label: "React", icon: Sparkles },
   { label: "Next.js", icon: Zap },
   { label: "TypeScript", icon: Code2 },
-  { label: "Node.js", icon: Network },
-  { label: "n8n", icon: Workflow },
-  { label: "IA APIs", icon: Sparkles },
-  { label: "Prisma", icon: Database },
+  { label: "Tailwind CSS", icon: Network },
+  { label: "React Router", icon: Workflow },
+  { label: "Vercel", icon: Sparkles },
+  { label: "Vite", icon: Database },
   { label: "Figma", icon: Palette },
 ];
 
