@@ -27,27 +27,28 @@ export const projects: Project[] = [
     status: "complete",
   },
   {
-    id: "bookly",
-    title: "Bookly",
-    title_en: "Bookly",
+    id: "horavia",
+    title: "Horavia",
+    title_en: "Horavia",
     description:
-      "SaaS em desenvolvimento para agendamentos e gestão de clientes de pequenos negócios de serviços.",
+      "Demonstração funcional de agenda, clientes e serviços para profissionais autônomos e pequenos negócios de atendimento.",
     description_en:
-      "SaaS in development for appointment and client management in small service businesses.",
+      "Functional scheduling, client and service management demo for independent professionals and small service businesses.",
     problem:
-      "Centralizar clientes, serviços e agendamentos com isolamento dos dados de cada negócio.",
+      "Organizar horários, clientes e serviços em um fluxo claro que possa ser avaliado sem exigir cadastro.",
     problem_en:
-      "Centralize clients, services and appointments while isolating each business's data.",
+      "Organize appointments, clients and services in a clear flow that can be evaluated without requiring sign-up.",
     solution:
-      "Base multi-tenant com autenticação Supabase, Row Level Security e dashboard protegido com dados do banco.",
+      "Demonstração do Estúdio Aurora com agenda operacional, estados vazios e persistência local, mantendo integrações reais separadas do fluxo demo.",
     solution_en:
-      "Multi-tenant foundation with Supabase authentication, Row Level Security and a protected data-backed dashboard.",
-    techs: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Zod"],
-    githubUrl: "https://github.com/LipDev-sudo/bookly",
+      "Estúdio Aurora demo with operational scheduling, empty states and local persistence, keeping real integrations separate from the demo flow.",
+    techs: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Vitest"],
+    githubUrl: "https://github.com/LipDev-sudo/Horavia",
+    liveUrl: "https://horavia.vercel.app/demo",
     order: 2,
     category: "web",
     featured: true,
-    status: "in-development",
+    status: "functional-demo",
   },
   {
     id: "ritmoar",
@@ -75,29 +76,29 @@ export const projects: Project[] = [
     status: "functional-demo",
   },
   {
-    id: "orders-platform",
-    title: "Plataforma de Pedidos Online",
-    title_en: "Online Ordering Platform",
+    id: "mesaora",
+    title: "Mesaora",
+    title_en: "Mesaora",
     description:
-      "Protótipo responsivo de pedidos para restaurantes e pequenos comércios com cardápio digital.",
+      "Demonstração funcional de pedidos diretos para restaurante, do cardápio digital ao acompanhamento.",
     description_en:
-      "Responsive ordering prototype for restaurants and small businesses with a digital menu.",
+      "Functional direct-ordering demo for restaurants, from the digital menu through order tracking.",
     problem:
-      "Apresentar produtos e organizar o fluxo de escolha de pedidos em uma experiência mobile-first.",
+      "Reduzir a dependência de intermediários sem perder clareza no cardápio, carrinho, checkout e acompanhamento.",
     problem_en:
-      "Present products and organize order selection through a mobile-first experience.",
+      "Reduce reliance on intermediaries while keeping the menu, cart, checkout and tracking clear.",
     solution:
-      "Interface navegável com categorias, itens de cardápio e fluxo visual de carrinho.",
+      "Fluxo responsivo da pizzaria demonstrativa Forno da Vila, com cardápio, carrinho, checkout e status do pedido.",
     solution_en:
-      "Navigable interface with categories, menu items and a visual cart flow.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "Responsive flow for the demo pizzeria Forno da Vila, including menu, cart, checkout and order status.",
+    techs: ["React", "TypeScript", "Vite", "Playwright"],
     imageUrl: "/images/pedidos_online.png",
     githubUrl: "https://github.com/LipDev-sudo/plataforma-de-pedidos-online-",
     liveUrl: "https://plataforma-de-pedidos-online-two.vercel.app/",
     order: 3,
     category: "web",
     featured: true,
-    status: "prototype",
+    status: "functional-demo",
   },
   {
     id: "courses-platform",
