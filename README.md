@@ -1,6 +1,6 @@
 # Portfólio LipDev.BR
 
-Portfólio profissional de Hamilton Felipe, desenvolvedor web com foco em React, Next.js, TypeScript e experimentos de automação com IA.
+Portfólio profissional de Hamilton Felipe, Desenvolvedor Frontend Júnior com foco em React, Next.js, TypeScript, Tailwind CSS, interfaces responsivas, testes e integrações web.
 
 **Site oficial:** [https://lipdev.vercel.app](https://lipdev.vercel.app)
 
@@ -8,7 +8,7 @@ Portfólio profissional de Hamilton Felipe, desenvolvedor web com foco em React,
 
 ## Visão geral
 
-O projeto reúne apresentação profissional, currículo, projetos públicos, serviços e canais de contato em uma experiência responsiva. A interface oferece tradução entre português e inglês, temas claro e escuro e uma demonstração incorporada do jogo Dev Balatro.
+O projeto reúne apresentação profissional, currículo, projetos públicos e canais de contato em uma experiência responsiva. A interface oferece tradução entre português e inglês, temas claro e escuro e uma demonstração incorporada do jogo Dev Balatro.
 
 ## Tecnologias
 
@@ -25,17 +25,17 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 
 | Projeto | Estado apresentado | Repositório | Demonstração |
 | --- | --- | --- | --- |
-| Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
-| Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
+| LipDev.BR | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
+| Horavia | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/Horavia) | [Online](https://horavia.vercel.app) |
 | Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
-| Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
+| Mesaora | Protótipo funcional | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
 
 ## Capturas de projetos
 
 | Ritmoar | Plataforma de Pedidos | Trilhara |
 | --- | --- | --- |
-| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
+| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Mesaora](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
 
 Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
 
@@ -74,7 +74,7 @@ npx tsc --noEmit
 npm run build
 ```
 
-O repositório ainda não possui uma suíte automatizada de testes. Os fluxos visuais e interativos são revisados com Playwright antes da publicação.
+Este repositório ainda não possui scripts de testes unitários ou E2E. Projetos relacionados usam Playwright ou Vitest quando indicado em seus próprios arquivos e cards.
 
 ## Estrutura principal
 
