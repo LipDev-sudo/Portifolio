@@ -26,16 +26,17 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | Projeto | Estado apresentado | Repositório | Demonstração |
 | --- | --- | --- | --- |
 | Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
-| Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
+| Horavia | Demonstração funcional | [Código](https://github.com/LipDev-sudo/Horavia) | [Online](https://horavia.vercel.app/demo) |
 | Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
-| Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
+| Mesaora | Demonstração funcional | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
+| Pratele | Demonstração funcional | [Código](https://github.com/LipDev-sudo/pratele) | [Online](https://pratele.vercel.app) |
 
 ## Capturas de projetos
 
-| Ritmoar | Plataforma de Pedidos | Trilhara |
+| Ritmoar | Mesaora | Trilhara |
 | --- | --- | --- |
-| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
+| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Mesaora](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
 
 Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
 
@@ -70,11 +71,12 @@ As variáveis e orientações estão documentadas em [`.env.example`](.env.examp
 
 ```bash
 npm run lint
-npx tsc --noEmit
+npm run typecheck
 npm run build
+npm audit
 ```
 
-O repositório ainda não possui uma suíte automatizada de testes. Os fluxos visuais e interativos são revisados com Playwright antes da publicação.
+O repositório ainda não possui uma suíte automatizada de testes. Typecheck, lint e build são executados pela integração contínua.
 
 ## Estrutura principal
 
