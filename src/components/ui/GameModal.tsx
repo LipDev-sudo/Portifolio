@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
@@ -27,16 +27,57 @@ interface GameModalProps {
 
 export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
   const t = useT();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
+    const previouslyFocused =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    const focusFrame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (!focusableElements?.length) {
+        event.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     };
 
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus();
+    };
   }, [open, onClose]);
 
   useEffect(() => {
@@ -76,11 +117,13 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
             style={{ padding: "max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom))" }}
           >
             <div
+              ref={dialogRef}
               className="relative pointer-events-auto flex flex-col overflow-hidden rounded-2xl"
               role="dialog"
               aria-modal="true"
-              aria-label={title}
-            style={{
+              aria-labelledby="game-modal-title"
+              tabIndex={-1}
+              style={{
                 width: shouldRenderDevBalatro ? "min(390px, calc(100vw - 20px))" : "min(430px, calc(100vw - 20px))",
                 height: shouldRenderDevBalatro ? "min(760px, calc(100dvh - 20px))" : "min(900px, calc(100dvh - 20px))",
                 border: "1.5px solid rgba(255,255,255,0.18)",
@@ -96,18 +139,21 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
               >
                 <div className="flex items-center gap-1.5">
                   <button
+                    ref={closeButtonRef}
                     type="button"
                     onClick={onClose}
                     aria-label={t.gameModal.closeGame}
-                    className="h-3 w-3 rounded-full transition-opacity hover:opacity-80"
-                    style={{ background: "#ff5f57" }}
+                    className="flex h-8 w-8 items-center justify-center rounded-full transition-opacity hover:opacity-80"
                     title={t.gameModal.close}
-                  />
-                  <div className="h-3 w-3 rounded-full" style={{ background: "#febc2e" }} />
-                  <div className="h-3 w-3 rounded-full" style={{ background: "#28c840" }} />
+                  >
+                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                  </button>
+                  <div className="h-3 w-3 rounded-full bg-[#febc2e]" aria-hidden="true" />
+                  <div className="h-3 w-3 rounded-full bg-[#28c840]" aria-hidden="true" />
                 </div>
 
                 <span
+                  id="game-modal-title"
                   className="flex-1 text-center font-semibold text-black/60 dark:text-[#afb1b5]"
                   style={{ fontSize: 11, letterSpacing: "0.05em" }}
                 >
@@ -117,7 +163,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="text-black/35 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-black/35 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
                   aria-label={t.gameModal.closeGame}
                 >
                   <X size={14} />
