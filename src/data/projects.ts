@@ -3,21 +3,21 @@ import type { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "portfolio",
-    title: "Portfólio LipDev",
+    title: "LipDev.BR",
     title_en: "LipDev Portfolio",
     description:
-      "Portfólio bilíngue que reúne projetos, serviços, currículo, formulário de contato e demonstrações interativas.",
+      "Portfólio profissional bilíngue com projetos verificáveis, currículo, contato e uma demonstração interativa.",
     description_en:
-      "Bilingual portfolio bringing together projects, services, resume, contact form and interactive demos.",
+      "Bilingual professional portfolio with verifiable projects, resume, contact channels and an interactive demo.",
     problem:
-      "Organizar diferentes projetos e competências em uma apresentação profissional acessível em desktop e mobile.",
+      "Apresentar experiência prática e tecnologias comprovadas em uma navegação clara para recrutadores e equipes técnicas.",
     problem_en:
-      "Organize different projects and skills into a professional presentation for desktop and mobile.",
+      "Present hands-on experience and proven technologies through clear navigation for recruiters and technical teams.",
     solution:
-      "Aplicação em Next.js com tradução PT/EN, tema claro/escuro, projetos filtráveis e contato integrado.",
+      "Aplicação responsiva com Next.js 16, React 19, TypeScript, Tailwind CSS, Framer Motion, validação com Zod e estado com Zustand.",
     solution_en:
-      "Next.js application with PT/EN translation, light/dark themes, project filters and integrated contact.",
-    techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "Responsive application built with Next.js 16, React 19, TypeScript, Tailwind CSS, Framer Motion, Zod validation and Zustand state.",
+    techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion", "Zod + Zustand"],
     imageUrl: "/images/portfolio-link-preview-2026.png",
     githubUrl: "https://github.com/LipDev-sudo/Portifolio",
     liveUrl: "https://lipdev.vercel.app/",
@@ -27,23 +27,24 @@ export const projects: Project[] = [
     status: "complete",
   },
   {
-    id: "bookly",
-    title: "Bookly",
-    title_en: "Bookly",
+    id: "horavia",
+    title: "Horavia",
+    title_en: "Horavia",
     description:
-      "SaaS em desenvolvimento para agendamentos e gestão de clientes de pequenos negócios de serviços.",
+      "Aplicação de agenda e gestão para prestadores de serviço, com autenticação, dados do negócio e assinatura.",
     description_en:
-      "SaaS in development for appointment and client management in small service businesses.",
+      "Scheduling and management application for service providers, with authentication, business data and subscriptions.",
     problem:
-      "Centralizar clientes, serviços e agendamentos com isolamento dos dados de cada negócio.",
+      "Centralizar agenda, clientes e serviços com acesso protegido e separação dos dados de cada negócio.",
     problem_en:
-      "Centralize clients, services and appointments while isolating each business's data.",
+      "Centralize schedules, clients and services with protected access and isolated business data.",
     solution:
-      "Base multi-tenant com autenticação Supabase, Row Level Security e dashboard protegido com dados do banco.",
+      "Next.js com Supabase para autenticação e dados, Stripe para assinaturas, schemas Zod e testes unitários com Vitest.",
     solution_en:
-      "Multi-tenant foundation with Supabase authentication, Row Level Security and a protected data-backed dashboard.",
-    techs: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Zod"],
-    githubUrl: "https://github.com/LipDev-sudo/bookly",
+      "Next.js application using Supabase for authentication and data, Stripe subscriptions, Zod schemas and Vitest unit tests.",
+    techs: ["Next.js 16", "TypeScript", "Supabase", "Stripe", "Zod", "Vitest"],
+    githubUrl: "https://github.com/LipDev-sudo/Horavia",
+    liveUrl: "https://horavia.vercel.app/",
     order: 2,
     category: "web",
     featured: true,
@@ -54,18 +55,18 @@ export const projects: Project[] = [
     title: "Ritmoar",
     title_en: "Ritmoar",
     description:
-      "Demonstração funcional de gestão de trabalho e prioridades para pequenas equipes, freelancers e agências.",
+      "Dashboard responsivo para organizar tarefas, responsáveis, prazos, prioridades e indicadores de trabalho.",
     description_en:
-      "Functional work and priority management demo for small teams, freelancers and agencies.",
+      "Responsive dashboard for organizing tasks, owners, deadlines, priorities and work indicators.",
     problem:
       "Organizar prioridades, responsáveis, prazos e andamento do trabalho com clareza, sem excesso de complexidade.",
     problem_en:
       "Organize priorities, owners, deadlines and work progress clearly, without unnecessary complexity.",
     solution:
-      "Interface operacional responsiva com criação, busca e filtros de tarefas, estados claros e persistência local.",
+      "Interface com criação, busca, filtros e relatórios. O repositório inclui módulos Firebase e componentes Recharts; a demo atual mantém os dados no navegador.",
     solution_en:
-      "Responsive operational interface with task creation, search and filters, clear states and local persistence.",
-    techs: ["React", "TypeScript", "Vite", "Tailwind CSS", "localStorage"],
+      "Interface with task creation, search, filters and reports. The repository includes Firebase modules and Recharts components; the current demo stores data in the browser.",
+    techs: ["React", "TypeScript", "Firebase", "Recharts", "Vite", "Tailwind CSS"],
     imageUrl: "/images/ritmoar-desktop.png",
     githubUrl: "https://github.com/LipDev-sudo/ritmoar",
     liveUrl: "https://ritmoar.vercel.app/",
@@ -76,21 +77,21 @@ export const projects: Project[] = [
   },
   {
     id: "orders-platform",
-    title: "Plataforma de Pedidos Online",
-    title_en: "Online Ordering Platform",
+    title: "Mesaora",
+    title_en: "Mesaora",
     description:
-      "Protótipo responsivo de pedidos para restaurantes e pequenos comércios com cardápio digital.",
+      "Plataforma mobile-first de pedidos diretos para restaurantes, com cardápio, personalização e carrinho.",
     description_en:
-      "Responsive ordering prototype for restaurants and small businesses with a digital menu.",
+      "Mobile-first direct ordering platform for restaurants, with menu, item customization and cart.",
     problem:
       "Apresentar produtos e organizar o fluxo de escolha de pedidos em uma experiência mobile-first.",
     problem_en:
       "Present products and organize order selection through a mobile-first experience.",
     solution:
-      "Interface navegável com categorias, itens de cardápio e fluxo visual de carrinho.",
+      "Aplicação em React e TypeScript com rotas, fluxo completo de pedido e testes de ponta a ponta em Playwright.",
     solution_en:
-      "Navigable interface with categories, menu items and a visual cart flow.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "React and TypeScript application with routes, a complete ordering flow and Playwright end-to-end tests.",
+    techs: ["React", "TypeScript", "React Router", "Tailwind CSS", "Vite", "Playwright"],
     imageUrl: "/images/pedidos_online.png",
     githubUrl: "https://github.com/LipDev-sudo/plataforma-de-pedidos-online-",
     liveUrl: "https://plataforma-de-pedidos-online-two.vercel.app/",
@@ -162,10 +163,10 @@ export const projects: Project[] = [
     problem_en:
       "Explore a product storefront with visual hierarchy and responsive navigation.",
     solution:
-      "Protótipo navegável com catálogo e experiência de carrinho em uma identidade visual consistente.",
+      "Aplicação em React e TypeScript com rotas de catálogo, produto e carrinho em uma experiência responsiva.",
     solution_en:
-      "Browsable prototype with catalog and cart experience in a consistent visual identity.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Radix UI"],
+      "React and TypeScript application with catalog, product and cart routes in a responsive experience.",
+    techs: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
     imageUrl: "/images/loja_virtual.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-de-moda",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
