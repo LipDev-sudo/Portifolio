@@ -28,11 +28,11 @@ const socialPreviewImage = new URL(
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
+    default: "Hamilton Felipe | Desenvolvedor Frontend Júnior | React, Next.js e TypeScript",
     template: "%s | Hamilton Felipe",
   },
   description:
-    "Hamilton Felipe desenvolve sites, sistemas e automações para transformar processos e ideias em experiências digitais claras e responsivas.",
+    "Portfólio de Hamilton Felipe, Desenvolvedor Frontend Júnior com projetos em React, Next.js, TypeScript e Tailwind CSS, testes e integrações web.",
   applicationName: "LipDev.BR",
   authors: [{ name: "Hamilton Felipe", url: siteUrl }],
   creator: "Hamilton Felipe",
@@ -40,14 +40,16 @@ export const metadata: Metadata = {
   category: "technology",
   keywords: [
     "Hamilton Felipe",
-    "desenvolvedor web",
+    "Desenvolvedor Frontend Júnior",
+    "desenvolvedor frontend",
     "Next.js",
     "React",
     "TypeScript",
-    "automação com IA",
-    "desenvolvedor freelancer",
-    "sistemas web",
-    "portfólio",
+    "Tailwind CSS",
+    "interfaces responsivas",
+    "testes frontend",
+    "integrações web",
+    "portfólio frontend",
   ],
   alternates: {
     canonical: "/",
@@ -57,9 +59,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
+    title: "Hamilton Felipe | Desenvolvedor Frontend Júnior",
     description:
-      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
+      "Projetos verificáveis em React, Next.js, TypeScript e Tailwind CSS, com interfaces responsivas, testes e integrações web.",
     url: siteUrl,
     siteName: "LipDev.BR",
     type: "website",
@@ -69,15 +71,15 @@ export const metadata: Metadata = {
         url: socialPreviewImage,
         width: 1200,
         height: 630,
-        alt: "Prévia do portfólio LipDev.BR de Hamilton Felipe",
+        alt: "Portfólio de Hamilton Felipe, Desenvolvedor Frontend Júnior",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
+    title: "Hamilton Felipe | Desenvolvedor Frontend Júnior",
     description:
-      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
+      "Projetos verificáveis em React, Next.js, TypeScript e Tailwind CSS, com interfaces responsivas, testes e integrações web.",
     images: [socialPreviewImage],
   },
 };

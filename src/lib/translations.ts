@@ -11,7 +11,7 @@ const ptMessages = {
       contact: "Contato",
     },
     cta: "Fale Comigo",
-    resume: "Currículo",
+    resume: "Baixar currículo",
     toggleLabel: "Mudar para inglês",
     toggleShort: "EN",
     openMenu: "Abrir menu",
@@ -20,48 +20,48 @@ const ptMessages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Disponível para projetos web e automação",
+    available: "Disponível para oportunidades como Desenvolvedor Frontend Júnior",
     titleStart: "Eu crio ",
-    titleHighlight: "web + IA",
+    titleHighlight: "interfaces web",
     titleEnd: " para ideias ganharem forma.",
     hello: "Olá, eu sou",
     name: "Hamilton Felipe.",
-    roleMain: "Desenvolvedor Web",
-    roleOutline: "& Automação com IA",
+    roleMain: "Desenvolvedor Frontend Júnior",
+    roleOutline: "| React, Next.js, TypeScript e Tailwind CSS | Interfaces Responsivas, Testes e Integrações Web",
     location: "Baseado no Brasil.",
     availableNow: "Disponível agora",
     proof: "Código público e demos navegáveis",
     socialLabel: "Redes:",
     imageAlt: "Ilustração de Hamilton Felipe programando no computador",
     description:
-      "Desenvolvo aplicações web, sistemas internos e automações com IA usando React, Next.js, TypeScript e integrações com APIs. Meu foco é transformar problemas em experiências claras, responsivas e fáceis de manter.",
-    primaryCta: "Ver projetos",
-    secondaryCta: "Falar sobre um projeto",
+      "Crio e publico lojas virtuais, plataformas de pedidos, dashboards e interfaces web responsivas. Trabalho com React, Next.js, TypeScript e Tailwind CSS, com atenção à experiência do usuário, acessibilidade, testes e performance.",
+    primaryCta: "Conhecer projetos",
+    secondaryCta: "Entrar em contato",
     statCard: {
       badge: "Meu jeito de trabalhar",
-      title: "Web + IA",
-      stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
+      title: "Frontend em prática",
+      stack: "React · Next.js · TypeScript · Tailwind CSS · Testes",
     },
     dedicationLabel: "Projetos web",
-    learningLabel: "Soluções com IA",
+    learningLabel: "Evolução contínua",
     scrollAria: "Rolar para baixo",
     scrollLabel: "rolar",
     commandCenter: {
       label: "Estúdio LipDev",
       build: "Design limpo e responsivo",
-      automate: "Automação que resolve rotina",
+      automate: "Testes dos fluxos principais",
       measure: "Entrega pensada para evoluir",
       pipelineLabel: "processo",
-      pipeline: ["Conversa", "Plano", "Código", "IA", "Entrega"],
-      metricOne: "menos tarefas manuais",
-      metricTwo: "mais presença online",
+      pipeline: ["Contexto", "Plano", "Código", "Teste", "Entrega"],
+      metricOne: "interfaces responsivas",
+      metricTwo: "código verificável",
     },
   },
   about: {
     badge: "Sobre mim",
     title: "Oi, eu sou o Hamilton Felipe.",
     description:
-      "Eu gosto de pegar uma ideia ainda meio solta e transformar em algo que funciona de verdade: um site, um sistema, um chatbot ou uma automação. Meu foco é unir desenvolvimento web com IA de um jeito simples de entender, bonito de usar e útil no dia a dia.",
+      "Sou Desenvolvedor Frontend Júnior com experiência prática na criação e publicação de aplicações responsivas. Desenvolvo lojas virtuais, plataformas de pedidos, dashboards e interfaces web, organizando o código e validando cada entrega com foco em usabilidade, acessibilidade e performance.",
     imageAlt: "Ilustração de Hamilton Felipe concentrado no computador",
     highlights: [
       {
@@ -70,9 +70,9 @@ const ptMessages = {
           "Crio páginas e sistemas pensando na experiência de quem vai usar, não só em deixar a tela bonita.",
       },
       {
-        title: "IA sem complicar",
+        title: "Qualidade verificável",
         description:
-          "Uso IA para automatizar atendimento, organizar informações e tirar tarefas repetitivas do caminho.",
+          "Aplico tipagem, validação, testes automatizados e revisão responsiva de acordo com a necessidade de cada projeto.",
       },
       {
         title: "Entrega próxima",
@@ -85,7 +85,7 @@ const ptMessages = {
     badge: "Meu processo",
     title: "Do papo inicial até uma entrega que dá para usar.",
     description:
-      "Eu organizo cada projeto como um caminho simples: entender, desenhar, construir, automatizar e ajustar com calma.",
+      "Eu organizo cada projeto como um caminho simples: entender, desenhar, construir, testar e ajustar com calma.",
     items: [
       {
         title: "Diagnóstico",
@@ -98,9 +98,9 @@ const ptMessages = {
           "Crio páginas e sistemas rápidos, responsivos e com uma aparência que combina com a sua marca.",
       },
       {
-        title: "Automação",
+        title: "Validação",
         description:
-          "Conecto formulários, WhatsApp, e-mail, CRM e IA para reduzir tarefas manuais de verdade.",
+          "Reviso responsividade, acessibilidade, estados da interface e fluxos principais antes da publicação.",
       },
       {
         title: "Métrica",
@@ -136,94 +136,94 @@ const ptMessages = {
     items: [
       {
         company: "LipDev.BR",
-        role: "Desenvolvimento Web & Automação",
+        role: "Desenvolvedor Frontend Júnior",
         period: "Projeto em evolução",
         description:
-          "Desenvolvo aplicações web e experimentos de automação reunidos neste portfólio, com foco em interfaces responsivas, integrações e organização de código.",
+          "Desenvolvo e publico aplicações web reunidas neste portfólio, com foco em interfaces responsivas, integrações, acessibilidade e organização de código.",
       },
       {
         company: "Projetos autorais",
-        role: "Web Apps, Bots e Integrações",
+        role: "Aplicações Web e Integrações",
         period: "Portfólio público",
         description:
           "Construo dashboards, plataformas de pedidos e cursos, interfaces de e-commerce e jogos web, com código e demonstrações disponíveis nos projetos publicados.",
       },
       {
         company: "Stack moderna",
-        role: "React, Next.js, TypeScript e Automação",
+        role: "React, Next.js, TypeScript e Tailwind CSS",
         period: "Estudo e prática contínuos",
         description:
-          "Estudo e aplico tecnologias modernas com foco em performance, responsividade, organização de código, integrações e uso prático de IA.",
+          "Aprofundo conhecimentos em arquitetura frontend, APIs, cloud e bancos de dados sem apresentar essas áreas como experiência além do que os projetos comprovam.",
       },
     ],
   },
   aiSolutions: {
-    badge: "Soluções de IA",
-    title: "Soluções de IA para Empresas",
+    badge: "Prática Frontend",
+    title: "Competências aplicadas em projetos",
     description:
-      "Automações inteligentes para organizar tarefas e integrar informações do negócio.",
+      "Evidências concretas de construção, validação e publicação de interfaces web.",
     items: [
       {
-        title: "Assistente de Atendimento com IA",
+        title: "Interfaces Responsivas",
         description:
-          "Assistente para organizar respostas a clientes no WhatsApp, site ou e-mail.",
+          "Experiências mobile-first e adaptáveis para lojas, pedidos, dashboards e páginas profissionais.",
         bullets: [
-          "Respostas automáticas",
-          "Captura de leads",
-          "Agendamento automático",
-          "Integração com CRM",
+          "Componentes reutilizáveis",
+          "Navegação em diferentes telas",
+          "Estados de carregamento e erro",
+          "Acessibilidade da interface",
         ],
-        price: "A partir de R$2.500",
+        price: "React · Next.js · Tailwind CSS",
       },
       {
-        title: "Automação de Geração de Leads com IA",
+        title: "Formulários e Integrações",
         description:
-          "Automação que captura, qualifica e organiza leads automaticamente.",
+          "Fluxos de contato, autenticação, pagamentos e dados implementados conforme o escopo de cada aplicação.",
         bullets: [
-          "Integração com chatbot e formulários",
-          "Qualificação automática de leads",
-          "Follow-up por e-mail",
-          "Sincronização com CRM",
+          "Validação com Zod",
+          "React Hook Form e EmailJS",
+          "Supabase e Firebase",
+          "Stripe em projeto específico",
         ],
-        price: "A partir de R$3.000",
+        price: "Zod · Supabase · Stripe",
       },
       {
-        title: "Automação de Processos com IA",
+        title: "Qualidade e Publicação",
         description:
-          "Automações que eliminam tarefas manuais repetitivas.",
+          "Projetos versionados, publicados e validados com ferramentas adequadas ao fluxo de cada repositório.",
         bullets: [
-          "Processamento de e-mails",
-          "Extração de dados de PDFs",
-          "Geração de relatórios",
-          "Automação de fluxos de trabalho",
+          "TypeScript e lint",
+          "Testes com Playwright",
+          "Testes com Vitest",
+          "Deploys na Vercel",
         ],
-        price: "A partir de R$4.000",
+        price: "GitHub · Playwright · Vitest",
       },
     ],
   },
   services: {
     badge: "Serviços",
-    title: "Sites, sistemas e IA no mesmo lugar.",
+    title: "Experiência prática em desenvolvimento frontend.",
     description:
-      "Você pode chegar com uma ideia simples ou uma operação bagunçada. Eu ajudo a transformar isso em presença online, fluxo automatizado e uma experiência mais profissional.",
+      "Projetos públicos mostram como transformo requisitos em interfaces responsivas, fluxos navegáveis, integrações e código organizado.",
     aiGroup: {
-      label: "IA & Automação",
-      description: "Fluxos que ajudam você a atender melhor e perder menos tempo com repetição.",
+      label: "Competências aplicadas",
+      description: "Tecnologias e práticas demonstradas em aplicações publicadas e repositórios verificáveis.",
     },
     webGroup: {
       label: "Desenvolvimento Web",
-      description: "Interfaces sob medida para apresentar, vender, organizar e escalar sua ideia.",
+      description: "Tipos de produto que já construí para exercitar problemas reais de interface e navegação.",
     },
   },
   solutionBuilder: {
     badge: "Caminhos possíveis",
     title: "Alguns jeitos de transformar sua ideia em projeto.",
     description:
-      "Em vez de vender peças soltas, eu penso no conjunto: página, sistema, automação e IA trabalhando na mesma direção.",
+      "Cada projeto combina interface, navegação, estados, dados e validação de acordo com o problema proposto.",
     labels: {
       bestFor: "Ideal para",
       web: "Entrega web",
-      ai: "Camada de IA",
+      ai: "Tecnologias aplicadas",
       outcome: "Resultado esperado",
     },
     cta: "Quero esse pacote",
@@ -232,37 +232,37 @@ const ptMessages = {
         label: "Serviços locais",
         audience: "clínicas, estética, oficinas, consultórios e restaurantes",
         web: "Landing page rápida, formulário inteligente e página de agendamento.",
-        ai: "Assistente no WhatsApp para responder dúvidas, capturar leads e organizar horários.",
-        outcome: "Mais respostas em menos tempo e menos oportunidades perdidas.",
+        ai: "React, TypeScript, formulários e integração de contato.",
+        outcome: "Interface clara, responsiva e pronta para apresentar o serviço.",
       },
       {
         label: "E-commerce",
         audience: "lojas, catálogos, moda, produtos físicos e vendas por WhatsApp",
-        web: "Loja responsiva, catálogo, checkout simplificado e vitrine com foco em conversão.",
-        ai: "Recomendação de produtos, mensagens de recuperação e atendimento pós-venda.",
-        outcome: "Mais confiança para comprar e acompanhamento automático do cliente.",
+        web: "Loja responsiva, catálogo, páginas de produto e experiência de carrinho.",
+        ai: "React Router, estado do carrinho e componentes de catálogo.",
+        outcome: "Fluxo navegável de descoberta, seleção e revisão de produtos.",
       },
       {
         label: "Operação interna",
         audience: "equipes que lidam com planilhas, e-mails, documentos e tarefas repetitivas",
         web: "Painel administrativo para acompanhar tarefas, clientes, status e indicadores.",
-        ai: "Leitura de e-mails/PDFs, geração de relatórios e automações com n8n ou APIs.",
-        outcome: "Menos retrabalho e decisões mais rápidas com dados organizados.",
+        ai: "Firebase, Recharts e persistência definida pelo escopo do projeto.",
+        outcome: "Informações e prioridades organizadas em uma interface operacional.",
       },
       {
         label: "Marca pessoal",
         audience: "devs, criadores, freelancers, consultores e profissionais autônomos",
         web: "Portfólio premium, página de oferta, projetos destacados e captação de contatos.",
-        ai: "Bot de triagem para entender o lead e encaminhar a melhor proposta.",
-        outcome: "Autoridade visual, proposta clara e contato mais qualificado.",
+        ai: "Next.js, SEO, formulário validado e publicação na Vercel.",
+        outcome: "Apresentação profissional com projetos, currículo e canais de contato.",
       },
     ],
   },
   caseStudies: {
-    badge: "Cases de IA",
-    title: "Aplicações possíveis de automação.",
+    badge: "Casos de Frontend",
+    title: "Problemas resolvidos nos projetos.",
     description:
-      "Exemplos de fluxos que podem ser projetados e validados conforme o contexto do negócio.",
+      "Exemplos de decisões de interface implementadas e disponíveis para avaliação.",
     labels: {
       problem: "Problema",
       solution: "Solução",
@@ -270,31 +270,31 @@ const ptMessages = {
     },
     cases: [
       {
-        title: "Assistente de WhatsApp com IA",
+        title: "Pedidos Mobile-first",
         problem:
-          "Equipes de atendimento podem precisar responder dúvidas recorrentes e organizar solicitações recebidas pelo WhatsApp.",
+          "Restaurantes precisam apresentar o cardápio e organizar a seleção de itens em telas pequenas.",
         solution:
-          "Proposta de assistente integrado a uma base de informações e a um fluxo de agendamento.",
+          "Mesaora organiza categorias, produtos e carrinho em uma navegação responsiva.",
         result:
-          "Objetivo: organizar o atendimento e encaminhar solicitações para revisão humana quando necessário.",
+          "Fluxo publicado e coberto por testes de ponta a ponta com Playwright.",
       },
       {
-        title: "Resposta Automática de E-mails com IA",
+        title: "Gestão de Trabalho",
         problem:
-          "Caixas de entrada com mensagens repetitivas podem exigir triagem e respostas padronizadas.",
+          "Pequenas equipes precisam visualizar responsáveis, prazos e prioridades sem excesso de complexidade.",
         solution:
-          "Proposta de classificação de e-mails e preparação de respostas a partir de dados autorizados.",
+          "Ritmoar reúne tarefas, filtros, indicadores e personalização do painel.",
         result:
-          "Objetivo: reduzir tarefas manuais sem remover a supervisão da equipe responsável.",
+          "A demonstração mantém os dados no navegador e identifica claramente seu caráter fictício.",
       },
       {
-        title: "Bot de Captura de Leads com IA",
+        title: "Agenda e Assinatura",
         problem:
-          "Leads recebidos por canais diferentes podem ficar dispersos e sem acompanhamento consistente.",
+          "Prestadores de serviço precisam organizar agenda, clientes e acesso ao plano contratado.",
         solution:
-          "Proposta de centralização, classificação por critérios definidos e envio para o CRM.",
+          "Horavia combina Next.js, Supabase e um fluxo de assinatura com Stripe.",
         result:
-          "Objetivo: criar um processo rastreável para a equipe acompanhar cada contato.",
+          "Schemas com Zod e testes com Vitest apoiam a validação da aplicação.",
       },
     ],
   },
@@ -320,11 +320,11 @@ const ptMessages = {
     filterAll: "Todos",
     filterFeatured: "Destaques",
     filterLabel: "Filtrar projetos",
-    filterAi: "IA & Automação",
+    filterAi: "Integrações",
     filterWeb: "Web",
     privateLabel: "Projeto Privado",
     privateNote: "Repositório não disponível publicamente.",
-    categoryBadgeAi: "IA",
+    categoryBadgeAi: "Web",
     categoryBadgeWeb: "Web",
     playNow: "Jogar Agora",
     playAria: "Jogar projeto",
@@ -339,21 +339,21 @@ const ptMessages = {
     eyebrow: "e aí, bora?",
     title: "Se você tem uma ideia, eu posso ajudar a dar forma.",
     description:
-      "Me chama, me conta o contexto e eu te digo o caminho mais simples para transformar isso em site, sistema ou automação com IA.",
+      "Conheça os projetos, acesse o GitHub, baixe o currículo ou envie uma mensagem para conversar sobre uma oportunidade frontend.",
     cta: "Começar uma conversa",
   },
   contact: {
     badge: "Contato",
-    title: "Me conta o que você quer construir.",
+    title: "Vamos conversar sobre uma oportunidade frontend.",
     description:
-      "Envie o objetivo, o contexto e o prazo que você imagina. Assim consigo entender o cenário e indicar próximos passos com clareza.",
-    whatsapp: "Chamar no WhatsApp",
+      "Para vagas de Desenvolvedor Frontend Júnior, projetos ou colaborações, envie o contexto e a melhor forma de retorno.",
+    whatsapp: "Entrar em contato pelo WhatsApp",
     form: {
       name: "Seu nome",
       email: "Seu e-mail",
-      message: "Objetivo, contexto e prazo do projeto",
-      messageHelp: "Inclua o que precisa resolver, para quem é a solução e se existe um prazo desejado.",
-      submit: "Enviar Mensagem",
+      message: "Conte sobre a vaga, projeto ou colaboração",
+      messageHelp: "Inclua o contexto, as tecnologias envolvidas e a melhor forma de retorno.",
+      submit: "Enviar mensagem de contato",
       submitting: "Enviando...",
       success: "Mensagem Enviada!",
       genericError: "Erro ao enviar. Tente novamente ou use o WhatsApp.",
@@ -380,7 +380,7 @@ const enMessages: Messages = {
       contact: "Contact",
     },
     cta: "Get in Touch",
-    resume: "Resume",
+    resume: "Download resume",
     toggleLabel: "Switch to Portuguese",
     toggleShort: "PT",
     openMenu: "Open menu",
@@ -389,48 +389,48 @@ const enMessages: Messages = {
   },
   hero: {
     badge: "Hamilton Felipe · LipDev.BR",
-    available: "Available for web and automation projects",
+    available: "Available for Junior Frontend Developer opportunities",
     titleStart: "I build ",
-    titleHighlight: "web + AI",
+    titleHighlight: "web interfaces",
     titleEnd: " that give ideas shape.",
     hello: "Hello, I'm",
     name: "Hamilton Felipe.",
-    roleMain: "Web Developer",
-    roleOutline: "& AI Automation",
+    roleMain: "Junior Frontend Developer",
+    roleOutline: "| React, Next.js, TypeScript and Tailwind CSS | Responsive Interfaces, Testing and Web Integrations",
     location: "Based in Brazil.",
     availableNow: "Available now",
     proof: "Public code and browsable demos",
     socialLabel: "Social:",
     imageAlt: "Illustration of Hamilton Felipe coding at a computer",
     description:
-      "I build web applications, internal systems and AI automations with React, Next.js, TypeScript and API integrations. My focus is turning problems into clear, responsive and maintainable experiences.",
-    primaryCta: "View projects",
-    secondaryCta: "Discuss a project",
+      "I build and publish responsive e-commerce stores, ordering platforms, dashboards and web interfaces. I work with React, Next.js, TypeScript and Tailwind CSS, with attention to user experience, accessibility, testing and performance.",
+    primaryCta: "Explore projects",
+    secondaryCta: "Get in touch",
     statCard: {
       badge: "How I work",
-      title: "Web + AI",
-      stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
+      title: "Frontend in practice",
+      stack: "React · Next.js · TypeScript · Tailwind CSS · Testing",
     },
     dedicationLabel: "Web projects",
-    learningLabel: "AI solutions",
+    learningLabel: "Continuous learning",
     scrollAria: "Scroll down",
     scrollLabel: "scroll",
     commandCenter: {
       label: "LipDev Studio",
       build: "Clean responsive design",
-      automate: "Automation that removes busywork",
+      automate: "Testing key user flows",
       measure: "Built to evolve after launch",
       pipelineLabel: "process",
-      pipeline: ["Talk", "Plan", "Code", "AI", "Launch"],
-      metricOne: "less manual work",
-      metricTwo: "stronger online presence",
+      pipeline: ["Context", "Plan", "Code", "Test", "Launch"],
+      metricOne: "responsive interfaces",
+      metricTwo: "verifiable code",
     },
   },
   about: {
     badge: "About me",
     title: "Hi, I'm Hamilton Felipe.",
     description:
-      "I like taking an idea that is still a bit loose and turning it into something that actually works: a website, a system, a chatbot or an automation. My focus is combining web development and AI in a way that is simple to understand, good to use and useful day to day.",
+      "I am a Junior Frontend Developer with hands-on experience creating and publishing responsive applications. I build e-commerce stores, ordering platforms, dashboards and web interfaces while organizing code and validating each delivery for usability, accessibility and performance.",
     imageAlt: "Illustration of Hamilton Felipe focused at a computer",
     highlights: [
       {
@@ -439,9 +439,9 @@ const enMessages: Messages = {
           "I build pages and systems around the people who will use them, not only around making the screen look nice.",
       },
       {
-        title: "AI without the fog",
+        title: "Verifiable quality",
         description:
-          "I use AI to automate support, organize information and get repetitive tasks out of the way.",
+          "I apply typing, validation, automated tests and responsive review according to each project's needs.",
       },
       {
         title: "Close delivery",
@@ -454,7 +454,7 @@ const enMessages: Messages = {
     badge: "My process",
     title: "From the first chat to something you can actually use.",
     description:
-      "I organize each project as a simple path: understand, design, build, automate and calmly improve.",
+      "I organize each project as a simple path: understand, design, build, test and calmly improve.",
     items: [
       {
         title: "Diagnosis",
@@ -467,9 +467,9 @@ const enMessages: Messages = {
           "I build fast, responsive pages and systems with a look that feels aligned with your brand.",
       },
       {
-        title: "Automation",
+        title: "Validation",
         description:
-          "I connect forms, WhatsApp, email, CRM and AI so repetitive work actually gets reduced.",
+          "I review responsiveness, accessibility, interface states and key user flows before publishing.",
       },
       {
         title: "Metrics",
@@ -505,94 +505,94 @@ const enMessages: Messages = {
     items: [
       {
         company: "LipDev.BR",
-        role: "Web Development & Automation",
+        role: "Junior Frontend Developer",
         period: "Evolving project",
         description:
-          "I build web applications and automation experiments collected in this portfolio, focusing on responsive interfaces, integrations and code organization.",
+          "I build and publish the web applications collected in this portfolio, focusing on responsive interfaces, integrations, accessibility and code organization.",
       },
       {
         company: "Personal projects",
-        role: "Web Apps, Bots and Integrations",
+        role: "Web Applications and Integrations",
         period: "Public portfolio",
         description:
           "I build dashboards, ordering and course platforms, e-commerce interfaces and web games, with code and demos available in the published projects.",
       },
       {
         company: "Modern stack",
-        role: "React, Next.js, TypeScript and Automation",
+        role: "React, Next.js, TypeScript and Tailwind CSS",
         period: "Continuous study and practice",
         description:
-          "I study and apply modern technologies with focus on performance, responsive UI, code organization, integrations and practical AI usage.",
+          "I am expanding my knowledge of frontend architecture, APIs, cloud and databases without presenting those areas beyond what the projects can prove.",
       },
     ],
   },
   aiSolutions: {
-    badge: "AI Solutions",
-    title: "AI Solutions for Businesses",
+    badge: "Frontend Practice",
+    title: "Skills applied in projects",
     description:
-      "Smart automations for organizing tasks and connecting business information.",
+      "Concrete evidence of building, validating and publishing web interfaces.",
     items: [
       {
-        title: "AI Customer Support Agent",
+        title: "Responsive Interfaces",
         description:
-          "AI assistant for organizing customer replies across WhatsApp, website or email.",
+          "Mobile-first and adaptable experiences for stores, ordering flows, dashboards and professional pages.",
         bullets: [
-          "Automatic replies",
-          "Lead capture",
-          "Appointment booking",
-          "CRM integration",
+          "Reusable components",
+          "Cross-device navigation",
+          "Loading and error states",
+          "Interface accessibility",
         ],
-        price: "Starting at $500",
+        price: "React · Next.js · Tailwind CSS",
       },
       {
-        title: "AI Lead Generation Automation",
+        title: "Forms and Integrations",
         description:
-          "Automation that captures, qualifies and stores leads automatically.",
+          "Contact, authentication, payment and data flows implemented to fit each application's scope.",
         bullets: [
-          "Chatbot + forms integration",
-          "Lead scoring",
-          "Automated email follow-ups",
-          "CRM synchronization",
+          "Validation with Zod",
+          "React Hook Form and EmailJS",
+          "Supabase and Firebase",
+          "Stripe in a specific project",
         ],
-        price: "Starting at $600",
+        price: "Zod · Supabase · Stripe",
       },
       {
-        title: "AI Business Process Automation",
+        title: "Quality and Publishing",
         description:
-          "Automations that eliminate repetitive manual tasks.",
+          "Versioned and published projects validated with tools suited to each repository's workflow.",
         bullets: [
-          "Email processing",
-          "Data extraction from PDFs",
-          "Report generation",
-          "Workflow automation",
+          "TypeScript and linting",
+          "Playwright tests",
+          "Vitest tests",
+          "Vercel deployments",
         ],
-        price: "Starting at $800",
+        price: "GitHub · Playwright · Vitest",
       },
     ],
   },
   services: {
     badge: "Services",
-    title: "Websites, systems and AI in the same place.",
+    title: "Hands-on frontend development experience.",
     description:
-      "You can bring a simple idea or a messy operation. I help turn it into online presence, automated flow and a more professional experience.",
+      "Public projects show how I turn requirements into responsive interfaces, navigable flows, integrations and organized code.",
     aiGroup: {
-      label: "AI & Automation",
-      description: "Flows that help you serve better and spend less time repeating tasks.",
+      label: "Applied skills",
+      description: "Technologies and practices demonstrated in published applications and verifiable repositories.",
     },
     webGroup: {
       label: "Web Development",
-      description: "Custom interfaces to present, sell, organize and scale your idea.",
+      description: "Product types I have built to practice real interface and navigation problems.",
     },
   },
   solutionBuilder: {
     badge: "Possible paths",
     title: "A few ways to turn your idea into a project.",
     description:
-      "Instead of selling isolated pieces, I think about the whole: page, system, automation and AI working in the same direction.",
+      "Each project combines interface, navigation, states, data and validation according to the problem being addressed.",
     labels: {
       bestFor: "Best for",
       web: "Web delivery",
-      ai: "AI layer",
+      ai: "Applied technologies",
       outcome: "Expected outcome",
     },
     cta: "I want this package",
@@ -601,37 +601,37 @@ const enMessages: Messages = {
         label: "Local services",
         audience: "clinics, beauty studios, repair shops, offices and restaurants",
         web: "Fast landing page, smart form and booking page.",
-        ai: "WhatsApp assistant to answer questions, capture leads and organize appointments.",
-        outcome: "Faster replies and fewer missed opportunities.",
+        ai: "React, TypeScript, forms and contact integration.",
+        outcome: "A clear, responsive interface ready to present the service.",
       },
       {
         label: "E-commerce",
         audience: "stores, catalogs, fashion, physical products and WhatsApp sales",
         web: "Responsive store, catalog, simplified checkout and conversion-focused showcase.",
-        ai: "Product recommendations, recovery messages and post-sale support.",
-        outcome: "More buying confidence and automatic customer follow-up.",
+        ai: "React Router, cart state and catalog components.",
+        outcome: "A navigable flow for discovering, selecting and reviewing products.",
       },
       {
         label: "Internal operations",
         audience: "teams dealing with spreadsheets, emails, documents and repetitive tasks",
         web: "Admin dashboard to track tasks, customers, status and indicators.",
-        ai: "Email/PDF reading, report generation and automations with n8n or APIs.",
-        outcome: "Less rework and faster decisions with organized data.",
+        ai: "Firebase, Recharts and persistence defined by the project's scope.",
+        outcome: "Information and priorities organized in an operational interface.",
       },
       {
         label: "Personal brand",
         audience: "developers, creators, freelancers, consultants and solo professionals",
         web: "Premium portfolio, offer page, featured projects and contact capture.",
-        ai: "Lead triage bot to understand the contact and route the best proposal.",
-        outcome: "Stronger visual authority, clear offer and better qualified contacts.",
+        ai: "Next.js, SEO, validated forms and Vercel publishing.",
+        outcome: "A professional presentation with projects, resume and contact channels.",
       },
     ],
   },
   caseStudies: {
-    badge: "AI Case Studies",
-    title: "Possible automation applications.",
+    badge: "Frontend Cases",
+    title: "Problems addressed in the projects.",
     description:
-      "Examples of workflows that can be designed and validated for each business context.",
+      "Examples of implemented interface decisions available for review.",
     labels: {
       problem: "Problem",
       solution: "Solution",
@@ -639,31 +639,31 @@ const enMessages: Messages = {
     },
     cases: [
       {
-        title: "AI WhatsApp Assistant",
+        title: "Mobile-first Ordering",
         problem:
-          "Support teams may need to answer recurring questions and organize requests received through WhatsApp.",
+          "Restaurants need to present menus and organize item selection on small screens.",
         solution:
-          "Proposed assistant connected to an approved information base and scheduling workflow.",
+          "Mesaora organizes categories, products and cart interactions in a responsive experience.",
         result:
-          "Goal: organize support and route requests to human review when necessary.",
+          "The published flow is covered by end-to-end Playwright tests.",
       },
       {
-        title: "AI Email Auto-Responder",
+        title: "Work Management",
         problem:
-          "Inboxes with repetitive messages may require triage and standardized responses.",
+          "Small teams need to see owners, deadlines and priorities without unnecessary complexity.",
         solution:
-          "Proposed email classification and response preparation based on authorized data.",
+          "Ritmoar brings tasks, filters, indicators and dashboard customization together.",
         result:
-          "Goal: reduce manual tasks without removing supervision from the responsible team.",
+          "The demo stores data in the browser and clearly identifies its fictional nature.",
       },
       {
-        title: "AI Lead Capture Bot",
+        title: "Scheduling and Subscriptions",
         problem:
-          "Leads received through different channels can become scattered and inconsistently tracked.",
+          "Service providers need to organize schedules, customers and access to a subscribed plan.",
         solution:
-          "Proposed centralization, classification by defined criteria and routing to the CRM.",
+          "Horavia combines Next.js, Supabase and a Stripe subscription flow.",
         result:
-          "Goal: create a traceable process for the team to follow each contact.",
+          "Zod schemas and Vitest tests support application validation.",
       },
     ],
   },
@@ -689,11 +689,11 @@ const enMessages: Messages = {
     filterAll: "All",
     filterFeatured: "Featured",
     filterLabel: "Filter projects",
-    filterAi: "AI & Automation",
+    filterAi: "Integrations",
     filterWeb: "Web",
     privateLabel: "Private Project",
     privateNote: "Repository is not publicly available.",
-    categoryBadgeAi: "AI",
+    categoryBadgeAi: "Web",
     categoryBadgeWeb: "Web",
     playNow: "Play Now",
     playAria: "Play project",
@@ -708,21 +708,21 @@ const enMessages: Messages = {
     eyebrow: "let's go?",
     title: "If you have an idea, I can help give it shape.",
     description:
-      "Tell me the context and I'll show you the simplest path to turn it into a website, system or AI automation.",
+      "Explore the projects, visit GitHub, download the resume or send a message to discuss a frontend opportunity.",
     cta: "Start a conversation",
   },
   contact: {
     badge: "Contact",
-    title: "Tell me what you want to build.",
+    title: "Let's discuss a frontend opportunity.",
     description:
-      "Share the goal, context and timeline you have in mind. That helps me understand the scenario and suggest clear next steps.",
+      "For Junior Frontend Developer roles, projects or collaborations, share the context and the best way to follow up.",
     whatsapp: "Chat on WhatsApp",
     form: {
       name: "Your name",
       email: "Your email",
-      message: "Project goal, context and timeline",
-      messageHelp: "Include what you need to solve, who the solution is for and whether you have a target date.",
-      submit: "Send Message",
+      message: "Tell me about the role, project or collaboration",
+      messageHelp: "Include the context, technologies involved and the best way to follow up.",
+      submit: "Send contact message",
       submitting: "Sending...",
       success: "Message Sent!",
       genericError: "Something went wrong. Please try again or use WhatsApp.",
