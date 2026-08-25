@@ -4,28 +4,20 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { GameModal } from "@/components/ui/GameModal";
 import { useLanguage } from "@/lib/i18n";
-import type { Project } from "@/types";
 
 type Filter = "featured" | "all";
 
 export function Projects() {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<Filter>("featured");
-  const [gameProject, setGameProject] = useState<Project | null>(null);
-  const gameTitle =
-    gameProject && lang === "en" && gameProject.title_en
-      ? gameProject.title_en
-      : gameProject?.title ?? "";
 
   const filtered = [...projects]
     .sort((a, b) => a.order - b.order)
     .filter((project) => filter === "all" || project.featured);
 
   return (
-    <>
-      <section id="projects" className="relative bg-black py-24 text-white transition-colors dark:bg-[#101113] sm:py-28">
+    <section id="projects" className="relative bg-black py-24 text-white transition-colors dark:bg-[#101113] sm:py-28">
         <div className="mx-auto max-w-[1120px] px-5">
           <div className="mx-auto max-w-[720px] text-center">
             <h2 className="text-[2.35rem] font-normal tracking-[-0.045em] sm:text-5xl">
@@ -70,23 +62,11 @@ export function Projects() {
               className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2"
             >
               {filtered.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  displayIndex={index + 1}
-                  onPlay={project.playable ? () => setGameProject(project) : undefined}
-                />
+                <ProjectCard key={project.id} project={project} displayIndex={index + 1} />
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
-      </section>
-
-      <GameModal
-        open={gameProject !== null}
-        onClose={() => setGameProject(null)}
-        title={gameTitle}
-      />
-    </>
+    </section>
   );
 }

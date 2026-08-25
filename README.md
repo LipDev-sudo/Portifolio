@@ -1,43 +1,43 @@
-# Portfólio LipDev.BR
+# LipDev — portfólio backend Python
 
-Portfólio profissional de Hamilton Felipe, desenvolvedor web com foco em React, Next.js, TypeScript e experimentos de automação com IA.
+Portfólio profissional de Hamilton Felipe, desenvolvedor backend Python em formação, com foco atual em Flask, APIs REST, SQL, automação e aprendizado responsável de segurança ofensiva.
 
 **Site oficial:** [https://lipdev.vercel.app](https://lipdev.vercel.app)
 
-![Prévia do portfólio LipDev.BR](public/images/portfolio-link-preview-2026.png)
+![Identidade LipDev em fundo escuro e iluminação roxa](public/images/lipdev-backend-preview.webp)
 
-## Visão geral
+## O que este portfólio apresenta
 
-O projeto reúne apresentação profissional, currículo, projetos públicos, serviços e canais de contato em uma experiência responsiva. A interface oferece tradução entre português e inglês, temas claro e escuro e uma demonstração incorporada do jogo Dev Balatro.
+O conteúdo separa prática comprovável, trabalhos anteriores e áreas de estudo:
 
-## Tecnologias
+- Python intermediário, Flask, SQLite, Requests e Selenium em exercícios e projetos pessoais;
+- Docker e pytest em prática básica;
+- FastAPI, segurança de aplicações e APIs como áreas de evolução;
+- Parrot OS, Nmap, Burp Suite e TryHackMe somente em máquinas próprias ou laboratórios autorizados;
+- Odin como projeto principal em planejamento, sem alegar um scanner funcional;
+- Mesaora e Horavia como trabalhos web anteriores com código público e demonstrações.
+
+O portfólio continua implementado com Next.js, React e TypeScript porque este repositório é a camada de apresentação. Essa stack descreve o site, não o posicionamento profissional atual.
+
+## Evidências públicas
+
+| Projeto | Estado | Repositório | Demonstração |
+| --- | --- | --- | --- |
+| Odin | Em planejamento; primeiro protótipo não funcional | Não publicado | Não publicada |
+| Mesaora | Trabalho anterior; demonstração funcional | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app/) |
+| Horavia | Trabalho anterior; demonstração funcional | [Código](https://github.com/LipDev-sudo/Horavia) | [Online](https://horavia.vercel.app/demo) |
+
+Nenhum resultado comercial, cliente, certificação ou experiência profissional de segurança é atribuído a esses projetos.
+
+## Tecnologias deste repositório
 
 - Next.js 16 com App Router
-- React 19
-- TypeScript
-- Tailwind CSS v4
+- React 19 e TypeScript
+- Tailwind CSS 4
 - Framer Motion
 - React Hook Form e Zod
-- EmailJS para o fluxo de contato
-- Zustand e Web Audio API no Dev Balatro
-
-## Projetos em destaque
-
-| Projeto | Estado apresentado | Repositório | Demonstração |
-| --- | --- | --- | --- |
-| Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
-| Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
-| Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
-| Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
-| Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
-
-## Capturas de projetos
-
-| Ritmoar | Plataforma de Pedidos | Trilhara |
-| --- | --- | --- |
-| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
-
-Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
+- EmailJS para o formulário de contato existente
+- Zustand preservado no código interno do experimento de jogo, sem entrada pública no portfólio
 
 ## Execução local
 
@@ -52,37 +52,60 @@ Novas capturas reais podem ser adicionadas nesta seção conforme os projetos de
 git clone https://github.com/LipDev-sudo/Portifolio.git
 cd Portifolio
 npm ci
-```
-
-Copie `.env.example` para `.env.local` e preencha apenas as integrações que pretende usar. O site pode ser executado sem as credenciais de contato, mas o envio de mensagens permanecerá indisponível.
-
-```bash
 npm run dev
 ```
 
 Acesse [http://localhost:3000](http://localhost:3000).
 
-## Variáveis de ambiente
+## Formulário de contato
 
-As variáveis e orientações estão documentadas em [`.env.example`](.env.example). Não envie `.env.local`, chaves privadas ou tokens para o repositório.
+O site funciona sem credenciais, mas o envio do formulário depende das variáveis documentadas em [`.env.example`](.env.example):
+
+- `EMAILJS_SERVICE_ID`
+- `EMAILJS_TEMPLATE_ID`
+- `EMAILJS_PUBLIC_KEY`
+- `EMAILJS_ACCESS_TOKEN`
+- variáveis públicas de fallback `NEXT_PUBLIC_EMAILJS_*`
+- `WHATSAPP_NUMBER` e `NEXT_PUBLIC_WHATSAPP_NUMBER`
+- `SITE_URL`
+
+Nunca envie `.env.local`, chaves privadas ou tokens para o repositório.
 
 ## Validação
 
 ```bash
+npm ci
+npm test
+npm run typecheck
 npm run lint
-npx tsc --noEmit
 npm run build
+npm audit
+git diff --check
 ```
 
-O repositório ainda não possui uma suíte automatizada de testes. Os fluxos visuais e interativos são revisados com Playwright antes da publicação.
+Os testes de contrato verificam a lista pública de projetos, a ausência de links falsos para Odin, as três áreas de desenvolvimento e a remoção de afirmações não comprovadas.
+
+## Acessibilidade e responsividade
+
+A interface mantém navegação por teclado, indicadores de foco, textos alternativos, tema claro/escuro, tradução PT/EN e os breakpoints existentes para desktop e mobile.
+
+## Próximas evidências planejadas
+
+Cada projeto futuro deve usar seu próprio repositório, branch, documentação, testes e demonstração reproduzível:
+
+1. API REST com Flask, SQLite, validação, tratamento de erros, logs, pytest e Docker.
+2. Automação segura com Requests e Selenium.
+3. Protótipo Odin restrito a laboratórios autorizados, com escopo explícito e verificações não destrutivas.
+
+Cada repositório também deverá explicar em português e linguagem acessível como os dados entram, são processados, armazenados e devolvidos ao usuário.
 
 ## Estrutura principal
 
 ```text
 src/
-├── app/          # rotas, metadata e APIs
-├── components/   # layout, seções, cards e jogo incorporado
-├── data/         # projetos e serviços apresentados
+├── app/          # rotas, metadados e APIs do portfólio
+├── components/   # layout, seções e componentes visuais
+├── data/         # projetos e áreas apresentados
 ├── lib/          # internacionalização, contato, tema e utilitários
 └── types/        # contratos TypeScript
 ```

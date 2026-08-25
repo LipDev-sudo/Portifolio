@@ -31,19 +31,19 @@ export function Hero() {
   const nameWithoutPeriod = t.hero.name.replace(".", "");
 
   return (
-    <section id="hero" className="bg-white pt-24 text-black transition-colors dark:bg-[#161719] dark:text-[#f4f4f2]">
+    <section id="hero" className="bg-white pt-24 text-black transition-colors dark:bg-[#09080d] dark:text-[#f5f3ff]">
       <div className="mx-auto grid min-h-[590px] max-w-[1180px] grid-cols-1 items-center gap-8 px-5 py-8 md:grid-cols-[0.86fr_1.14fr] md:py-4">
         <div className="relative z-10">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70 dark:border-white/15 dark:bg-white/[0.05] dark:text-[#afb1b5]">
-            <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#8b5cf6]" />
             {t.hero.available}
           </span>
 
-          <h1 className="hero-reveal mt-7 max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black dark:text-[#f4f4f2] sm:text-[4.15rem]">
+          <h1 className="hero-reveal mt-7 max-w-[560px] text-[3rem] font-black leading-[0.98] tracking-[-0.055em] text-black dark:text-[#f5f3ff] sm:text-[4.15rem]">
             {t.hero.hello} {nameWithoutPeriod}
           </h1>
 
-          <h2 className="hero-reveal hero-delay-1 mt-5 max-w-[620px] font-serif text-[1.75rem] font-black leading-[1.08] tracking-[-0.035em] text-black dark:text-[#f4f4f2] sm:text-[2.25rem]">
+          <h2 className="hero-reveal hero-delay-1 mt-5 max-w-[620px] font-serif text-[1.75rem] font-black leading-[1.08] tracking-[-0.035em] text-black dark:text-[#c4b5fd] sm:text-[2.25rem]">
             {t.hero.roleMain} {t.hero.roleOutline}
           </h2>
 
@@ -59,7 +59,7 @@ export function Hero() {
               {t.hero.location}
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#8b5cf6]" />
               {t.hero.proof}
             </span>
           </div>
@@ -67,13 +67,13 @@ export function Hero() {
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:bg-[#f4f4f2] dark:text-[#161719]"
+              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:bg-[#8b5cf6] dark:text-white"
             >
               {t.hero.primaryCta}
             </a>
             <a
               href="#contact"
-              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
+              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#8b5cf6] dark:text-[#c4b5fd] dark:hover:bg-[#8b5cf6] dark:hover:text-white"
             >
               {t.hero.secondaryCta}
             </a>
@@ -91,7 +91,7 @@ export function Hero() {
                 rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={social.label}
                 className={`flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-black hover:text-white ${
-                  index === 0 ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]" : "bg-white text-black dark:bg-[#161719] dark:text-[#f4f4f2]"
+                  index === 0 ? "bg-black text-white dark:bg-[#8b5cf6] dark:text-white" : "bg-white text-black dark:bg-[#111018] dark:text-[#c4b5fd]"
                 }`}
               >
                 <svg width={12} height={12} viewBox="0 0 24 24" fill="currentColor">
@@ -106,19 +106,12 @@ export function Hero() {
           <div className="hero-anime-portrait">
             <div className="relative aspect-[3/2] w-full">
               <Image
-                src="/images/felipe-anime-coding.webp"
+                src="/images/hamilton-purple-portrait.webp"
                 alt={t.hero.imageAlt}
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 55vw"
-                className="object-contain dark:hidden"
-              />
-              <Image
-                src="/images/felipe-anime-coding-dark.webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 55vw"
-                className="hidden object-contain dark:block"
+                className="object-contain"
               />
             </div>
           </div>

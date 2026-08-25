@@ -1,24 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, GitBranch, Network, Palette, Sparkles, Workflow, Zap } from "lucide-react";
-import { useT } from "@/lib/i18n";
+import {
+  Braces,
+  Container,
+  Database,
+  GitBranch,
+  Globe2,
+  MousePointer2,
+  Network,
+  Server,
+  TestTube2,
+} from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 const skills = [
-  { label: "Git", icon: GitBranch },
-  { label: "JavaScript", icon: Code2 },
-  { label: "React", icon: Sparkles },
-  { label: "Next.js", icon: Zap },
-  { label: "TypeScript", icon: Code2 },
-  { label: "Node.js", icon: Network },
-  { label: "n8n", icon: Workflow },
-  { label: "IA APIs", icon: Sparkles },
-  { label: "Prisma", icon: Database },
-  { label: "Figma", icon: Palette },
+  { label: "Python", level: { pt: "Intermediário", en: "Intermediate" }, icon: Braces },
+  { label: "Flask", level: { pt: "Principal framework", en: "Main framework" }, icon: Server },
+  { label: "REST APIs", level: { pt: "Integração e estudo", en: "Integration and study" }, icon: Network },
+  { label: "SQLite", level: { pt: "CRUD pessoal", en: "Personal CRUD" }, icon: Database },
+  { label: "MySQL", level: { pt: "Prática em evolução", en: "Evolving practice" }, icon: Database },
+  { label: "Requests", level: { pt: "Integração com APIs", en: "API integration" }, icon: Globe2 },
+  { label: "Selenium", level: { pt: "Automação local", en: "Local automation" }, icon: MousePointer2 },
+  { label: "pytest", level: { pt: "Exercícios básicos", en: "Basic exercises" }, icon: TestTube2 },
+  { label: "Docker", level: { pt: "Exercícios básicos", en: "Basic exercises" }, icon: Container },
+  { label: "Git & GitHub", level: { pt: "Versão e publicação", en: "Versioning and publishing" }, icon: GitBranch },
 ];
 
 export function Skills() {
-  const t = useT();
+  const { lang, t } = useLanguage();
 
   return (
     <section id="skills" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2] sm:py-28">
@@ -46,6 +56,9 @@ export function Skills() {
               >
                 <Icon size={34} strokeWidth={2.5} />
                 <span className="mt-5 text-sm font-black tracking-[-0.02em]">{skill.label}</span>
+                <span className="mt-1 px-2 text-center text-[0.62rem] font-semibold opacity-60">
+                  {skill.level[lang]}
+                </span>
               </motion.div>
             );
           })}

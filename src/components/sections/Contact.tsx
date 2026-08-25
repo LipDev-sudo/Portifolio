@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,11 +9,11 @@ import { motion } from "framer-motion";
 import { CheckCircle, Mail, MessageCircle, Send } from "lucide-react";
 import {
   buildEmailTemplateParams,
-  contactFormSchema,
+  getContactFormSchema,
   type ContactFormInput,
   type ContactFormValues,
 } from "@/lib/contact";
-import { useT } from "@/lib/i18n";
+import { useLanguage } from "@/lib/i18n";
 
 function GithubIcon() {
   return (
@@ -43,7 +43,8 @@ type ContactApiResponse = {
 };
 
 export function Contact() {
-  const t = useT();
+  const { lang, t } = useLanguage();
+  const contactFormSchema = useMemo(() => getContactFormSchema(lang), [lang]);
   const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 

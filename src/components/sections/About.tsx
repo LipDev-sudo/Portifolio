@@ -7,20 +7,13 @@ import { useT } from "@/lib/i18n";
 
 function AboutIllustration({ alt }: { alt: string }) {
   return (
-    <div className="relative aspect-[3/2] w-full overflow-hidden bg-white dark:bg-[#161719]">
+    <div className="relative aspect-[3/2] w-full overflow-hidden bg-white dark:bg-[#09080d]">
       <Image
-        src="/images/felipe-anime-about.webp"
+        src="/images/hamilton-purple-portrait.webp"
         alt={alt}
         fill
         sizes="(max-width: 768px) 100vw, 38vw"
-        className="object-contain dark:hidden"
-      />
-      <Image
-        src="/images/felipe-anime-about-dark.webp"
-        alt=""
-        fill
-        sizes="(max-width: 768px) 100vw, 38vw"
-        className="hidden object-contain dark:block"
+        className="object-contain"
       />
     </div>
   );
@@ -116,11 +109,11 @@ export function About() {
   }, []);
 
   return (
-    <section id="about" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2] sm:py-28">
+    <section id="about" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-[#322a42] dark:bg-[#111018] dark:text-[#f5f3ff] sm:py-28">
       <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-start gap-12 px-5 md:grid-cols-[0.78fr_1.22fr]">
         <motion.div
           transition={{ duration: 0.45 }}
-          className="mx-auto w-full max-w-[420px] border border-black p-3 dark:border-white/25 dark:bg-[#202225]"
+          className="mx-auto w-full max-w-[420px] border border-black p-3 dark:border-[#8b5cf6] dark:bg-[#181522]"
         >
           <AboutIllustration alt={t.about.imageAlt} />
         </motion.div>
@@ -140,7 +133,7 @@ export function About() {
                 {typedHeading.slice(headingFirst.length + 1)}
               </span>
               {!headingDone && shouldType ? (
-                <span className="ml-1 inline-block h-[0.82em] w-[2px] translate-y-1 bg-black align-baseline hero-type-cursor dark:bg-[#f4f4f2]" />
+                <span className="ml-1 inline-block h-[0.82em] w-[2px] translate-y-1 bg-black align-baseline hero-type-cursor dark:bg-[#8b5cf6]" />
               ) : null}
             </span>
           </h2>
@@ -161,7 +154,7 @@ export function About() {
               <motion.article
                 key={item.title}
                 transition={{ duration: 0.35, delay: 0.12 + index * 0.05 }}
-                className="border border-black bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white dark:border-white/20 dark:bg-[#202225] dark:hover:border-white/45 dark:hover:bg-[#292b2f]"
+                className="border border-black bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white dark:border-[#322a42] dark:bg-[#181522] dark:hover:border-[#8b5cf6] dark:hover:bg-[#25183b]"
               >
                 <span className="font-mono text-xs font-black">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 text-sm font-black">{item.title}</h3>

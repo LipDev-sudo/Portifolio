@@ -3,14 +3,14 @@ export type Language = "pt" | "en";
 const ptMessages = {
   header: {
     nav: {
-      hero: "Home",
+      hero: "Início",
       about: "Sobre",
       skills: "Habilidades",
-      services: "Serviços",
+      services: "Áreas",
       projects: "Projetos",
       contact: "Contato",
     },
-    cta: "Fale Comigo",
+    cta: "Entrar em contato",
     resume: "Currículo",
     toggleLabel: "Mudar para inglês",
     toggleShort: "EN",
@@ -19,344 +19,121 @@ const ptMessages = {
     mobileNavLabel: "Navegação principal",
   },
   hero: {
-    badge: "Hamilton Felipe · LipDev.BR",
-    available: "Disponível para projetos web e automação",
-    titleStart: "Eu crio ",
-    titleHighlight: "web + IA",
-    titleEnd: " para ideias ganharem forma.",
     hello: "Olá, eu sou",
     name: "Hamilton Felipe.",
-    roleMain: "Desenvolvedor Web",
-    roleOutline: "& Automação com IA",
-    location: "Baseado no Brasil.",
-    availableNow: "Disponível agora",
-    proof: "Código público e demos navegáveis",
-    socialLabel: "Redes:",
-    imageAlt: "Ilustração de Hamilton Felipe programando no computador",
+    roleMain: "Desenvolvedor Backend Python",
+    roleOutline: "em formação",
+    available: "Aberto a oportunidades júnior e conversas técnicas",
+    location: "Brasil.",
+    proof: "Projetos públicos e evolução documentada",
+    socialLabel: "Links:",
+    imageAlt: "Retrato ilustrado de Hamilton Felipe com iluminação roxa",
     description:
-      "Desenvolvo aplicações web, sistemas internos e automações com IA usando React, Next.js, TypeScript e integrações com APIs. Meu foco é transformar problemas em experiências claras, responsivas e fáceis de manter.",
+      "Desenvolvo projetos pessoais com Flask, SQLite, Requests e Selenium. Organizo o aprendizado com documentação, testes e uso responsável de ferramentas em ambientes autorizados.",
     primaryCta: "Ver projetos",
-    secondaryCta: "Falar sobre um projeto",
-    statCard: {
-      badge: "Meu jeito de trabalhar",
-      title: "Web + IA",
-      stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
-    },
-    dedicationLabel: "Projetos web",
-    learningLabel: "Soluções com IA",
-    scrollAria: "Rolar para baixo",
-    scrollLabel: "rolar",
-    commandCenter: {
-      label: "Estúdio LipDev",
-      build: "Design limpo e responsivo",
-      automate: "Automação que resolve rotina",
-      measure: "Entrega pensada para evoluir",
-      pipelineLabel: "processo",
-      pipeline: ["Conversa", "Plano", "Código", "IA", "Entrega"],
-      metricOne: "menos tarefas manuais",
-      metricTwo: "mais presença online",
-    },
+    secondaryCta: "Entrar em contato",
   },
   about: {
     badge: "Sobre mim",
-    title: "Oi, eu sou o Hamilton Felipe.",
     description:
-      "Eu gosto de pegar uma ideia ainda meio solta e transformar em algo que funciona de verdade: um site, um sistema, um chatbot ou uma automação. Meu foco é unir desenvolvimento web com IA de um jeito simples de entender, bonito de usar e útil no dia a dia.",
-    imageAlt: "Ilustração de Hamilton Felipe concentrado no computador",
+      "Sou Hamilton Felipe, desenvolvedor backend Python em formação. Desde abril de 2024, direciono meus estudos para programação e atualmente concentro a prática em Flask, APIs REST, bancos SQL e automação com Python. Já construí um CRUD com Flask e SQLite; o código desse exercício não está mais disponível. Também estudo segurança ofensiva em laboratórios autorizados, usando Parrot OS e conhecendo ferramentas como Nmap e Burp Suite. Essa é uma área de evolução, não uma experiência profissional.",
+    imageAlt: "Retrato ilustrado de Hamilton Felipe com iluminação roxa",
     highlights: [
       {
-        title: "Web com intenção",
+        title: "Backend em prática",
         description:
-          "Crio páginas e sistemas pensando na experiência de quem vai usar, não só em deixar a tela bonita.",
+          "Transformo exercícios de Python, Flask, APIs e SQL em pequenos projetos documentados e verificáveis.",
       },
       {
-        title: "IA sem complicar",
+        title: "Automação local",
         description:
-          "Uso IA para automatizar atendimento, organizar informações e tirar tarefas repetitivas do caminho.",
+          "Pratico integrações com Requests, navegação com Selenium e tarefas executadas pelo terminal.",
       },
       {
-        title: "Entrega próxima",
+        title: "Começar e evoluir",
         description:
-          "Gosto de conversar, entender o contexto e construir junto. Projeto bom nasce dessa troca.",
-      },
-    ],
-  },
-  system: {
-    badge: "Meu processo",
-    title: "Do papo inicial até uma entrega que dá para usar.",
-    description:
-      "Eu organizo cada projeto como um caminho simples: entender, desenhar, construir, automatizar e ajustar com calma.",
-    items: [
-      {
-        title: "Diagnóstico",
-        description:
-          "Entendo o que você quer resolver, onde o processo trava e o que precisa ficar claro para o cliente.",
-      },
-      {
-        title: "Interface",
-        description:
-          "Crio páginas e sistemas rápidos, responsivos e com uma aparência que combina com a sua marca.",
-      },
-      {
-        title: "Automação",
-        description:
-          "Conecto formulários, WhatsApp, e-mail, CRM e IA para reduzir tarefas manuais de verdade.",
-      },
-      {
-        title: "Métrica",
-        description:
-          "Deixo a solução pronta para evoluir com dados, feedback e novas ideias depois da entrega.",
+          "Não precisa ser bom para começar, mas precisa começar para ser bom.",
       },
     ],
   },
   skills: {
-    badge: "Habilidades",
-    headingStart: "Minhas",
-    headingBold: "Habilidades",
-    title: "As ferramentas que eu uso para tirar ideia do papel.",
+    headingStart: "Prática e",
+    headingBold: "ferramentas",
     description:
-      "Gosto de trabalhar com uma stack moderna, mas sem transformar tecnologia em complicação desnecessária.",
-    groups: {
-      frontend: "Frontend",
-      backend: "Backend & Tools",
-      soft: "Soft Skills",
-    },
-    softSkills: [
-      "Resolução de Problemas",
-      "Comunicação",
-      "Trabalho em Equipe",
-      "Aprendizado Rápido",
-      "Organização",
-      "Proatividade",
-    ],
+      "A grade separa tecnologias usadas em exercícios e projetos pessoais das áreas que ainda estão em evolução.",
   },
   experience: {
-    headingStart: "Atuação",
+    headingStart: "Prática",
     headingBold: "Técnica",
     items: [
       {
-        company: "LipDev.BR",
-        role: "Desenvolvimento Web & Automação",
-        period: "Projeto em evolução",
+        company: "Projeto pessoal anterior",
+        role: "CRUD com Flask e SQLite",
+        period: "Prática concluída",
         description:
-          "Desenvolvo aplicações web e experimentos de automação reunidos neste portfólio, com foco em interfaces responsivas, integrações e organização de código.",
+          "Implementei cadastro, leitura, atualização e exclusão de dados em uma aplicação pequena. O código original não está mais disponível, por isso não apresento esse exercício como projeto público.",
       },
       {
-        company: "Projetos autorais",
-        role: "Web Apps, Bots e Integrações",
-        period: "Portfólio público",
+        company: "Exercícios locais",
+        role: "APIs e automação com Python",
+        period: "Prática em evolução",
         description:
-          "Construo dashboards, plataformas de pedidos e cursos, interfaces de e-commerce e jogos web, com código e demonstrações disponíveis nos projetos publicados.",
+          "Uso Requests para consumir APIs, Selenium para automatizar navegação e o terminal para tarefas do sistema. Docker e pytest aparecem em exercícios básicos, enquanto FastAPI é uma área de estudo.",
       },
       {
-        company: "Stack moderna",
-        role: "React, Next.js, TypeScript e Automação",
-        period: "Estudo e prática contínuos",
+        company: "Laboratórios autorizados",
+        role: "Fundamentos de segurança ofensiva",
+        period: "Área de estudo",
         description:
-          "Estudo e aplico tecnologias modernas com foco em performance, responsividade, organização de código, integrações e uso prático de IA.",
-      },
-    ],
-  },
-  aiSolutions: {
-    badge: "Soluções de IA",
-    title: "Soluções de IA para Empresas",
-    description:
-      "Automações inteligentes para organizar tarefas e integrar informações do negócio.",
-    items: [
-      {
-        title: "Assistente de Atendimento com IA",
-        description:
-          "Assistente para organizar respostas a clientes no WhatsApp, site ou e-mail.",
-        bullets: [
-          "Respostas automáticas",
-          "Captura de leads",
-          "Agendamento automático",
-          "Integração com CRM",
-        ],
-        price: "A partir de R$2.500",
-      },
-      {
-        title: "Automação de Geração de Leads com IA",
-        description:
-          "Automação que captura, qualifica e organiza leads automaticamente.",
-        bullets: [
-          "Integração com chatbot e formulários",
-          "Qualificação automática de leads",
-          "Follow-up por e-mail",
-          "Sincronização com CRM",
-        ],
-        price: "A partir de R$3.000",
-      },
-      {
-        title: "Automação de Processos com IA",
-        description:
-          "Automações que eliminam tarefas manuais repetitivas.",
-        bullets: [
-          "Processamento de e-mails",
-          "Extração de dados de PDFs",
-          "Geração de relatórios",
-          "Automação de fluxos de trabalho",
-        ],
-        price: "A partir de R$4.000",
+          "Estudo Parrot OS, Nmap, Burp Suite, TryHackMe e fundamentos OWASP de segurança de aplicações e APIs somente em máquinas próprias ou ambientes com autorização.",
       },
     ],
   },
   services: {
-    badge: "Serviços",
-    title: "Sites, sistemas e IA no mesmo lugar.",
+    badge: "Áreas",
+    title: "Áreas de desenvolvimento",
     description:
-      "Você pode chegar com uma ideia simples ou uma operação bagunçada. Eu ajudo a transformar isso em presença online, fluxo automatizado e uma experiência mais profissional.",
-    aiGroup: {
-      label: "IA & Automação",
-      description: "Fluxos que ajudam você a atender melhor e perder menos tempo com repetição.",
-    },
-    webGroup: {
-      label: "Desenvolvimento Web",
-      description: "Interfaces sob medida para apresentar, vender, organizar e escalar sua ideia.",
-    },
-  },
-  solutionBuilder: {
-    badge: "Caminhos possíveis",
-    title: "Alguns jeitos de transformar sua ideia em projeto.",
-    description:
-      "Em vez de vender peças soltas, eu penso no conjunto: página, sistema, automação e IA trabalhando na mesma direção.",
-    labels: {
-      bestFor: "Ideal para",
-      web: "Entrega web",
-      ai: "Camada de IA",
-      outcome: "Resultado esperado",
-    },
-    cta: "Quero esse pacote",
-    items: [
-      {
-        label: "Serviços locais",
-        audience: "clínicas, estética, oficinas, consultórios e restaurantes",
-        web: "Landing page rápida, formulário inteligente e página de agendamento.",
-        ai: "Assistente no WhatsApp para responder dúvidas, capturar leads e organizar horários.",
-        outcome: "Mais respostas em menos tempo e menos oportunidades perdidas.",
-      },
-      {
-        label: "E-commerce",
-        audience: "lojas, catálogos, moda, produtos físicos e vendas por WhatsApp",
-        web: "Loja responsiva, catálogo, checkout simplificado e vitrine com foco em conversão.",
-        ai: "Recomendação de produtos, mensagens de recuperação e atendimento pós-venda.",
-        outcome: "Mais confiança para comprar e acompanhamento automático do cliente.",
-      },
-      {
-        label: "Operação interna",
-        audience: "equipes que lidam com planilhas, e-mails, documentos e tarefas repetitivas",
-        web: "Painel administrativo para acompanhar tarefas, clientes, status e indicadores.",
-        ai: "Leitura de e-mails/PDFs, geração de relatórios e automações com n8n ou APIs.",
-        outcome: "Menos retrabalho e decisões mais rápidas com dados organizados.",
-      },
-      {
-        label: "Marca pessoal",
-        audience: "devs, criadores, freelancers, consultores e profissionais autônomos",
-        web: "Portfólio premium, página de oferta, projetos destacados e captação de contatos.",
-        ai: "Bot de triagem para entender o lead e encaminhar a melhor proposta.",
-        outcome: "Autoridade visual, proposta clara e contato mais qualificado.",
-      },
-    ],
-  },
-  caseStudies: {
-    badge: "Cases de IA",
-    title: "Aplicações possíveis de automação.",
-    description:
-      "Exemplos de fluxos que podem ser projetados e validados conforme o contexto do negócio.",
-    labels: {
-      problem: "Problema",
-      solution: "Solução",
-      result: "Resultado",
-    },
-    cases: [
-      {
-        title: "Assistente de WhatsApp com IA",
-        problem:
-          "Equipes de atendimento podem precisar responder dúvidas recorrentes e organizar solicitações recebidas pelo WhatsApp.",
-        solution:
-          "Proposta de assistente integrado a uma base de informações e a um fluxo de agendamento.",
-        result:
-          "Objetivo: organizar o atendimento e encaminhar solicitações para revisão humana quando necessário.",
-      },
-      {
-        title: "Resposta Automática de E-mails com IA",
-        problem:
-          "Caixas de entrada com mensagens repetitivas podem exigir triagem e respostas padronizadas.",
-        solution:
-          "Proposta de classificação de e-mails e preparação de respostas a partir de dados autorizados.",
-        result:
-          "Objetivo: reduzir tarefas manuais sem remover a supervisão da equipe responsável.",
-      },
-      {
-        title: "Bot de Captura de Leads com IA",
-        problem:
-          "Leads recebidos por canais diferentes podem ficar dispersos e sem acompanhamento consistente.",
-        solution:
-          "Proposta de centralização, classificação por critérios definidos e envio para o CRM.",
-        result:
-          "Objetivo: criar um processo rastreável para a equipe acompanhar cada contato.",
-      },
-    ],
+      "Três frentes que orientam meus estudos e projetos pessoais, apresentadas com o nível atual de prática.",
   },
   projects: {
-    badge: "Portfólio",
-    headingStart: "Meus",
-    headingBold: "Projetos",
-    title: "Projetos que mostram como eu penso e construo.",
+    headingStart: "Projetos e",
+    headingBold: "evidências",
     description:
-      "Uma seleção de aplicações com problema, solução, stack, código público e demonstrações navegáveis sempre que disponíveis.",
-    viewLive: "Ver Online",
-    viewCode: "Ver Código",
+      "Odin aparece com seu estado real de planejamento. Mesaora e Horavia permanecem como trabalhos anteriores com código e demonstrações verificáveis.",
+    viewLive: "Ver demonstração",
+    viewCode: "Ver código",
     problemLabel: "Problema",
-    solutionLabel: "Solução",
-    featuredLabel: "Em destaque",
-    statusLabel: "Estado",
+    solutionLabel: "Implementação",
+    featuredLabel: "Foco atual",
     statuses: {
-      complete: "Aplicação completa",
       functionalDemo: "Demonstração funcional",
-      prototype: "Protótipo",
       inDevelopment: "Em desenvolvimento",
     },
     filterAll: "Todos",
-    filterFeatured: "Destaques",
+    filterFeatured: "Destaque",
     filterLabel: "Filtrar projetos",
-    filterAi: "IA & Automação",
-    filterWeb: "Web",
-    privateLabel: "Projeto Privado",
-    privateNote: "Repositório não disponível publicamente.",
-    categoryBadgeAi: "IA",
-    categoryBadgeWeb: "Web",
-    playNow: "Jogar Agora",
-    playAria: "Jogar projeto",
-    playTitle: "Jogar no portfólio",
-    previewLabel: "prévia do projeto",
+    previewLabel: "captura da interface do projeto",
   },
   gameModal: {
     close: "Fechar",
     closeGame: "Fechar jogo",
   },
-  finalCta: {
-    eyebrow: "e aí, bora?",
-    title: "Se você tem uma ideia, eu posso ajudar a dar forma.",
-    description:
-      "Me chama, me conta o contexto e eu te digo o caminho mais simples para transformar isso em site, sistema ou automação com IA.",
-    cta: "Começar uma conversa",
-  },
   contact: {
     badge: "Contato",
-    title: "Me conta o que você quer construir.",
+    title: "Vamos conversar sobre backend Python?",
     description:
-      "Envie o objetivo, o contexto e o prazo que você imagina. Assim consigo entender o cenário e indicar próximos passos com clareza.",
-    whatsapp: "Chamar no WhatsApp",
+      "Estou aberto a oportunidades de Desenvolvedor Backend Python Júnior, feedback técnico e conversas sobre projetos de estudo.",
+    whatsapp: "Conversar no WhatsApp",
     form: {
       name: "Seu nome",
       email: "Seu e-mail",
-      message: "Objetivo, contexto e prazo do projeto",
-      messageHelp: "Inclua o que precisa resolver, para quem é a solução e se existe um prazo desejado.",
-      submit: "Enviar Mensagem",
+      message: "Escreva sua mensagem",
+      messageHelp:
+        "Você pode compartilhar uma oportunidade, uma sugestão técnica ou o contexto de um projeto.",
+      submit: "Enviar mensagem",
       submitting: "Enviando...",
-      success: "Mensagem Enviada!",
-      genericError: "Erro ao enviar. Tente novamente ou use o WhatsApp.",
+      success: "Mensagem enviada!",
+      genericError: "Não foi possível enviar. Tente novamente ou use o WhatsApp.",
       notConfigured:
         "O formulário de contato não está configurado corretamente no momento.",
     },
@@ -375,357 +152,134 @@ const enMessages: Messages = {
       hero: "Home",
       about: "About",
       skills: "Skills",
-      services: "Services",
+      services: "Areas",
       projects: "Projects",
       contact: "Contact",
     },
-    cta: "Get in Touch",
-    resume: "Resume",
-    toggleLabel: "Switch to Portuguese",
+    cta: "Get in touch",
+    resume: "Résumé",
+    toggleLabel: "Mudar para português",
     toggleShort: "PT",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     mobileNavLabel: "Main navigation",
   },
   hero: {
-    badge: "Hamilton Felipe · LipDev.BR",
-    available: "Available for web and automation projects",
-    titleStart: "I build ",
-    titleHighlight: "web + AI",
-    titleEnd: " that give ideas shape.",
     hello: "Hello, I'm",
     name: "Hamilton Felipe.",
-    roleMain: "Web Developer",
-    roleOutline: "& AI Automation",
-    location: "Based in Brazil.",
-    availableNow: "Available now",
-    proof: "Public code and browsable demos",
-    socialLabel: "Social:",
-    imageAlt: "Illustration of Hamilton Felipe coding at a computer",
+    roleMain: "Aspiring Python Backend Developer",
+    roleOutline: "",
+    available: "Open to junior opportunities and technical conversations",
+    location: "Brazil.",
+    proof: "Public projects and documented progress",
+    socialLabel: "Links:",
+    imageAlt: "Illustrated portrait of Hamilton Felipe with purple lighting",
     description:
-      "I build web applications, internal systems and AI automations with React, Next.js, TypeScript and API integrations. My focus is turning problems into clear, responsive and maintainable experiences.",
+      "I build personal projects with Flask, SQLite, Requests, and Selenium. I organize my learning through documentation, tests, and responsible tool use in authorized environments.",
     primaryCta: "View projects",
-    secondaryCta: "Discuss a project",
-    statCard: {
-      badge: "How I work",
-      title: "Web + AI",
-      stack: "React · Next.js · TypeScript · n8n · ChatGPT API · Node.js",
-    },
-    dedicationLabel: "Web projects",
-    learningLabel: "AI solutions",
-    scrollAria: "Scroll down",
-    scrollLabel: "scroll",
-    commandCenter: {
-      label: "LipDev Studio",
-      build: "Clean responsive design",
-      automate: "Automation that removes busywork",
-      measure: "Built to evolve after launch",
-      pipelineLabel: "process",
-      pipeline: ["Talk", "Plan", "Code", "AI", "Launch"],
-      metricOne: "less manual work",
-      metricTwo: "stronger online presence",
-    },
+    secondaryCta: "Get in touch",
   },
   about: {
     badge: "About me",
-    title: "Hi, I'm Hamilton Felipe.",
     description:
-      "I like taking an idea that is still a bit loose and turning it into something that actually works: a website, a system, a chatbot or an automation. My focus is combining web development and AI in a way that is simple to understand, good to use and useful day to day.",
-    imageAlt: "Illustration of Hamilton Felipe focused at a computer",
+      "I am Hamilton Felipe, an aspiring Python backend developer. Since April 2024, I have directed my studies toward programming and currently focus my practice on Flask, REST APIs, SQL databases, and Python automation. I have built a CRUD application with Flask and SQLite; that exercise's source code is no longer available. I also study offensive security in authorized labs, using Parrot OS and learning tools such as Nmap and Burp Suite. This is an area of growth, not professional experience.",
+    imageAlt: "Illustrated portrait of Hamilton Felipe with purple lighting",
     highlights: [
       {
-        title: "Web with intention",
+        title: "Backend practice",
         description:
-          "I build pages and systems around the people who will use them, not only around making the screen look nice.",
+          "I turn Python, Flask, API, and SQL exercises into small, documented, and verifiable projects.",
       },
       {
-        title: "AI without the fog",
+        title: "Local automation",
         description:
-          "I use AI to automate support, organize information and get repetitive tasks out of the way.",
+          "I practice Requests integrations, Selenium browser automation, and terminal-based tasks.",
       },
       {
-        title: "Close delivery",
+        title: "Start and improve",
         description:
-          "I like to talk, understand the context and build together. Good projects come from that exchange.",
-      },
-    ],
-  },
-  system: {
-    badge: "My process",
-    title: "From the first chat to something you can actually use.",
-    description:
-      "I organize each project as a simple path: understand, design, build, automate and calmly improve.",
-    items: [
-      {
-        title: "Diagnosis",
-        description:
-          "I understand what you want to solve, where the process gets stuck and what needs to feel clear for the customer.",
-      },
-      {
-        title: "Interface",
-        description:
-          "I build fast, responsive pages and systems with a look that feels aligned with your brand.",
-      },
-      {
-        title: "Automation",
-        description:
-          "I connect forms, WhatsApp, email, CRM and AI so repetitive work actually gets reduced.",
-      },
-      {
-        title: "Metrics",
-        description:
-          "I leave the solution ready to evolve with data, feedback and new ideas after launch.",
+          "You do not need to be good to start, but you need to start to become good.",
       },
     ],
   },
   skills: {
-    badge: "Skills",
-    headingStart: "My",
-    headingBold: "Skills",
-    title: "The tools I use to get ideas out of the notebook.",
+    headingStart: "Practice and",
+    headingBold: "tools",
     description:
-      "I like working with a modern stack without turning technology into unnecessary complexity.",
-    groups: {
-      frontend: "Frontend",
-      backend: "Backend & Tools",
-      soft: "Soft Skills",
-    },
-    softSkills: [
-      "Problem Solving",
-      "Communication",
-      "Teamwork",
-      "Fast Learning",
-      "Organization",
-      "Proactivity",
-    ],
+      "This grid separates technologies used in exercises and personal projects from areas that are still evolving.",
   },
   experience: {
     headingStart: "Technical",
     headingBold: "Practice",
     items: [
       {
-        company: "LipDev.BR",
-        role: "Web Development & Automation",
-        period: "Evolving project",
+        company: "Previous personal project",
+        role: "Flask and SQLite CRUD",
+        period: "Completed practice",
         description:
-          "I build web applications and automation experiments collected in this portfolio, focusing on responsive interfaces, integrations and code organization.",
+          "I implemented data creation, reading, updating, and deletion in a small application. The original source is no longer available, so I do not present this exercise as a public project.",
       },
       {
-        company: "Personal projects",
-        role: "Web Apps, Bots and Integrations",
-        period: "Public portfolio",
+        company: "Local exercises",
+        role: "Python APIs and automation",
+        period: "Evolving practice",
         description:
-          "I build dashboards, ordering and course platforms, e-commerce interfaces and web games, with code and demos available in the published projects.",
+          "I use Requests to consume APIs, Selenium to automate navigation, and the terminal for system tasks. Docker and pytest are part of basic exercises, while FastAPI is an area of study.",
       },
       {
-        company: "Modern stack",
-        role: "React, Next.js, TypeScript and Automation",
-        period: "Continuous study and practice",
+        company: "Authorized labs",
+        role: "Offensive security fundamentals",
+        period: "Area of study",
         description:
-          "I study and apply modern technologies with focus on performance, responsive UI, code organization, integrations and practical AI usage.",
-      },
-    ],
-  },
-  aiSolutions: {
-    badge: "AI Solutions",
-    title: "AI Solutions for Businesses",
-    description:
-      "Smart automations for organizing tasks and connecting business information.",
-    items: [
-      {
-        title: "AI Customer Support Agent",
-        description:
-          "AI assistant for organizing customer replies across WhatsApp, website or email.",
-        bullets: [
-          "Automatic replies",
-          "Lead capture",
-          "Appointment booking",
-          "CRM integration",
-        ],
-        price: "Starting at $500",
-      },
-      {
-        title: "AI Lead Generation Automation",
-        description:
-          "Automation that captures, qualifies and stores leads automatically.",
-        bullets: [
-          "Chatbot + forms integration",
-          "Lead scoring",
-          "Automated email follow-ups",
-          "CRM synchronization",
-        ],
-        price: "Starting at $600",
-      },
-      {
-        title: "AI Business Process Automation",
-        description:
-          "Automations that eliminate repetitive manual tasks.",
-        bullets: [
-          "Email processing",
-          "Data extraction from PDFs",
-          "Report generation",
-          "Workflow automation",
-        ],
-        price: "Starting at $800",
+          "I study Parrot OS, Nmap, Burp Suite, TryHackMe, and OWASP application and API security fundamentals only on owned machines or explicitly authorized environments.",
       },
     ],
   },
   services: {
-    badge: "Services",
-    title: "Websites, systems and AI in the same place.",
+    badge: "Areas",
+    title: "Development areas",
     description:
-      "You can bring a simple idea or a messy operation. I help turn it into online presence, automated flow and a more professional experience.",
-    aiGroup: {
-      label: "AI & Automation",
-      description: "Flows that help you serve better and spend less time repeating tasks.",
-    },
-    webGroup: {
-      label: "Web Development",
-      description: "Custom interfaces to present, sell, organize and scale your idea.",
-    },
-  },
-  solutionBuilder: {
-    badge: "Possible paths",
-    title: "A few ways to turn your idea into a project.",
-    description:
-      "Instead of selling isolated pieces, I think about the whole: page, system, automation and AI working in the same direction.",
-    labels: {
-      bestFor: "Best for",
-      web: "Web delivery",
-      ai: "AI layer",
-      outcome: "Expected outcome",
-    },
-    cta: "I want this package",
-    items: [
-      {
-        label: "Local services",
-        audience: "clinics, beauty studios, repair shops, offices and restaurants",
-        web: "Fast landing page, smart form and booking page.",
-        ai: "WhatsApp assistant to answer questions, capture leads and organize appointments.",
-        outcome: "Faster replies and fewer missed opportunities.",
-      },
-      {
-        label: "E-commerce",
-        audience: "stores, catalogs, fashion, physical products and WhatsApp sales",
-        web: "Responsive store, catalog, simplified checkout and conversion-focused showcase.",
-        ai: "Product recommendations, recovery messages and post-sale support.",
-        outcome: "More buying confidence and automatic customer follow-up.",
-      },
-      {
-        label: "Internal operations",
-        audience: "teams dealing with spreadsheets, emails, documents and repetitive tasks",
-        web: "Admin dashboard to track tasks, customers, status and indicators.",
-        ai: "Email/PDF reading, report generation and automations with n8n or APIs.",
-        outcome: "Less rework and faster decisions with organized data.",
-      },
-      {
-        label: "Personal brand",
-        audience: "developers, creators, freelancers, consultants and solo professionals",
-        web: "Premium portfolio, offer page, featured projects and contact capture.",
-        ai: "Lead triage bot to understand the contact and route the best proposal.",
-        outcome: "Stronger visual authority, clear offer and better qualified contacts.",
-      },
-    ],
-  },
-  caseStudies: {
-    badge: "AI Case Studies",
-    title: "Possible automation applications.",
-    description:
-      "Examples of workflows that can be designed and validated for each business context.",
-    labels: {
-      problem: "Problem",
-      solution: "Solution",
-      result: "Result",
-    },
-    cases: [
-      {
-        title: "AI WhatsApp Assistant",
-        problem:
-          "Support teams may need to answer recurring questions and organize requests received through WhatsApp.",
-        solution:
-          "Proposed assistant connected to an approved information base and scheduling workflow.",
-        result:
-          "Goal: organize support and route requests to human review when necessary.",
-      },
-      {
-        title: "AI Email Auto-Responder",
-        problem:
-          "Inboxes with repetitive messages may require triage and standardized responses.",
-        solution:
-          "Proposed email classification and response preparation based on authorized data.",
-        result:
-          "Goal: reduce manual tasks without removing supervision from the responsible team.",
-      },
-      {
-        title: "AI Lead Capture Bot",
-        problem:
-          "Leads received through different channels can become scattered and inconsistently tracked.",
-        solution:
-          "Proposed centralization, classification by defined criteria and routing to the CRM.",
-        result:
-          "Goal: create a traceable process for the team to follow each contact.",
-      },
-    ],
+      "Three areas guiding my studies and personal projects, each presented at its current level of practice.",
   },
   projects: {
-    badge: "Portfolio",
-    headingStart: "My",
-    headingBold: "Projects",
-    title: "Projects that show how I think and build.",
+    headingStart: "Projects and",
+    headingBold: "evidence",
     description:
-      "A selection of applications with the problem, solution, stack, public code and browsable demos whenever available.",
-    viewLive: "Live Demo",
-    viewCode: "Source Code",
+      "Odin is shown at its real planning stage. Mesaora and Horavia remain as previous work with verifiable code and demos.",
+    viewLive: "View demo",
+    viewCode: "View code",
     problemLabel: "Problem",
-    solutionLabel: "Solution",
-    featuredLabel: "Featured",
-    statusLabel: "Status",
+    solutionLabel: "Implementation",
+    featuredLabel: "Current focus",
     statuses: {
-      complete: "Complete application",
       functionalDemo: "Functional demo",
-      prototype: "Prototype",
       inDevelopment: "In development",
     },
     filterAll: "All",
     filterFeatured: "Featured",
     filterLabel: "Filter projects",
-    filterAi: "AI & Automation",
-    filterWeb: "Web",
-    privateLabel: "Private Project",
-    privateNote: "Repository is not publicly available.",
-    categoryBadgeAi: "AI",
-    categoryBadgeWeb: "Web",
-    playNow: "Play Now",
-    playAria: "Play project",
-    playTitle: "Play inside portfolio",
-    previewLabel: "project preview",
+    previewLabel: "project interface screenshot",
   },
   gameModal: {
     close: "Close",
     closeGame: "Close game",
   },
-  finalCta: {
-    eyebrow: "let's go?",
-    title: "If you have an idea, I can help give it shape.",
-    description:
-      "Tell me the context and I'll show you the simplest path to turn it into a website, system or AI automation.",
-    cta: "Start a conversation",
-  },
   contact: {
     badge: "Contact",
-    title: "Tell me what you want to build.",
+    title: "Let’s talk about Python backend?",
     description:
-      "Share the goal, context and timeline you have in mind. That helps me understand the scenario and suggest clear next steps.",
+      "I am open to junior Python backend opportunities, technical feedback, and conversations about learning projects.",
     whatsapp: "Chat on WhatsApp",
     form: {
       name: "Your name",
       email: "Your email",
-      message: "Project goal, context and timeline",
-      messageHelp: "Include what you need to solve, who the solution is for and whether you have a target date.",
-      submit: "Send Message",
+      message: "Write your message",
+      messageHelp:
+        "You can share an opportunity, technical feedback, or the context of a project.",
+      submit: "Send message",
       submitting: "Sending...",
-      success: "Message Sent!",
-      genericError: "Something went wrong. Please try again or use WhatsApp.",
+      success: "Message sent!",
+      genericError: "Could not send the message. Please try again or use WhatsApp.",
       notConfigured:
         "The contact form is not properly configured at the moment.",
     },

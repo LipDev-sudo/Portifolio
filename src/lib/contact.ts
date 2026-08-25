@@ -1,26 +1,59 @@
 import { z } from "zod";
+import type { Language } from "./translations";
 
 export const DEFAULT_WHATSAPP_TEXT =
   "Olá, vi seu portfólio e gostaria de solicitar um serviço.";
 
-export const contactFormSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Nome muito curto")
-    .max(80, "Nome muito longo"),
-  email: z
-    .string()
-    .trim()
-    .email("E-mail inválido")
-    .max(120, "E-mail muito longo"),
-  message: z
-    .string()
-    .trim()
-    .min(10, "Mensagem muito curta")
-    .max(2000, "Mensagem muito longa"),
-  website: z.string().trim().max(200, "Campo inválido").optional().default(""),
-});
+const validationMessages = {
+  pt: {
+    nameShort: "Nome muito curto",
+    nameLong: "Nome muito longo",
+    emailInvalid: "E-mail inválido",
+    emailLong: "E-mail muito longo",
+    messageShort: "Mensagem muito curta",
+    messageLong: "Mensagem muito longa",
+    fieldInvalid: "Campo inválido",
+  },
+  en: {
+    nameShort: "Name is too short",
+    nameLong: "Name is too long",
+    emailInvalid: "Invalid email address",
+    emailLong: "Email address is too long",
+    messageShort: "Message is too short",
+    messageLong: "Message is too long",
+    fieldInvalid: "Invalid field",
+  },
+} as const;
+
+export function getContactFormSchema(language: Language = "pt") {
+  const validation = validationMessages[language];
+
+  return z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, validation.nameShort)
+      .max(80, validation.nameLong),
+    email: z
+      .string()
+      .trim()
+      .email(validation.emailInvalid)
+      .max(120, validation.emailLong),
+    message: z
+      .string()
+      .trim()
+      .min(10, validation.messageShort)
+      .max(2000, validation.messageLong),
+    website: z
+      .string()
+      .trim()
+      .max(200, validation.fieldInvalid)
+      .optional()
+      .default(""),
+  });
+}
+
+export const contactFormSchema = getContactFormSchema("pt");
 
 export type ContactFormInput = z.input<typeof contactFormSchema>;
 export type ContactFormValues = z.output<typeof contactFormSchema>;
