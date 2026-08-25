@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { LanguageProvider } from "@/lib/i18n";
-import { ThemeProvider, themeScript } from "@/lib/theme";
 import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -97,17 +94,8 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body className="min-h-screen flex flex-col">
-        <ThemeProvider>
-          <LanguageProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </LanguageProvider>
-        </ThemeProvider>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

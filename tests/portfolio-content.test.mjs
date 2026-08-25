@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { projects } from "../src/data/projects.ts";
 import { services } from "../src/data/services.ts";
 import { messages } from "../src/lib/translations.ts";
@@ -78,4 +80,23 @@ test("localizes contact validation messages", () => {
   assert.equal(englishResult.success, false);
   assert.match(portugueseResult.error.issues[0].message, /Nome/);
   assert.match(englishResult.error.issues[0].message, /Name/);
+});
+
+test("renders the compact neo-skeuomorphic workbench instead of the legacy section stack", async () => {
+  const pagePath = fileURLToPath(new URL("../src/app/page.tsx", import.meta.url));
+  const contentPath = fileURLToPath(
+    new URL("../src/data/workbench.ts", import.meta.url),
+  );
+
+  assert.equal(existsSync(contentPath), true, "workbench content model is missing");
+
+  const pageSource = readFileSync(pagePath, "utf8");
+  const { workbenchCopy } = await import("../src/data/workbench.ts");
+
+  assert.match(pageSource, /PortfolioWorkbench/);
+  assert.doesNotMatch(pageSource, /<Hero|<Skills|<Experience|<About|<Projects|<Services|<Contact/);
+  assert.equal(workbenchCopy.pt.currentTools.length, 5);
+  assert.equal(workbenchCopy.pt.learningTools.length, 5);
+  assert.equal(workbenchCopy.pt.journey.length, 3);
+  assert.equal(workbenchCopy.pt.contact.form, undefined);
 });
