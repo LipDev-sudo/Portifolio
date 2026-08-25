@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { projects } from "../src/data/projects.ts";
 import { services } from "../src/data/services.ts";
+import { messages } from "../src/lib/translations.ts";
 
 test("publishes only the approved project evidence", () => {
   assert.deepEqual(
@@ -40,4 +41,20 @@ test("shows exactly three non-commercial development areas", () => {
   assert.ok(services.every((service) => service.status));
   assert.ok(services.every((service) => service.technologies.length > 0));
   assert.ok(services.every((service) => !("preco" in service)));
+});
+
+test("positions both languages around Python backend learning", () => {
+  assert.equal(messages.pt.hero.roleMain, "Desenvolvedor Backend Python");
+  assert.equal(messages.pt.hero.roleOutline, "em formação");
+  assert.equal(messages.en.hero.roleMain, "Aspiring Python Backend Developer");
+  assert.equal(messages.en.header.nav.services, "Areas");
+});
+
+test("removes unsupported public claims from translated content", () => {
+  const publicCopy = JSON.stringify(messages);
+
+  assert.doesNotMatch(
+    publicCopy,
+    /n8n|chatbot|clientes? confidenciais?|aumento de conversão|horas economizadas|pentester/i,
+  );
 });
