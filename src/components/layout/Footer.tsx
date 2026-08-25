@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
@@ -23,15 +24,22 @@ export function Footer() {
   const t = useT();
 
   return (
-    <footer className="border-t border-black/10 bg-white px-5 py-8 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2]">
+    <footer className="border-t border-black/10 bg-white px-5 py-8 text-black transition-colors dark:border-[#322a42] dark:bg-[#09080d] dark:text-[#f5f3ff]">
       <div className="mx-auto flex max-w-[1120px] flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs font-black text-white dark:bg-[#8b5cf6] dark:text-white">
             L
           </div>
-          <span className="text-sm font-black tracking-tight">
-            LipDev<span className="font-normal">.BR</span>
-          </span>
+          <span className="text-sm font-black tracking-tight">LipDev</span>
+          <Image
+            src="/images/gengar.gif"
+            alt=""
+            width={64}
+            height={64}
+            unoptimized
+            aria-hidden="true"
+            className="h-14 w-14 object-contain"
+          />
         </div>
 
         <p className="text-center font-mono text-[0.7rem] text-black/42 dark:text-[#777b82]">
