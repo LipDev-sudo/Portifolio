@@ -700,4 +700,3 @@ After this portfolio PR is reviewed, create separate specs, branches, repositori
 3. **Odin lab prototype:** authorized local targets only, explicit allowlist/scope controls, non-destructive checks, evidence logging, and a clear explanation that it supports learning rather than replacing professional assessment.
 
 None of these projects may be presented as implemented until its own tests, repository, documentation, and reproducible demonstration exist.
-
