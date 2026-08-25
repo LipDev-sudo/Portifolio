@@ -21,32 +21,38 @@ const jetbrainsMono = JetBrains_Mono({
 
 const siteUrl = getSiteUrl();
 const socialPreviewImage = new URL(
-  "/images/portfolio-link-preview-2026.png",
+  "/images/lipdev-backend-preview.webp",
   siteUrl
 ).toString();
+const metadataDescription =
+  "Portfólio de Hamilton Felipe com projetos e estudos em Python, Flask, APIs REST, automação, SQLite e segurança ofensiva em laboratórios autorizados.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
+    default: "LipDev | Desenvolvedor Backend Python em formação",
     template: "%s | Hamilton Felipe",
   },
-  description:
-    "Hamilton Felipe desenvolve sites, sistemas e automações para transformar processos e ideias em experiências digitais claras e responsivas.",
-  applicationName: "LipDev.BR",
+  description: metadataDescription,
+  applicationName: "LipDev",
   authors: [{ name: "Hamilton Felipe", url: siteUrl }],
   creator: "Hamilton Felipe",
-  publisher: "LipDev.BR",
+  publisher: "LipDev",
   category: "technology",
   keywords: [
     "Hamilton Felipe",
-    "desenvolvedor web",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "automação com IA",
-    "desenvolvedor freelancer",
-    "sistemas web",
+    "LipDev",
+    "Desenvolvedor Backend Python",
+    "Python",
+    "Flask",
+    "APIs REST",
+    "automação Python",
+    "SQLite",
+    "MySQL",
+    "Requests",
+    "Selenium",
+    "segurança ofensiva",
+    "Parrot OS",
     "portfólio",
   ],
   alternates: {
@@ -57,27 +63,25 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
-    description:
-      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
+    title: "LipDev | Desenvolvedor Backend Python em formação",
+    description: metadataDescription,
     url: siteUrl,
-    siteName: "LipDev.BR",
+    siteName: "LipDev",
     type: "website",
     locale: "pt_BR",
     images: [
       {
         url: socialPreviewImage,
-        width: 1200,
-        height: 630,
-        alt: "Prévia do portfólio LipDev.BR de Hamilton Felipe",
+        width: 2172,
+        height: 724,
+        alt: "LipDev — Python backend, automação e estudos de segurança",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamilton Felipe | Desenvolvedor Web & Automação com IA",
-    description:
-      "Sites, sistemas e automações com código público, demos navegáveis e foco em problemas reais de negócio.",
+    title: "LipDev | Desenvolvedor Backend Python em formação",
+    description: metadataDescription,
     images: [socialPreviewImage],
   },
 };
