@@ -6,17 +6,16 @@ export interface Project {
   description_en?: string;
   techs: string[];
   imageUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   order: number;
-  category: "web" | "ai";
+  category: "backend" | "previous-work";
   featured?: boolean;
-  status: "complete" | "functional-demo" | "prototype" | "in-development";
+  status: "planning" | "functional-demo" | "in-development";
   problem: string;
   problem_en?: string;
   solution: string;
   solution_en?: string;
-  playable?: boolean;
 }
 
 export interface ContactMessage {
@@ -26,11 +25,13 @@ export interface ContactMessage {
 }
 
 export interface Service {
-  id: number;
+  id: string;
   titulo: string;
-  titulo_en?: string;
+  titulo_en: string;
   descricao: string;
-  descricao_en?: string;
-  preco: string;
-  preco_en?: string;
+  descricao_en: string;
+  status: string;
+  status_en: string;
+  technologies: string[];
+  icone: string;
 }

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Gamepad2, Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import type { Project } from "@/types";
 import { useLanguage } from "@/lib/i18n";
 
@@ -17,7 +17,6 @@ function GithubIcon({ size = 14 }: { size?: number }) {
 interface ProjectCardProps {
   project: Project;
   displayIndex: number;
-  onPlay?: () => void;
 }
 
 const cardVariants = {
@@ -25,18 +24,25 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
-export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps) {
+export function ProjectCard({ project, displayIndex }: ProjectCardProps) {
   const { lang, t } = useLanguage();
   const title = lang === "en" && project.title_en ? project.title_en : project.title;
   const description = lang === "en" && project.description_en ? project.description_en : project.description;
   const problem = lang === "en" && project.problem_en ? project.problem_en : project.problem;
   const solution = lang === "en" && project.solution_en ? project.solution_en : project.solution;
   const statusLabels: Record<Project["status"], string> = {
-    complete: t.projects.statuses.complete,
+    planning: lang === "en" ? "Planning" : "Em planejamento",
     "functional-demo": t.projects.statuses.functionalDemo,
-    prototype: t.projects.statuses.prototype,
     "in-development": t.projects.statuses.inDevelopment,
   };
+  const categoryLabel =
+    project.category === "backend"
+      ? lang === "en"
+        ? "Python Backend"
+        : "Backend Python"
+      : lang === "en"
+        ? "Previous work"
+        : "Trabalho anterior";
 
   return (
     <motion.article
@@ -72,7 +78,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
             ) : null}
           </div>
           <span className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
-            {t.projects.categoryBadgeWeb}
+            {categoryLabel}
           </span>
         </div>
 
@@ -105,26 +111,25 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
         </div>
 
         <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black"
-          >
-            <GithubIcon size={13} />
-            {t.projects.viewCode}
-          </a>
-
-          {onPlay ? (
-            <button
-              type="button"
-              onClick={onPlay}
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black"
+            >
+              <GithubIcon size={13} />
+              {t.projects.viewCode}
+            </a>
+          ) : (
+            <span
               className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-black uppercase tracking-[0.08em] text-black transition-opacity hover:opacity-80"
             >
-              <Gamepad2 size={14} />
-              {t.projects.playNow}
-            </button>
-          ) : project.liveUrl ? (
+              {lang === "en" ? "Project in planning" : "Projeto em planejamento"}
+            </span>
+          )}
+
+          {project.liveUrl ? (
             <a
               href={project.liveUrl}
               target="_blank"

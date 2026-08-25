@@ -2,91 +2,42 @@ import type { Service } from "@/types";
 
 export const services: Service[] = [
   {
-    id: 1,
-    titulo: "Landing Page",
-    titulo_en: "Landing Page",
+    id: "backend-python",
+    titulo: "Backend Python",
+    titulo_en: "Python Backend",
     descricao:
-      "Página única responsiva com design moderno, animações e formulário de contato. Ideal para divulgar seu produto ou serviço.",
+      "Prática com rotas, APIs REST, persistência e organização de aplicações pequenas com Flask.",
     descricao_en:
-      "Responsive single-page site with modern design, animations and contact form. Perfect to launch a product or service.",
-    preco: "A partir de R$ 600",
-    preco_en: "From $120",
+      "Practice with routes, REST APIs, persistence, and small application organization using Flask.",
+    status: "Em desenvolvimento",
+    status_en: "In development",
+    technologies: ["Python", "Flask", "REST", "SQLite"],
+    icone: "code",
   },
   {
-    id: 2,
-    titulo: "Site Institucional",
-    titulo_en: "Business Website",
+    id: "automation",
+    titulo: "Automação",
+    titulo_en: "Automation",
     descricao:
-      "Site completo com páginas de início, sobre, serviços e contato. Perfeito para apresentar sua empresa de forma profissional.",
+      "Exercícios locais de integração com APIs, navegação automatizada e tarefas executadas pelo terminal.",
     descricao_en:
-      "Full website with home, about, services and contact pages. Perfect to present your business professionally.",
-    preco: "A partir de R$ 1.300",
-    preco_en: "From $250",
+      "Local exercises involving API integration, browser automation, and terminal-based tasks.",
+    status: "Prática em projetos pessoais",
+    status_en: "Personal-project practice",
+    technologies: ["Requests", "Selenium", "Terminal"],
+    icone: "cog",
   },
   {
-    id: 3,
-    titulo: "Loja Virtual",
-    titulo_en: "E-commerce Store",
+    id: "offensive-security",
+    titulo: "Segurança ofensiva",
+    titulo_en: "Offensive security",
     descricao:
-      "E-commerce com catálogo de produtos, carrinho de compras e integração com meios de pagamento. Pronto para vender online.",
+      "Aprendizado responsável de reconhecimento e análise somente em máquinas próprias e laboratórios autorizados.",
     descricao_en:
-      "E-commerce with product catalog, shopping cart and payment integration. Ready to sell online.",
-    preco: "A partir de R$ 2.800",
-    preco_en: "From $550",
-  },
-  {
-    id: 4,
-    titulo: "Sistema de Pedidos Online",
-    titulo_en: "Online Ordering System",
-    descricao:
-      "Plataforma de pedidos para restaurantes e comércios locais, com cardápio digital e painel de gestão.",
-    descricao_en:
-      "Ordering platform for restaurants and local businesses, with digital menu and management dashboard.",
-    preco: "A partir de R$ 2.300",
-    preco_en: "From $450",
-  },
-  {
-    id: 5,
-    titulo: "Plataforma de Cursos",
-    titulo_en: "Online Course Platform",
-    descricao:
-      "Sistema com área de alunos, aulas em vídeo, progresso e certificados. Um caminho para vender conhecimento online.",
-    descricao_en:
-      "Platform with student area, video lessons, progress tracking and certificates. A way to sell knowledge online.",
-    preco: "A partir de R$ 3.800",
-    preco_en: "From $750",
-  },
-  {
-    id: 6,
-    titulo: "Dashboard / Painel Admin",
-    titulo_en: "Admin Dashboard",
-    descricao:
-      "Painel administrativo com gráficos, relatórios e gestão de dados. Controle do seu negócio em tempo real.",
-    descricao_en:
-      "Admin panel with charts, reports and data management. Real-time control for your business.",
-    preco: "A partir de R$ 1.800",
-    preco_en: "From $350",
-  },
-  {
-    id: 7,
-    titulo: "Bots para Discord",
-    titulo_en: "Custom Discord Bots",
-    descricao:
-      "Bots personalizados para automação, atendimento, moderação e abertura de tickets no Discord.",
-    descricao_en:
-      "Custom bots for automation, support, moderation and ticket flows on Discord.",
-    preco: "A partir de R$ 1.800",
-    preco_en: "From $350",
-  },
-  {
-    id: 8,
-    titulo: "Atendimento via WhatsApp",
-    titulo_en: "WhatsApp Support Flow",
-    descricao:
-      "Fluxo de atendimento com respostas automáticas, triagem de contatos e encaminhamento rápido no WhatsApp.",
-    descricao_en:
-      "Conversation flow with auto-replies, contact triage and fast routing on WhatsApp.",
-    preco: "A partir de R$ 1.600",
-    preco_en: "From $300",
+      "Responsible reconnaissance and analysis learning only on owned machines and authorized labs.",
+    status: "Estudo em laboratórios autorizados",
+    status_en: "Study in authorized labs",
+    technologies: ["Parrot OS", "Nmap", "Burp Suite", "TryHackMe"],
+    icone: "shield",
   },
 ];
