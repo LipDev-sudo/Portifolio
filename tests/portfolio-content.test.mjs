@@ -3,6 +3,7 @@ import test from "node:test";
 import { projects } from "../src/data/projects.ts";
 import { services } from "../src/data/services.ts";
 import { messages } from "../src/lib/translations.ts";
+import { getContactFormSchema } from "../src/lib/contact.ts";
 
 test("publishes only the approved project evidence", () => {
   assert.deepEqual(
@@ -57,4 +58,24 @@ test("removes unsupported public claims from translated content", () => {
     publicCopy,
     /n8n|chatbot|clientes? confidenciais?|aumento de conversão|horas economizadas|pentester/i,
   );
+});
+
+test("localizes contact validation messages", () => {
+  const portugueseResult = getContactFormSchema("pt").safeParse({
+    name: "",
+    email: "invalid",
+    message: "",
+    website: "",
+  });
+  const englishResult = getContactFormSchema("en").safeParse({
+    name: "",
+    email: "invalid",
+    message: "",
+    website: "",
+  });
+
+  assert.equal(portugueseResult.success, false);
+  assert.equal(englishResult.success, false);
+  assert.match(portugueseResult.error.issues[0].message, /Nome/);
+  assert.match(englishResult.error.issues[0].message, /Name/);
 });
