@@ -151,6 +151,31 @@ export const projects: Project[] = [
     status: "complete",
   },
   {
+    id: "devbet",
+    title: "DEVBet",
+    title_en: "DEVBet",
+    description:
+      "Roguelike de cartas no estilo Balatro em que conceitos de Python viram cartas, com perguntas rápidas a cada mão. Em produção.",
+    description_en:
+      "Balatro-style card roguelike where Python concepts become cards, with a quick question on every hand. In production.",
+    problem:
+      "Aprender conceitos de programação jogando, em vez de apenas lendo, com feedback imediato a cada resposta.",
+    problem_en:
+      "Learn programming concepts by playing instead of just reading, with immediate feedback on every answer.",
+    solution:
+      "Cartas de conceitos formam mãos de pôquer, cada mão traz uma pergunta com explicação, jokers ensinam idiomas de Python, e há blinds com bosses, loja e placar de líderes. As fichas são virtuais, sem dinheiro real.",
+    solution_en:
+      "Concept cards form poker hands, each hand brings a question with an explanation, jokers teach Python idioms, and there are blinds with bosses, a shop and a leaderboard. Chips are virtual, with no real money.",
+    techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Firebase", "Vitest"],
+    imageUrl: "/images/devbet-desktop.png",
+    githubUrl: "https://github.com/LipDev-sudo/DevBet",
+    liveUrl: "https://dev-bet-seven.vercel.app/",
+    order: 8,
+    category: "web",
+    featured: true,
+    status: "complete",
+  },
+  {
     id: "fashion-store",
     title: "Loja Virtual de Moda",
     title_en: "Fashion E-commerce Store",
@@ -170,7 +195,7 @@ export const projects: Project[] = [
     imageUrl: "/images/loja_virtual.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-de-moda",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
-    order: 8,
+    order: 9,
     category: "web",
     status: "prototype",
   },
@@ -192,7 +217,7 @@ export const projects: Project[] = [
       "Portfolio-embedded game with Zustand state, animations and Web Audio API sound effects.",
     techs: ["React 19", "TypeScript", "Zustand", "Framer Motion", "Web Audio API"],
     githubUrl: "https://github.com/LipDev-sudo/Portifolio",
-    order: 9,
+    order: 10,
     category: "web",
     status: "functional-demo",
     playable: true,
@@ -215,7 +240,7 @@ export const projects: Project[] = [
       "Resolves the domain, tests the TCP port with latency measurement, validates input and writes the report. Accepts arguments and JSON output, with exit codes and tests run by GitHub Actions.",
     techs: ["Python", "socket", "unittest", "GitHub Actions"],
     githubUrl: "https://github.com/LipDev-sudo/Netcheck",
-    order: 10,
+    order: 11,
     category: "tools",
     status: "working-tool",
   },
@@ -237,7 +262,7 @@ export const projects: Project[] = [
       "Ticket creation with category and priority, listing by status, lookup by ID and status updates, with validation, subcommands and 30 automated tests.",
     techs: ["Python", "SQLite", "unittest"],
     githubUrl: "https://github.com/LipDev-sudo/helpdesk-lite",
-    order: 11,
+    order: 12,
     category: "tools",
     status: "working-tool",
   },
