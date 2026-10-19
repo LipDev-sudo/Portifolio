@@ -18,7 +18,7 @@ export const projects: Project[] = [
     solution_en:
       "Next.js application with PT/EN translation, light/dark themes, project filters and integrated contact.",
     techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    imageUrl: "/images/portfolio-link-preview-2026.png",
+    imageUrl: "/images/portfolio-desktop.png",
     githubUrl: "https://github.com/LipDev-sudo/Portifolio",
     liveUrl: "https://lipdev.vercel.app/",
     order: 4,

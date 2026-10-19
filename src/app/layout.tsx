@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const siteUrl = getSiteUrl();
 const socialPreviewImage = new URL(
-  "/images/portfolio-link-preview-2026.png",
+  "/images/portfolio-og.png",
   siteUrl
 ).toString();
 
