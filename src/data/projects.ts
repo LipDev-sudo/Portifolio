@@ -227,18 +227,18 @@ export const projects: Project[] = [
     title: "NetCheck",
     title_en: "NetCheck",
     description:
-      "Ferramenta de linha de comando em Python que verifica DNS e conexão TCP de um domínio e salva um relatório em texto.",
+      "Ferramenta de linha de comando em Python que verifica DNS, conexão TCP e certificado TLS de um ou mais domínios e salva um relatório em texto ou JSON.",
     description_en:
-      "Python command-line tool that checks a domain's DNS and TCP connection and saves a text report.",
+      "Python command-line tool that checks the DNS, TCP connection and TLS certificate of one or more domains and saves a text or JSON report.",
     problem:
       "Identificar rapidamente se uma falha de acesso vem da resolução de nomes ou da conexão com a porta.",
     problem_en:
       "Quickly tell whether an access failure comes from name resolution or from the port connection.",
     solution:
-      "Resolve o domínio, testa a porta TCP com medição de latência, valida a entrada e grava o relatório. Aceita argumentos e saída JSON, com códigos de saída e testes executados por GitHub Actions.",
+      "Resolve o domínio, testa várias portas e tentativas com latência mínima, média, máxima e perda, valida o certificado TLS e a entrada, e usa códigos de saída para scripts. Testes e lint rodam no GitHub Actions em Python 3.10 a 3.13.",
     solution_en:
-      "Resolves the domain, tests the TCP port with latency measurement, validates input and writes the report. Accepts arguments and JSON output, with exit codes and tests run by GitHub Actions.",
-    techs: ["Python", "socket", "unittest", "GitHub Actions"],
+      "Resolves the domain, tests several ports and attempts with minimum, average and maximum latency and loss, validates the TLS certificate and the input, and uses exit codes for scripts. Tests and lint run on GitHub Actions on Python 3.10 to 3.13.",
+    techs: ["Python", "socket", "ssl", "unittest", "ruff", "GitHub Actions"],
     githubUrl: "https://github.com/LipDev-sudo/Netcheck",
     order: 11,
     category: "tools",
@@ -249,18 +249,18 @@ export const projects: Project[] = [
     title: "HelpDesk Lite",
     title_en: "HelpDesk Lite",
     description:
-      "Sistema de chamados de suporte em linha de comando, com persistência em SQLite.",
+      "Sistema de chamados de suporte em linha de comando, com SQLite, histórico de alterações, resumo e exportação.",
     description_en:
-      "Command-line support ticket system backed by SQLite.",
+      "Command-line support ticket system backed by SQLite, with change history, summary and export.",
     problem:
       "Registrar e acompanhar chamados de TI sem depender de serviços externos.",
     problem_en:
       "Record and track IT tickets without depending on external services.",
     solution:
-      "Cadastro com categoria e prioridade, listagem por status, consulta por ID e atualização de status, com validações, uso por subcomandos e 30 testes automatizados.",
+      "Cadastro, edição e exclusão com categoria e prioridade, listagem com filtros e busca, histórico, resumo e exportação em CSV ou JSON. O banco antigo é migrado sem perder dados, e 72 testes rodam no GitHub Actions em Python 3.10 a 3.13.",
     solution_en:
-      "Ticket creation with category and priority, listing by status, lookup by ID and status updates, with validation, subcommands and 30 automated tests.",
-    techs: ["Python", "SQLite", "unittest"],
+      "Create, edit and delete tickets with category and priority, listing with filters and search, history, summary and CSV or JSON export. Older databases are migrated without data loss, and 72 tests run on GitHub Actions on Python 3.10 to 3.13.",
+    techs: ["Python", "SQLite", "unittest", "ruff", "GitHub Actions"],
     githubUrl: "https://github.com/LipDev-sudo/helpdesk-lite",
     order: 12,
     category: "tools",
