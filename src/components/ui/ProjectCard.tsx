@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Gamepad2, Star } from "lucide-react";
+import { ExternalLink, Gamepad2, Lock, Star } from "lucide-react";
 import type { Project } from "@/types";
 import { useLanguage } from "@/lib/i18n";
 
@@ -112,15 +112,22 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
         </div>
 
         <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black"
-          >
-            <GithubIcon size={13} />
-            {t.projects.viewCode}
-          </a>
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-white/30 px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black"
+            >
+              <GithubIcon size={13} />
+              {t.projects.viewCode}
+            </a>
+          ) : (
+            <span className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-dashed border-white/25 px-4 text-xs font-black uppercase tracking-[0.08em] text-white/65">
+              <Lock size={13} aria-hidden="true" />
+              {t.projects.privateCode}
+            </span>
+          )}
 
           {onPlay ? (
             <button

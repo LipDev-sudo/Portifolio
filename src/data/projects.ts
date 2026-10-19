@@ -127,6 +127,30 @@ export const projects: Project[] = [
     status: "functional-demo",
   },
   {
+    id: "habbisound",
+    title: "HabbiSound",
+    title_en: "HabbiSound",
+    description:
+      "Portal de uma comunidade brasileira do Habbo com rádio ao vivo, notícias, eventos, ranking e área de membros, em produção.",
+    description_en:
+      "Portal for a Brazilian Habbo community with a live radio, news, events, rankings and a members area, in production.",
+    problem:
+      "Reunir em um único site a rádio, a programação, as notícias e a participação da comunidade.",
+    problem_en:
+      "Bring the radio, schedule, news and community participation together in a single site.",
+    solution:
+      "Site em PHP com player da rádio e pedidos de música, notícias com curtidas e comentários, agenda, eventos, ranking, perfis, login e registro, painel da equipe e tema claro/escuro.",
+    solution_en:
+      "PHP site with a radio player and song requests, news with likes and comments, schedule, events, rankings, profiles, sign-in and registration, a staff panel and light/dark themes.",
+    techs: ["PHP 8.2", "Composer", "PHPUnit", "HTML Purifier"],
+    imageUrl: "/images/habbisound-desktop.png",
+    liveUrl: "https://habbisound.com.br/",
+    order: 7,
+    category: "web",
+    featured: true,
+    status: "complete",
+  },
+  {
     id: "fashion-store",
     title: "Loja Virtual de Moda",
     title_en: "Fashion E-commerce Store",
@@ -146,7 +170,7 @@ export const projects: Project[] = [
     imageUrl: "/images/loja_virtual.png",
     githubUrl: "https://github.com/LipDev-sudo/loja-virtual-de-moda",
     liveUrl: "https://loja-virtual-de-moda.vercel.app/",
-    order: 7,
+    order: 8,
     category: "web",
     status: "prototype",
   },
@@ -168,7 +192,7 @@ export const projects: Project[] = [
       "Portfolio-embedded game with Zustand state, animations and Web Audio API sound effects.",
     techs: ["React 19", "TypeScript", "Zustand", "Framer Motion", "Web Audio API"],
     githubUrl: "https://github.com/LipDev-sudo/Portifolio",
-    order: 8,
+    order: 9,
     category: "web",
     status: "functional-demo",
     playable: true,
@@ -191,7 +215,7 @@ export const projects: Project[] = [
       "Resolves the domain, tests the TCP port with latency measurement, validates input and writes the report. Accepts arguments and JSON output, with exit codes and tests run by GitHub Actions.",
     techs: ["Python", "socket", "unittest", "GitHub Actions"],
     githubUrl: "https://github.com/LipDev-sudo/Netcheck",
-    order: 9,
+    order: 10,
     category: "tools",
     status: "working-tool",
   },
@@ -213,7 +237,7 @@ export const projects: Project[] = [
       "Ticket creation with category and priority, listing by status, lookup by ID and status updates, with validation, subcommands and 30 automated tests.",
     techs: ["Python", "SQLite", "unittest"],
     githubUrl: "https://github.com/LipDev-sudo/helpdesk-lite",
-    order: 10,
+    order: 11,
     category: "tools",
     status: "working-tool",
   },

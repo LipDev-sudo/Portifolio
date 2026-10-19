@@ -6,7 +6,7 @@ export interface Project {
   description_en?: string;
   techs: string[];
   imageUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   order: number;
   category: "web" | "ai" | "tools";
