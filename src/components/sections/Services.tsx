@@ -21,13 +21,13 @@ export function Services() {
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-[760px] text-center"
         >
-          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-[0.7rem] font-black uppercase tracking-[0.14em] dark:border-white/20">
+          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] dark:border-white/20">
             {t.services.badge}
           </span>
           <h2 className="mt-6 text-[2.35rem] font-normal tracking-[-0.055em] sm:text-5xl">
             {t.services.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-[650px] text-sm leading-6 text-black/55 dark:text-[#afb1b5]">
+          <p className="mx-auto mt-4 max-w-[650px] text-sm leading-6 text-black/62 dark:text-[#afb1b5]">
             {t.services.description}
           </p>
         </motion.div>
@@ -144,7 +144,7 @@ function ServiceGroup({
           <span className="font-mono text-xs font-black">{index}</span>
           <h3 className="mt-2 text-2xl font-black tracking-[-0.045em]">{label}</h3>
         </div>
-        <p className="max-w-[470px] text-sm leading-6 text-black/55 dark:text-[#afb1b5]">{description}</p>
+        <p className="max-w-[470px] text-sm leading-6 text-black/62 dark:text-[#afb1b5]">{description}</p>
       </div>
       {children}
     </div>

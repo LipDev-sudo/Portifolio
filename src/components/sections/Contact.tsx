@@ -135,7 +135,7 @@ export function Contact() {
     <section id="contact" className="border-t border-black/10 bg-white py-24 text-black transition-colors dark:border-white/10 dark:bg-[#161719] dark:text-[#f4f4f2] sm:py-28">
       <div className="mx-auto grid max-w-[1120px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em] dark:border-white/20">
+          <span className="inline-flex rounded-full border border-black/15 px-3 py-1 text-xs font-black uppercase tracking-[0.12em] dark:border-white/20">
             {t.contact.badge}
           </span>
           <h2 className="mt-5 max-w-[540px] text-[2.35rem] font-black leading-[1.02] tracking-[-0.055em] sm:text-5xl">
@@ -158,7 +158,7 @@ export function Contact() {
 
             <a
               href="mailto:hamiltonfelipe019@gmail.com"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
+              className="flex min-h-11 w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <Mail size={16} />
               hamiltonfelipe019@gmail.com
@@ -168,7 +168,7 @@ export function Contact() {
               href="https://github.com/LipDev-sudo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
+              className="flex min-h-11 w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <GithubIcon />
               github.com/LipDev-sudo
@@ -178,7 +178,7 @@ export function Contact() {
               href="https://www.linkedin.com/in/hamilton-felipe-875054383/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
+              className="flex min-h-11 w-fit items-center gap-3 text-sm font-bold text-black/60 transition-colors hover:text-black dark:text-[#afb1b5] dark:hover:text-[#f4f4f2]"
             >
               <LinkedinIcon />
               LinkedIn - Hamilton Felipe
@@ -196,7 +196,7 @@ export function Contact() {
               />
             </div>
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.12em] text-black/40 dark:text-[#777b82]">Instagram</p>
+              <p className="text-xs font-black uppercase tracking-[0.12em] text-black/62 dark:text-[#777b82]">Instagram</p>
               <p className="mt-1 text-sm font-black text-black dark:text-[#f4f4f2]">@lip.devbr</p>
             </div>
           </div>
@@ -276,7 +276,7 @@ export function Contact() {
               />
               <span
                 id="contact-message-help"
-                className="mt-2 block text-xs leading-5 text-black/50 dark:text-[#afb1b5]"
+                className="mt-2 block text-xs leading-5 text-black/62 dark:text-[#afb1b5]"
               >
                 {t.contact.form.messageHelp}
               </span>

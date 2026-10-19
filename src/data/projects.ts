@@ -27,77 +27,54 @@ export const projects: Project[] = [
     status: "complete",
   },
   {
-    id: "bookly",
-    title: "Bookly",
-    title_en: "Bookly",
+    id: "horavia",
+    title: "Horavia",
+    title_en: "Horavia",
     description:
-      "SaaS em desenvolvimento para agendamentos e gestão de clientes de pequenos negócios de serviços.",
+      "Demonstração funcional de agenda, clientes e serviços para pequenos negócios de atendimento, apresentada pelo cenário fictício do Estúdio Aurora.",
     description_en:
-      "SaaS in development for appointment and client management in small service businesses.",
+      "Functional demo of scheduling, clients and services for small service businesses, presented through the fictional Estúdio Aurora scenario.",
     problem:
-      "Centralizar clientes, serviços e agendamentos com isolamento dos dados de cada negócio.",
+      "Centralizar clientes, serviços e agendamentos de pequenos negócios com os dados de cada negócio isolados.",
     problem_en:
-      "Centralize clients, services and appointments while isolating each business's data.",
+      "Centralize clients, services and appointments for small businesses while keeping each business's data isolated.",
     solution:
-      "Base multi-tenant com autenticação Supabase, Row Level Security e dashboard protegido com dados do banco.",
+      "Demonstração interativa sem cadastro, com estado local validado por Zod, e base com autenticação Supabase, Row Level Security e CRUD protegido no repositório.",
     solution_en:
-      "Multi-tenant foundation with Supabase authentication, Row Level Security and a protected data-backed dashboard.",
-    techs: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Zod"],
-    githubUrl: "https://github.com/LipDev-sudo/bookly",
+      "Interactive demo with no sign-up, local state validated with Zod, and a repository foundation with Supabase authentication, Row Level Security and protected CRUD.",
+    techs: ["Next.js 16", "TypeScript", "Tailwind CSS", "Supabase", "Zod", "Vitest"],
+    imageUrl: "/images/horavia-demo-desktop.jpg",
+    githubUrl: "https://github.com/LipDev-sudo/Horavia",
+    liveUrl: "https://horavia.vercel.app/demo",
     order: 2,
-    category: "web",
-    featured: true,
-    status: "in-development",
-  },
-  {
-    id: "ritmoar",
-    title: "Ritmoar",
-    title_en: "Ritmoar",
-    description:
-      "Demonstração funcional de gestão de trabalho e prioridades para pequenas equipes, freelancers e agências.",
-    description_en:
-      "Functional work and priority management demo for small teams, freelancers and agencies.",
-    problem:
-      "Organizar prioridades, responsáveis, prazos e andamento do trabalho com clareza, sem excesso de complexidade.",
-    problem_en:
-      "Organize priorities, owners, deadlines and work progress clearly, without unnecessary complexity.",
-    solution:
-      "Interface operacional responsiva com criação, busca e filtros de tarefas, estados claros e persistência local.",
-    solution_en:
-      "Responsive operational interface with task creation, search and filters, clear states and local persistence.",
-    techs: ["React", "TypeScript", "Vite", "Tailwind CSS", "localStorage"],
-    imageUrl: "/images/ritmoar-desktop.png",
-    githubUrl: "https://github.com/LipDev-sudo/ritmoar",
-    liveUrl: "https://ritmoar.vercel.app/",
-    order: 1,
     category: "web",
     featured: true,
     status: "functional-demo",
   },
   {
     id: "orders-platform",
-    title: "Plataforma de Pedidos Online",
-    title_en: "Online Ordering Platform",
+    title: "Mesaora",
+    title_en: "Mesaora",
     description:
-      "Protótipo responsivo de pedidos para restaurantes e pequenos comércios com cardápio digital.",
+      "Demonstração funcional de cardápio digital e acompanhamento de pedidos para restaurantes e pequenos deliveries, apresentada pela pizzaria fictícia Forno da Vila.",
     description_en:
-      "Responsive ordering prototype for restaurants and small businesses with a digital menu.",
+      "Functional demo of a digital menu and order tracking for restaurants and small delivery businesses, presented through the fictional pizzeria Forno da Vila.",
     problem:
-      "Apresentar produtos e organizar o fluxo de escolha de pedidos em uma experiência mobile-first.",
+      "Levar o cliente do cardápio ao pedido em um único fluxo, com prioridade para o uso no celular.",
     problem_en:
-      "Present products and organize order selection through a mobile-first experience.",
+      "Take the customer from menu to order in a single flow, prioritizing mobile use.",
     solution:
-      "Interface navegável com categorias, itens de cardápio e fluxo visual de carrinho.",
+      "Fluxo simulado de cardápio, personalização, carrinho, checkout e acompanhamento do pedido, com carrinho e pedidos salvos no navegador. Nenhum pedido ou pagamento real é processado.",
     solution_en:
-      "Navigable interface with categories, menu items and a visual cart flow.",
-    techs: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    imageUrl: "/images/pedidos_online.png",
+      "Simulated flow of menu, item customization, cart, checkout and order tracking, with cart and orders saved in the browser. No real order or payment is processed.",
+    techs: ["React", "TypeScript", "Vite", "React Router", "Tailwind CSS", "Playwright"],
+    imageUrl: "/images/mesaora-desktop.jpg",
     githubUrl: "https://github.com/LipDev-sudo/plataforma-de-pedidos-online-",
     liveUrl: "https://plataforma-de-pedidos-online-two.vercel.app/",
     order: 3,
     category: "web",
     featured: true,
-    status: "prototype",
+    status: "functional-demo",
   },
   {
     id: "courses-platform",
@@ -195,5 +172,49 @@ export const projects: Project[] = [
     category: "web",
     status: "functional-demo",
     playable: true,
+  },
+  {
+    id: "netcheck",
+    title: "NetCheck",
+    title_en: "NetCheck",
+    description:
+      "Ferramenta de linha de comando em Python que verifica DNS e conexão TCP de um domínio e salva um relatório em texto.",
+    description_en:
+      "Python command-line tool that checks a domain's DNS and TCP connection and saves a text report.",
+    problem:
+      "Identificar rapidamente se uma falha de acesso vem da resolução de nomes ou da conexão com a porta.",
+    problem_en:
+      "Quickly tell whether an access failure comes from name resolution or from the port connection.",
+    solution:
+      "Resolve o domínio, testa a porta TCP com medição de latência, valida a entrada e grava o relatório. Aceita argumentos e saída JSON, com códigos de saída e testes executados por GitHub Actions.",
+    solution_en:
+      "Resolves the domain, tests the TCP port with latency measurement, validates input and writes the report. Accepts arguments and JSON output, with exit codes and tests run by GitHub Actions.",
+    techs: ["Python", "socket", "unittest", "GitHub Actions"],
+    githubUrl: "https://github.com/LipDev-sudo/Netcheck",
+    order: 9,
+    category: "tools",
+    status: "working-tool",
+  },
+  {
+    id: "helpdesk-lite",
+    title: "HelpDesk Lite",
+    title_en: "HelpDesk Lite",
+    description:
+      "Sistema de chamados de suporte em linha de comando, com persistência em SQLite.",
+    description_en:
+      "Command-line support ticket system backed by SQLite.",
+    problem:
+      "Registrar e acompanhar chamados de TI sem depender de serviços externos.",
+    problem_en:
+      "Record and track IT tickets without depending on external services.",
+    solution:
+      "Cadastro com categoria e prioridade, listagem por status, consulta por ID e atualização de status, com validações, uso por subcomandos e 30 testes automatizados.",
+    solution_en:
+      "Ticket creation with category and priority, listing by status, lookup by ID and status updates, with validation, subcommands and 30 automated tests.",
+    techs: ["Python", "SQLite", "unittest"],
+    githubUrl: "https://github.com/LipDev-sudo/helpdesk-lite",
+    order: 10,
+    category: "tools",
+    status: "working-tool",
   },
 ];

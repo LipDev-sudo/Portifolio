@@ -31,7 +31,7 @@ export function Skills() {
           <span className="font-black">{t.skills.headingBold}</span>
         </motion.h2>
 
-        <p className="mx-auto mt-4 max-w-[540px] text-center text-sm leading-6 text-black/55 dark:text-[#afb1b5]">
+        <p className="mx-auto mt-4 max-w-[540px] text-center text-sm leading-6 text-black/62 dark:text-[#afb1b5]">
           {t.skills.description}
         </p>
 

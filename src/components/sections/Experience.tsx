@@ -44,7 +44,7 @@ export function Experience() {
                       </h3>
                     </div>
                   </div>
-                  <span className="text-[0.65rem] font-black uppercase tracking-[0.1em] text-white/45 sm:pt-1">
+                  <span className="text-xs font-black uppercase tracking-[0.1em] text-white/65 sm:pt-1">
                     {item.period}
                   </span>
                 </div>

@@ -34,7 +34,7 @@ export function Footer() {
           </span>
         </div>
 
-        <p className="text-center font-mono text-[0.7rem] text-black/42 dark:text-[#777b82]">
+        <p className="text-center font-mono text-xs text-black/60 dark:text-[#777b82]">
           &copy; {new Date().getFullYear()} Hamilton Felipe Soares da Silva. {t.footer.rights}
         </p>
 
@@ -44,7 +44,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
+            className="inline-flex h-11 w-11 items-center justify-center text-black/60 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <GithubIcon />
           </a>
@@ -53,14 +53,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
+            className="inline-flex h-11 w-11 items-center justify-center text-black/60 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <LinkedinIcon />
           </a>
           <a
             href="mailto:hamiltonfelipe019@gmail.com"
             aria-label="E-mail"
-            className="text-black/45 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
+            className="inline-flex h-11 w-11 items-center justify-center text-black/60 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
           >
             <Mail size={18} />
           </a>

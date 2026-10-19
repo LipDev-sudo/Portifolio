@@ -34,7 +34,7 @@ export function Hero() {
     <section id="hero" className="bg-white pt-24 text-black transition-colors dark:bg-[#161719] dark:text-[#f4f4f2]">
       <div className="mx-auto grid min-h-[590px] max-w-[1180px] grid-cols-1 items-center gap-8 px-5 py-8 md:grid-cols-[0.86fr_1.14fr] md:py-4">
         <div className="relative z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[0.68rem] font-semibold text-black/70 dark:border-white/15 dark:bg-white/[0.05] dark:text-[#afb1b5]">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-xs font-semibold text-black/70 dark:border-white/15 dark:bg-white/[0.05] dark:text-[#afb1b5]">
             <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-[#f4f4f2]" />
             {t.hero.available}
           </span>
@@ -51,7 +51,7 @@ export function Hero() {
             {t.hero.description}
           </p>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4 text-[0.72rem] font-semibold text-black/65 dark:text-[#afb1b5]">
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-semibold text-black/65 dark:text-[#afb1b5]">
             <span className="inline-flex items-center gap-1.5">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
@@ -67,13 +67,13 @@ export function Hero() {
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-flex min-h-9 items-center rounded-full bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:bg-[#f4f4f2] dark:text-[#161719]"
+              className="inline-flex min-h-11 items-center rounded-full bg-black px-4 text-xs font-black text-white transition-opacity hover:opacity-75 dark:bg-[#f4f4f2] dark:text-[#161719]"
             >
               {t.hero.primaryCta}
             </a>
             <a
               href="#contact"
-              className="inline-flex min-h-9 items-center gap-2 rounded-full border border-black px-4 text-[0.72rem] font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-black px-4 text-xs font-black text-black transition-colors hover:bg-black hover:text-white dark:border-[#f4f4f2] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
             >
               {t.hero.secondaryCta}
             </a>
@@ -90,7 +90,7 @@ export function Hero() {
                 target={social.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={social.label}
-                className={`flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-black hover:text-white ${
+                className={`relative flex h-6 w-6 items-center justify-center rounded-full transition-colors after:absolute after:-inset-2.5 after:content-[""] hover:bg-black hover:text-white ${
                   index === 0 ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]" : "bg-white text-black dark:bg-[#161719] dark:text-[#f4f4f2]"
                 }`}
               >

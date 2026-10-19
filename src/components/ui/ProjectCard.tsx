@@ -36,6 +36,13 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
     "functional-demo": t.projects.statuses.functionalDemo,
     prototype: t.projects.statuses.prototype,
     "in-development": t.projects.statuses.inDevelopment,
+    "working-tool": t.projects.statuses.workingTool,
+  };
+
+  const categoryLabels: Record<Project["category"], string> = {
+    web: t.projects.categoryBadgeWeb,
+    ai: t.projects.categoryBadgeAi,
+    tools: t.projects.categoryBadgeTools,
   };
 
   return (
@@ -58,21 +65,21 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
       <div className="flex flex-1 flex-col p-5 sm:p-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs font-black text-white/45">
+            <span className="font-mono text-xs font-black text-white/65">
               {String(displayIndex).padStart(2, "0")}
             </span>
-            <span className="rounded-full border border-white/25 px-2.5 py-1 text-[0.6rem] font-black uppercase tracking-[0.12em] text-white/75">
+            <span className="rounded-full border border-white/25 px-2.5 py-1 text-xs font-black uppercase tracking-[0.12em] text-white/75">
               {statusLabels[project.status]}
             </span>
             {project.featured ? (
-              <span className="inline-flex items-center gap-1 text-[0.6rem] font-black uppercase tracking-[0.12em] text-white/65">
+              <span className="inline-flex items-center gap-1 text-xs font-black uppercase tracking-[0.12em] text-white/65">
                 <Star size={11} aria-hidden="true" />
                 {t.projects.featuredLabel}
               </span>
             ) : null}
           </div>
-          <span className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
-            {t.projects.categoryBadgeWeb}
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-white/65">
+            {categoryLabels[project.category]}
           </span>
         </div>
 
@@ -83,13 +90,13 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
 
         <dl className="mt-6 grid gap-4 border-y border-white/15 py-5 sm:grid-cols-2">
           <div>
-            <dt className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
+            <dt className="text-xs font-black uppercase tracking-[0.14em] text-white/65">
               {t.projects.problemLabel}
             </dt>
             <dd className="mt-2 text-xs leading-5 text-white/70">{problem}</dd>
           </div>
           <div>
-            <dt className="text-[0.62rem] font-black uppercase tracking-[0.14em] text-white/45">
+            <dt className="text-xs font-black uppercase tracking-[0.14em] text-white/65">
               {t.projects.solutionLabel}
             </dt>
             <dd className="mt-2 text-xs leading-5 text-white/70">{solution}</dd>
@@ -98,7 +105,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
 
         <div className="mt-5 flex flex-wrap gap-2">
           {project.techs.slice(0, 6).map((tech) => (
-            <span key={tech} className="rounded-full border border-white/15 px-2.5 py-1 font-mono text-[0.62rem] text-white/60">
+            <span key={tech} className="rounded-full border border-white/15 px-2.5 py-1 font-mono text-xs text-white/60">
               {tech}
             </span>
           ))}

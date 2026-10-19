@@ -56,3 +56,7 @@ next-env.d.ts
 
 # Local Git worktrees
 /.worktrees/
+
+.lighthouseci/
+test-results/
+playwright-report/
