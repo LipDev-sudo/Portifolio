@@ -4,7 +4,7 @@ Portfólio profissional de Hamilton Felipe, desenvolvedor web com foco em React,
 
 **Site oficial:** [https://lipdev.vercel.app](https://lipdev.vercel.app)
 
-![Prévia do portfólio LipDev.BR](public/images/portfolio-link-preview-2026.png)
+![Prévia do portfólio LipDev.BR](public/images/portfolio-desktop.png)
 
 ## Visão geral
 
