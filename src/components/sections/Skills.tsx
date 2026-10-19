@@ -1,19 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, GitBranch, Network, Palette, Sparkles, Workflow, Zap } from "lucide-react";
+import {
+  Cloud,
+  Code2,
+  Database,
+  FlaskConical,
+  GitBranch,
+  Layers,
+  Network,
+  Palette,
+  Server,
+  Sparkles,
+  Workflow,
+  Wind,
+  Zap,
+} from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 const skills = [
-  { label: "Git", icon: GitBranch },
   { label: "JavaScript", icon: Code2 },
+  { label: "TypeScript", icon: Code2 },
   { label: "React", icon: Sparkles },
   { label: "Next.js", icon: Zap },
-  { label: "TypeScript", icon: Code2 },
+  { label: "Vite", icon: Zap },
+  { label: "Tailwind CSS", icon: Wind },
   { label: "Node.js", icon: Network },
+  { label: "PHP", icon: Server },
+  { label: "Python", icon: Code2 },
+  { label: "SQLite", icon: Database },
+  { label: "PostgreSQL", icon: Database },
+  { label: "Supabase", icon: Layers },
+  { label: "Prisma", icon: Database },
+  { label: "Playwright", icon: FlaskConical },
+  { label: "GitHub Actions", icon: Workflow },
+  { label: "Git", icon: GitBranch },
+  { label: "Vercel", icon: Cloud },
   { label: "n8n", icon: Workflow },
   { label: "IA APIs", icon: Sparkles },
-  { label: "Prisma", icon: Database },
   { label: "Figma", icon: Palette },
 ];
 
