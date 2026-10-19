@@ -26,16 +26,20 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | Projeto | Estado apresentado | Repositório | Demonstração |
 | --- | --- | --- | --- |
 | Portfólio LipDev | Aplicação completa | [Código](https://github.com/LipDev-sudo/Portifolio) | [Online](https://lipdev.vercel.app) |
-| Bookly | Em desenvolvimento | [Código](https://github.com/LipDev-sudo/bookly) | Ainda não publicada |
-| Ritmoar | Demonstração funcional | [Código](https://github.com/LipDev-sudo/ritmoar) | [Online](https://ritmoar.vercel.app) |
-| Plataforma de Pedidos | Protótipo | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
+| Horavia | Demonstração funcional | [Código](https://github.com/LipDev-sudo/Horavia) | [Online](https://horavia.vercel.app/demo) |
+| Mesaora | Demonstração funcional | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
+| Pratele | Demonstração funcional | [Código](https://github.com/LipDev-sudo/pratele) | [Online](https://pratele.vercel.app) |
+| Loja Virtual de Moda | Protótipo | [Código](https://github.com/LipDev-sudo/loja-virtual-de-moda) | [Online](https://loja-virtual-de-moda.vercel.app) |
+| Dev Balatro | Demonstração funcional | [Código](https://github.com/LipDev-sudo/Portifolio) | Jogável no próprio portfólio |
+| NetCheck | Ferramenta funcional (CLI Python) | [Código](https://github.com/LipDev-sudo/Netcheck) | Não se aplica |
+| HelpDesk Lite | Ferramenta funcional (CLI Python) | [Código](https://github.com/LipDev-sudo/helpdesk-lite) | Não se aplica |
 
 ## Capturas de projetos
 
-| Ritmoar | Plataforma de Pedidos | Trilhara |
+| Mesaora | Trilhara | Horavia |
 | --- | --- | --- |
-| ![Ritmoar](public/images/ritmoar-desktop.png) | ![Plataforma de Pedidos Online](public/images/pedidos_online.png) | ![Trilhara](public/images/trilhara-home-desktop.png) |
+| ![Mesaora](public/images/mesaora-desktop.jpg) | ![Trilhara](public/images/trilhara-home-desktop.png) | ![Horavia](public/images/horavia-demo-desktop.jpg) |
 
 Novas capturas reais podem ser adicionadas nesta seção conforme os projetos destacados receberem demonstrações públicas.
 

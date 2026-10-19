@@ -91,7 +91,7 @@ export function Header() {
       <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3">
         <a
           href="#hero"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] lg:hidden"
           aria-label="LipDev"
         >
           L
@@ -107,7 +107,7 @@ export function Header() {
                     href={link.href}
                     onClick={() => setActiveHref(link.href)}
                     aria-current={activeHref === link.href ? "page" : undefined}
-                    className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[0.72rem] font-bold transition-colors ${
+                    className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-bold transition-colors ${
                       activeHref === link.href
                         ? "bg-black text-white dark:bg-[#f4f4f2] dark:text-[#161719]"
                         : "text-black/75 hover:bg-black hover:text-white dark:text-[#afb1b5] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
@@ -128,7 +128,7 @@ export function Header() {
             onClick={toggleTheme}
             aria-label={themeLabel}
             title={themeLabel}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
           >
             <Moon size={14} className="dark:hidden" />
             <Sun size={14} className="hidden dark:block" />
@@ -140,7 +140,7 @@ export function Header() {
             translate="no"
             aria-label={t.header.toggleLabel}
             title={t.header.toggleLabel}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 text-[0.72rem] font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-colors hover:bg-black hover:text-white dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] dark:hover:bg-[#f4f4f2] dark:hover:text-[#161719]"
           >
             <Languages size={12} />
             {lang === "pt" ? "EN" : "PT"}
@@ -149,7 +149,7 @@ export function Header() {
           <a
             href="/documents/curriculo-hamilton-felipe.pdf"
             download
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-[0.72rem] font-black text-white transition-opacity hover:opacity-75 dark:border-[#f4f4f2] dark:bg-[#f4f4f2] dark:text-[#161719]"
+            className="inline-flex h-9 items-center gap-2 rounded-full border border-black bg-black px-4 text-xs font-black text-white transition-opacity hover:opacity-75 dark:border-[#f4f4f2] dark:bg-[#f4f4f2] dark:text-[#161719]"
           >
             {t.header.resume}
             <Download size={12} />
@@ -162,14 +162,14 @@ export function Header() {
             onClick={toggleTheme}
             aria-label={themeLabel}
             title={themeLabel}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
           >
             <Moon size={16} className="dark:hidden" />
             <Sun size={16} className="hidden dark:block" />
           </button>
           <button
             ref={menuButtonRef}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2]"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
             aria-expanded={menuOpen}

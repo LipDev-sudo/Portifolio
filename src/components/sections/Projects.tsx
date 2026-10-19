@@ -10,6 +10,9 @@ import type { Project } from "@/types";
 
 type Filter = "featured" | "all";
 
+// Espaço reservado para um projeto futuro. Defina como false para ocultá-lo.
+const SHOW_NEXT_PROJECT_SLOT = true;
+
 export function Projects() {
   const { lang, t } = useLanguage();
   const [filter, setFilter] = useState<Filter>("featured");
@@ -48,7 +51,7 @@ export function Projects() {
                   type="button"
                   aria-pressed={active}
                   onClick={() => setFilter(key)}
-                  className={`rounded-full border px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.12em] transition-colors ${
+                  className={`inline-flex min-h-11 items-center rounded-full border px-5 text-xs font-black uppercase tracking-[0.12em] transition-colors ${
                     active
                       ? "border-white bg-white text-black"
                       : "border-white/30 bg-transparent text-white/70 hover:border-white hover:text-white"
@@ -77,6 +80,19 @@ export function Projects() {
                   onPlay={project.playable ? () => setGameProject(project) : undefined}
                 />
               ))}
+              {SHOW_NEXT_PROJECT_SLOT && filter === "featured" ? (
+                <motion.article
+                  className="flex min-h-[18rem] flex-col items-center justify-center border border-dashed border-white/25 p-7 text-center"
+                  aria-label={t.projects.nextProjectTitle}
+                >
+                  <h3 className="text-xl font-black tracking-[-0.03em] text-white/75">
+                    {t.projects.nextProjectTitle}
+                  </h3>
+                  <p className="mt-3 max-w-[18rem] text-sm leading-6 text-white/65">
+                    {t.projects.nextProjectText}
+                  </p>
+                </motion.article>
+              ) : null}
             </motion.div>
           </AnimatePresence>
         </div>

@@ -9,9 +9,9 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   order: number;
-  category: "web" | "ai";
+  category: "web" | "ai" | "tools";
   featured?: boolean;
-  status: "complete" | "functional-demo" | "prototype" | "in-development";
+  status: "complete" | "functional-demo" | "prototype" | "in-development" | "working-tool";
   problem: string;
   problem_en?: string;
   solution: string;

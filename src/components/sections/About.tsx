@@ -146,8 +146,8 @@ export function About() {
           </h2>
           <p
             className="mt-7 min-h-[9.75rem] max-w-[660px] text-sm leading-7 text-black/62 dark:text-[#afb1b5] sm:min-h-[8rem] sm:text-base sm:leading-8"
-            aria-label={t.about.description}
           >
+            <span className="sr-only">{t.about.description}</span>
             <span aria-hidden="true">
               {typedDescription || "\u00a0"}
               {headingDone && typedDescription !== t.about.description ? (

@@ -11,7 +11,7 @@ const GameApp = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-full w-full items-center justify-center bg-black text-xs font-bold uppercase tracking-[0.18em] text-white/40">
+      <div className="flex h-full w-full items-center justify-center bg-black text-xs font-bold uppercase tracking-[0.18em] text-white/65">
         <span className="h-2 w-2 animate-pulse rounded-full bg-white/60" />
       </div>
     ),
@@ -117,7 +117,7 @@ export function GameModal({ open, onClose, gameUrl, title }: GameModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="text-black/35 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
+                  className="text-black/62 transition-colors hover:text-black dark:text-[#777b82] dark:hover:text-[#f4f4f2]"
                   aria-label={t.gameModal.closeGame}
                 >
                   <X size={14} />
