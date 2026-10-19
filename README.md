@@ -30,6 +30,7 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | Mesaora | Demonstração funcional | [Código](https://github.com/LipDev-sudo/plataforma-de-pedidos-online-) | [Online](https://plataforma-de-pedidos-online-two.vercel.app) |
 | Trilhara | Demonstração funcional | [Código](https://github.com/LipDev-sudo/trilhara) | [Online](https://trilhara.vercel.app) |
 | Pratele | Demonstração funcional | [Código](https://github.com/LipDev-sudo/pratele) | [Online](https://pratele.vercel.app) |
+| HabbiSound | Aplicação completa (em produção) | Código privado | [Online](https://habbisound.com.br) |
 | Loja Virtual de Moda | Protótipo | [Código](https://github.com/LipDev-sudo/loja-virtual-de-moda) | [Online](https://loja-virtual-de-moda.vercel.app) |
 | Dev Balatro | Demonstração funcional | [Código](https://github.com/LipDev-sudo/Portifolio) | Jogável no próprio portfólio |
 | NetCheck | Ferramenta funcional (CLI Python) | [Código](https://github.com/LipDev-sudo/Netcheck) | Não se aplica |
