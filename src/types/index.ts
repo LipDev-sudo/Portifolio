@@ -34,3 +34,31 @@ export interface Service {
   preco: string;
   preco_en?: string;
 }
+
+export interface CaseStudyDecision {
+  title: string;
+  title_en: string;
+  text: string;
+  text_en: string;
+}
+
+export interface CaseStudyResult {
+  label: string;
+  label_en: string;
+  value: string;
+}
+
+export interface CaseStudy {
+  /** id do projeto em `projects.ts` */
+  projectId: string;
+  /** trecho da URL: /projetos/<slug> */
+  slug: string;
+  summary: string;
+  summary_en: string;
+  context: string;
+  context_en: string;
+  decisions: CaseStudyDecision[];
+  results: CaseStudyResult[];
+  limitations: string[];
+  limitations_en: string[];
+}

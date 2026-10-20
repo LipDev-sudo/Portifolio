@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
 
@@ -25,6 +26,8 @@ export function Header() {
   const [activeHref, setActiveHref] = useState("#hero");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const prefix = pathname === "/" ? "" : "/";
   const { lang, toggle, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const themeLabel = theme === "dark"
@@ -32,11 +35,11 @@ export function Header() {
     : (lang === "pt" ? "Ativar modo escuro" : "Switch to dark mode");
 
   const navLinks = [
-    { label: t.header.nav.hero, href: "#hero", icon: Home },
-    { label: t.header.nav.about, href: "#about", icon: User },
-    { label: t.header.nav.projects, href: "#projects", icon: FolderOpen },
-    { label: t.header.nav.services, href: "#services", icon: Code2 },
-    { label: t.header.nav.contact, href: "#contact", icon: Mail },
+    { label: t.header.nav.hero, href: `${prefix}#hero`, icon: Home },
+    { label: t.header.nav.about, href: `${prefix}#about`, icon: User },
+    { label: t.header.nav.projects, href: `${prefix}#projects`, icon: FolderOpen },
+    { label: t.header.nav.services, href: `${prefix}#services`, icon: Code2 },
+    { label: t.header.nav.contact, href: `${prefix}#contact`, icon: Mail },
   ];
 
   useEffect(() => {
@@ -90,7 +93,7 @@ export function Header() {
     <header className="fixed left-0 right-0 top-4 z-50 px-4">
       <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3">
         <a
-          href="#hero"
+          href={`${prefix}#hero`}
           className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-xs font-black text-black shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-colors dark:border-white/10 dark:bg-[#202225] dark:text-[#f4f4f2] lg:hidden"
           aria-label="LipDev"
         >
