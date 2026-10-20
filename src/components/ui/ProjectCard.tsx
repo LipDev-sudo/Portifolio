@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, Gamepad2, Lock, Star } from "lucide-react";
 import type { Project } from "@/types";
+import { getCaseStudyByProjectId } from "@/data/case-studies";
 import { useLanguage } from "@/lib/i18n";
 
 function GithubIcon({ size = 14 }: { size?: number }) {
@@ -31,6 +33,7 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
   const description = lang === "en" && project.description_en ? project.description_en : project.description;
   const problem = lang === "en" && project.problem_en ? project.problem_en : project.problem;
   const solution = lang === "en" && project.solution_en ? project.solution_en : project.solution;
+  const caseStudy = getCaseStudyByProjectId(project.id);
   const statusLabels: Record<Project["status"], string> = {
     complete: t.projects.statuses.complete,
     "functional-demo": t.projects.statuses.functionalDemo,
@@ -111,7 +114,18 @@ export function ProjectCard({ project, displayIndex, onPlay }: ProjectCardProps)
           ))}
         </div>
 
-        <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
+        {caseStudy ? (
+          <Link
+            href={`/projetos/${caseStudy.slug}`}
+            className="mt-6 inline-flex min-h-11 items-center gap-2 self-start text-xs font-black uppercase tracking-[0.08em] text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+            aria-label={`${t.projects.readCaseStudy}: ${title}`}
+          >
+            {t.projects.readCaseStudy}
+            <span aria-hidden="true">→</span>
+          </Link>
+        ) : null}
+
+        <div className="mt-auto flex flex-col gap-3 pt-4 sm:flex-row">
           {project.githubUrl ? (
             <a
               href={project.githubUrl}

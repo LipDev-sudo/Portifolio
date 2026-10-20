@@ -37,6 +37,12 @@ O projeto reúne apresentação profissional, currículo, projetos públicos, se
 | NetCheck | Ferramenta funcional (CLI Python) | [Código](https://github.com/LipDev-sudo/Netcheck) | Não se aplica |
 | HelpDesk Lite | Ferramenta funcional (CLI Python) | [Código](https://github.com/LipDev-sudo/helpdesk-lite) | Não se aplica |
 
+## Estudos de caso e dados estruturados
+
+- Cada projeto relevante tem uma página própria em `/projetos/<slug>`, com contexto, decisões, resultados medidos e limitações. O conteúdo fica em `src/data/case-studies.ts`; só entram números conferidos nos repositórios, e as notas do Lighthouse indicam a data da medição.
+- A página inicial declara `Person`, `WebSite` e `ProfilePage` em JSON-LD, e cada estudo de caso declara `WebPage`, `SoftwareApplication` e `BreadcrumbList` (`src/lib/structured-data.ts`). Os dados devem corresponder ao que aparece na tela.
+- O sitemap inclui todas as páginas de estudo de caso. `npm run test:e2e` verifica os dados estruturados, o canonical, as seções e a acessibilidade (axe).
+
 ## Capturas de projetos
 
 | Mesaora | Trilhara | Horavia |

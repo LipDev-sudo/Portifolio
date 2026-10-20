@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const routes = ["/"];
+const routes = ["/", "/projetos/horavia", "/projetos/loja-de-moda", "/projetos/netcheck"];
 const viewports = [
   { name: "mobile", width: 375, height: 812 },
   { name: "desktop", width: 1440, height: 900 },

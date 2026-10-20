@@ -4,6 +4,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LanguageProvider } from "@/lib/i18n";
 import { ThemeProvider, themeScript } from "@/lib/theme";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { personSchema, websiteSchema } from "@/lib/structured-data";
 import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -97,6 +99,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-screen flex flex-col">
+        <JsonLd data={[personSchema(), websiteSchema()]} />
         <ThemeProvider>
           <LanguageProvider>
             <Header />
